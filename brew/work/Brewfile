@@ -1,4 +1,5 @@
-cask "sublime-text"
 cask "dash"
+cask "docker"
 cask "iterm2"
 cask "postgres"
+cask "sublime-text"
