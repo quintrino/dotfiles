@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'foreman'
 gem 'git-smart'
 gem 'lolcommits'
