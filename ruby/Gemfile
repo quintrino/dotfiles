@@ -1,0 +1,7 @@
+gem 'foreman'
+gem 'git-smart'
+gem 'lolcommits'
+gem 'overcommit'
+gem 'pry'
+gem 'rspec'
+gem 'rubocop'
