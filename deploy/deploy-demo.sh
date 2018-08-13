@@ -7,3 +7,4 @@ if [ "$HOME" == 1 ];
   then cd home
   brew bundle
 fi
+echo 'EOF'
