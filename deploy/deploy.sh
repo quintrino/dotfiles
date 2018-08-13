@@ -12,4 +12,5 @@ if [ "$HOME" == 1 ];
   brew bundle
 fi
 cd
-
+brew install ruby-install
+ruby-install --latest ruby

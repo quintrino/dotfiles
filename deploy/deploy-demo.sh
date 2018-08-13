@@ -1,5 +1,4 @@
-brew install ruby-install
-ruby-install --latest ruby
+source /usr/local/share/chruby/chruby.sh
 chruby 2.5.1
 cd dotfiles/ruby
 gem install bundler
