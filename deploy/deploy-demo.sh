@@ -1,4 +1,4 @@
-cd dotfiles/Brew
+cd dotfiles/brew
 if [ "$WORK" == 1 ];
   then cd work
   brew bundle
