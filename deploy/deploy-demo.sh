@@ -1,6 +1,5 @@
-source /usr/local/share/chruby/chruby.sh
-chruby 2.5.1
-cd dotfiles/ruby
-gem install bundler
-bundle
+curl -sL https://get.freshshell.com
+
+
+
 echo 'EOF'
