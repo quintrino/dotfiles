@@ -1,4 +1,3 @@
-curl -sL https://get.freshshell.com | bash
-
+source ~/.fresh/build/shell.sh
 
 echo 'EOF'

@@ -20,4 +20,4 @@ cd dotfiles/ruby
 gem install bundler
 bundle
 cd
-curl -sL https://get.freshshell.com
+curl -sL https://get.freshshell.com | bash
