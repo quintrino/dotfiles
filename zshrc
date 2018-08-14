@@ -15,7 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-ct () {
+function ct () {
     for code ({000..255}) print -P -- "$code: %F{$code} $1 %f"
 }
 
