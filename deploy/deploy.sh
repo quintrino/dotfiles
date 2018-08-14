@@ -19,3 +19,5 @@ chruby 2.5.1
 cd dotfiles/ruby
 gem install bundler
 bundle
+cd
+curl -sL https://get.freshshell.com
