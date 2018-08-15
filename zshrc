@@ -192,7 +192,6 @@ alias gl='git log'
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-source ~/.fresh/build/shell.sh
 # source ~/.profile
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

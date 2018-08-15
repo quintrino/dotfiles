@@ -4,7 +4,8 @@ alias zhist='subl ~/.history/zsh/'
 
 
 alias term='source $HOME/Google\ Drive/Sync/Mac/iTerm/.profile && source $HOME/Google\ Drive/Sync/Mac/iTerm/.aliases'
-alias ali='subl $HOME/Google\ Drive/Sync/Mac/iTerm/.aliases'
+alias ali='subl $HOME/.dotfiles/aliases'
+alias dot='subl $HOME/.dotfiles'
 alias freq='history | sed -E "s/ *[0-9]+\*? *[0-9 :-]+ *//" | sort | uniq -c | sort -rn | head -50'
 alias setup='subl $HOME/Google\ Drive/Sync/Mac/setup'
 alias lsa='ls -a'
