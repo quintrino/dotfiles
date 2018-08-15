@@ -11,9 +11,9 @@ function precmd() {
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR=subl
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 function ct () {
@@ -192,11 +192,11 @@ alias gl='git log'
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-source ~/.profile
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source ~/.profile
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export GOPATH=$(go env GOPATH)
+# export PATH=$PATH:/usr/local/opt/go/libexec/bin
+# export GOPATH=$(go env GOPATH)
 
 
 
