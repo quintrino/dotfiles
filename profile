@@ -18,7 +18,7 @@
 # export PATH="$PATH:$HOME/.rvm/bin"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# chruby ruby-2.5.1
+chruby ruby-2.5.1
 
 export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 
