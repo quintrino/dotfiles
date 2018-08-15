@@ -1,3 +1,4 @@
+#!/bin/zsh
 function precmd() {
     [ -d $HOME/.history ] || mkdir -p $HOME/.history
     [ -d $HOME/.history/zsh ] || mkdir -p $HOME/.history/zsh

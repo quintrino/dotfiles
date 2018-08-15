@@ -1,0 +1,167 @@
+#iTerm
+
+alias zhist='subl ~/.history/zsh/'
+
+
+alias term='source $HOME/Google\ Drive/Sync/Mac/iTerm/.profile && source $HOME/Google\ Drive/Sync/Mac/iTerm/.aliases'
+alias ali='subl $HOME/Google\ Drive/Sync/Mac/iTerm/.aliases'
+alias freq='history | sed -E "s/ *[0-9]+\*? *[0-9 :-]+ *//" | sort | uniq -c | sort -rn | head -50'
+alias setup='subl $HOME/Google\ Drive/Sync/Mac/setup'
+alias lsa='ls -a'
+alias profile='subl $HOME/Google\ Drive/Sync/Mac/iTerm/.profile'
+alias pass='eval "$(ssh-agent -s)"; ssh-add $HOME/.ssh/id_rsa; export PATH="/usr/local/opt/openssl/bin:$PATH"'
+alias hn='hnote'
+alias now='date +"%T"'
+alias e='exit'
+alias sb='subl -a .'
+alias update='echo -e "\033[1;31m Updating Brew \033[0m" && brew update && echo -e "\033[1;31m Upgrading Brew \033[0m" && brew upgrade && echo -e "\033[1;31m Updating gems \033[0m" && cd ~ && gem update && echo -e "\033[1;31m Outdated Casks \033[0m" && brew cask update'
+alias ti='ruby $HOME/tick.rb'
+
+#WDI
+
+alias sin='cd $HOME/Web/code_alongs/sinatra'
+alias rub='cd $HOME/Web/code_alongs/ruby'
+alias html='cd $HOME/Web/code_alongs/html'
+alias javascript='cd $HOME/Web/code_alongs/javascript'
+alias encode='ruby $HOME/Web/code_alongs/ruby/cypher/encode.rb'
+alias decode='ruby $HOME/Web/code_alongs/ruby/cypher/decode.rb'
+alias dice='ruby $HOME/Web/code_alongs/ruby/Dice/dice.rb'
+alias predict='cd $HOME/Web/code_alongs/sinatra/predictor'
+alias rai='cd $HOME/Web/code_alongs/rails'
+alias api='cd $HOME/Web/code_alongs/api'
+alias travel='cd $HOME/Web/code_alongs/rails/travel-expedition'
+alias nodejs='cd $HOME/Web/code_alongs/node'
+alias group='cd $HOME/Web/code_alongs/rails/group-conf'
+alias book='cd $HOME/Web/code_alongs/rails/phonebooking'
+alias naughts='cd $HOME/Web/code_alongs/Javascript/js1/naughts'
+alias elephant='open /Applications/Postgres.app'
+alias expressw='cd $HOME/Web/online/expressworks'
+alias online='cd $HOME/Web/online'
+alias call='ruby $HOME/Web/twilio/call.rb'
+alias postgresstart='psql'
+
+#Git
+
+alias git_track_untracked='git ls-files --others --exclude-standard | xargs git add -N'
+alias git_untrack_new_blank="git diff --cached --numstat --no-renames --diff-filter=A | awk -F'\t' '/^0\t0\t/ { print $3 }' | xargs git reset --"
+alias amend='g commit --amend --no-edit'
+alias gb='git log --oneline master..HEAD'
+alias gs='git status'
+alias gd='git diff --ignore-all-space --ignore-blank-lines'
+alias upstream='git pull upstream master'
+alias push='git push origin HEAD && cc_menu'
+alias commit='git commit -m '
+alias doccommit='OVERCOMMIT_DISABLE=1 commit'
+alias gsp='git smart-pull'
+alias co='git checkout'
+alias mas='git checkout master'
+alias prod='git push production master'
+alias dep='push && prod'
+alias gc='git config -l'
+alias gd='git diff --ignore-all-space --ignore-blank-lines'
+alias show='git show --ignore-all-space --ignore-blank-lines'
+alias gcp='git checkout -p'
+alias gcmp='gcm && gsp'
+alias gundo='git reset HEAD~1 '
+alias add='git_track_untracked && git add -p && git status && git_untrack_new_blank && logic'
+alias logic='echo -e "\033[1;31m If applied this commit will... \033[0m"'
+alias force-push='git push origin HEAD --force-with-lease && cc_menu'
+alias afp='amend && force-push'
+
+
+
+#Rails
+
+alias rc='bin/rails c'
+alias roff='kill -9 $(lsof -i tcp:3000 -t)'
+alias pryrc='pry -r ./config/environment'
+alias ras='bin/rails s'
+alias work='bin/rake jobs:work'
+alias broff='kill -9 $(lsof -i tcp:10524 -t)'
+alias rt='bin/rake test'
+alias rr='bundle exec rspec'
+alias be='bundle exec'
+alias bi='bundle install'
+alias hl='haml-lint'
+
+#Marketplacer
+
+alias nick='cd $HOME/Projects/nick'
+alias burl='open $(bin/build-urls)'
+alias her='cd $HOME/Projects/nick/heroku'
+alias gi='cd $HOME/Projects/nick/git'
+alias hr='assign && heroku run console'
+alias ho='heroku open'
+alias log='assign && heroku logs --tail'
+alias res='heroku ps:restart'
+alias hoh='cd $HOME/Projects/hoh'
+alias tnt='cd $HOME/Projects/tnt'
+alias mk='cd $HOME/Code/Marketplacer/marketplacer'
+alias light='cd $HOME/Code/Marketplacer/lightspeed-bridge'
+alias con='cd $HOME/Code/Marketplacer/Connector'
+alias check='subl $HOME/Google\ Drive/Documents/checking\ scripts.rb'
+alias svl='sonos-cli --zone "RINCON_949F3E882F0001400:4081092796" volume'
+alias sonhoh='sonos-cli --zone "RINCON_B8E937E0733A01400:2205085846" volume'
+alias assign='DYNO="$(echo "${PWD##*/}")" && echo -e "\033];$DYNO \007"'
+alias ud='gsp && bundle install && nvm install && npm update -g && yarn'
+alias deploynames='subl $HOME/Code/Marketplacer/marketplacer/script/deploy.rb:110'
+alias fs='foreman start'
+alias h='assign && heroku run console'
+alias y='yarn'
+alias ys='yarn start'
+alias dcu='docker-compose up'
+#BigCommerce
+alias big='cd $HOME/Code/Marketplacer/Connector/BigCommerce'
+alias bigh='cd $HOME/Code/Marketplacer/Connector/BigCommerce && h'
+alias bigl='cd $HOME/Code/Marketplacer/Connector/BigCommerce && log'
+#Shopify
+alias sp='cd $HOME/Code/Marketplacer/Connector/Shopify'
+alias sph='cd $HOME/Code/Marketplacer/Connector/Shopify && h'
+alias spl='cd $HOME/Code/Marketplacer/Connector/Shopify && log'
+#WooCommerce
+alias woc='cd $HOME/Code/Marketplacer/Connector/WooCommerce'
+alias woch='cd $HOME/Code/Marketplacer/Connector/WooCommerce && h'
+alias wocl='cd $HOME/Code/Marketplacer/Connector/WooCommerce && log'
+#XML
+alias xml='cd $HOME/Code/Marketplacer/Connector/XML'
+alias xmlh='cd $HOME/Code/Marketplacer/Connector/XML && h'
+alias xmll='cd $HOME/Code/Marketplacer/Connector/XML && log'
+#Neto
+alias neto='cd $HOME/Code/Marketplacer/Connector/Neto'
+alias netoh='cd $HOME/Code/Marketplacer/Connector/Neto && h'
+alias netol='cd $HOME/Code/Marketplacer/Connector/Neto && log'
+#Red Balloon
+alias red='cd $HOME/Code/Marketplacer/Connector/RedBalloon'
+alias redh='cd $HOME/Code/Marketplacer/Connector/RedBalloon && h'
+alias redl='cd $HOME/Code/Marketplacer/Connector/RedBalloon && log'
+# Environments
+alias ttp='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-primary tinitrader'
+alias llp='$HOME/Code/Marketplacer/marketplacer && ./script/console au03 lenzo'
+alias myp='$HOME/Code/Marketplacer/marketplacer && ./script/console au05-primary myer'
+alias hhp='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-primary houseofhome'
+alias ctp='$HOME/Code/Marketplacer/marketplacer && ./script/console us02 cyclingtips'
+alias tts='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-staging tinitrader'
+alias mys='$HOME/Code/Marketplacer/marketplacer && ./script/console au05-staging myer'
+alias hhs='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-staging houseofhome'
+alias cts='$HOME/Code/Marketplacer/marketplacer && ./script/console us03-staging cyclingtips'
+alias clean='heroku run:detached rake clean_retailers'
+
+
+#Wolf
+
+alias web='cd $HOME/Web/'
+alias lol='open $HOME/.lolcommits'
+alias wolf='su - Wolf'
+
+#Folders
+
+alias drive='cd $HOME/Google\ Drive/'
+
+
+#Fun
+
+alias star='telnet towel.blinkenlights.nl'
+
+# to unalias something just do 'unalias foo'
+
+#alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
