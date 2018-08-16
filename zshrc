@@ -10,44 +10,6 @@ function precmd() {
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR=subl
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-function ct () {
-    for code ({000..255}) print -P -- "$code: %F{$code} $1 %f"
-}
-
-# `gl [<remote>] [<branch>]` git pull
-# pull <branch> or the current branch from <remote> or origin
-function gl(){
-  local remote=${1:-origin}
-  local branch=${2:-$(git_current_branch)}
-  git pull --no-edit "$remote" "$branch"
-}
-
-# `glf [<remote>] [<branch>]` git pull force
-# force pull <branch> or the current branch from <remote> or origin
-function glf() {
-  local remote=${1:-origin}
-  local branch=${2:-$(git_current_branch)}
-  git fetch "$remote" "$branch" && git reset --hard "$remote"/"$branch"
-}
-
-function cc_menu {
-  local branch=${1:-$(git_current_branch)}
-
-  if ! defaults read net.sourceforge.cruisecontrol.CCMenu Projects | grep -qF "Marketplacer - remote ($branch)"; then
-    killall CCMenu
-    defaults write net.sourceforge.cruisecontrol.CCMenu Projects "(
-      { displayName = $branch; projectName = \"Marketplacer - remote ($branch)\"; serverUrl = \"https://cc.buildkite.com/marketplacer/marketplacer-remote.xml?access_token=$CC_BUILDKITE_TOKEN&branch=$branch\"; },
-      $(defaults read net.sourceforge.cruisecontrol.CCMenu Projects | tail -n +2)"
-    open -g /Applications/CCMenu.app
-  fi
-}
-
 export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
 
 

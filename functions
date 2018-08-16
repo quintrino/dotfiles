@@ -1,0 +1,90 @@
+#!/bin/zsh
+function ct () {
+    for code ({000..255}) print -P -- "$code: %F{$code} $1 %f"
+}
+
+# `gl [<remote>] [<branch>]` git pull
+# pull <branch> or the current branch from <remote> or origin
+function gl(){
+  local remote=${1:-origin}
+  local branch=${2:-$(git_current_branch)}
+  git pull --no-edit "$remote" "$branch"
+}
+
+# `glf [<remote>] [<branch>]` git pull force
+# force pull <branch> or the current branch from <remote> or origin
+function glf() {
+  local remote=${1:-origin}
+  local branch=${2:-$(git_current_branch)}
+  git fetch "$remote" "$branch" && git reset --hard "$remote"/"$branch"
+}
+
+function cc_menu {
+  local branch=${1:-$(git_current_branch)}
+
+  if ! defaults read net.sourceforge.cruisecontrol.CCMenu Projects | grep -qF "Marketplacer - remote ($branch)"; then
+    killall CCMenu
+    defaults write net.sourceforge.cruisecontrol.CCMenu Projects "(
+      { displayName = $branch; projectName = \"Marketplacer - remote ($branch)\"; serverUrl = \"https://cc.buildkite.com/marketplacer/marketplacer-remote.xml?access_token=$CC_BUILDKITE_TOKEN&branch=$branch\"; },
+      $(defaults read net.sourceforge.cruisecontrol.CCMenu Projects | tail -n +2)"
+    open -g /Applications/CCMenu.app
+  fi
+}
+
+function vsplit_tab() {
+  local command="cd \\\"$PWD\\\"; clear"
+  (( $# > 0 )) && command="${command}; $*"
+
+  local the_app=$(_omz_osx_get_frontmost_app)
+
+  if [[ "$the_app" == 'iTerm' ]]; then
+    osascript <<EOF
+      -- tell application "iTerm" to activate
+
+      tell application "System Events"
+        tell process "iTerm"
+          tell menu item "Split Vertically With Current Profile" of menu "Shell" of menu bar item "Shell" of menu bar 1
+            click
+          end tell
+        end tell
+        keystroke "${command} \n"
+      end tell
+EOF
+
+  elif [[ "$the_app" == 'iTerm2' ]]; then
+      osascript <<EOF
+        tell application "iTerm2"
+          tell current session of first window
+            set newSession to (split vertically with same profile)
+            tell newSession
+              write text "${command}"
+              select
+            end tell
+          end tell
+        end tell
+EOF
+
+  else
+    echo "$0: unsupported terminal app: $the_app" >&2
+    false
+
+  fi
+}
+
+function _omz_osx_get_frontmost_app() {
+  local the_app=$(
+    osascript 2>/dev/null <<EOF
+      tell application "System Events"
+        name of first item of (every process whose frontmost is true)
+      end tell
+EOF
+  )
+  echo "$the_app"
+}
+
+function gj () { git branch "$1" && git checkout "$1"; }
+
+function mcd () {
+    mkdir -p $1
+    cd $1
+}
