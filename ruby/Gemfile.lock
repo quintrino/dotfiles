@@ -76,6 +76,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   foreman
   git-smart
   lolcommits

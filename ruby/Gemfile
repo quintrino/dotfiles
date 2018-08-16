@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bundler'
 gem 'foreman'
 gem 'git-smart'
 gem 'lolcommits'
