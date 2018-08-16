@@ -1,3 +1,4 @@
+#!/bin/zsh
 # freshshell.com
 #
 # Examples:
@@ -13,5 +14,13 @@ fresh freshshell/fresh contrib/source-build.sh --file=~/.zshrc
 
 fresh zshrc
 fresh aliases
-fresh profile
+fresh functions
+fresh fzf.zsh
+
+# Git
+fresh-options --file
+  fresh git/\*
+fresh-options
+
+# fresh profile
 # fresh pryrc --file=~/.pryrc

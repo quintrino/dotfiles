@@ -1,0 +1,32 @@
+[user]
+  name  = Nick Wolf
+  email = nick.wolf@marketplacer.com
+
+[core]
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  mergeoptions = --no-edit
+  editor = subl -nw
+  excludesfile = ~/.gitignore
+  ignorecase = false
+
+[color]
+  branch      = auto
+  diff        = auto
+  interactive = auto
+  status      = auto
+  ui          = auto
+
+[alias]
+  ls = log --pretty=format:“%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]” --decorate
+  lsb = !git ls master..HEAD
+  wip = !git add . && OVERCOMMIT_DISABLE=1 git commit -m 'WIP'
+  uncommit = reset HEAD^
+
+[rerere]
+  enabled = true
+
+[log]
+  mailmap = true
+
+[interactive]
+  singleKey = true
