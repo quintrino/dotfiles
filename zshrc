@@ -131,28 +131,43 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  alias-tips
-  brew
-  bundle
-  colorize
-  dirhistory
-  fast-syntax-highlighting
-  gem
-  git
-  k
-  osx
-  npm
-  # ruby
-  sublime
-  wd
-  up
-  z
-  zsh-autosuggestions
-  zsh_reload
-  zsh-syntax-highlighting
-  )
+# plugins=(
+#   alias-tips
+#   brew
+#   bundle
+#   colorize
+#   dirhistory
+#   fast-syntax-highlighting
+#   gem
+#   git
+#   k
+#   osx
+#   npm
+#   # ruby
+#   sublime
+#   wd
+#   up
+#   z
+#   zsh-autosuggestions
+#   zsh_reload
+#   zsh-syntax-highlighting
+#   )
 
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug "djui/alias-tips"
+zplug "zdharma/fast-syntax-highlighting", from:github
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
 
 #  source $ZSH/oh-my-zsh.sh
 
@@ -198,9 +213,7 @@ source /usr/local/share/chruby/auto.sh
 # export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # export GOPATH=$(go env GOPATH)
 
-
-
-
 # Alias for: ls -G -lah
+
 
 
