@@ -23,4 +23,5 @@ fresh-options --file
 fresh-options
 
 # fresh profile
-# fresh pryrc --file=~/.pryrc
+fresh pryrc --file=~/.pryrc
+fresh gemrc --file=~/.gemrc
