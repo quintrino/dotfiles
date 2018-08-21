@@ -5,6 +5,17 @@ function precmd() {
     echo ": [$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> $HOME/.history/zsh/history-$(date +%Y%m%d)
 }
 
+setopt append_history
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt inc_append_history     # add commands to HISTFILE in order of execution
+setopt share_history          # share command history data
+HISTSIZE=50000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history     #Where to save history to disk
 
 export CLICOLOR=1
 export EDITOR=subl
@@ -36,8 +47,8 @@ source $ZPLUG_HOME/init.zsh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug "djui/alias-tips"
 zplug "zdharma/fast-syntax-highlighting", from:github
-zplug "plugins/zsh_reload",   from:oh-my-zsh
 zplug "lukechilds/zsh-nvm"
+zplug "plugins/history", from:oh-my-zsh
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
