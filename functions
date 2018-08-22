@@ -110,3 +110,11 @@ function g() {
     git status
   fi
 }
+
+function gl() {
+  if [[ $# -gt 0 ]]; then
+    git log --oneline -$@
+  else
+    git log --oneline -1
+  fi
+}

@@ -48,7 +48,6 @@ alias postgresstart='psql'
 #Git
 
 alias gd='git diff --ignore-all-space --ignore-blank-lines'
-alias gl='git log --oneline'
 alias git_track_untracked='git ls-files --others --exclude-standard | xargs git add -N'
 alias git_untrack_new_blank="git diff --cached --numstat --no-renames --diff-filter=A | awk -F'\t' '/^0\t0\t/ { print $3 }' | xargs git reset --"
 alias amend='g commit --amend --no-edit'
