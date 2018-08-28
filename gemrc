@@ -2,3 +2,5 @@
 - https://rubygems.org/
 
 gem: --no-document --suggestions
+install: --no-rdoc --no-ri
+update: --no-rdoc --no-ri
