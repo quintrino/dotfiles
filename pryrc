@@ -12,6 +12,7 @@ end
 # Pry.commands.alias_command 's', 'step'
 # Pry.commands.alias_command 'n', 'next'
 Pry.commands.alias_command 'l', 'whereami'
+Pry.commands.alias_command 'bt', 'pry-backtrace'
 
 
 Pry.editor = 'subl'
