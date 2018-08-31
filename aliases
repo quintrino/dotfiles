@@ -4,7 +4,7 @@
 
 alias zhist='subl ~/.history/zsh/'
 
-
+alias cat='echo "You should use bat instead"'
 alias term='source $HOME/Google\ Drive/Sync/Mac/iTerm/.profile && source $HOME/Google\ Drive/Sync/Mac/iTerm/.aliases'
 alias ali='subl $HOME/.dotfiles/aliases'
 alias dot='cd $HOME/.dotfiles'

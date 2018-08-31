@@ -1,3 +1,4 @@
+brew "bat"
 brew "chruby"
 brew "colordiff"
 brew "diff-so-fancy"
