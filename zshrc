@@ -65,3 +65,7 @@ chruby 2.5.1
 export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+autoload -U compinit
+compinit
+

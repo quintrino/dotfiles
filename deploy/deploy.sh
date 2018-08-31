@@ -23,6 +23,7 @@ bundle
 cd
 echo /etc/shells >> /usr/local/bin/zsh # Set brew zsh as acceptable shell choice
 chsh -s /usr/local/bin/zsh # Set shell to brew zsh
+chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
 curl -sL https://get.freshshell.com | bash
 
 
