@@ -21,6 +21,8 @@ cd dotfiles/ruby
 gem install bundler
 bundle
 cd
+echo /etc/shells >> /usr/local/bin/zsh # Set brew zsh as acceptable shell choice
+chsh -s /usr/local/bin/zsh # Set shell to brew zsh
 curl -sL https://get.freshshell.com | bash
 
 
@@ -97,4 +99,3 @@ defaults write com.apple.menuextra.clock "DateFormat" 'EEE HH:mm'
 
 # Reset SystemUIServer
 killall -KILL SystemUIServer
-
