@@ -118,3 +118,8 @@ function gl() {
     git log --oneline -1
   fi
 }
+
+function gcf() {
+  git commit --fixup=$@
+  git rebase --autosquash --autostash $@^ -i
+}
