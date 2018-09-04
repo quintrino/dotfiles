@@ -1,6 +1,6 @@
 [user]
   name  = Nick Wolf
-  email = nick.wolf@marketplacer.com
+  email = git@nickwolf.com.au
 
 [core]
   pager = diff-so-fancy | less --tabs=4 -RFX
