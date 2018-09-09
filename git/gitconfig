@@ -2,12 +2,12 @@
   name  = Nick Wolf
   email = git@nickwolf.com.au
 
-[core]
-  pager = diff-so-fancy | less --tabs=4 -RFX
-  mergeoptions = --no-edit
-  editor = subl -nw
-  excludesfile = ~/.gitignore
-  ignorecase = false
+[alias]
+  ls = log --pretty=format:“%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]” --decorate
+  lsb = !git ls master..HEAD
+  wip = !git add . && OVERCOMMIT_DISABLE=1 git commit -m 'WIP'
+  uncommit = reset HEAD^
+  unstage = reset
 
 [color]
   branch      = auto
@@ -16,19 +16,31 @@
   status      = auto
   ui          = auto
 
-[alias]
-  ls = log --pretty=format:“%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]” --decorate
-  lsb = !git ls master..HEAD
-  wip = !git add . && OVERCOMMIT_DISABLE=1 git commit -m 'WIP'
-  uncommit = reset HEAD^
-  unstage = reset
+[core]
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  mergeoptions = --no-edit
+  editor = subl -nw
+  excludesfile = ~/.gitignore
+  ignorecase = false
 
+[fetch]
+  prune = true
 
-[rerere]
-  enabled = true
+[github]
+  username = Quintrino
+
+[interactive]
+  singleKey = true
 
 [log]
   mailmap = true
 
-[interactive]
-  singleKey = true
+[push]
+  default = upstream
+
+[merge]
+  ff = only
+
+[rerere]
+  enabled = true
+
