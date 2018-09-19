@@ -16,6 +16,25 @@
   status      = auto
   ui          = auto
 
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[color "status"]
+  added = green
+  changed = red
+  untracked = cyan
+
 [core]
   pager = diff-so-fancy | less --tabs=4 -RFX
   mergeoptions = --no-edit
