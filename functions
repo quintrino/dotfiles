@@ -123,3 +123,50 @@ function gcf() {
   git commit --fixup=$@
   git rebase --autosquash --autostash $@^ -i
 }
+
+function git_status_filtered() {
+  git status --porcelain | rg -F "$* " | colrm 1 3 | quote_lines
+}
+
+
+function quote() {
+  if (( $# > 0 )); then
+    local string=$*
+    if [[ -z "$string" ]]; then
+      echo -en '""'
+     elif [[ "$string" = *"'"* ]]; then
+       echo -en \""$(echo -en "$string" | sed -E 's/(["$])/\\\1/g')\""
+     #elif [[ "$string" =~ \|\(|\)|\[|\]|\$ ]]; then
+     # echo -en "'$string'"
+    else
+     echo -en "$string"
+    fi
+  fi
+}
+
+
+function quote_lines() {
+  while read -r line; do
+    echo -e $(quote "$line")
+  done
+}
+
+function git_edit() {
+  $(git config core.editor) "$@"
+}
+
+function git_conflicts_with_line_numbers(){
+  git_status_filtered UU | xargs grep -nHoE -m 1 '^<{6}|={6}|>{6}' | cut -d: -f1-2 | quote_lines
+}
+
+function git_open_conflicts() {
+  local active_conflicts=$(git_conflicts_with_line_numbers)
+  if [[ ! -z "$active_conflicts" ]]; then
+    git_edit $active_conflicts && git_open_conflicts
+  fi
+}
+
+function git_prepare_content_conflicts() {
+  git_open_conflicts
+  git_status_filtered UU | xargs git add
+}
