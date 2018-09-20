@@ -31,8 +31,8 @@
   whitespace = red reverse
 
 [color "status"]
-  added = green
-  changed = red
+  added = green bold
+  changed = red bold
   untracked = cyan
 
 [core]
@@ -63,3 +63,5 @@
 [rerere]
   enabled = true
 
+[status]
+  short = true
