@@ -120,14 +120,12 @@ function gl() {
 }
 
 function gcf() {
-  git commit --fixup=$@
-  git rebase --autosquash --autostash $@^ -i
+  git commit --fixup=$@ && git rebase --autosquash --autostash $@^ -i
 }
 
 function git_status_filtered() {
   git status --porcelain | rg -F "$* " | colrm 1 3 | quote_lines
 }
-
 
 function quote() {
   if (( $# > 0 )); then
@@ -143,7 +141,6 @@ function quote() {
     fi
   fi
 }
-
 
 function quote_lines() {
   while read -r line; do
