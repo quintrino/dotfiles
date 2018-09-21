@@ -19,8 +19,8 @@ alias e='exit'
 alias sb='subl -a .'
 alias update='echo -e "\033[1;31m Updating Brew \033[0m" && brew update && echo -e "\033[1;31m Upgrading Brew \033[0m" && brew upgrade && echo -e "\033[1;31m Updating gems \033[0m" && cd ~/.dotfiles/ruby && bundle update && echo -e "\033[1;31m Outdated Casks \033[0m" && brew cask upgrade && softwareupdate -ia'
 alias ti='ruby $HOME/tick.rb'
-alias ls='echo use either exa or l'
-alias l='exa -G -lah'
+alias ls='echo "You should use bat either exa or l instead"'
+alias l='exa --long --grid --all --header --git'
 alias up='cd ..'
 
 #WDI
