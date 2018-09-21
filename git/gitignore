@@ -1,3 +1,4 @@
+.overcommit.yml
 .DS_Store
 *.sw[nop]
 .bundle
