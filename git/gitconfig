@@ -48,6 +48,9 @@
 [fetch]
   prune = true
 
+[help]
+  autoCorrect = 20
+
 [github]
   username = Quintrino
 
@@ -63,8 +66,17 @@
 [merge]
   ff = only
 
+[rebase]
+  autosquash = true
+  autoStash = true
+
 [rerere]
   enabled = true
 
 [status]
+  branch = true
   short = true
+  showStash = true
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
