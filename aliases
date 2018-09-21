@@ -75,6 +75,14 @@ alias add='git_track_untracked && git add -p && git status && git_untrack_new_bl
 alias logic='echo -e "\033[1;31m If applied this commit will... \033[0m"'
 alias force-push='git push origin HEAD --force-with-lease && cc_menu'
 alias afp='amend && force-push'
+# open repo in browser
+alias gh='open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/tree/$(git symbolic-ref --quiet --short HEAD )'
+# Open current branch
+alias ghb='gh tree/$(git symbolic-ref --quiet --short HEAD )'
+# Open current directory/file in current branch
+alias ghbf='gh tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)'
+# Open current directory/file in master branch
+alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
 
 
 
