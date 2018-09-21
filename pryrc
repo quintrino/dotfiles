@@ -35,9 +35,12 @@ default_command_set = Pry::CommandSet.new do
 end
 
 begin
+  gemdir = "#{`gem env gemdir`.chomp}/gems"
+  ap_version = Dir.entries(gemdir).detect {|s| s.include? "awesome_print"}
+  $LOAD_PATH << "#{gemdir}/#{ap_version}/lib"
   require 'awesome_print'
   AwesomePrint.defaults = {
-    indent: -2, # left aligned
+    indent: -1, # left aligned
     sort_keys: true, # sort hash keys
     # more customization
   }
