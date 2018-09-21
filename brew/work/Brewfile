@@ -1,10 +1,7 @@
 cask "docker"
 cask "dash"
 cask "docker"
-cask "iterm2"
 cask "postgres"
-cask "sublime-text"
-cask "ccmenu"
 brew "docker-compose"
 
 
@@ -12,8 +9,8 @@ brew "docker-compose"
 
 brew "mysql"
 brew "redis"
+brew "nvm"
+brew "pv"
 cask "chromedriver"
 tap "marketplacer/formulae", "git@github.com:marketplacer/homebrew-formulae.git"
 brew "marketplacer-cli"
-brew "nvm"
-brew "pv"
