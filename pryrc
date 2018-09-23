@@ -10,13 +10,6 @@ Pry::Commands.block_command 'e', 'exit pry' do
   run exit
 end
 
-if defined?(PryByebug)
-  Pry.commands.alias_command 'c', 'continue'
-  Pry.commands.alias_command 's', 'step'
-  Pry.commands.alias_command 'n', 'next'
-  Pry.commands.alias_command 'f', 'finish'
-end
-
 Pry.commands.alias_command 'l', 'whereami'
 Pry.commands.alias_command 'bt', 'pry-backtrace'
 
@@ -28,10 +21,9 @@ Pry.config.ls.public_method_color = :green
 Pry.config.ls.protected_method_color = :yellow
 Pry.config.ls.private_method_color = :bright_black
 
-
-default_command_set = Pry::CommandSet.new do
-  command "copy", "Copy argument to the clip-board" do |str|
-     IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+Pry::CommandSet.new do
+  command 'copy', 'Copy argument to the clip-board' do |str|
+    IO.popen('pbcopy', 'w') { |f| f << str.to_s }
   end
 end
 
@@ -62,7 +54,14 @@ if defined?(AwesomePrint)
     sort_keys: true, # sort hash keys
     # more customization
   }
-  Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
-rescue LoadError => err
-  puts "no awesome_print :("
+  Pry.config.print = proc do |output, value|
+    Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)
+  end
+end
+
+if defined?(PryByebug)
+  Pry.commands.alias_command 'c', 'continue'
+  Pry.commands.alias_command 's', 'step'
+  Pry.commands.alias_command 'n', 'next'
+  Pry.commands.alias_command 'f', 'finish'
 end
