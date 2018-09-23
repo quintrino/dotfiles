@@ -35,11 +35,28 @@ default_command_set = Pry::CommandSet.new do
   end
 end
 
-begin
-  gemdir = "#{`gem env gemdir`.chomp}/gems"
-  ap_version = Dir.entries(gemdir).detect {|s| s.include? "awesome_print"}
-  $LOAD_PATH << "#{gemdir}/#{ap_version}/lib"
-  require 'awesome_print'
+def gemdir
+  @gemdir ||= "#{`gem env gemdir`.chomp}/gems"
+end
+
+def load_non_bundled_plugins(plugin)
+  gem_version = Dir.entries(gemdir).detect { |s| s.include? plugin }
+  $LOAD_PATH << "#{gemdir}/#{gem_version}/lib"
+  require plugin
+rescue LoadError
+  puts "#{noplugin} :("
+end
+
+[
+  'awesome_print',
+  'debug_inspector',
+  'binding_of_caller',
+  'pry-stack_explorer'
+].each do |plugin|
+  load_non_bundled_plugins(plugin)
+end
+
+if defined?(AwesomePrint)
   AwesomePrint.defaults = {
     indent: -1, # left aligned
     sort_keys: true, # sort hash keys
