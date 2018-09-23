@@ -1,10 +1,12 @@
-Pry.commands.block_command(/!(\d+)/, 'Replay a line of history', :listing => '!hist') do |line|
+#!/usr/bin/env ruby
+
+Pry.commands.block_command(/!(\d+)/, 'Replay a line of history') do |line|
   run "history --replay #{line}"
 end
 
 Pry.config.commands.alias_command 'h', 'hist -T 20', desc: 'Last 20 commands'
 
-Pry::Commands.block_command "e", "exit pry" do
+Pry::Commands.block_command 'e', 'exit pry' do
   run exit
 end
 
@@ -17,7 +19,6 @@ end
 
 Pry.commands.alias_command 'l', 'whereami'
 Pry.commands.alias_command 'bt', 'pry-backtrace'
-
 
 Pry.editor = 'subl'
 
