@@ -189,9 +189,5 @@ function bead() {
 }
 
 function git_untrack_new_blank() {
-  local newblank=$(git diff --numstat --no-renames --diff-filter=A | awk -F '\t' '{ print $3 }' | tr '\n' ' ')
-  echo $newblank
-  if [[ ! -z "$newblank" ]]; then
-    eval git reset --quiet -- $newblank
-  fi
+  git diff --name-only --no-renames --diff-filter=A | xargs git reset --quiet --
 }
