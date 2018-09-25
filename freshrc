@@ -16,6 +16,7 @@ fresh zshrc
 fresh aliases
 fresh functions
 fresh fzf.zsh
+fresh lessrc
 
 # Git
 fresh-options --file
