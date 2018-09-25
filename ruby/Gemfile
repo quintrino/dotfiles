@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'awesome_print'
 gem 'bundler'
 gem 'foreman'
 gem 'git-smart'
@@ -8,4 +9,4 @@ gem 'overcommit'
 gem 'pry'
 gem 'rspec'
 gem 'rubocop'
-gem 'awesome_print'
+gem 'rubocop-rspec'
