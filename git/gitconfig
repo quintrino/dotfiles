@@ -9,6 +9,7 @@
   rasm = rebase --autosquash --autostash origin/master
   uncommit = reset HEAD^
   unstage = reset
+  back = !git show $(git log --format=%h^ master..HEAD | tail -n 1) --format=%cr
 
 [color]
   branch      = auto
