@@ -101,6 +101,7 @@ alias hl='haml-lint'
 
 #Marketplacer
 
+alias mup='vsplit_tab dcu && fs'
 alias nick='cd $HOME/Projects/nick'
 alias burl='open $(bin/build-urls)'
 alias her='cd $HOME/Projects/nick/heroku'
