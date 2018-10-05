@@ -87,13 +87,13 @@ alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
 
 #Rails
 
-alias rc='bin/rails c'
+alias rc='bundle exec rails console'
 alias roff='kill -9 $(lsof -i tcp:3000 -t)'
 alias pryrc='pry -r ./config/environment'
-alias ras='bin/rails s'
+alias ras='bundle exec rails server'
 alias work='bin/rake jobs:work'
 alias broff='kill -9 $(lsof -i tcp:10524 -t)'
-alias rt='bin/rake test'
+alias rt='bundle exec rake test'
 alias rr='bundle exec rspec'
 alias be='bundle exec'
 alias bi='bundle install'
