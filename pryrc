@@ -36,14 +36,15 @@ def load_non_bundled_plugins(plugin)
   $LOAD_PATH << "#{gemdir}/#{gem_version}/lib"
   require plugin
 rescue LoadError
-  puts "#{noplugin} :("
+  puts "no #{plugin} :("
 end
 
 [
   'awesome_print',
   'debug_inspector',
   'binding_of_caller',
-  'pry-stack_explorer'
+  'pry-stack_explorer',
+  'rb-readline'
 ].each do |plugin|
   load_non_bundled_plugins(plugin)
 end
@@ -64,4 +65,11 @@ if defined?(PryByebug)
   Pry.commands.alias_command 's', 'step'
   Pry.commands.alias_command 'n', 'next'
   Pry.commands.alias_command 'f', 'finish'
+end
+
+require 'rbreadline'
+if defined?(RbReadline)
+  def RbReadline.rl_reverse_search_history(_sign, _key)
+    rl_insert_text `cat ~/.pry_history | fzf --tac --height 16 |  tr '\n' ' '`
+  end
 end

@@ -48,6 +48,7 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
     rainbow (3.0.0)
+    rb-readline (0.5.5)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -86,6 +87,7 @@ DEPENDENCIES
   lolcommits
   overcommit
   pry
+  rb-readline
   rspec
   rubocop
   rubocop-rspec
