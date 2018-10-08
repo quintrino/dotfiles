@@ -45,11 +45,14 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time
 
 source $ZPLUG_HOME/init.zsh
 
+forgit_diff=gid
+
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug "djui/alias-tips"
 zplug "zdharma/fast-syntax-highlighting", from:github
 zplug "lukechilds/zsh-nvm"
 zplug "plugins/history", from:oh-my-zsh
+zplug 'wfxr/forgit', defer:1
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
