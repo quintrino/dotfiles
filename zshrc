@@ -5,6 +5,13 @@ function precmd() {
     echo ": [$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> $HOME/.history/zsh/history-$(date +%Y%m%d)
 }
 
+
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
+chruby 2.5.1
+export GIT_TEMPLATE_DIR=`overcommit --template-dir`
+
 setopt append_history
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -62,11 +69,6 @@ fi
 
 zplug load
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-
-chruby 2.5.1
-export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 fpath=(/usr/local/share/zsh-completions $fpath)
