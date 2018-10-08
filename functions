@@ -191,3 +191,8 @@ function bead() {
 function git_untrack_new_blank() {
   git diff --name-only --no-renames --diff-filter=A | xargs git reset --quiet --
 }
+
+function gfh() {
+  local filename=$1
+    git log --oneline --follow --patch master..HEAD -- "$filename"
+}
