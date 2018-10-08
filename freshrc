@@ -13,6 +13,7 @@ fresh freshshell/fresh bin/fresh --bin
 fresh freshshell/fresh contrib/source-build.sh --file=~/.zshrc
 
 fresh zshrc
+fresh powerlevel9k
 fresh zplug
 fresh aliases
 fresh functions
