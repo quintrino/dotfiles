@@ -28,8 +28,9 @@ export CLICOLOR=1
 export EDITOR=subl
 export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
 export NVM_LAZY_LOAD=true
-export ZPLUG_HOME=/usr/local/opt/zplug
 export EXA_GRID_ROWS=8
+
+forgit_diff=gid
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=false
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
@@ -50,30 +51,5 @@ POWERLEVEL9K_CUSTOM_DIRECT="print -P "%~""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context custom_direct newline dir chruby rvm vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator command_execution_time background_jobs history battery time)
 
-source $ZPLUG_HOME/init.zsh
 
-forgit_diff=gid
-
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-zplug "djui/alias-tips"
-zplug "zdharma/fast-syntax-highlighting", from:github
-zplug "lukechilds/zsh-nvm"
-zplug "plugins/history", from:oh-my-zsh
-zplug 'wfxr/forgit', defer:1
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load
-
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -U compinit
-compinit
-
-compdef g=git
 

@@ -1,0 +1,26 @@
+#!/bin/zsh
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug "djui/alias-tips"
+zplug "zdharma/fast-syntax-highlighting", from:github
+zplug "lukechilds/zsh-nvm"
+zplug "plugins/history", from:oh-my-zsh
+zplug 'wfxr/forgit', defer:1
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+autoload -U compinit
+compinit
+
+compdef g=git
