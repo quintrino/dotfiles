@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
+if ! command -v fzf 1> /dev/null; then
+  echo 'WARNING: fzf not found, maybe check brew installed it?'
 fi
 
 # Auto-completion
