@@ -27,3 +27,11 @@ export EDITOR=subl
 export EXA_GRID_ROWS=8
 
 setopt autopushd
+
+starting_directory=`pwd`
+cd $HOME/.dotfiles
+if ! git diff --quiet --ignore-submodules HEAD; then
+  echo "WARNING: ~/.dotfiles has uncommitted changes"
+fi
+cd $starting_directory
+unset starting_directory
