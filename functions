@@ -90,6 +90,7 @@ function mcd () {
 }
 
 function src() {
+  zplug clean --force
   fresh
   local cache="$ZSH_CACHE_DIR"
   autoload -U compinit zrecompile
