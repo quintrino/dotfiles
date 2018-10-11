@@ -89,7 +89,9 @@ alias ghbf='gh tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --
 # Open current directory/file in master branch
 alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
 
+#Ruby
 
+alias ru='bundle exec rubocop'
 
 #Rails
 
