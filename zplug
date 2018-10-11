@@ -3,11 +3,22 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "djui/alias-tips"
+export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
+
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+
 zplug "lukechilds/zsh-nvm"
+export NVM_LAZY_LOAD=true
+
 zplug 'wfxr/forgit', defer:1
+forgit_diff=gid
+
 zplug "zdharma/fast-syntax-highlighting", from:github
+
 zplug "zsh-users/zsh-autosuggestions"
+bindkey '^[[[CE' autosuggest-execute
+
+
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -23,7 +34,6 @@ autoload -U compinit
 compinit
 
 #AutoSuggest config
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
-bindkey '^[[[CE' autosuggest-execute
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
 compdef g=git

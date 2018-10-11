@@ -5,7 +5,6 @@ function precmd() {
     echo ": [$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> $HOME/.history/zsh/history-$(date +%Y%m%d)
 }
 
-
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
@@ -25,8 +24,4 @@ HISTFILE=~/.zsh_history     #Where to save history to disk
 
 export CLICOLOR=1
 export EDITOR=subl
-export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
-export NVM_LAZY_LOAD=true
 export EXA_GRID_ROWS=8
-
-forgit_diff=gid
