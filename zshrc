@@ -25,3 +25,5 @@ HISTFILE=~/.zsh_history     #Where to save history to disk
 export CLICOLOR=1
 export EDITOR=subl
 export EXA_GRID_ROWS=8
+
+setopt autopushd
