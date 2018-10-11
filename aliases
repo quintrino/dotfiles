@@ -17,6 +17,7 @@ alias pass='eval "$(ssh-agent -s)"; ssh-add $HOME/.ssh/id_rsa; export PATH="/usr
 alias hn='hnote'
 alias now='date +"%T"'
 alias e='exit'
+alias s='subl'
 alias sb='subl -a .'
 alias update='echo -e "\033[1;31m Updating Brew \033[0m" && brew update && echo -e "\033[1;31m Upgrading Brew \033[0m" && brew upgrade && echo -e "\033[1;31m Updating gems \033[0m" && cd ~/.dotfiles/ruby && bundle update && echo -e "\033[1;31m Outdated Casks \033[0m" && brew cask upgrade && softwareupdate -ia'
 alias ti='ruby $HOME/tick.rb'
