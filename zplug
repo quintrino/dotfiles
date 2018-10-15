@@ -13,6 +13,7 @@ export NVM_LAZY_LOAD=true
 
 zplug 'wfxr/forgit', defer:1
 forgit_diff=gid
+forgit_restore=forgit_restore
 
 zplug "zdharma/fast-syntax-highlighting", from:github
 
