@@ -30,8 +30,10 @@ setopt autopushd
 
 starting_directory=`pwd`
 cd $HOME/.dotfiles
+git fetch --quiet &>/dev/null &|
 if ! git diff --quiet --ignore-submodules HEAD; then
-  echo "WARNING: ~/.dotfiles has uncommitted changes"
+  echo "WARNING: ~/.dotfiles has unsynchronized changes"
 fi
+
 cd $starting_directory
 unset starting_directory
