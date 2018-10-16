@@ -35,7 +35,7 @@ def gemdir
 end
 
 def load_non_bundled_plugins(plugin)
-  gem_version = Dir.entries(gemdir).detect { |s| s.include? plugin }
+  gem_version = Dir.entries(gemdir).detect { |s| s[/^#{plugin}\-[0-9]/] }
   $LOAD_PATH << "#{gemdir}/#{gem_version}/lib"
   require plugin
 rescue LoadError
