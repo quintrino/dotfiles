@@ -24,7 +24,6 @@ alias ti='ruby $HOME/tick.rb'
 alias ls='echo "You should use bat either exa or l instead"'
 alias l='exa --long --grid --all --header --git'
 alias up='cd ..'
-alias path='echo -e ${PATH//:/\\n}'
 
 #WDI
 
