@@ -131,42 +131,6 @@ alias h='assign && heroku run console'
 alias y='yarn'
 alias ys='yarn start'
 alias dcu='docker-compose up'
-#BigCommerce
-alias big='cd $HOME/Code/Marketplacer/Connector/BigCommerce'
-alias bigh='cd $HOME/Code/Marketplacer/Connector/BigCommerce && h'
-alias bigl='cd $HOME/Code/Marketplacer/Connector/BigCommerce && log'
-#Shopify
-alias sp='cd $HOME/Code/Marketplacer/Connector/Shopify'
-alias sph='cd $HOME/Code/Marketplacer/Connector/Shopify && h'
-alias spl='cd $HOME/Code/Marketplacer/Connector/Shopify && log'
-#WooCommerce
-alias woc='cd $HOME/Code/Marketplacer/Connector/WooCommerce'
-alias woch='cd $HOME/Code/Marketplacer/Connector/WooCommerce && h'
-alias wocl='cd $HOME/Code/Marketplacer/Connector/WooCommerce && log'
-#XML
-alias xml='cd $HOME/Code/Marketplacer/Connector/XML'
-alias xmlh='cd $HOME/Code/Marketplacer/Connector/XML && h'
-alias xmll='cd $HOME/Code/Marketplacer/Connector/XML && log'
-#Neto
-alias neto='cd $HOME/Code/Marketplacer/Connector/Neto'
-alias netoh='cd $HOME/Code/Marketplacer/Connector/Neto && h'
-alias netol='cd $HOME/Code/Marketplacer/Connector/Neto && log'
-#Red Balloon
-alias red='cd $HOME/Code/Marketplacer/Connector/RedBalloon'
-alias redh='cd $HOME/Code/Marketplacer/Connector/RedBalloon && h'
-alias redl='cd $HOME/Code/Marketplacer/Connector/RedBalloon && log'
-# Environments
-alias ttp='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-primary tinitrader'
-alias llp='$HOME/Code/Marketplacer/marketplacer && ./script/console au03 lenzo'
-alias myp='$HOME/Code/Marketplacer/marketplacer && ./script/console au05-primary myer'
-alias hhp='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-primary houseofhome'
-alias ctp='$HOME/Code/Marketplacer/marketplacer && ./script/console us02 cyclingtips'
-alias tts='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-staging tinitrader'
-alias mys='$HOME/Code/Marketplacer/marketplacer && ./script/console au05-staging myer'
-alias hhs='$HOME/Code/Marketplacer/marketplacer && ./script/console au06-staging houseofhome'
-alias cts='$HOME/Code/Marketplacer/marketplacer && ./script/console us03-staging cyclingtips'
-alias clean='heroku run:detached rake clean_retailers'
-
 
 #Directory Jumping
 
