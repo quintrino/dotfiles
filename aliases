@@ -91,6 +91,8 @@ alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
 #Ruby
 
 alias ru='bundle exec rubocop'
+alias rus='ru spec/* --display-only-fail-level-offenses --fail-level=C'
+alias rua='ru --auto-correct --only '
 
 #Rails
 
