@@ -24,11 +24,13 @@ Pry.config.ls.public_method_color = :green
 Pry.config.ls.protected_method_color = :yellow
 Pry.config.ls.private_method_color = :bright_black
 
-Pry::CommandSet.new do
+default_command_set = Pry::CommandSet.new do
   command 'copy', 'Copy argument to the clip-board' do |str|
     IO.popen('pbcopy', 'w') { |f| f << str.to_s }
   end
 end
+
+Pry.config.commands.import default_command_set
 
 def gemdir
   @gemdir ||= "#{`gem env gemdir`.chomp}/gems"
