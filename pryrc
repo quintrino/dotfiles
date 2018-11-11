@@ -60,9 +60,6 @@ if defined?(AwesomePrint)
     sort_keys: true, # sort hash keys
     # more customization
   }
-  Pry.config.print = proc do |output, value|
-    Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)
-  end
 end
 
 if defined?(PryByebug)
