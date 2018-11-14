@@ -208,3 +208,20 @@ function path() {
            sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
            print }"
 }
+function update() {
+  echo -e "\033[1;31mUpdating Bundler \033[0m"
+  cd ~/.dotfiles/ruby && gem install bundler
+  echo -e "\033[1;31mUpdating Gems \033[0m"
+  cd ~/.dotfiles/ruby && bundle update
+  echo -e "\033[1;31mUpdating Brew \033[0m"
+  brew update
+  echo -e "\033[1;31mUpgrading Brew \033[0m"
+  brew upgrade
+  echo -e "\033[1;31mOutdated Casks \033[0m"
+  brew cask upgrade
+  echo -e "\033[1;31mUpdating Mac Software \033[0m"
+  softwareupdate -ia
+  echo -e "\033[1;31mBrew Doctor issues \033[0m"
+  brew doctor
+}
+
