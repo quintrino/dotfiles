@@ -19,6 +19,7 @@ fresh aliases
 fresh functions
 fresh fzf.zsh
 fresh lessrc
+fresh https://gitlab.com/ellsclytn/dotfiles.git bin/extract --bin --ref=5165c8d0
 
 # Git
 fresh-options --file
