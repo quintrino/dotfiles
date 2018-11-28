@@ -106,6 +106,7 @@ alias rr='bundle exec rspec --format documentation'
 alias be='bundle exec'
 alias bi='bundle install'
 alias hl='haml-lint'
+alias ud='gp && bundle install && nvm install && npm update -g && rails db:migrate && yarn'
 
 #Heroku
 
@@ -135,7 +136,6 @@ alias mk='cd $HOME/Code/Marketplacer/marketplacer'
 alias light='cd $HOME/Code/Marketplacer/lightspeed-bridge'
 alias con='cd $HOME/Code/Marketplacer/Connector'
 alias check='subl $HOME/Google\ Drive/Documents/checking\ scripts.rb'
-alias ud='gp && bundle install && nvm install && npm update -g && rails multitenant:db:migrate && yarn'
 alias deploynames='subl $HOME/Code/Marketplacer/marketplacer/script/deploy.rb:110'
 alias dcu='docker-compose up'
 
