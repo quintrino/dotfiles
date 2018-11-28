@@ -3,14 +3,3 @@ cask "dash"
 cask "docker"
 cask "postgres"
 brew "docker-compose"
-
-
-# Marketpplacer
-
-brew "mysql"
-brew "redis"
-brew "nvm"
-brew "pv"
-cask "chromedriver"
-tap "marketplacer/formulae", "git@github.com:marketplacer/homebrew-formulae.git"
-brew "marketplacer-cli"
