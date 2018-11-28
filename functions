@@ -21,11 +21,12 @@ function glf() {
 
 function cc_menu {
   local branch=${1:-$(git_current_branch)}
+  local project=$(basename -s .git `git config --get remote.origin.url`)
 
-  if ! defaults read net.sourceforge.cruisecontrol.CCMenu Projects | grep -qF "Marketplacer - remote ($branch)"; then
+  if ! defaults read net.sourceforge.cruisecontrol.CCMenu Projects | grep -qF "$project - remote ($branch)"; then
     killall CCMenu
     defaults write net.sourceforge.cruisecontrol.CCMenu Projects "(
-      { displayName = $branch; projectName = \"Marketplacer - remote ($branch)\"; serverUrl = \"https://cc.buildkite.com/marketplacer/marketplacer-remote.xml?access_token=$CC_BUILDKITE_TOKEN&branch=$branch\"; },
+      { displayName = $branch; projectName = \"$project - remote ($branch)\"; serverUrl = \"https://cc.buildkite.com/$project/$project-remote.xml?access_token=$CC_BUILDKITE_TOKEN&branch=$branch\"; },
       $(defaults read net.sourceforge.cruisecontrol.CCMenu Projects | tail -n +2)"
     open -g /Applications/CCMenu.app
   fi
