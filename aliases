@@ -126,7 +126,6 @@ alias ys='yarn start'
 
 #Marketplacer
 
-alias mup='vsplit_tab dcu && fs'
 alias nick='cd $HOME/Projects/nick'
 alias burl='open $(bin/build-urls)'
 alias gi='cd $HOME/Projects/nick/git'
@@ -137,7 +136,11 @@ alias light='cd $HOME/Code/Marketplacer/lightspeed-bridge'
 alias con='cd $HOME/Code/Marketplacer/Connector'
 alias check='subl $HOME/Google\ Drive/Documents/checking\ scripts.rb'
 alias deploynames='subl $HOME/Code/Marketplacer/marketplacer/script/deploy.rb:110'
+
+#Docker
+
 alias dcu='docker-compose up'
+alias sup='vsplit_tab dcu && fs'
 
 #Directory Jumping
 
