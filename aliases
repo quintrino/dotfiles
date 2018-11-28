@@ -124,19 +124,6 @@ alias fs='_zsh_nvm_load && foreman start'
 alias y='yarn'
 alias ys='yarn start'
 
-#Marketplacer
-
-alias nick='cd $HOME/Projects/nick'
-alias burl='open $(bin/build-urls)'
-alias gi='cd $HOME/Projects/nick/git'
-alias hoh='cd $HOME/Projects/hoh'
-alias tnt='cd $HOME/Projects/tnt'
-alias mk='cd $HOME/Code/Marketplacer/marketplacer'
-alias light='cd $HOME/Code/Marketplacer/lightspeed-bridge'
-alias con='cd $HOME/Code/Marketplacer/Connector'
-alias check='subl $HOME/Google\ Drive/Documents/checking\ scripts.rb'
-alias deploynames='subl $HOME/Code/Marketplacer/marketplacer/script/deploy.rb:110'
-
 #Docker
 
 alias dcu='docker-compose up'
