@@ -13,14 +13,6 @@ if [ "$HOME" == 1 ];
   brew bundle
 fi
 cd
-brew install ruby-install
-ruby-install --latest ruby
-source /usr/local/share/chruby/chruby.sh
-chruby 2.5.1
-cd dotfiles/ruby
-gem install bundler
-bundle
-cd
 echo /etc/shells >> /usr/local/bin/zsh # Set brew zsh as acceptable shell choice
 chsh -s /usr/local/bin/zsh # Set shell to brew zsh
 chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
