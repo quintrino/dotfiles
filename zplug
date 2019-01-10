@@ -6,6 +6,8 @@ zplug "djui/alias-tips"
 export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
 export ZSH_PLUGINS_ALIAS_TIPS_FORCE=1
 
+zplug "rupa/z", use:z.sh
+
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 zplug 'wfxr/forgit', defer:1
