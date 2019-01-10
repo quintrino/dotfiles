@@ -15,6 +15,8 @@ forgit_restore=forgit_restore
 
 zplug "zdharma/fast-syntax-highlighting", from:github
 
+zplug "andrewferrier/fzf-z", from:github
+
 zplug "zsh-users/zsh-autosuggestions"
 bindkey '^[[[CE' autosuggest-execute
 
