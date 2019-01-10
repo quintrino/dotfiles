@@ -8,9 +8,6 @@ export ZSH_PLUGINS_ALIAS_TIPS_FORCE=1
 
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
-zplug "lukechilds/zsh-nvm"
-export NVM_LAZY_LOAD=true
-
 zplug 'wfxr/forgit', defer:1
 forgit_diff=gid
 forgit_restore=forgit_restore
