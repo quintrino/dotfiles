@@ -8,6 +8,8 @@ export ZSH_PLUGINS_ALIAS_TIPS_REVEAL_TEXT='\033[0m\033[94mAlias for: \033[1;94m'
 
 zplug "rupa/z", use:z.sh
 
+zplug "rupa/z", use:z.sh
+
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 zplug 'wfxr/forgit', defer:1
