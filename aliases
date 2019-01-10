@@ -152,6 +152,10 @@ alias web='cd $HOME/Web/'
 alias lol='open $HOME/.lolcommits'
 alias wolf='su - Wolf'
 
+# CultureAmp
+
+alias ca='cd $HOME/Code/CultureAmp'
+
 #Folders
 
 alias drive='cd $HOME/Google\ Drive/'
