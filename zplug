@@ -49,4 +49,3 @@ function src() {
   # Use $SHELL if available; remove leading dash if login shell
   [[ -n "$SHELL" ]] && exec ${SHELL#-} || exec zsh
 }
-
