@@ -2,24 +2,26 @@
 
 #iTerm
 
-alias zhist='subl ~/.history/zsh/'
+alias edit='code'
+
+alias e='edit'
+alias ea='edit -a .'
+
+alias zhist='edit $HOME/.history/zsh/'
 
 alias cat='echo "You should use bat instead"'
 alias term='source $HOME/Google\ Drive/Sync/Mac/iTerm/.profile && source $HOME/Google\ Drive/Sync/Mac/iTerm/.aliases'
-alias ali='subl $HOME/.dotfiles/aliases'
+alias ali='edit $HOME/.dotfiles/aliases'
 alias dot='cd $HOME/.dotfiles'
-alias zrc='cd $HOME/.dotfiles && sb && subl zshrc'
+alias zrc='cd $HOME/.dotfiles && sb && edit zshrc'
 alias freq='history 0 | sed -E "s/ *[0-9]+\*? *[0-9 :-]+ *//" | sort | uniq -c | sort -rn | head -50'
-alias setup='subl $HOME/Google\ Drive/Sync/Mac/setup'
+alias setup='edit $HOME/Google\ Drive/Sync/Mac/setup'
 alias lsa='ls -a'
-alias profile='subl $HOME/Google\ Drive/Sync/Mac/iTerm/.profile'
+alias profile='edit $HOME/Google\ Drive/Sync/Mac/iTerm/.profile'
 alias pass='eval "$(ssh-agent -s)"; ssh-add $HOME/.ssh/id_rsa; export PATH="/usr/local/opt/openssl/bin:$PATH"'
 alias hn='hnote'
 alias now='date +"%T"'
-alias e='exit'
-alias s='echo "you should use VS Code instead"'
-alias c='code'
-alias ce='code -a .'
+alias s='echo "you should use VS Code instead with the shortcut e"'
 alias sb='echo "you should use VS Code instead"'
 alias ti='ruby $HOME/tick.rb'
 alias ls='echo "You should use bat either exa or l instead"'

@@ -40,7 +40,7 @@
 [core]
   pager = diff-so-fancy | less --tabs=4 -RFX
   mergeoptions = --no-edit
-  editor = subl -nw
+  editor = edit -nw
   excludesfile = ~/.gitignore
   ignorecase = false
 

@@ -16,7 +16,7 @@ Pry.commands.alias_command 'sm_pry', 'show-method'
 Pry.commands.alias_command 'ds_pry', 'disable-pry'
 Pry.commands.alias_command 'rl_pry', 'reload-code' # Reloads the code
 
-Pry.editor = 'subl'
+Pry.editor = 'edit'
 
 Pry.config.ls.separator = "\n" # new lines between methods
 Pry.config.ls.heading_color = :magenta
