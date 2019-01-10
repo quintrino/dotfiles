@@ -25,7 +25,7 @@ alias s='echo "you should use VS Code instead with the shortcut e"'
 alias sb='echo "you should use VS Code instead"'
 alias ti='ruby $HOME/tick.rb'
 alias ls='echo "You should use bat either exa or l instead"'
-alias l='exa --long --grid --all --header --git'
+alias l='exa --long --grid --all --header --git --classify'
 alias up='cd ..'
 
 #WDI
