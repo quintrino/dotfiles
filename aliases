@@ -2,7 +2,7 @@
 
 #iTerm
 
-alias edit='code'
+#the edit command has been created by creating a symlink in the deploy script to editor of choice.
 
 alias e='edit'
 alias ea='edit -a .'

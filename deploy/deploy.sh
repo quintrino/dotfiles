@@ -12,6 +12,9 @@ if [ "$HOME" == 1 ];
   then cd home
   brew bundle
 fi
+
+ln -sv /usr/local/bin/code /usr/local/bin/edit
+
 cd
 echo /etc/shells >> /usr/local/bin/zsh # Set brew zsh as acceptable shell choice
 chsh -s /usr/local/bin/zsh # Set shell to brew zsh
