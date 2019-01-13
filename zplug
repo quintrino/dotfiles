@@ -4,6 +4,7 @@ source $ZPLUG_HOME/init.zsh
 
 zplug "djui/alias-tips"
 export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
+export ZSH_PLUGINS_ALIAS_TIPS_REVEAL_TEXT='\033[0m\033[94mAlias for: \033[1;94m'
 
 zplug "rupa/z", use:z.sh
 
