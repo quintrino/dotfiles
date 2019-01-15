@@ -1,4 +1,34 @@
-source '$ZPLG_HOME/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( \${+_comps} )) && _comps[zplugin]=_zplugin
+#!/bin/zsh
 
+export ZPLG_HOME=$HOME/.zplugin
+source $ZPLG_HOME/bin/zplugin.zsh
+
+autoload -Uz compinit promptinit
+compinit
+
+zplugin light bhilburn/powerlevel9k
+
+zplugin ice silent wait'0'
+zplugin light djui/alias-tips
+export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
+export ZSH_PLUGINS_ALIAS_TIPS_REVEAL_TEXT='\033[0m\033[94mAlias for: \033[1;94m'
+
+zplugin ice silent wait'0'
+zplugin light zdharma/fast-syntax-highlighting
+
+zplugin ice silent wait'0'
+zplugin light rupa/z
+
+zplugin ice silent wait'0'
+zplugin light andrewferrier/fzf-z
+
+zplugin ice silent wait'0'
+zplugin light wfxr/forgit
+forgit_diff=gid
+forgit_restore=forgit_restore
+
+zplugin ice silent wait'1' atload'_zsh_autosuggest_start'
+zplugin light zsh-users/zsh-autosuggestions
+bindkey '^[[[CE' autosuggest-execute
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
