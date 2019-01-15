@@ -39,12 +39,6 @@ compinit
 #AutoSuggest config
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
-compdef g=git
-compdef gcf=git-fixup
-
-source /usr/local/opt/asdf/asdf.sh
-source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-
 function src() {
   zplug clean --force
   fresh

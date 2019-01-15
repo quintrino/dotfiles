@@ -15,6 +15,7 @@ fresh freshshell/fresh contrib/source-build.sh --file=~/.zshrc
 fresh zshrc
 fresh powerlevel9k
 fresh zplug
+fresh completions
 fresh aliases
 fresh functions
 fresh fzf.zsh
