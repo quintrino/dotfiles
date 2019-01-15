@@ -122,12 +122,6 @@ alias hr='assign && heroku run console'
 alias log='assign && heroku logs --tail'
 alias res='heroku ps:restart'
 
-#Node
-
-alias fs='_zsh_nvm_load && foreman start'
-alias y='yarn'
-alias ys='yarn start'
-
 #Docker
 
 alias dcu='docker-compose up'
@@ -155,6 +149,7 @@ alias wolf='su - Wolf'
 # CultureAmp
 
 alias ca='cd $HOME/Code/CultureAmp'
+alias jep='cd $HOME/Code/CultureAmp/JuniorEngineer'
 
 #Folders
 
