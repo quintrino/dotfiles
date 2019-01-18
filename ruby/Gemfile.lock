@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
     awesome_print (1.8.0)
@@ -36,7 +36,7 @@ GEM
     overcommit (0.46.0)
       childprocess (~> 0.6, >= 0.6.3)
       iniparse (~> 1.4)
-    parallel (1.12.1)
+    parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
     powerpack (0.1.2)
