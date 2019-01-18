@@ -3,6 +3,7 @@
 export ZPLG_HOME=$HOME/.zplugin
 source $ZPLG_HOME/bin/zplugin.zsh
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit promptinit
 compinit
 
