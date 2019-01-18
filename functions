@@ -214,3 +214,6 @@ function update() {
   brew doctor
 }
 
+function grb() {
+  git rebase -i HEAD~$1 -p --autostash
+}
