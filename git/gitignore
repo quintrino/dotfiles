@@ -12,3 +12,12 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
+Icon
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+/node_modules/
+/dist/
