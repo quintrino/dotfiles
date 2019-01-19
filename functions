@@ -217,3 +217,8 @@ function update() {
 function grb() {
   git rebase -i HEAD~$1 -p --autostash
 }
+
+function ginit() {
+  git init --quiet
+  cp $HOME/.dotfiles/overcommit .overcommit.yml
+}

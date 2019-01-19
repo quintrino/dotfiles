@@ -1,0 +1,62 @@
+quiet: true
+
+CommitMsg:
+
+  HardTabs:
+    enabled: true
+    description: 'Check for hard tabs'
+
+PreCommit:
+
+  FixMe:
+    enabled: true
+    description: 'Check for "token" strings'
+    required_executable: 'grep'
+    flags: ['-IEHnw']
+    keywords: ['BROKEN', 'BUG', 'ERROR', 'FIXME', 'HACK', 'NOTE', 'OPTIMIZE', 'REVIEW', 'TODO', 'WTF', 'XXX']
+
+  ForbiddenBranches:
+    enabled: true
+    description: 'Check for commit to forbidden branch'
+    quiet: true
+    branch_patterns: ['master', 'production']
+
+  HardTabs:
+    enabled: true
+    description: 'Check for hard tabs'
+    quiet: true
+    required_executable: 'grep'
+    flags: ['-IHn', "\t"]
+    exclude:
+      - '**/Makefile'
+      - '**/*.go'
+
+  TrailingWhitespace:
+    enabled: true
+    description: 'Check for trailing whitespace'
+    required_executable: 'grep'
+    flags: ['-IHn', "[ \t]$"]
+
+  LineEndings:
+    description: 'Check line endings'
+    enabled: true
+    eol: "\n" # or "\r\n" for Windows-style newlines
+
+# Hooks that run during `git push`, after remote refs have been updated but
+# before any objects have been transferred.
+PrePush:
+
+  ProtectedBranches:
+    enabled: false
+    description: 'Check for illegal pushes to protected branches'
+    destructive_only: true
+    branches: ['master', 'production']
+
+# Hooks that run during `git rebase`, before any commits are rebased.
+# If a hook fails, the rebase is aborted.
+PreRebase:
+
+  MergedCommits:
+    enabled: true
+    description: 'Check for commits that have already been merged'
+    branches: ['master']
