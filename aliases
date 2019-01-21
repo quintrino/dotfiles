@@ -9,11 +9,9 @@ alias ea='edit -a .'
 
 alias zhist='edit $HOME/.history/zsh/'
 
-alias cat='echo "You should use bat instead"'
-alias term='source $HOME/Google\ Drive/Sync/Mac/iTerm/.profile && source $HOME/Google\ Drive/Sync/Mac/iTerm/.aliases'
 alias ali='edit $HOME/.dotfiles/aliases'
 alias dot='cd $HOME/.dotfiles'
-alias zrc='cd $HOME/.dotfiles && sb && edit zshrc'
+alias zrc='cd $HOME/.dotfiles && edit zshrc'
 alias freq='history 0 | sed -E "s/ *[0-9]+\*? *[0-9 :-]+ *//" | sort | uniq -c | sort -rn | head -50'
 alias setup='edit $HOME/Google\ Drive/Sync/Mac/setup'
 alias lsa='ls -a'
@@ -21,8 +19,6 @@ alias profile='edit $HOME/Google\ Drive/Sync/Mac/iTerm/.profile'
 alias pass='eval "$(ssh-agent -s)"; ssh-add $HOME/.ssh/id_rsa; export PATH="/usr/local/opt/openssl/bin:$PATH"'
 alias hn='hnote'
 alias now='date +"%T"'
-alias s='echo "you should use VS Code instead with the shortcut e"'
-alias sb='echo "you should use VS Code instead"'
 alias ti='ruby $HOME/tick.rb'
 alias ls='echo "You should use bat either exa or l instead"'
 alias l='exa --long --grid --all --header --git --classify'
@@ -49,7 +45,6 @@ alias elephant='open /Applications/Postgres.app'
 alias expressw='cd $HOME/Web/online/expressworks'
 alias online='cd $HOME/Web/online'
 alias call='ruby $HOME/Web/twilio/call.rb'
-alias postgresstart='psql'
 
 #Git
 
@@ -80,7 +75,7 @@ alias gcmp='gcm && gp'
 alias gundo='git reset HEAD~1 '
 alias add='git_track_untracked && git add -p && git_untrack_new_blank && git status --short && logic'
 alias logic='echo -e "\033[1;31m If applied this commit will... \033[0m"'
-alias force-push='git push origin HEAD --force-with-lease && cc_menu && bin/build-urls'
+alias force-push='git push origin HEAD --force-with-lease'
 alias afp='amend && force-push'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 # open repo in browser
@@ -105,23 +100,10 @@ alias roff='kill -9 $(lsof -i tcp:3000 -t)'
 alias pryrc='pry -r ./config/environment'
 alias ras='bundle exec rails server'
 alias work='bin/rake jobs:work'
-alias broff='kill -9 $(lsof -i tcp:10524 -t)'
 alias rt='bundle exec rake test'
 alias rr='bundle exec rspec --format documentation'
 alias be='bundle exec'
 alias bi='bundle install'
-alias hl='haml-lint'
-alias ud='gp && bundle install && nvm install && npm update -g && rails db:migrate && yarn'
-
-#Heroku
-
-alias assign='DYNO="$(echo "${PWD##*/}")" && echo -e "\033];$DYNO \007"'
-alias h='assign && heroku run console'
-alias her='cd $HOME/Projects/nick/heroku'
-alias ho='heroku open'
-alias hr='assign && heroku run console'
-alias log='assign && heroku logs --tail'
-alias res='heroku ps:restart'
 
 #Docker
 
@@ -140,12 +122,6 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
-
-#Wolf
-
-alias web='cd $HOME/Web/'
-alias lol='open $HOME/.lolcommits'
-alias wolf='su - Wolf'
 
 # CultureAmp
 
