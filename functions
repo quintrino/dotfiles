@@ -222,3 +222,11 @@ function ginit() {
   git init --quiet
   cp $HOME/.dotfiles/overcommit .overcommit.yml
 }
+
+function asdf_ruby_version() {
+   if [ ! -f .tool-versions ]; then
+    echo $ASDF_GLOBAL_RUBY
+  else
+    echo $(bat .tool-versions | rg "ruby")
+  fi
+}

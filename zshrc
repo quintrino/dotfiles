@@ -19,6 +19,7 @@ HISTFILE=~/.zsh_history     #Where to save history to disk
 export CLICOLOR=1
 export EDITOR=edit
 export EXA_GRID_ROWS=8
+export ASDF_GLOBAL_RUBY=`bat $HOME/.tool-versions | rg ruby`
 
 setopt autopushd
 
