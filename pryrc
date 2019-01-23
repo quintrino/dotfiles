@@ -75,3 +75,17 @@ if defined?(RbReadline)
     rl_insert_text `cat ~/.pry_history | fzf --tac --height 16 |  tr '\n' ' '`
   end
 end
+
+# Add toy method to array
+class Array
+  def self.toy(num = 10, &block)
+    block_given? ? Array.new(num, &block) : Array.new(num) { |i| i + 1}
+  end
+end
+
+# Add toy method to hash
+class Hash
+  def self.toy(num = 10)
+    Hash[Array.toy(num).zip(Array.toy(num) { |c| (96 + (c + 1)).chr})]
+  end
+end
