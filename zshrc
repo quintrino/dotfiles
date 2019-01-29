@@ -1,5 +1,7 @@
 #!/bin/zsh
 function precmd() {
+    export DIRS=$(pwd | awk '{ sub("/Users/nick.wolf/Code", "~"); print $0 }')
+    echo -ne "\e]1;${DIRS/#$HOME/~}\a"
     [ -d $HOME/.history ] || mkdir -p $HOME/.history
     [ -d $HOME/.history/zsh ] || mkdir -p $HOME/.history/zsh
     echo ": [$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> $HOME/.history/zsh/history-$(date +%Y%m%d)
