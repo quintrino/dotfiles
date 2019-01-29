@@ -24,28 +24,6 @@ alias ls='echo "You should use bat either exa or l instead"'
 alias l='exa --long --grid --all --header --git --classify'
 alias up='cd ..'
 
-#WDI
-
-alias sin='cd $HOME/Web/code_alongs/sinatra'
-alias rub='cd $HOME/Web/code_alongs/ruby'
-alias html='cd $HOME/Web/code_alongs/html'
-alias javascript='cd $HOME/Web/code_alongs/javascript'
-alias encode='ruby $HOME/Web/code_alongs/ruby/cypher/encode.rb'
-alias decode='ruby $HOME/Web/code_alongs/ruby/cypher/decode.rb'
-alias dice='ruby $HOME/Web/code_alongs/ruby/Dice/dice.rb'
-alias predict='cd $HOME/Web/code_alongs/sinatra/predictor'
-alias rai='cd $HOME/Web/code_alongs/rails'
-alias api='cd $HOME/Web/code_alongs/api'
-alias travel='cd $HOME/Web/code_alongs/rails/travel-expedition'
-alias nodejs='cd $HOME/Web/code_alongs/node'
-alias group='cd $HOME/Web/code_alongs/rails/group-conf'
-alias book='cd $HOME/Web/code_alongs/rails/phonebooking'
-alias naughts='cd $HOME/Web/code_alongs/Javascript/js1/naughts'
-alias elephant='open /Applications/Postgres.app'
-alias expressw='cd $HOME/Web/online/expressworks'
-alias online='cd $HOME/Web/online'
-alias call='ruby $HOME/Web/twilio/call.rb'
-
 #Git
 
 alias gitback='git show $(git log --format=%h^ master..HEAD | tail -n 1) --format=%cr'
