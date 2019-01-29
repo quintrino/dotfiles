@@ -127,6 +127,7 @@ alias 9='cd -9'
 
 alias ca='cd $HOME/Code/CultureAmp'
 alias jep='cd $HOME/Code/CultureAmp/JuniorEngineer'
+alias ys='BROWSER=none yarn start'
 
 #Folders
 
