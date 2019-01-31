@@ -31,5 +31,5 @@ forgit_restore=forgit_restore
 zplugin ice silent wait'1' atload'_zsh_autosuggest_start'
 zplugin light zsh-users/zsh-autosuggestions
 bindkey '^[[[CE' autosuggest-execute
-
+export ZSH_AUTOSUGGEST_IGNORE_WIDGETS=(fzfz-file-widget)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'

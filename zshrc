@@ -24,6 +24,7 @@ export EXA_GRID_ROWS=8
 export ASDF_GLOBAL_RUBY=`bat $HOME/.tool-versions | rg ruby`
 
 setopt autopushd
+setopt auto_cd
 
 starting_directory=`pwd`
 cd $HOME/.dotfiles
