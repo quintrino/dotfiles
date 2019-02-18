@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+Pry.config.history.file = "~/.cache/pry/.pry_history"
 
 Pry.commands.block_command(/!(\d+)/, 'Replay a line of history') do |line|
   run "history --replay #{line}"
@@ -72,7 +73,7 @@ end
 require 'rbreadline'
 if defined?(RbReadline)
   def RbReadline.rl_reverse_search_history(_sign, _key)
-    rl_insert_text `cat ~/.pry_history | fzf --tac --height 16 |  tr '\n' ' '`
+    rl_insert_text `cat ~/.cache/pry/.pry_history | fzf --tac --height 16 |  tr '\n' ' '`
   end
 end
 
