@@ -42,6 +42,15 @@ PreCommit:
     enabled: true
     eol: "\n" # or "\r\n" for Windows-style newlines
 
+PostCommit:
+
+  Lolcommits:
+    enabled: true
+    install_command: 'gem install lolcommits'
+    description: 'Capture commit based selfies as you code'
+    required_executable: 'lolcommits'
+    command: ['lolcommits', '--capture']
+
 # Hooks that run during `git push`, after remote refs have been updated but
 # before any objects have been transferred.
 PrePush:
