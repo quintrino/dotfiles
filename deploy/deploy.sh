@@ -17,6 +17,9 @@ fi
 
 ln -sv /usr/local/bin/code /usr/local/bin/edit
 
+[ -d $HOME/.local/share/zsh ] || mkdir -p $HOME/.local/share/zsh
+[ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
+
 cd
 echo /etc/shells >> /usr/local/bin/zsh # Set brew zsh as acceptable shell choice
 chsh -s /usr/local/bin/zsh # Set shell to brew zsh

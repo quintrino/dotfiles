@@ -23,6 +23,8 @@ export EDITOR=edit
 export EXA_GRID_ROWS=8
 export ASDF_GLOBAL_RUBY=`bat $HOME/.tool-versions | rg ruby`
 
+source $HOME/.local/share/zsh/zshrc
+
 setopt autopushd
 setopt auto_cd
 setopt pushdminus
