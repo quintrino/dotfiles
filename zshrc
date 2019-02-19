@@ -25,6 +25,8 @@ export ASDF_GLOBAL_RUBY=`bat $HOME/.tool-versions | rg ruby`
 
 setopt autopushd
 setopt auto_cd
+setopt pushdminus
+setopt pushd_ignore_dups
 
 starting_directory=`pwd`
 cd $HOME/.dotfiles
