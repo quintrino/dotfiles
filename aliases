@@ -22,6 +22,7 @@ alias now='date +"%T"'
 alias ls='echo "You should use bat either exa or l instead"'
 alias l='exa --long --grid --all --header --git --classify'
 alias up='cd ..'
+alias md='mkdir -p'
 
 #Git
 
