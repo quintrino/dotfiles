@@ -21,7 +21,7 @@ ln -sv /usr/local/bin/code /usr/local/bin/edit
 [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
 
 cd
-echo /etc/shells >> /usr/local/bin/zsh # Set brew zsh as acceptable shell choice
+echo /usr/local/bin/zsh >> /etc/shells # Set brew zsh as acceptable shell choice
 chsh -s /usr/local/bin/zsh # Set shell to brew zsh
 chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
 curl -sL https://get.freshshell.com | bash
