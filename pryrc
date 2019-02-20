@@ -47,6 +47,8 @@ end
 
 [
   'awesome_print',
+  'byebug',
+  'pry-byebug',
   'debug_inspector',
   'binding_of_caller',
   'pry-stack_explorer',
