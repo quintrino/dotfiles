@@ -13,7 +13,9 @@ end
 
 Pry.commands.alias_command 'l', 'whereami'
 Pry.commands.alias_command 'bt', 'pry-backtrace'
-Pry.commands.alias_command 'sm_pry', 'show-method'
+Pry.commands.alias_command 'sm', 'show-method'
+Pry.commands.alias_command 'dp', 'disable-pry'
+Pry.commands.alias_command 'ee', 'exit-program'
 Pry.commands.alias_command 'ds_pry', 'disable-pry'
 Pry.commands.alias_command 'rl_pry', 'reload-code' # Reloads the code
 
