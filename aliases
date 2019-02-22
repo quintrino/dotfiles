@@ -10,6 +10,7 @@ alias ea='edit -a .'
 alias zhist='edit $HOME/.history/zsh/'
 
 alias ali='edit $HOME/.dotfiles/aliases'
+alias b='bat'
 alias dot='cd $HOME/.dotfiles'
 alias zrc='cd $HOME/.dotfiles && edit zshrc'
 alias freq='history 0 | sed -E "s/ *[0-9]+\*? *[0-9 :-]+ *//" | sort | uniq -c | sort -rn | head -50'
