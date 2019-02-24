@@ -27,6 +27,8 @@ alias md='mkdir -p'
 
 #Git
 
+alias guns='git reset'
+alias gunc='git reset HEAD^'
 alias gitback='git show $(git log --format=%h^ master..HEAD | tail -n 1) --format=%cr'
 alias glob='glo master..HEAD'
 alias grc='git_open_conflicts && git add . && git rebase --continue'
