@@ -5,7 +5,7 @@ function ct () {
 
 # `gl [<remote>] [<branch>]` git pull
 # pull <branch> or the current branch from <remote> or origin
-function gl(){
+function gpl(){
   local remote=${1:-origin}
   local branch=${2:-$(git_current_branch)}
   git pull --no-edit "$remote" "$branch"
