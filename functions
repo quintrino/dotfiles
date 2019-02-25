@@ -200,6 +200,8 @@ function path() {
 function update() {
   echo -e "\033[1;31mUpdating Fresh \033[0m"
   fresh up | rg -v "Current branch master is up to date."
+  echo -e "\033[1;31mUpdating asdf plugins \033[0m"
+  cd $HOME && asdf plugin-update --all
   echo -e "\033[1;31mUpdating Zplugin \033[0m"
   zpl self-update
   echo -e "\033[1;31mUpdating Zsh plugins \033[0m"
