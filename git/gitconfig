@@ -3,6 +3,7 @@
   email = git@nickwolf.com.au
 
 [alias]
+  axe = log --patch -S
   ls = log --pretty=format:“%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]” --decorate
   lsb = !git ls master..HEAD
   wip = !git add . && OVERCOMMIT_DISABLE=1 git commit -m 'WIP'
