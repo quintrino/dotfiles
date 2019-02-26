@@ -82,3 +82,10 @@
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
+
+[fixup]
+    menu = fzf --height '45%' \
+                --bind 'tab:toggle-preview' \
+                --preview 'git show --color {+1}' \
+                --preview-window=right:60% \
+                --prompt 'Select commit: '
