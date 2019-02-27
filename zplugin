@@ -23,6 +23,7 @@ zplugin light rupa/z
 zplugin ice silent wait'0'
 zplugin light andrewferrier/fzf-z
 export FZFZ_EXTRA_OPTS="--height '25%'"
+export FZFZ_PREVIEW_COMMAND='exa {} --tree --git --long --header --color=always'
 
 zplugin ice silent wait'0'
 zplugin light wfxr/forgit
