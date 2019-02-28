@@ -31,7 +31,7 @@ fresh config/Karabiner/karabiner.json --file=~/.config/Karabiner/karabiner.json
 
 # fresh profile
 fresh pryrc --file=~/.pryrc
-fresh gemrc --file=~/.gemrc
+fresh gemrc --file=~/.config/gem/gemrc
 fresh railsrc --file=~/.railsrc
 fresh hushlogin --file=~/.hushlogin
 fresh tool-versions --file=~/.config/asdf/.tool-versions
