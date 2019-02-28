@@ -47,3 +47,5 @@ fi
 
 cd $starting_directory
 unset starting_directory
+
+source /usr/local/opt/asdf/asdf.sh
