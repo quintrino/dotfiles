@@ -27,6 +27,10 @@ export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$XDG_CONFIG_HOME/asdf/tool-versions"
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
 
+declare -A ZPLGM
+ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
+ZPLGM[BIN_DIR]="$XDG_CONFIG_HOME/zplugin/bin"
+
 source $HOME/.local/share/zsh/zshrc
 
 setopt autopushd
