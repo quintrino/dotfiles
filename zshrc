@@ -20,7 +20,10 @@ HISTFILE=~/.zsh_history     #Where to save history to disk
 export CLICOLOR=1
 export EDITOR=edit
 export EXA_GRID_ROWS=8
-export ASDF_GLOBAL_RUBY=`bat $HOME/.tool-versions | rg ruby`
+export XDG_CONFIG_HOME="$HOME/.config"
+export ASDF_GLOBAL_RUBY=`bat $XDG_CONFIG_HOME/asdf/.tool-versions | rg ruby`
+export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
+export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$XDG_CONFIG_HOME/asdf/tool-versions"
 
 source $HOME/.local/share/zsh/zshrc
 

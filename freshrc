@@ -34,4 +34,4 @@ fresh pryrc --file=~/.pryrc
 fresh gemrc --file=~/.gemrc
 fresh railsrc --file=~/.railsrc
 fresh hushlogin --file=~/.hushlogin
-fresh tool-versions --file=~/.tool-versions
+fresh tool-versions --file=~/.config/asdf/.tool-versions
