@@ -24,6 +24,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export ASDF_GLOBAL_RUBY=`bat $XDG_CONFIG_HOME/asdf/.tool-versions | rg ruby`
 export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$XDG_CONFIG_HOME/asdf/tool-versions"
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 
 source $HOME/.local/share/zsh/zshrc
 
