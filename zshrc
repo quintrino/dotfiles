@@ -28,6 +28,7 @@ export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$XDG_CONFIG_HOME/asdf/tool-versions"
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
+export _Z_DATA="$XDG_DATA_HOME/z/z"
 
 declare -A ZPLGM
 ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"

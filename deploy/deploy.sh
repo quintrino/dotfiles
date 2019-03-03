@@ -17,7 +17,8 @@ fi
 
 ln -sv /usr/local/bin/code /usr/local/bin/edit
 
-[ -d $HOME/.local/share/zsh ] || mkdir -p $HOME/.local/share/zsh
+mkdir -p $HOME/.local/share/z
+mkdir -p $HOME/.local/share/zsh
 [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
 
 cd
