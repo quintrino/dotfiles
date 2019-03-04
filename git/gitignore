@@ -3,6 +3,8 @@
 *.sw[nop]
 .bundle
 .byebug_history
+Gemfile.local
+Gemfile.local.lock
 .env
 db/*.sqlite3
 log/*.log

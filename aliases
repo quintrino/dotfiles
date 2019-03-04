@@ -76,6 +76,7 @@ alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
 alias ru='bundle exec rubocop'
 alias rus='ru spec/* --display-only-fail-level-offenses --fail-level=C'
 alias rua='ru --auto-correct --only '
+alias geml='cp $HOME/.dotfiles/ruby/Gems.local Gemfile.local'
 
 #Rails
 
