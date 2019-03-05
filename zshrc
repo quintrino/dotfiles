@@ -17,6 +17,7 @@ HISTSIZE=50000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history     #Where to save history to disk
 
+export TERM="xterm-256color"
 export CLICOLOR=1
 export EDITOR=edit
 export EXA_GRID_ROWS=8
