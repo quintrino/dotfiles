@@ -256,6 +256,7 @@ function grb() {
 function ginit() {
   git init --quiet
   cp $HOME/.dotfiles/overcommit .overcommit.yml
+  overcommit --install
   overcommit --sign
 }
 
