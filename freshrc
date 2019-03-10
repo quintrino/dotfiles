@@ -24,7 +24,7 @@ fresh https://gitlab.com/ellsclytn/dotfiles.git bin/extract --bin --ref=5165c8d0
 
 # Git
 fresh git/ignore --file=$XDG_CONFIG_HOME/git/ignore
-fresh git/config --file=$XDG_CONFIG_HOME/git/config
+fresh git/config --file=$XDG_CONFIG_HOME/git/config --filter=erb
 
 fresh config/Karabiner/karabiner.json --file=~/.config/Karabiner/karabiner.json
 

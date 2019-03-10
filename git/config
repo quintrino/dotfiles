@@ -1,6 +1,9 @@
 [user]
-  name  = Nick Wolf
+  name= Nick Wolf
   email = git@nickwolf.com.au
+
+[init]
+  templateDir = <%= "#{`overcommit --template-dir`}".chomp %>
 
 [alias]
   axe = log --patch -S
@@ -43,7 +46,6 @@
   pager = diff-so-fancy | less --tabs=4 -RFX
   mergeoptions = --no-edit
   editor = edit -nw
-  excludesfile = ~/.gitignore
   ignorecase = false
 
 [diff]
