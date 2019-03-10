@@ -12,6 +12,7 @@
 fresh freshshell/fresh bin/fresh --bin
 fresh freshshell/fresh contrib/source-build.sh --file=~/.zshrc
 
+fresh environment
 fresh zshrc
 fresh powerlevel9k
 fresh zplugin

@@ -15,26 +15,6 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 HISTSIZE=50000
 SAVEHIST=10000
-
-export TERM="xterm-256color"
-export CLICOLOR=1
-export EDITOR=edit
-export EXA_GRID_ROWS=8
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export ASDF_GLOBAL_RUBY=`bat $XDG_CONFIG_HOME/asdf/.tool-versions | rg ruby`
-export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
-export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$XDG_CONFIG_HOME/asdf/tool-versions"
-export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
-export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
-export _Z_DATA="$XDG_DATA_HOME/z/z"
-export FRESH_RCFILE="$HOME/.dotfiles/freshrc"
-
-declare -A ZPLGM
-ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
-ZPLGM[BIN_DIR]="$XDG_CONFIG_HOME/zplugin/bin"
-
 HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"     #Where to save history to disk
 
 source $XDG_DATA_HOME/zsh/zshrc
