@@ -27,11 +27,13 @@ fresh https://gitlab.com/ellsclytn/dotfiles.git bin/extract --bin --ref=5165c8d0
 fresh git/ignore --file=$XDG_CONFIG_HOME/git/ignore
 fresh git/config --file=$XDG_CONFIG_HOME/git/config --filter=erb
 
-fresh config/Karabiner/karabiner.json --file=~/.config/Karabiner/karabiner.json
+fresh-options --file=$XDG_CONFIG_HOME/Karabiner/karabiner.json
+  fresh config/Karabiner/karabiner.json
+fresh-options
 
 # fresh profile
 fresh pryrc --file=~/.pryrc
-fresh gemrc --file=~/.config/gem/gemrc
+fresh gemrc --file=$XDG_CONFIG_HOME/gem/gemrc
 fresh railsrc --file=~/.railsrc
 fresh hushlogin --file=~/.hushlogin
-fresh tool-versions --file=~/.config/asdf/.tool-versions
+fresh tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
