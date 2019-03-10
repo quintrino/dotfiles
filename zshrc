@@ -15,7 +15,6 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 HISTSIZE=50000
 SAVEHIST=10000
-HISTFILE=~/.zsh_history     #Where to save history to disk
 
 export TERM="xterm-256color"
 export CLICOLOR=1
@@ -35,7 +34,9 @@ declare -A ZPLGM
 ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
 ZPLGM[BIN_DIR]="$XDG_CONFIG_HOME/zplugin/bin"
 
-source $HOME/.local/share/zsh/zshrc
+HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"     #Where to save history to disk
+
+source $XDG_DATA_HOME/zsh/zshrc
 
 setopt autopushd
 setopt auto_cd
