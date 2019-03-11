@@ -13,6 +13,7 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export GEMRC="$XDG_CONFIG_HOME/gem/gemrc"
 export _Z_DATA="$XDG_DATA_HOME/z/z"
 export FRESH_RCFILE="$HOME/.dotfiles/freshrc"
+export LOLCOMMITS_DIR="$XDG_DATA_HOME/lolcommits"
 
 declare -A ZPLGM
 ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
