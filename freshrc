@@ -32,7 +32,7 @@ fresh-options --file=$XDG_CONFIG_HOME/Karabiner/karabiner.json
 fresh-options
 
 # fresh profile
-fresh pryrc --file=~/.pryrc
+fresh pryrc --file=$XDG_CONFIG_HOME/pry/pryrc
 fresh gemrc --file=$XDG_CONFIG_HOME/gem/gemrc
 fresh railsrc --file=~/.railsrc
 fresh hushlogin --file=~/.hushlogin
