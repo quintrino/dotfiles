@@ -2,9 +2,6 @@
   name= Nick Wolf
   email = git@nickwolf.com.au
 
-[init]
-  templateDir = <%= "#{`overcommit --template-dir`}".chomp %>
-
 [alias]
   axe = log --patch -S
   first = log --diff-filter=A --
@@ -23,12 +20,6 @@
   status      = auto
   ui          = auto
 
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-
 [color "diff"]
   meta = yellow
   frag = magenta bold
@@ -36,6 +27,12 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [color "status"]
   added = green bold reverse
@@ -54,11 +51,21 @@
 [fetch]
   prune = true
 
-[help]
-  autoCorrect = 20
+[fixup]
+    menu = fzf --height '45%' \
+                --bind 'tab:toggle-preview' \
+                --preview 'git show --color {+1}' \
+                --preview-window=right:60% \
+                --prompt 'Select commit: '
 
 [github]
   username = Quintrino
+
+[help]
+  autoCorrect = 20
+
+[init]
+  templateDir = <%= "#{`overcommit --template-dir`}".chomp %>
 
 [interactive]
   singleKey = true
@@ -66,11 +73,11 @@
 [log]
   mailmap = true
 
-[push]
-  default = upstream
-
 [merge]
   ff = only
+
+[push]
+  default = upstream
 
 [rebase]
   autosquash = true
@@ -85,10 +92,3 @@
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
-
-[fixup]
-    menu = fzf --height '45%' \
-                --bind 'tab:toggle-preview' \
-                --preview 'git show --color {+1}' \
-                --preview-window=right:60% \
-                --prompt 'Select commit: '
