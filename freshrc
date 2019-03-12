@@ -33,7 +33,8 @@ fresh-options
 
 # fresh profile
 fresh pryrc --file=$XDG_CONFIG_HOME/pry/pryrc
-fresh gemrc --file=$XDG_CONFIG_HOME/gem/gemrc
+fresh irbrc --file=$XDG_CONFIG_HOME/ruby/irbrc
+fresh gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
 fresh railsrc --file=~/.railsrc
 fresh hushlogin --file=~/.hushlogin
 fresh tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
