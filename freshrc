@@ -32,9 +32,9 @@ fresh-options --file=$XDG_CONFIG_HOME/Karabiner/karabiner.json
 fresh-options
 
 # fresh profile
-fresh pryrc --file=$XDG_CONFIG_HOME/pry/pryrc
-fresh irbrc --file=$XDG_CONFIG_HOME/ruby/irbrc
-fresh gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
-fresh railsrc --file=~/.railsrc
+fresh ruby/pryrc --file=$XDG_CONFIG_HOME/pry/pryrc
+fresh ruby/irbrc --file=$XDG_CONFIG_HOME/ruby/irbrc
+fresh ruby/gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
+fresh ruby/railsrc --file=~/.railsrc
 fresh hushlogin --file=~/.hushlogin
 fresh tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
