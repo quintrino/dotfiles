@@ -270,3 +270,8 @@ function asdf_ruby_version() {
     echo $(bat .tool-versions | rg "ruby")
   fi
 }
+
+function restart_mongodb() {
+  kill -9 $(top | grep -m1 mongo | awk '{print $1}')
+  mongod --dbpath ~/.config/asdf/installs/mongodb/3.4.15/data
+}
