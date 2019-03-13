@@ -1,0 +1,15 @@
+#!/bin/zsh
+[ -z "$1" ] && echo "Need to provide Company name" && exit 1;
+[ -z "$2" ] && echo "Need to provide Project name" && exit 1;
+[ -z "$CC_BUILDKITE_TOKEN" ] && echo "Need to set CC_BUILDKITE_TOKEN" && exit 1;
+local branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD 2>/dev/null)
+local encoded_branch=${branch/\//%2F}
+local repo=$(basename -s .git `git config --get remote.origin.url`)
+
+if ! defaults read net.sourceforge.cruisecontrol.CCMenu Projects | grep -qF "$project ($branch)"; then
+  killall CCMenu
+  defaults write net.sourceforge.cruisecontrol.CCMenu Projects "(
+      { displayName = $branch; projectName = \"$2 ($branch)\"; serverUrl = \"https://cc.buildkite.com/$1/$repo.xml?access_token=$CC_BUILDKITE_TOKEN&branch=$encoded_branch\"; },
+      $(defaults read net.sourceforge.cruisecontrol.CCMenu Projects | tail -n +2)"
+  open -g /Applications/CCMenu.app
+fi
