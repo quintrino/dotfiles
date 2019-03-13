@@ -42,6 +42,10 @@ PreCommit:
     enabled: true
     eol: "\n" # or "\r\n" for Windows-style newlines
 
+  RuboCop:
+    enabled: false
+    command: ['bundle', 'exec', 'rubocop']
+
 PostCommit:
 
   Lolcommits:
@@ -54,6 +58,12 @@ PostCommit:
 # Hooks that run during `git push`, after remote refs have been updated but
 # before any objects have been transferred.
 PrePush:
+
+  CCMenu:
+    enabled: false
+    quiet: false
+    required_executable: 'cc_menu'
+    command: ['cc_menu', 'Name'] #Change Name to Project name from buildkite
 
   ProtectedBranches:
     enabled: false
