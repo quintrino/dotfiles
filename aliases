@@ -89,6 +89,7 @@ alias rt='bundle exec rake test'
 alias rr='bundle exec rspec --format documentation'
 alias be='bundle exec'
 alias bi='bundle install'
+alias ud='git checkout master && git pull && bundle install && yarn install'
 
 #Docker
 
