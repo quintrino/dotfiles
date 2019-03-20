@@ -756,16 +756,24 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1560 110 934 344 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>970 786 620 392 0 0 2560 1440 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 194 606 469 0 0 1440 900 </string>
+	<string>630 437 606 469 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>1098 962 918 423 0 0 2560 1440 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 192 585 402 0 0 1440 900 </string>
+	<string>0 183 585 402 0 0 2560 1440 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>0 464 604 436 0 0 1440 900 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>0 0 1439 900 0 0 1440 900 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>0 0 2251 1122 0 0 2560 1440 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1510,7 +1518,7 @@
 			<key>Shortcut</key>
 			<string>1</string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Smart Cursor Color</key>
 			<true/>
 			<key>Smart Selection Rules</key>
@@ -2367,6 +2375,8 @@
 	</array>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -2451,7 +2461,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-20T11:14:29Z</date>
+	<date>2019-03-19T03:00:34Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
