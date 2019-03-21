@@ -763,11 +763,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>630 437 606 469 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1098 962 918 423 0 0 2560 1440 </string>
+	<string>906 371 937 514 0 0 2560 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 183 585 402 0 0 2560 1440 </string>
+	<string>0 23 2560 1394 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 464 604 436 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1102,7 +1102,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Flashing Bell</key>
-			<false/>
+			<true/>
 			<key>Foreground Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2461,7 +2461,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-19T03:00:34Z</date>
+	<date>2019-03-20T05:34:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
