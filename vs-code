@@ -1,0 +1,53 @@
+{
+    "editor.rulers": [
+        80,
+        120,
+        160,
+        200,
+        240
+    ],
+    "emmet.includeLanguages": {
+        "erb": "html"
+    },
+    "files.associations": {
+        "overcommit": "yaml",
+        "vs-code": "jsonc"
+    },
+    "files.exclude": {
+            "**/node_modules": true
+    },
+    "breadcrumbs.enabled": true,
+    "editor.formatOnType": true,
+    "editor.renderLineHighlight": "all",
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
+    "editor.trimAutoWhitespace": true,
+    "explorer.confirmDelete": false,
+    "files.autoSave": "onFocusChange",
+    "files.defaultLanguage": "shellscript",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "ruby.intellisense": "rubyLocate",
+    "search.location": "panel",
+    "search.showLineNumbers": true,
+    "search.smartCase": true,
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "terminal.integrated.letterSpacing": 0,
+    "window.closeWhenEmpty": true,
+    "window.openFoldersInNewWindow": "off",
+    "window.restoreFullscreen": true,
+    "window.zoomLevel": 1,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Dracula",
+    "workbench.editor.closeEmptyGroups": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.statusBar.visible": true,
+    "workbench.tree.indent": 6
+}
