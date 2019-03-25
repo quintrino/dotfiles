@@ -9,7 +9,7 @@ function install_zplugin() {
 }
 
 function install_brew_bundle() {
-  cd dotfiles/brew
+  cd $HOME/.dotfiles/brew
   brew bundle
   if [ "$WORK" == 1 ];
     then cd work
