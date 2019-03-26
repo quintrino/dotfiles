@@ -204,6 +204,8 @@ function fresh_update() {
 function asdf_update() {
   echo -e "\033[1;31mUpdating asdf plugins \033[0m"
   cd $HOME && asdf plugin-update --all
+  cd $XDG_CONFIG_HOME/asdf && asdf install
+  cd $HOME
 }
 
 function zpl_update() {
