@@ -12,5 +12,6 @@ install_brew_bundle
 set_edit
 install_zsh_defaults
 install_fresh
+install_asdf_defaults
 install_apple_defaults
 set_iterm_defaults

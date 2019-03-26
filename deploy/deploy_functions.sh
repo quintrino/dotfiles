@@ -33,7 +33,6 @@ function set_edit() {
   ln -sv /usr/local/bin/code /usr/local/bin/edit
 }
 
-
 function install_zsh_defaults() {
   [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
   echo /usr/local/bin/zsh >> /etc/shells # Set brew zsh as acceptable shell choice
@@ -41,12 +40,17 @@ function install_zsh_defaults() {
   chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
 }
 
-
-
 function install_fresh() {
   curl -sL https://get.freshshell.com | bash
 }
 
+function install_asdf_defaults() {
+  while read line; do
+    asdf plugin-add "$(echo $line | cut -f 1 -d " " )"
+  done <$HOME/.dotfiles/tool-versions
+  cd $XDG_CONFIG_HOME/asdf/
+  asdf install
+}
 
 function install_apple_defaults() {
   # Disable the sound effects on boot
