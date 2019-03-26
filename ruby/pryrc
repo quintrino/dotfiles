@@ -63,7 +63,7 @@ end
 if defined?(AwesomePrint)
   AwesomePrint.defaults = {
     indent: -1, # left aligned
-    sort_keys: true, # sort hash keys
+    sort_keys: true # sort hash keys
     # more customization
   }
 end
