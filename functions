@@ -172,6 +172,14 @@ function gfh() {
     git log --oneline --follow --patch master..HEAD -- "$filename"
 }
 
+function files_changed_in_commit() {
+  git diff-tree --no-commit-id --name-only -r $@
+}
+
+function ec() {
+  edit $(files_changed_in_commit "$1")
+}
+
 function path() {
   echo $PATH | tr ":" "\n" | \
     awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
