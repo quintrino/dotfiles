@@ -12,4 +12,4 @@ set_edit
 install_zsh_defaults
 install_fresh
 install_apple_defaults
-set_item_defaults
+set_iterm_defaults
