@@ -5,6 +5,7 @@ git clone https://github.com/quintrino/dotfiles.git .dotfiles
 
 source $HOME/.dotfiles/deploy_functions.sh
 
+install_config_folders
 install_homebrew
 install_zplugin
 install_brew_bundle

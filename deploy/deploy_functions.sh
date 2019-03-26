@@ -22,6 +22,12 @@ function install_brew_bundle() {
   cd
 }
 
+function install_config_folders() {
+  mkdir -p ~/Library/Application\ Support/Code/User/
+  mkdir -p $HOME/.local/share/z
+  mkdir -p $HOME/.local/share/zsh
+}
+
 
 function set_edit() {
   ln -sv /usr/local/bin/code /usr/local/bin/edit
@@ -29,8 +35,6 @@ function set_edit() {
 
 
 function install_zsh_defaults() {
-  mkdir -p $HOME/.local/share/z
-  mkdir -p $HOME/.local/share/zsh
   [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
   echo /usr/local/bin/zsh >> /etc/shells # Set brew zsh as acceptable shell choice
   chsh -s /usr/local/bin/zsh # Set shell to brew zsh
