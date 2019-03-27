@@ -2,8 +2,8 @@
 function precmd() {
     export DIRS=$(pwd | awk '{ sub("/Users/nick.wolf/Code", "~"); print $0 }')
     echo -ne "\e]1;${DIRS/#$HOME/~}\a"
-    [ -d $HOME/.history/zsh ] || mkdir -p $HOME/.history/zsh
-    echo ": [$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> $HOME/.history/zsh/history-$(date +%Y%m%d)
+    [ -d $XDG_DATA_HOME/zsh/history ] || mkdir -p $XDG_DATA_HOME/zsh/history
+    echo ": [$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> $XDG_DATA_HOME/zsh/history/history-$(date +%Y%m%d)
 }
 
 setopt append_history
