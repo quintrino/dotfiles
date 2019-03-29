@@ -3,7 +3,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 git clone https://github.com/quintrino/dotfiles.git .dotfiles
 
-source $HOME/.dotfiles/deploy_functions.sh
+source $HOME/.dotfiles/deploy/deploy_functions.sh
 source $HOME/.dotfiles/environment
 
 install_config_folders
