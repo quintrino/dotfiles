@@ -47,9 +47,12 @@ function install_fresh() {
 function install_asdf_defaults() {
   while read line; do
     asdf plugin-add "$(echo $line | cut -f 1 -d " " )"
+    case "$(echo $line | cut -f 1 -d " " )" in
+      "nodejs") bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+    esac
+    asdf install "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
+    asdf global "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
   done <$HOME/.dotfiles/tool-versions
-  cd $XDG_CONFIG_HOME/asdf/
-  asdf install
 }
 
 function install_apple_defaults() {
