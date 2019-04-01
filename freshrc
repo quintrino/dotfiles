@@ -38,6 +38,6 @@ fresh hushlogin --file=~/.hushlogin
 fresh tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
 
 fresh_after_build(){
-  ln -sf ~/.dotfiles/vs-code ~/Library/Application\ Support/Code/User/settings.json
+  ln -sf ~/.dotfiles/apps/vs-code/settings ~/Library/Application\ Support/Code/User/settings.json
   ln -sf ~/.dotfiles/config/Karabiner/karabiner.json $XDG_CONFIG_HOME/Karabiner/karabiner.json
 }
