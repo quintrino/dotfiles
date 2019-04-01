@@ -199,6 +199,7 @@ function update() {
   ruby_update
   brew_update
   mac_software_update
+  vscode_update
   echo -e "\033[1;31mBrew Doctor issues \033[0m"
   brew doctor
   zsh
