@@ -282,6 +282,6 @@ function asdf_ruby_version() {
 }
 
 function restart_mongodb() {
-  kill -9 $(top | grep -m1 mongo | awk '{print $1}')
+  mongo --eval "db.getSiblingDB('admin').shutdownServer()"
   mongod --dbpath ~/.config/asdf/installs/mongodb/3.4.15/data
 }
