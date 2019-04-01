@@ -246,6 +246,21 @@ function mac_software_update() {
   softwareupdate -ia
 }
 
+function vscode_update() {
+  echo -e "\033[1;31mUpdating VS Code Extensions \033[0m"
+  if [ "$(cat ~/.dotfiles/apps/vs-code/extensions)" = "$(code --list-extensions)" ]; then
+    echo 'All extensions installed'
+    return 0
+  fi
+  while read line; do
+    code --install-extension "$line"
+  done <~/.dotfiles/apps/vs-code/extensions
+  rm ~/.dotfiles/apps/vs-code/extensions
+  code --list-extensions | while read line; do
+    echo $line >> ~/.dotfiles/apps/vs-code/extensions
+  done
+}
+
 function grb() {
   git rebase -i HEAD~$1 -p --autostash
 }
