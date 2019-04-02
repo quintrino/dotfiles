@@ -10,5 +10,8 @@
 { "key": "cmd+8",                "command": "workbench.action.openEditorAtIndex8" },
 { "key": "cmd+9",                "command": "workbench.action.openEditorAtIndex9" },
 { "key": "shift+cmd+c",       "command": "copyRelativeFilePath" },
-{ "key": "ctrl+shift+cmd+c",             "command": "copyFilePath"}
+{
+  "key": "ctrl+shift+cmd+l",
+  "command": "relative-path-and-line.copyRelativePathAndLine"
+}
 ]
