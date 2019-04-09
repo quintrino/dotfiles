@@ -95,7 +95,7 @@ function gl() {
 
 function gcf() {
   git log $@ --oneline -1
-  git commit --fixup=$@ && git rebase --autosquash --autostash $@^
+  git commit --fixup=$@ && GIT_SEQUENCE_EDITOR=true git rebase --autosquash --autostash $@^ -i
 }
 
 function git_status_filtered() {
