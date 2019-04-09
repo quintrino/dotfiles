@@ -107,12 +107,12 @@ function quote() {
     local string=$*
     if [[ -z "$string" ]]; then
       echo -en '""'
-     elif [[ "$string" = *"'"* ]]; then
-       echo -en \""$(echo -en "$string" | sed -E 's/(["$])/\\\1/g')\""
-     #elif [[ "$string" =~ \|\(|\)|\[|\]|\$ ]]; then
-     # echo -en "'$string'"
+    elif [[ "$string" = *"'"* ]]; then
+      echo -en \""$(echo -en "$string" | sed -E 's/(["$])/\\\1/g')\""
+      #elif [[ "$string" =~ \|\(|\)|\[|\]|\$ ]]; then
+      # echo -en "'$string'"
     else
-     echo -en "$string"
+      echo -en "$string"
     fi
   fi
 }
@@ -156,9 +156,9 @@ function bail() {
 
 function bead() {
   if [[ $# == 1 ]]; then
-  local final_line="$((10))"
+    local final_line="$((10))"
   else
-   local final_line="$(( $2 ))"
+    local final_line="$(( $2 ))"
   fi
   bat "$1" --line-range 1:"$final_line"
 }
@@ -182,15 +182,15 @@ function ec() {
 
 function path() {
   echo $PATH | tr ":" "\n" | \
-    awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
-           sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
-           sub(\".config/asdf/shims\",   \"$fg_no_bold[red].config/asdf/shims$reset_color\"); \
-           sub(\"-$RUBY_VERSION\",   \"$fg_no_bold[red]-$RUBY_VERSION$reset_color\"); \
-           sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
-           sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
-           sub(\"$HOME\",  \"\$HOME$reset_color\"); \
-           sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
-           print }"
+    awk "{  sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
+            sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
+            sub(\".config/asdf/shims\",   \"$fg_no_bold[red].config/asdf/shims$reset_color\"); \
+            sub(\"-$RUBY_VERSION\",   \"$fg_no_bold[red]-$RUBY_VERSION$reset_color\"); \
+            sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
+            sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
+            sub(\"$HOME\",  \"\$HOME$reset_color\"); \
+            sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
+            print }"
 }
 function update() {
   fresh_update
@@ -274,7 +274,7 @@ function ginit() {
 }
 
 function asdf_ruby_version() {
-   if [ ! -f .tool-versions ]; then
+  if [ ! -f .tool-versions ]; then
     echo $ASDF_GLOBAL_RUBY
   else
     echo $(bat .tool-versions | rg "ruby")
