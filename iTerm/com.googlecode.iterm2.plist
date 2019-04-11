@@ -757,7 +757,7 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>505 443 918 512 0 0 2560 1440 </string>
+	<string>505 421 918 452 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 570 402 0 0 2560 1440 </string>
 	<key>New Bookmarks</key>
@@ -1599,7 +1599,7 @@
 				</dict>
 			</array>
 			<key>Space</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -2369,6 +2369,8 @@
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>575449948.67833197</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -2441,7 +2443,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-28T07:19:33Z</date>
+	<date>2019-04-10T05:56:06Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
