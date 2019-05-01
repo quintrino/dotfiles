@@ -23,7 +23,9 @@ alias now='date +"%T"'
 alias l='exa --long --grid --all --header --git --classify'
 alias up='cd ..'
 alias md='mkdir -p'
+alias h='http '
 alias rmf='rm -rf'
+alias t='touch '
 
 #Git
 
