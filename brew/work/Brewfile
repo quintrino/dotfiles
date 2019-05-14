@@ -1,5 +1,4 @@
 cask "docker"
 cask "dash"
 cask "docker"
-cask "postgres"
 brew "docker-compose"
