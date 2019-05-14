@@ -2,6 +2,8 @@
 
 set -e
 
+xcode-select --install
+
 git clone https://github.com/quintrino/dotfiles.git .dotfiles
 
 source $HOME/.dotfiles/deploy/deploy_functions.sh
