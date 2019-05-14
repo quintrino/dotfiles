@@ -18,6 +18,7 @@ export LOLCOMMITS_DIR="$XDG_DATA_HOME/lolcommits"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
 export ELM_HOME="$XDG_CONFIG_HOME/elm"
+export FRESH_PATH="$XDG_CONFIG_HOME/fresh"
 
 declare -A ZPLGM
 ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
