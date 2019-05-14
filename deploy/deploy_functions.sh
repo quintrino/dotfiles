@@ -5,7 +5,7 @@ function install_homebrew() {
 
 
 function install_zplugin() {
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+  $ZPLG_HOME=$XDG_CONFIG_HOME/zplugin sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 }
 
 function install_brew_bundle() {
