@@ -24,8 +24,8 @@ function install_brew_bundle() {
 
 function install_config_folders() {
   mkdir -p ~/Library/Application\ Support/Code/User/
-  mkdir -p $HOME/.local/share/z
-  mkdir -p $HOME/.local/share/zsh
+  mkdir -p $XDG_DATA_HOME/z
+  mkdir -p $XDG_DATA_HOME/zsh
 }
 
 
