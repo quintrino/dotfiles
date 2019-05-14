@@ -8,7 +8,13 @@ else
   xcode-select --install
 fi
 
-git clone https://github.com/quintrino/dotfiles.git .dotfiles
+if [ -d $HOME/.dotfiles ]; then
+    cd $HOME/.dotfiles
+    git pull --rebase
+    cd "$OLDPWD"
+  else
+    git clone https://github.com/quintrino/dotfiles.git .dotfiles
+  fi
 
 source $HOME/.dotfiles/deploy/deploy_functions.sh
 source $HOME/.dotfiles/environment
