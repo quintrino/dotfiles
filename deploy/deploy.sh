@@ -2,7 +2,11 @@
 
 set -e
 
-xcode-select --install
+if [[ $(xcode-select -p 1>/dev/null;echo $?) -eq 0 ]]; then
+  echo "XCode CLI installed"
+else
+  xcode-select --install
+fi
 
 git clone https://github.com/quintrino/dotfiles.git .dotfiles
 
