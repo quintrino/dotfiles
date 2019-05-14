@@ -1,14 +1,17 @@
 
 function install_homebrew() {
+  echo -e "\033[1;31mInstalling Homebrew \033[0m"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 
 function install_zplugin() {
+  echo -e "\033[1;31mInstalling Zplugin \033[0m"
   $ZPLG_HOME=$XDG_CONFIG_HOME/zplugin sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 }
 
 function install_brew_bundle() {
+  echo -e "\033[1;31mBrew Bundle Install \033[0m"
   cd $HOME/.dotfiles/brew
   brew bundle
   if [ "$WORK" == 1 ];
@@ -23,6 +26,7 @@ function install_brew_bundle() {
 }
 
 function install_config_folders() {
+  echo -e "\033[1;31mInstalling Config Folders \033[0m"
   mkdir -p ~/Library/Application\ Support/Code/User/
   mkdir -p $XDG_DATA_HOME/z
   mkdir -p $XDG_DATA_HOME/zsh
@@ -30,10 +34,12 @@ function install_config_folders() {
 
 
 function set_edit() {
+  echo -e "\033[1;31mSetting Editor \033[0m"
   ln -sv /usr/local/bin/code /usr/local/bin/edit
 }
 
 function install_zsh_defaults() {
+  echo -e "\033[1;31mSetting Default Shell \033[0m"
   [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
   echo /usr/local/bin/zsh >> /etc/shells # Set brew zsh as acceptable shell choice
   chsh -s /usr/local/bin/zsh # Set shell to brew zsh
@@ -41,6 +47,7 @@ function install_zsh_defaults() {
 }
 
 function install_fresh() {
+  echo -e "\033[1;31mInstall Fresh \033[0m"
 
   mkdir -p $XDG_CONFIG_HOME/fresh/source/freshshell
 
@@ -76,6 +83,7 @@ function install_fresh() {
 }
 
 function install_asdf_defaults() {
+  echo -e "\033[1;31mInstalling ASDF Defaults \033[0m"
   while read line; do
     asdf plugin-add "$(echo $line | cut -f 1 -d " " )"
     case "$(echo $line | cut -f 1 -d " " )" in
@@ -87,6 +95,7 @@ function install_asdf_defaults() {
 }
 
 function install_apple_defaults() {
+  echo -e "\033[1;31mInstalling Apple Defaults \033[0m"
   # Disable the sound effects on boot
   sudo nvram SystemAudioVolume=" "
 
@@ -165,6 +174,7 @@ function install_apple_defaults() {
 }
 
 function set_iterm_defaults() {
+  echo -e "\033[1;31mSetting iTerm Defaults \033[0m"
   # Specify the preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iTerm"
   # Tell iTerm2 to use the custom preferences in the directory
