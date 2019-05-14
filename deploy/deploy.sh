@@ -1,5 +1,4 @@
 # sudo curl -fsSL  https://raw.githubusercontent.com/quintrino/dotfiles/master/deploy/deploy.sh | WORK=1 bash
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 git clone https://github.com/quintrino/dotfiles.git .dotfiles
 
