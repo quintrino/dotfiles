@@ -1,5 +1,7 @@
 # sudo curl -fsSL  https://raw.githubusercontent.com/quintrino/dotfiles/master/deploy/deploy.sh | WORK=1 bash
 
+set -e
+
 git clone https://github.com/quintrino/dotfiles.git .dotfiles
 
 source $HOME/.dotfiles/deploy/deploy_functions.sh
