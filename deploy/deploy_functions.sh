@@ -41,7 +41,38 @@ function install_zsh_defaults() {
 }
 
 function install_fresh() {
-  curl -sL https://get.freshshell.com | bash
+
+  mkdir -p $XDG_CONFIG_HOME/fresh/source/freshshell
+
+  if [ -d $XDG_CONFIG_HOME/fresh/source/freshshell/fresh ]; then
+    cd $XDG_CONFIG_HOME/fresh/source/freshshell/fresh
+    git pull --rebase
+    cd "$OLDPWD"
+  else
+    git clone https://github.com/freshshell/fresh $XDG_CONFIG_HOME/fresh/source/freshshell/fresh
+  fi
+
+  FRESH_LOCAL="${FRESH_LOCAL:-$HOME/.dotfiles}"
+  if [ -n "$FRESH_LOCAL_SOURCE" ] && ! [ -d "$FRESH_LOCAL" ]; then
+    if ! [[ "$FRESH_LOCAL_SOURCE" == */* || "$FRESH_LOCAL_SOURCE" == *:* ]]; then
+      echo 'FRESH_LOCAL_SOURCE must be either in user/repo format or a full Git URL.' >&2
+      exit 1
+    fi
+
+    if echo "$FRESH_LOCAL_SOURCE" | grep -q :; then
+      git clone "$FRESH_LOCAL_SOURCE" "$FRESH_LOCAL"
+    else
+      git clone "https://github.com/$FRESH_LOCAL_SOURCE.git" "$FRESH_LOCAL"
+      git --git-dir="$FRESH_LOCAL/.git" remote set-url --push origin "git@github.com:$FRESH_LOCAL_SOURCE.git"
+    fi
+  fi
+
+  if ! [ -e $FRESH_RCFILE ]; then
+    if [ -r "$FRESH_LOCAL/freshrc" ]; then
+      ln -s "$FRESH_LOCAL/freshrc" $FRESH_RCFILE
+    fi
+  fi
+  $XDG_CONFIG_HOME/fresh/source/freshshell/fresh/bin/fresh
 }
 
 function install_asdf_defaults() {
