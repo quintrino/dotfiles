@@ -10,11 +10,11 @@
 # See http://freshshell.com/readme for documentation.
 
 fresh freshshell/fresh bin/fresh --bin
-fresh freshshell/fresh contrib/source-build.sh --file=~/.zshrc
+fresh zshrc --file=~/.zshrc
 
 fresh path
 fresh environment
-fresh zshrc
+fresh zsh
 fresh powerlevel9k
 fresh zplugin
 fresh completions
