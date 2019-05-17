@@ -65,7 +65,7 @@
   autoCorrect = 20
 
 [init]
-  templateDir = <%= "#{`overcommit --template-dir`}".chomp %>
+  templateDir = <%= ("#{`overcommit --template-dir`}".chomp if "#{`command -v overcommit`}" != '') || ''%>
 
 [interactive]
   singleKey = true
