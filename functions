@@ -11,6 +11,15 @@ function gpl(){
   git pull --no-edit "$remote" "$branch"
 }
 
+function stop() {
+  if [[ $# -gt 0 ]]; then
+    kill -9 $(lsof -i tcp:"$@" -t)
+  else
+    echo "No port provided, killing port 3000 "
+    kill -9 $(lsof -i tcp:3000 -t)
+  fi
+}
+
 # `glf [<remote>] [<branch>]` git pull force
 # force pull <branch> or the current branch from <remote> or origin
 function glf() {
