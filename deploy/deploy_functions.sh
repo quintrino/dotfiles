@@ -181,3 +181,11 @@ function set_iterm_defaults() {
   # Tell iTerm2 to use the custom preferences in the directory
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 }
+
+function remind_install_steps() {
+  cat <<-MESSAGE
+
+Set Chrome Ublock Origin to point to github filter
+
+MESSAGE
+}

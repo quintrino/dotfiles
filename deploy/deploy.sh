@@ -29,3 +29,4 @@ install_asdf_defaults
 install_apple_defaults
 set_iterm_defaults
 install_zsh_defaults
+remind_install_steps

@@ -1,5 +1,8 @@
 !Ublock Origin Blocklist
 
+!Add https://raw.githubusercontent.com/quintrino/dotfiles/master/apps/Chrome/ublock-Origin
+!to your custom filters in the Filter List tab
+
 !Stack Exchange
 
 ###hot-network-questions
