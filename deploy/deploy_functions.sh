@@ -30,6 +30,7 @@ function install_config_folders() {
   mkdir -p ~/Library/Application\ Support/Code/User/
   mkdir -p $XDG_DATA_HOME/z
   mkdir -p $XDG_DATA_HOME/zsh
+  mkdir -p $XDG_CONFIG_HOME/karabiner
 }
 
 
