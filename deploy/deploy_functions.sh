@@ -49,7 +49,7 @@ function install_zsh_defaults() {
 
 function install_fresh() {
   echo -e "\033[1;31mInstall Fresh \033[0m"
-
+  rm $HOME/.zshrc
   mkdir -p $XDG_CONFIG_HOME/fresh/source/freshshell
 
   if [ -d $XDG_CONFIG_HOME/fresh/source/freshshell/fresh ]; then
