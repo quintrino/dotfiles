@@ -29,8 +29,10 @@ function install_config_folders() {
   echo -e "\033[1;31mInstalling Config Folders \033[0m"
   mkdir -p ~/Library/Application\ Support/Code/User/
   mkdir -p $XDG_DATA_HOME/z
+  touch $XDG_DATA_HOME/z/z
   mkdir -p $XDG_DATA_HOME/zsh
   mkdir -p $XDG_CONFIG_HOME/karabiner
+  mkdir -p $XDG_CONFIG_HOME/zplugin/bin
 }
 
 
