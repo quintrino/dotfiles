@@ -221,6 +221,19 @@ function fresh_update() {
 
 function asdf_update() {
   echo -e "\033[1;31mUpdating asdf plugins \033[0m"
+  while read line; do
+    asdf plugin-add "$(echo $line | cut -f 1 -d " " )"
+    if [ $? -eq 2 ]
+    then
+      continue
+    fi
+    case "$(echo $line | cut -f 1 -d " " )" in
+      "nodejs") bash $ASDF_DATA_DIR/plugins/nodejs/bin/import-release-team-keyring
+    esac
+  done <$HOME/.dotfiles/tool-versions
+  while read line; do
+    asdf global "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
+  done <$HOME/.dotfiles/tool-versions
   cd $HOME && asdf plugin-update --all
   cd $XDG_CONFIG_HOME/asdf && asdf install
   cd $HOME
