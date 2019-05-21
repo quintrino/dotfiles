@@ -22,7 +22,7 @@ source $HOME/.dotfiles/environment
 install_config_folders
 install_homebrew
 install_zplugin
-install_brew_bundle
+(install_brew_bundle || true)
 set_edit
 install_fresh
 install_asdf_defaults
