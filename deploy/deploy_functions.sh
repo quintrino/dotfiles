@@ -185,8 +185,31 @@ function set_iterm_defaults() {
 function remind_install_steps() {
   cat <<-MESSAGE
 
-Set Chrome Ublock Origin to point to github filter
+#Completed before Google Drive Sync and 1Password Sync
+Sign into Google Drive, Google Chrome and 1Password
+Sign into Apple iCloud account
 Set computer name by running set_computer_name COMPUTER_NAME
+Set Bettertouchtool to start on login
+Enable Karabiner in security and privacy settings
+Set Bluetooth to display icon in Menu Bar
+Enable Security > Accessibility for Alfred, Bettertouchtool and Bartender
+Set Spotlight to control command space in Keyboard > Shortcuts
+
+#Completed after 1Password Sync
+Set Bettertouchtool to sync from Dropbox
+Enable licence for Bettertouchtool, Alfred and Bartender
+Sign into Teamviewer, Anki and Freedom
+Add ssh key for Github
+
+#Completed after Google Chrome Sync
+Copy 1Password.json from Google Chrome to Google Chrome Canary
+Set Chrome uBlock Origin to point to github filter
+
+#Completed after Google Drive Sync
+Set Dash and Alfred to Sync from Google Drive
+Set Google Drive to ignore warnings for removing shared items
+Set Alfred to command space
+Set Alfred appearance to stretch
 
 MESSAGE
 }
