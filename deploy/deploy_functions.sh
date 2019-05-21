@@ -186,6 +186,13 @@ function remind_install_steps() {
   cat <<-MESSAGE
 
 Set Chrome Ublock Origin to point to github filter
+Set computer name by running set_computer_name COMPUTER_NAME
 
 MESSAGE
+}
+
+function set_computer_name() {
+  sudo scutil --set HostName $1
+  sudo scutil --set LocalHostName $1
+  sudo scutil --set ComputerName $1
 }
