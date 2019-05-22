@@ -125,8 +125,6 @@ function install_apple_defaults() {
   # Set menubar to show percentage
   defaults write com.apple.menuextra.battery ShowPercent YES
 
-  # Wipe all (default) app icons from the Dock
-  defaults write com.apple.dock persistent-apps -array
 
   # Trackpad: enable tap to click for this user and for the login screen
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -159,11 +157,21 @@ function install_apple_defaults() {
   # Don’t show Dashboard as a Space
   defaults write com.apple.dock dashboard-in-overlay -bool true
 
+  # Wipe all (default) app icons from the Dock
+  defaults write com.apple.dock persistent-apps -array
+
   # Don’t automatically rearrange Spaces based on most recent use
   defaults write com.apple.dock mru-spaces -bool false
 
+  # Set Dock to the Left
+  defaults write com.apple.dock orientation -string left
+
   # Automatically hide and show the Dock
   defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock autohide-delay -float 0
+  defaults write com.apple.dock autohide-time-modifier -float 0
+  defaults write com.apple.dock static-only -bool true
+  killall Dock
 
   # Set Clock to 24 hour time
   defaults write com.apple.menuextra.clock "DateFormat" 'EEE HH:mm'
