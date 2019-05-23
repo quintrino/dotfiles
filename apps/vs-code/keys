@@ -9,6 +9,7 @@
 { "key": "cmd+7",                "command": "workbench.action.openEditorAtIndex7" },
 { "key": "cmd+8",                "command": "workbench.action.openEditorAtIndex8" },
 { "key": "cmd+9",                "command": "workbench.action.openEditorAtIndex9" },
+{ "key": "cmd+w", "command":  "workbench.action.quit", "when": "!editorIsOpen" }
 { "key": "shift+cmd+c",       "command": "copyRelativeFilePath" },
 {
   "key": "ctrl+shift+cmd+l",
