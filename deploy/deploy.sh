@@ -23,10 +23,9 @@ install_config_folders
 install_homebrew
 install_zplugin
 (install_brew_bundle || true)
-set_edit
 install_asdf_defaults
 install_fresh
 install_apple_defaults
-set_iterm_defaults
 install_zsh_defaults
+set_iterm_defaults
 remind_install_steps

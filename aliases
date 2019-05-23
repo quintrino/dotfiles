@@ -2,21 +2,16 @@
 
 #iTerm
 
-#the edit command has been created by creating a symlink in the deploy script to editor of choice.
+alias zhist='$EDITOR $HOME/.history/zsh/'
 
-alias e='edit'
-alias ea='edit -a .'
-
-alias zhist='edit $HOME/.history/zsh/'
-
-alias ali='edit $HOME/.dotfiles/aliases'
+alias ali='$EDITOR $HOME/.dotfiles/aliases'
 alias b='bat'
 alias dot='cd $HOME/.dotfiles'
-alias zrc='cd $HOME/.dotfiles && edit zshrc'
+alias zrc='cd $HOME/.dotfiles && $EDITOR zshrc'
 alias freq='history 0 | sed -E "s/ *[0-9]+\*? *[0-9 :-]+ *//" | sort | uniq -c | sort -rn | head -50'
-alias setup='edit $HOME/Google\ Drive/Sync/Mac/setup'
+alias setup='$EDITOR $HOME/Google\ Drive/Sync/Mac/setup'
 alias lsa='ls -a'
-alias profile='edit $HOME/Google\ Drive/Sync/Mac/iTerm/.profile'
+alias profile='$EDITOR $HOME/Google\ Drive/Sync/Mac/iTerm/.profile'
 alias pass='eval "$(ssh-agent -s)"; ssh-add $HOME/.ssh/id_rsa; export PATH="/usr/local/opt/openssl/bin:$PATH"'
 alias hn='hnote'
 alias now='date +"%T"'

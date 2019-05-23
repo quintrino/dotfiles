@@ -94,6 +94,14 @@ function g() {
   fi
 }
 
+function e() {
+  if [[ $# -gt 0 ]]; then
+    $EDITOR "$@"
+  else
+    $EDITOR -a .
+  fi
+}
+
 function gl() {
   if [[ $# -gt 0 ]]; then
     git log --oneline -$@
@@ -186,7 +194,7 @@ function files_changed_in_commit() {
 }
 
 function ec() {
-  edit $(files_changed_in_commit "$1")
+  $EDITOR $(files_changed_in_commit "$1")
 }
 
 function path() {

@@ -36,11 +36,6 @@ function install_config_folders() {
 }
 
 
-function set_edit() {
-  echo -e "\033[1;31mSetting Editor \033[0m"
-  ln -sv /usr/local/bin/code /usr/local/bin/edit
-}
-
 function install_zsh_defaults() {
   echo -e "\033[1;31mSetting Default Shell \033[0m"
   [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
