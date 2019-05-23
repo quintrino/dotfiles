@@ -44,7 +44,7 @@ function set_edit() {
 function install_zsh_defaults() {
   echo -e "\033[1;31mSetting Default Shell \033[0m"
   [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
-  echo /usr/local/bin/zsh >> /etc/shells # Set brew zsh as acceptable shell choice
+  sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells' # Set brew zsh as acceptable shell choice
   chsh -s /usr/local/bin/zsh # Set shell to brew zsh
   chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
 }
