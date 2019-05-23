@@ -1,4 +1,4 @@
-# sudo curl -fsSL  https://raw.githubusercontent.com/quintrino/dotfiles/master/deploy/deploy.sh | WORK=1 bash
+# curl -fsSL https://raw.githubusercontent.com/quintrino/dotfiles/master/deploy/deploy.sh | zsh
 
 set -e
 
