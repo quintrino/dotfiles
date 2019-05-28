@@ -20,6 +20,11 @@ function stop() {
   fi
 }
 
+function tmux_title() {
+  tmux set-option -g pane-border-style "bg=red","fg=white"
+  printf "\033]2;$@\033\\"
+}
+
 # `glf [<remote>] [<branch>]` git pull force
 # force pull <branch> or the current branch from <remote> or origin
 function glf() {
