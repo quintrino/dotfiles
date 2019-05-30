@@ -3,10 +3,12 @@
 Sign into Google Drive, Google Chrome and 1Password\033[0m
 Sign into Apple iCloud account
 Set computer name by running set_computer_name COMPUTER_NAME
-Set Bettertouchtool to start on login
+Enabled autostart on login for Bartender
+Enabled autostart on login for Bettertouchtool
 Enable Karabiner in security and privacy settings
 Set Bluetooth to display icon in Menu Bar
 Enable Security > Accessibility for Alfred, Bettertouchtool and Bartender
+Configure Bartender to auto hide apps
 Set Spotlight to control command space in Keyboard > Shortcuts
 
 \033[1;31mCompleted after 1Password Sync\033[0m
