@@ -35,7 +35,6 @@ fresh ruby/irbrc --file=$XDG_CONFIG_HOME/ruby/irbrc
 fresh ruby/gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
 fresh ruby/default-gems --file=$XDG_CONFIG_HOME/asdf/default-gems
 fresh ruby/railsrc --file=~/.railsrc
-fresh hushlogin --file=~/.hushlogin
 fresh tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
 fresh asdfrc --file=$XDG_CONFIG_HOME/asdf/asdfrc
 
