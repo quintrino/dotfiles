@@ -3,8 +3,7 @@
 source ${ZPLGM[HOME_DIR]}/bin/zplugin.zsh
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-autoload -Uz compinit promptinit
-compinit
+zpcompinit
 
 zplugin light bhilburn/powerlevel9k
 
