@@ -10,18 +10,18 @@
 # See http://freshshell.com/readme for documentation.
 
 fresh freshshell/fresh bin/fresh --bin
-fresh zshrc --file=~/.zshrc
+fresh shell/zsh/zshrc --file=~/.zshrc
 
-fresh path
-fresh environment
-fresh zsh
-fresh powerlevel9k
-fresh zplugin
-fresh completions
-fresh aliases
-fresh functions
-fresh fzf.zsh
-fresh lessrc
+fresh shell/path
+fresh shell/environment
+fresh shell/zsh/zsh
+fresh shell/zsh/powerlevel9k
+fresh shell/zsh/zplugin
+fresh shell/zsh/completions
+fresh shell/zsh/aliases
+fresh shell/zsh/functions
+fresh shell/zsh/fzf.zsh
+fresh shell/zsh/lessrc
 fresh https://gitlab.com/ellsclytn/dotfiles.git bin/extract --bin --ref=5165c8d0
 
 # Git

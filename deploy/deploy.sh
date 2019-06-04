@@ -17,7 +17,7 @@ if [ -d $HOME/.dotfiles ]; then
   fi
 
 source $HOME/.dotfiles/deploy/deploy_functions.sh
-source $HOME/.dotfiles/environment
+source $HOME/.dotfiles/shell/environment
 
 install_config_folders
 install_homebrew
