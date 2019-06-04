@@ -23,6 +23,7 @@ export FRESH_PATH="$XDG_CONFIG_HOME/fresh"
 declare -A ZPLGM
 ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
 ZPLGM[BIN_DIR]="$XDG_CONFIG_HOME/zplugin/bin"
+ZPLGM[ZCOMPDUMP_PATH]="$XDG_CONFIG_HOME/zplugin/zcompdump"
 
 if [ -f $XDG_CONFIG_HOME/asdf/.tool-versions ]; then
   export ASDF_GLOBAL_RUBY=`cat $XDG_CONFIG_HOME/asdf/.tool-versions | grep ruby`
