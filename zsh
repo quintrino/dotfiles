@@ -1,4 +1,10 @@
 #!/bin/zsh
+
+declare -A ZPLGM
+ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
+ZPLGM[BIN_DIR]="$XDG_CONFIG_HOME/zplugin/bin"
+ZPLGM[ZCOMPDUMP_PATH]="$XDG_CONFIG_HOME/zplugin/zcompdump"
+
 function precmd() {
     export DIRS=$(pwd | awk '{ sub("/Users/nick.wolf/Code", "~"); print $0 }')
     echo -ne "\e]1;${DIRS/#$HOME/~}\a"
