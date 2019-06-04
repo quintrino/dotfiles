@@ -214,7 +214,9 @@ function path() {
             sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
             print }"
 }
+
 function update() {
+  starting_directory=`pwd`
   fresh_update
   asdf_update
   zpl_update
@@ -225,6 +227,7 @@ function update() {
   echo -e "\033[1;31mBrew Doctor issues \033[0m"
   brew doctor
   exec zsh
+  cd $starting_directory && unset starting_directory
 }
 
 function fresh_update() {
