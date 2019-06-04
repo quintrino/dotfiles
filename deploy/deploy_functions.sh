@@ -89,7 +89,7 @@ function install_asdf_defaults() {
     esac
     asdf install "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
     asdf global "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
-  done <$HOME/.dotfiles/tool-versions
+  done <$HOME/.dotfiles/config/asdf/tool-versions
 }
 
 function install_apple_defaults() {

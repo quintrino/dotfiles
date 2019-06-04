@@ -35,8 +35,8 @@ fresh language/ruby/irbrc --file=$XDG_CONFIG_HOME/ruby/irbrc
 fresh language/ruby/gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
 fresh language/ruby/default-gems --file=$XDG_CONFIG_HOME/asdf/default-gems
 fresh language/ruby/railsrc --file=~/.railsrc
-fresh tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
-fresh asdfrc --file=$XDG_CONFIG_HOME/asdf/asdfrc
+fresh config/asdf/tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
+fresh config/asdf/asdfrc --file=$XDG_CONFIG_HOME/asdf/asdfrc
 
 
 fresh_after_build(){
