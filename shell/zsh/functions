@@ -264,11 +264,11 @@ function zpl_update() {
 
 function ruby_update() {
   echo -e "\033[1;31mUpdating Ruby Gems \033[0m"
-  cd ~/.dotfiles/ruby && gem update --system
+  cd ~/.dotfiles/language/ruby && gem update --system
   echo -e "\033[1;31mUpdating Bundler \033[0m"
-  cd ~/.dotfiles/ruby && gem install bundler
+  cd ~/.dotfiles/language/ruby && gem install bundler
   echo -e "\033[1;31mUpdating Gems \033[0m"
-  cd ~/.dotfiles/ruby && bundle update
+  cd ~/.dotfiles/language/ruby && bundle update
 }
 
 function brew_update() {
