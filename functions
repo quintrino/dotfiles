@@ -224,7 +224,7 @@ function update() {
   vscode_update
   echo -e "\033[1;31mBrew Doctor issues \033[0m"
   brew doctor
-  zsh
+  exec zsh
 }
 
 function fresh_update() {
