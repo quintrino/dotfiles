@@ -31,6 +31,7 @@ function install_config_folders() {
   mkdir -p $XDG_DATA_HOME/z
   touch $XDG_DATA_HOME/z/z
   mkdir -p $XDG_DATA_HOME/zsh
+  mkdir -p $XDG_DATA_HOME/bash
   mkdir -p $XDG_CONFIG_HOME/karabiner
   mkdir -p $XDG_CONFIG_HOME/zplugin/bin
 }

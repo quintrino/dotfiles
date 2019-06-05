@@ -11,6 +11,7 @@
 
 fresh freshshell/fresh bin/fresh --bin
 fresh shell/zsh/zshrc --file=~/.zshrc
+fresh shell/bash/bashrc --file=~/.bashrc
 
 fresh shell/path
 fresh shell/environment
@@ -23,6 +24,11 @@ fresh shell/zsh/functions
 fresh shell/zsh/fzf.zsh
 fresh shell/zsh/lessrc
 fresh https://gitlab.com/ellsclytn/dotfiles.git bin/extract --bin --ref=5165c8d0
+
+fresh-options --file=$XDG_CONFIG_HOME/bash/bash
+  fresh shell/path
+  fresh shell/environment
+fresh-options
 
 # Git
 fresh config/git/cc_menu --bin

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+PS1="\w\[\033[m\]\$\n\W\$(__git_ps1)\$"
+
+PROMPT_COMMAND="[ -d $XDG_DATA_HOME/bash/history ] || mkdir -p $XDG_DATA_HOME/bash/history; echo : [\$(date)] $$ $USER \$PWD\; \$(history 1 | sed -E 's/^[[:space:]]+[0-9]*[[:space:]]+//g') >> $HOME/.history/bash/history-\`date +%Y%m%d\`"
