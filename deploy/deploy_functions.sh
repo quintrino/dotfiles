@@ -183,7 +183,7 @@ function install_apple_defaults() {
 function set_iterm_defaults() {
   echo -e "\033[1;31mSetting iTerm Defaults \033[0m"
   # Specify the preferences directory
-  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iTerm"
+  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/apps/iTerm"
   # Tell iTerm2 to use the custom preferences in the directory
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 }
