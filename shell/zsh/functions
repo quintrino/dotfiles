@@ -199,7 +199,11 @@ function files_changed_in_commit() {
 }
 
 function ec() {
-  $EDITOR $(files_changed_in_commit "$1")
+  if [[ $# -gt 0 ]]; then
+    $EDITOR $(files_changed_in_commit "$1")
+  else
+    $EDITOR $(files_changed_in_commit HEAD)
+  fi
 }
 
 function path() {
