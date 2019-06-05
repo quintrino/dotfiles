@@ -189,7 +189,7 @@ function set_iterm_defaults() {
 }
 
 function remind_install_steps() {
-  echo "$(cat $HOME/.dotfiles/post_deploy_steps)"
+  echo "$(cat $HOME/.dotfiles/deploy/post_deploy_steps)"
 }
 
 function set_computer_name() {
