@@ -15,4 +15,6 @@
   "key": "ctrl+shift+cmd+l",
   "command": "relative-path-and-line.copyRelativePathAndLine"
 }
+{ "key": "shift+cmd+j", "command": "extension.jumpy-word"}
+{ "key": "escape", "command": "extension.jumpy-exit",  "when": "jumpy.isJumpyMode" }
 ]
