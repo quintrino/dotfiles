@@ -12,6 +12,7 @@
   uncommit = reset HEAD^
   unstage = reset
   back = !git show $(git log --format=%h^ master..HEAD | tail -n 1) --format=%cr --quiet
+  force-pull = "!git fetch origin $(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
 
 [color]
   branch      = auto
