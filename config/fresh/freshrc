@@ -23,7 +23,8 @@ fresh shell/zsh/aliases
 fresh shell/zsh/functions
 fresh shell/zsh/fzf.zsh
 fresh shell/zsh/lessrc
-fresh https://gitlab.com/ellsclytn/dotfiles.git bin/extract --bin --ref=5165c8d0
+
+fresh shell/utilities/extract --bin
 
 fresh-options --file=$XDG_CONFIG_HOME/bash/bash
   fresh shell/path
