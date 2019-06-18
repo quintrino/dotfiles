@@ -327,3 +327,23 @@ function restart_mongodb() {
   mongo --eval "db.getSiblingDB('admin').shutdownServer()"
   mongod --dbpath ~/.config/asdf/installs/mongodb/3.4.15/data
 }
+
+function exer_all() {
+  if ! [[ $# -eq 1 ]] ; then
+    echo 'You must provide a single language as an argument'
+    return 1
+  else
+    local language=$1
+    cd /Users/nick.wolf/Code/Personal/exercism
+    mkdir $language
+    cd $language
+    curl -LS "https://exercism.io/tracks/$language/exercises" \
+    | grep "/tracks/$language/exercises/" \
+    | awk '{print $3}' \
+    | cut -d/ -f5 \
+    | cut -d\" -f1 > exercises.txt
+    while read in; do
+      exercism download --exercise="$in" --track=$language;
+    done < exercises.txt
+  fi
+}
