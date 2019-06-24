@@ -286,6 +286,11 @@ function brew_update() {
 
 function mac_software_update() {
   echo -e "\033[1;31mUpdating Mac Software \033[0m"
+  xcode-select -p 1>/dev/null;local xcode_installed= $?
+  if ! [[ $xcode_installed -eq '0' ]]; then
+    echo 'XCode CLI Tools not installed, Installing now'
+    xcode-select --install
+  fi
   softwareupdate -ia
 }
 
