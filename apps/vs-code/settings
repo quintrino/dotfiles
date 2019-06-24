@@ -14,9 +14,11 @@
         "vs-code": "jsonc"
     },
     "files.exclude": {
-            "**/node_modules": true
+        "**/node_modules": true
     },
     "breadcrumbs.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveTimeout": 10000,
     "editor.formatOnType": true,
     "editor.renderLineHighlight": "all",
     "editor.renderWhitespace": "all",
