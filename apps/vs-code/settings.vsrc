@@ -11,7 +11,7 @@
     },
     "files.associations": {
         "overcommit": "yaml",
-        "vs-code": "jsonc"
+        "*.vsrc": "jsonc"
     },
     "files.exclude": {
         "**/node_modules": true
