@@ -1,20 +1,64 @@
 // Place your key bindings in this file to override the defaults
-[
-{ "key": "cmd+1",                "command": "workbench.action.openEditorAtIndex1" },
-{ "key": "cmd+2",                "command": "workbench.action.openEditorAtIndex2" },
-{ "key": "cmd+3",                "command": "workbench.action.openEditorAtIndex3" },
-{ "key": "cmd+4",                "command": "workbench.action.openEditorAtIndex4" },
-{ "key": "cmd+5",                "command": "workbench.action.openEditorAtIndex5" },
-{ "key": "cmd+6",                "command": "workbench.action.openEditorAtIndex6" },
-{ "key": "cmd+7",                "command": "workbench.action.openEditorAtIndex7" },
-{ "key": "cmd+8",                "command": "workbench.action.openEditorAtIndex8" },
-{ "key": "cmd+9",                "command": "workbench.action.openEditorAtIndex9" },
-{ "key": "shift+cmd+c",       "command": "copyRelativeFilePath" },
-{ "key": "cmd+w", "command":  "workbench.action.quit", "when": "!editorIsOpen" }
-{
-  "key": "ctrl+shift+cmd+l",
-  "command": "relative-path-and-line.copyRelativePathAndLine"
-}
-{ "key": "shift+cmd+j", "command": "extension.jumpy-word"}
-{ "key": "escape", "command": "extension.jumpy-exit",  "when": "jumpy.isJumpyMode" }
+[{
+    "key": "cmd+1",
+    "command": "workbench.action.openEditorAtIndex1"
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.openEditorAtIndex2"
+  },
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.openEditorAtIndex3"
+  },
+  {
+    "key": "cmd+4",
+    "command": "workbench.action.openEditorAtIndex4"
+  },
+  {
+    "key": "cmd+5",
+    "command": "workbench.action.openEditorAtIndex5"
+  },
+  {
+    "key": "cmd+6",
+    "command": "workbench.action.openEditorAtIndex6"
+  },
+  {
+    "key": "cmd+7",
+    "command": "workbench.action.openEditorAtIndex7"
+  },
+  {
+    "key": "cmd+8",
+    "command": "workbench.action.openEditorAtIndex8"
+  },
+  {
+    "key": "cmd+9",
+    "command": "workbench.action.openEditorAtIndex9"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "copyRelativeFilePath"
+  },
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.quit",
+    "when": "!editorIsOpen"
+  },
+  {
+    "key": "alt+ctrl+shift+cmd+f",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "ctrl+shift+cmd+l",
+    "command": "relative-path-and-line.copyRelativePathAndLine"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "extension.jumpy-word"
+  },
+  {
+    "key": "escape",
+    "command": "extension.jumpy-exit",
+    "when": "jumpy.isJumpyMode"
+  }
 ]
