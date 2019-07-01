@@ -356,3 +356,7 @@ function exer_all() {
     done < exercises.txt
   fi
 }
+
+function evs() {
+  env | rg "$@"
+}
