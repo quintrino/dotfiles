@@ -145,6 +145,10 @@ function quote_lines() {
   done
 }
 
+function git_current_branch() {
+  git rev-parse --symbolic-full-name --abbrev-ref HEAD 2>/dev/null
+}
+
 function git_edit() {
   $(git config core.editor) "$@"
 }
