@@ -43,7 +43,6 @@
 [core]
   pager = diff-so-fancy | less --tabs=4 -RFX
   mergeoptions = --no-edit
-  editor = e -nw
   ignorecase = false
 
 [diff]
