@@ -54,5 +54,8 @@
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.feedback.visible": false,
     "workbench.statusBar.visible": true,
-    "workbench.tree.indent": 6
+    "workbench.tree.indent": 6,
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
