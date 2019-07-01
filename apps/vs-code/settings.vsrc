@@ -18,7 +18,7 @@
     },
     "breadcrumbs.enabled": true,
     "editor.formatOnSave": true,
-    "editor.formatOnSaveTimeout": 10000,
+    "editor.formatOnSaveTimeout": 2000,
     "editor.formatOnType": true,
     "editor.renderLineHighlight": "all",
     "editor.renderWhitespace": "all",
