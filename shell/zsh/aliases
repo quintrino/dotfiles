@@ -6,6 +6,7 @@ alias zhist='$EDITOR $HOME/.history/zsh/'
 
 alias ali='$EDITOR $HOME/.dotfiles/aliases'
 alias b='bat'
+alias bp='bat --plain'
 alias dot='cd $HOME/.dotfiles'
 alias zrc='cd $HOME/.dotfiles && $EDITOR zshrc'
 alias freq='history 0 | sed -E "s/ *[0-9]+\*? *[0-9 :-]+ *//" | sort | uniq -c | sort -rn | head -50'
