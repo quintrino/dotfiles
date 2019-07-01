@@ -17,6 +17,7 @@
         "**/node_modules": true
     },
     "breadcrumbs.enabled": true,
+    "elm.compiler": "/Users/nick.wolf/.config/asdf/shims/",
     "editor.formatOnSave": true,
     "editor.formatOnSaveTimeout": 2000,
     "editor.formatOnType": true,
