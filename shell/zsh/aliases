@@ -117,8 +117,8 @@ alias ca='cd $HOME/Code/CultureAmp'
 alias jep='cd $HOME/Code/CultureAmp/JuniorEngineer'
 alias ys='BROWSER=none yarn start'
 alias mu='cd $HOME/Code/CultureAmp/murmur'
-alias mut='mu && bin/murmur-tmux start'
-alias mus='mu && bin/murmur-tmux stop'
+alias mus='mu && bin/murmur-tmux start'
+alias mut='mu && bin/murmur-tmux stop'
 
 #Folders
 
