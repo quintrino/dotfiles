@@ -7,7 +7,11 @@ Enabled autostart on login for Bartender
 Enabled autostart on login for Bettertouchtool
 Enable Karabiner in security and privacy settings
 Set Bluetooth to display icon in Menu Bar
-Enable Security > Accessibility for Alfred, Bettertouchtool and Bartender
+Enable Security > Accessibility:
+* Alfred
+* Bettertouchtool
+* Bartender
+* Muzzle
 Configure Bartender to auto hide apps
 Set Spotlight to control command space in Keyboard > Shortcuts
 
