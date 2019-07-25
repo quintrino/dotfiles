@@ -5,6 +5,7 @@ Sign into Apple iCloud account
 Set computer name by running set_computer_name COMPUTER_NAME
 Enabled autostart on login for Bartender
 Enabled autostart on login for Bettertouchtool
+Enable autostart on login for Hammerspoon
 Enable Karabiner in security and privacy settings
 Set Bluetooth to display icon in Menu Bar
 Enable Security > Accessibility:
@@ -12,6 +13,7 @@ Enable Security > Accessibility:
 * Bettertouchtool
 * Bartender
 * Muzzle
+* Hammerspoon
 Configure Bartender to auto hide apps
 Set Spotlight to control command space in Keyboard > Shortcuts
 

@@ -34,6 +34,7 @@ function install_config_folders() {
   mkdir -p $XDG_DATA_HOME/bash
   mkdir -p $XDG_CONFIG_HOME/karabiner
   mkdir -p $XDG_CONFIG_HOME/zplugin/bin
+  mkdir -p $XDG_CONFIG_HOME/hammerspoon
 }
 
 
@@ -175,6 +176,9 @@ function install_apple_defaults() {
   # Allow installing user scripts via GitHub Gist or Userscripts.org
   # defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
   # defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
+
+  # Set Hammerspoon to use XDG config location
+  defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 
   # Reset SystemUIServer
   killall -KILL SystemUIServer

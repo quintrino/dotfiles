@@ -44,6 +44,7 @@ fresh language/ruby/default-gems --file=$XDG_CONFIG_HOME/asdf/default-gems
 fresh language/ruby/railsrc --file=~/.railsrc
 fresh config/asdf/tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
 fresh config/asdf/asdfrc --file=$XDG_CONFIG_HOME/asdf/asdfrc
+fresh config/hammerspoon/init.lua --file=$XDG_CONFIG_HOME/hammerspoon/init.lua
 
 fresh_after_build(){
   ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Code/User/settings.json
