@@ -101,7 +101,7 @@ function g() {
 
 function e() {
   if [[ $# -gt 0 ]]; then
-    $EDITOR "$@"
+    $EDITOR -a "$@"
   else
     $EDITOR -a .
   fi
