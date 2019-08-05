@@ -8,3 +8,11 @@ function hide_slack()
  end
 
 wf_slack:subscribe(wf.windowUnfocused, hide_slack)
+
+local wf_signal = wf.new{"Signal"}
+
+function hide_signal()
+    hs.appfinder.appFromName("Signal"):hide()
+ end
+
+wf_signal:subscribe(wf.windowUnfocused, hide_signal)
