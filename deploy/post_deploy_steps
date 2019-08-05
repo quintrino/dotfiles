@@ -1,10 +1,10 @@
-\033[1;31mCompleted before Google Drive Sync and 1Password Sync\033[0m
+\033[1;31mComplete before Google Drive Sync and 1Password Sync\033[0m
 
 Sign into Google Drive, Google Chrome and 1Password\033[0m
 Sign into Apple iCloud account
 Set computer name by running set_computer_name COMPUTER_NAME
-Enabled autostart on login for Bartender
-Enabled autostart on login for Bettertouchtool
+Enable autostart on login for Bartender
+Enable autostart on login for Bettertouchtool
 Enable autostart on login for Hammerspoon
 Enable Karabiner in security and privacy settings
 Set Bluetooth to display icon in Menu Bar
@@ -15,9 +15,9 @@ Enable Security > Accessibility:
 * Muzzle
 * Hammerspoon
 Configure Bartender to auto hide apps
-Set Spotlight to control command space in Keyboard > Shortcuts
+Set Spotlight to control option command space in Keyboard > Shortcuts
 
-\033[1;31mCompleted after 1Password Sync\033[0m
+\033[1;31mComplete after 1Password Sync\033[0m
 
 Set Bettertouchtool to sync from Dropbox
 Enable licence for Bettertouchtool, Alfred and Bartender
@@ -29,7 +29,7 @@ Add ssh key for Github
 Copy 1Password.json from Google Chrome to Google Chrome Canary
 Set Chrome uBlock Origin to point to github filter
 
-\033[1;31mCompleted after Google Drive Sync\033[0m
+\033[1;31mComplete after Google Drive Sync\033[0m
 
 Set Dash and Alfred to Sync from Google Drive
 Set Google Drive to ignore warnings for removing shared items
