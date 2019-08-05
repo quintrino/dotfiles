@@ -150,7 +150,7 @@ function git_current_branch() {
 }
 
 function git_edit() {
-  $(git config core.editor) "$@"
+  eval $GIT_EDITOR $@
 }
 
 function git_conflicts_with_line_numbers(){
