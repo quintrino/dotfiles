@@ -5,7 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
     awesome_print (1.8.0)
-    backport (1.1.1)
+    backport (1.1.2)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     byebug (11.0.1)
