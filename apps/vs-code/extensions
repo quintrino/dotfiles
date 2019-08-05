@@ -11,6 +11,7 @@ karunamurti.haml
 misogi.ruby-rubocop
 mjmcloug.vscode-elixir
 ms-vscode.vscode-typescript-tslint-plugin
+ms-vsliveshare.vsliveshare
 oderwat.indent-rainbow
 PKief.material-icon-theme
 rebornix.ruby
