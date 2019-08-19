@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 puts 'Starting pry via irb'
 require 'pry'
 Pry.start

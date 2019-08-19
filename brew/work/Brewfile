@@ -1,4 +1,6 @@
-cask "docker"
-cask "dash"
-cask "docker"
-brew "docker-compose"
+# frozen_string_literal: true
+
+cask 'docker'
+cask 'dash'
+cask 'docker'
+brew 'docker-compose'
