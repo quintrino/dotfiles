@@ -9,7 +9,7 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>AnimateDimming</key>
@@ -783,7 +783,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 570 402 0 0 2560 1440 </string>
+	<string>78 448 570 425 0 0 2560 1440 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1205,6 +1205,13 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>6 / 0x6</string>
+				</dict>
+				<key>0x49-0x1e0000</key>
+				<dict>
+					<key>Action</key>
+					<integer>13</integer>
+					<key>Text</key>
+					<string></string>
 				</dict>
 				<key>0x7f-0x80000</key>
 				<dict>
@@ -3410,19 +3417,26 @@
 		<string>3.2.9</string>
 		<string>3.3.0</string>
 	</array>
-	<key>NoSyncFrame_SharedPreferences</key>
+	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{398, 727}</string>
+		<string>{977, 1209}</string>
+	</dict>
+	<key>NoSyncFrame_SharedPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{599, -900}, {1440, 900}}</string>
+		<key>topLeft</key>
+		<string>{708, -266}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>25756624-B5DE-437D-AF17-C061CBFE691A</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>4</integer>
+	<integer>5</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3791,7 +3805,23 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentTab.tmuxWindowName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>currentTab.currentSession.terminalIconName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.tmuxPaneTitle</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -4117,16 +4147,16 @@
 	</dict>
 	<key>NoSyncSearchHistory</key>
 	<array>
-		<string>deleted</string>
-		<string>exclude</string>
-		<string>july.</string>
-		<string>june</string>
-		<string>account</string>
-		<string>reference</string>
-		<string>custom</string>
-		<string>teamsuq</string>
-		<string>customer</string>
-		<string>customerS</string>
+		<string>dlteam</string>
+		<string>tlteam</string>
+		<string>answer</string>
+		<string>20515a62-e8fc-4d59-8037-cc590d3a34a4</string>
+		<string>parent</string>
+		<string>"a49f97f7-d73f-4616-b15b-b48ee2fd866b"</string>
+		<string>sele</string>
+		<string>option</string>
+		<string>questionquestion</string>
+		<string>charlock</string>
 	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>579582469.79640305</real>
@@ -4202,7 +4232,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-08-05T05:16:45Z</date>
+	<date>2019-08-27T02:08:35Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
