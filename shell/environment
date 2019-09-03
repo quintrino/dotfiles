@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 export TERM="xterm-256color"
+export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
 export CLICOLOR=1
 export EDITOR=code
 export GIT_EDITOR='code --goto --new-window --wait'
