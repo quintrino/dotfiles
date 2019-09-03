@@ -8,7 +8,7 @@
   ls = log --pretty=format:“%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]” --decorate
   lsb = !git ls master..HEAD
   wip = !git add . && OVERCOMMIT_DISABLE=1 git commit -m 'WIP'
-  rasm = !git checkout master && git pull && git checkout - && git rebase --autosquash --autostash origin/master
+  rasm = !git switch master && git pull && git switch - && git rebase --autosquash --autostash origin/master
   uncommit = reset HEAD^
   unstage = reset
   back = !git show $(git log --format=%h^ master..HEAD | tail -n 1) --format=%cr --quiet

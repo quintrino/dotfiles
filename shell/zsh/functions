@@ -84,7 +84,7 @@ EOF
   echo "$the_app"
 }
 
-function gj () { git branch "$1" && git checkout "$1"; }
+function gj () { git branch "$1" && git switch "$1"; }
 
 function mcd () {
     mkdir -p $1
