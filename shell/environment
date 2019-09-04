@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 export TERM="xterm-256color"
 export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
@@ -23,8 +23,9 @@ export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
 export ELM_HOME="$XDG_CONFIG_HOME/elm"
 export FRESH_PATH="$XDG_CONFIG_HOME/fresh"
 
-if [ -f $XDG_CONFIG_HOME/asdf/.tool-versions ]; then
-  export ASDF_GLOBAL_RUBY=`cat $XDG_CONFIG_HOME/asdf/.tool-versions | grep ruby`
+if [ -f "$XDG_CONFIG_HOME/asdf/.tool-versions" ]; then
+  ASDF_GLOBAL_RUBY=$(grep ruby "$XDG_CONFIG_HOME/asdf/.tool-versions")
+  export ASDF_GLOBAL_RUBY
 else
   echo "File $XDG_CONFIG_HOME/asdf/.tool-versions does not exist."
 fi

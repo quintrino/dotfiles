@@ -1,39 +1,41 @@
-#!/bin/zsh
-function ct () {
-    for code ({000..255}) print -P -- "$code: %F{$code} $1 %f"
+#!/bin/sh
+ct () {
+  for code in $(seq 000 255); do
+    print -P -- "$code: %F{$code} $1 %f"
+  done
 }
 
 # `gl [<remote>] [<branch>]` git pull
 # pull <branch> or the current branch from <remote> or origin
-function gpl(){
+gpl(){
   local remote=${1:-origin}
   local branch=${2:-$(git_current_branch)}
   git pull --no-edit "$remote" "$branch"
 }
 
-function stop() {
+stop() {
   if [[ $# -gt 0 ]]; then
-    kill -9 $(lsof -i tcp:"$@" -t)
+    kill -9 "$(lsof -i tcp:"$*" -t)"
   else
     echo "No port provided, killing port 3000 "
-    kill -9 $(lsof -i tcp:3000 -t)
+    kill -9 "$(lsof -i tcp:3000 -t)"
   fi
 }
 
-function tmux_title() {
-  tmux set-option -g pane-border-style "bg=red","fg=white"
-  printf "\033]2;$@\033\\"
+tmux_title() {
+  tmux set-option -g pane-border-style "bg=red,fg=white"
+  printf "\033]2;%s\033\\" "$@"
 }
 
 # `glf [<remote>] [<branch>]` git pull force
 # force pull <branch> or the current branch from <remote> or origin
-function glf() {
+glf() {
   local remote=${1:-origin}
   local branch=${2:-$(git_current_branch)}
   git fetch "$remote" "$branch" && git reset --hard "$remote"/"$branch"
 }
 
-function vsplit_tab() {
+vsplit_tab() {
   local command="cd \\\"$PWD\\\"; clear"
   (( $# > 0 )) && command="${command}; $*"
 
@@ -73,7 +75,7 @@ EOF
   fi
 }
 
-function _omz_osx_get_frontmost_app() {
+_omz_osx_get_frontmost_app() {
   local the_app=$(
     osascript 2>/dev/null <<EOF
       tell application "System Events"
@@ -84,14 +86,14 @@ EOF
   echo "$the_app"
 }
 
-function gj () { git branch "$1" && git switch "$1"; }
+gj () { git branch "$1" && git switch "$1"; }
 
-function mcd () {
-    mkdir -p $1
-    cd $1
+mcd () {
+    mkdir -p "$1"
+    cd "$1" || exit
 }
 
-function g() {
+g() {
   if [[ $# -gt 0 ]]; then
     git "$@"
   else
@@ -99,32 +101,32 @@ function g() {
   fi
 }
 
-function e() {
+e() {
   if [[ $# -gt 0 ]]; then
-    $EDITOR -a "$@"
+    $EDITOR -a --goto "$@"
   else
     $EDITOR -a .
   fi
 }
 
-function gl() {
+gl() {
   if [[ $# -gt 0 ]]; then
-    git log --oneline -$@
+    git log --oneline -"$*"
   else
     git log --oneline -1
   fi
 }
 
-function gcf() {
-  git log $@ --oneline -1
-  git commit --fixup=$@ && GIT_SEQUENCE_EDITOR=true git rebase --autosquash --autostash $@^ -i
+gcf() {
+  git log "$@" --oneline -1
+  git commit --fixup="$*" && GIT_SEQUENCE_EDITOR=true git rebase --autosquash --autostash "$*"^ -i
 }
 
-function git_status_filtered() {
+git_status_filtered() {
   git status --porcelain | rg -F "$* " | colrm 1 3 | quote_lines
 }
 
-function quote() {
+quote() {
   if (( $# > 0 )); then
     local string=$*
     if [[ -z "$string" ]]; then
@@ -139,37 +141,37 @@ function quote() {
   fi
 }
 
-function quote_lines() {
+quote_lines() {
   while read -r line; do
     echo -e $(quote "$line")
   done
 }
 
-function git_current_branch() {
+git_current_branch() {
   git rev-parse --symbolic-full-name --abbrev-ref HEAD 2>/dev/null
 }
 
-function git_edit() {
-  eval $GIT_EDITOR $@
+git_edit() {
+  eval "$GIT_EDITOR" "$@"
 }
 
-function git_conflicts_with_line_numbers(){
+git_conflicts_with_line_numbers(){
   git_status_filtered UU | xargs grep -nHoE -m 1 '^<{6}|={6}|>{6}' | cut -d: -f1-2 | quote_lines
 }
 
-function git_open_conflicts() {
+git_open_conflicts() {
   local active_conflicts=$(git_conflicts_with_line_numbers)
-  if [[ ! -z "$active_conflicts" ]]; then
-    git_edit $active_conflicts && git_open_conflicts
+  if [[ -n "$active_conflicts" ]]; then
+    git_edit "$active_conflicts" && git_open_conflicts
   fi
 }
 
-function git_prepare_content_conflicts() {
+git_prepare_content_conflicts() {
   git_open_conflicts
   git_status_filtered UU | xargs git add
 }
 
-function bail() {
+bail() {
   local count=$(wc -l < "$1")
   local final_line="$(( $count - 0 ))"
   if [[ $# == 1 ]]; then
@@ -180,7 +182,7 @@ function bail() {
   bat "$1" --line-range "$ten_count":"$final_line"
 }
 
-function bead() {
+bead() {
   if [[ $# == 1 ]]; then
     local final_line="$((10))"
   else
@@ -189,42 +191,42 @@ function bead() {
   bat "$1" --line-range 1:"$final_line"
 }
 
-function git_untrack_new_blank() {
+git_untrack_new_blank() {
   git diff --name-only --no-renames --diff-filter=A | xargs git reset --quiet --
 }
 
-function gfh() {
+gfh() {
   local filename=$1
     git log --oneline --follow --patch master..HEAD -- "$filename"
 }
 
-function files_changed_in_commit() {
-  git diff-tree --no-commit-id --name-only -r $@
+files_changed_in_commit() {
+  git diff-tree --no-commit-id --name-only -r "$@"
 }
 
-function ec() {
+ec() {
   if [[ $# -gt 0 ]]; then
-    $EDITOR $(files_changed_in_commit "$1")
+    $EDITOR "$(files_changed_in_commit "$1")"
   else
-    $EDITOR $(files_changed_in_commit HEAD)
+    $EDITOR "$(files_changed_in_commit HEAD)"
   fi
 }
 
-function path() {
-  echo $PATH | tr ":" "\n" | \
-    awk "{  sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
-            sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
-            sub(\".config/asdf/shims\",   \"$fg_no_bold[red].config/asdf/shims$reset_color\"); \
-            sub(\"-$RUBY_VERSION\",   \"$fg_no_bold[red]-$RUBY_VERSION$reset_color\"); \
-            sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
-            sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
+path() {
+  echo "$PATH" | tr ":" "\n" | \
+    awk "{  sub(\"/usr\",   \"${fg_no_bold[green]}/usr$reset_color\"); \
+            sub(\"/bin\",   \"${fg_no_bold[blue]}/bin$reset_color\"); \
+            sub(\".config/asdf/shims\",   \"${fg_no_bold[red]}.config/asdf/shims$reset_color\"); \
+            sub(\"-$RUBY_VERSION\",   \"${fg_no_bold[red]}-$RUBY_VERSION$reset_color\"); \
+            sub(\"/opt\",   \"${fg_no_bold[cyan]}/opt$reset_color\"); \
+            sub(\"/sbin\",  \"${fg_no_bold[magenta]}/sbin$reset_color\"); \
             sub(\"$HOME\",  \"\$HOME$reset_color\"); \
-            sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
+            sub(\"/local\", \"${fg_no_bold[yellow]}/local$reset_color\"); \
             print }"
 }
 
-function update() {
-  starting_directory=`pwd`
+update() {
+  starting_directory=$(pwd)
   fresh_update
   asdf_update
   zpl_update
@@ -232,27 +234,27 @@ function update() {
   brew_update
   mac_software_update
   vscode_update
-  echo -e "\033[1;31mBrew Doctor issues \033[0m"
+  printf "\033[1;31mBrew Doctor issues \033[0m\n"
   brew doctor
   exec zsh
-  cd $starting_directory && unset starting_directory
+  cd "$starting_directory" && unset starting_directory
 }
 
-function fresh_update() {
-  echo -e "\033[1;31mUpdating Fresh \033[0m"
+fresh_update() {
+  printf "\033[1;31mUpdating Fresh \033[0m\n"
   fresh up | rg -v "Current branch master is up to date."
 }
 
 function asdf_update() {
   echo -e "\033[1;31mUpdating asdf plugins \033[0m"
-  while read line; do
-    asdf plugin-add "$(echo $line | cut -f 1 -d " " )"
+  while read -r line; do
+    asdf plugin-add "$(echo "$line" | cut -f 1 -d " " )"
     if [ $? -eq 2 ]
     then
       continue
     fi
-    case "$(echo $line | cut -f 1 -d " " )" in
-      "nodejs") bash $ASDF_DATA_DIR/plugins/nodejs/bin/import-release-team-keyring
+    case "$(echo "$line" | cut -f 1 -d " " )" in
+      "nodejs") bash "$ASDF_DATA_DIR/plugins/nodejs/bin/import-release-team-keyring"
     esac
   done <$HOME/.dotfiles/config/asdf/tool-versions
   while read line; do
@@ -263,34 +265,34 @@ function asdf_update() {
   cd $HOME
 }
 
-function zpl_update() {
-  echo -e "\033[1;31mUpdating Zplugin \033[0m"
+zpl_update() {
+  printf "\033[1;31mUpdating Zplugin \033[0m\n"
   zpl self-update
-  echo -e "\033[1;31mUpdating Zsh plugins \033[0m"
+  printf "\033[1;31mUpdating Zsh plugins \033[0m\n"
   zpl update --all | rg -v "up to date.|unloaded|^$"
 }
 
-function ruby_update() {
-  echo -e "\033[1;31mUpdating Ruby Gems \033[0m"
+ruby_update() {
+  printf "\033[1;31mUpdating Ruby Gems \033[0m\n"
   cd ~/.dotfiles/language/ruby && gem update --system
-  echo -e "\033[1;31mUpdating Bundler \033[0m"
+  printf "\033[1;31mUpdating Bundler \033[0m\n"
   cd ~/.dotfiles/language/ruby && gem install bundler
-  echo -e "\033[1;31mUpdating Gems \033[0m"
+  printf "\033[1;31mUpdating Gems \033[0m\n"
   cd ~/.dotfiles/language/ruby && bundle update
 }
 
-function brew_update() {
-  echo -e "\033[1;31mUpdating Brew \033[0m"
+brew_update() {
+  printf "\033[1;31mUpdating Brew \033[0m\n"
   brew update
-  echo -e "\033[1;31mUpgrading Brew \033[0m"
+  printf "\033[1;31mUpgrading Brew \033[0m\n"
   brew upgrade
-  echo -e "\033[1;31mOutdated Casks \033[0m"
+  printf "\033[1;31mOutdated Casks \033[0m\n"
   brew cask upgrade
 }
 
-function mac_software_update() {
-  echo -e "\033[1;31mUpdating Mac Software \033[0m"
-  xcode-select -p 1>/dev/null;local xcode_installed= $?
+mac_software_update() {
+  printf "\033[1;31mUpdating Mac Software \033[0m\n"
+  xcode-select -p 1>/dev/null;local xcode_installed=$?
   if ! [[ $xcode_installed -eq '0' ]]; then
     echo 'XCode CLI Tools not installed, Installing now'
     xcode-select --install
@@ -298,65 +300,69 @@ function mac_software_update() {
   softwareupdate -ia
 }
 
-function vscode_update() {
-  echo -e "\033[1;31mUpdating VS Code Extensions \033[0m"
+vscode_update() {
+  printf "\033[1;31mUpdating VS Code Extensions \033[0m\n"
   if [ "$(cat ~/.dotfiles/apps/vs-code/extensions)" = "$(code --list-extensions)" ]; then
     echo 'All extensions installed'
     return 0
   fi
-  while read line; do
+  while read -r line; do
     code --install-extension "$line"
   done <~/.dotfiles/apps/vs-code/extensions
   rm ~/.dotfiles/apps/vs-code/extensions
-  code --list-extensions | while read line; do
-    echo $line >> ~/.dotfiles/apps/vs-code/extensions
+  code --list-extensions | while read -r line; do
+    echo "$line" >> ~/.dotfiles/apps/vs-code/extensions
   done
 }
 
-function grb() {
-  git rebase -i HEAD~$1 -p --autostash
+grb() {
+  git rebase -i HEAD~"$1" -p --autostash
 }
 
-function ginit() {
+ginit() {
   git init --quiet
-  cp $HOME/.dotfiles/config/git/overcommit .overcommit.yml
+  cp "$HOME/.dotfiles/config/git/overcommit" .overcommit.yml
   overcommit --install
   overcommit --sign
 }
 
-function asdf_ruby_version() {
+asdf_ruby_version() {
   if [ ! -f .tool-versions ]; then
-    echo $ASDF_GLOBAL_RUBY
+    echo "$ASDF_GLOBAL_RUBY"
   else
-    echo $(bat .tool-versions | rg "ruby")
+    echo "$(bat .tool-versions | rg "ruby")"
   fi
 }
 
-function restart_mongodb() {
+current_directory() {
+  print -P "%~"
+}
+
+restart_mongodb() {
   mongo --eval "db.getSiblingDB('admin').shutdownServer()"
   mongod --dbpath ~/.config/asdf/installs/mongodb/3.4.15/data
 }
 
-function exer_all() {
+exer_all() {
   if ! [[ $# -eq 1 ]] ; then
     echo 'You must provide a single language as an argument'
     return 1
   else
     local language=$1
-    cd /Users/nick.wolf/Code/Personal/exercism
-    mkdir $language
-    cd $language
+    cd "/Users/nick.wolf/Code/Personal/exercism" || exit
+    mkdir "$language"
+    cd "$language" || exit
     curl -LS "https://exercism.io/tracks/$language/exercises" \
     | grep "/tracks/$language/exercises/" \
     | awk '{print $3}' \
     | cut -d/ -f5 \
     | cut -d\" -f1 > exercises.txt
-    while read in; do
-      exercism download --exercise="$in" --track=$language;
+    while read -r in; do
+      exercism download --exercise="$in" --track="$language";
     done < exercises.txt
   fi
 }
 
-function evs() {
+evs() {
   env | rg "$@"
 }

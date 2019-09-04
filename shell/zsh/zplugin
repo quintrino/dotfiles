@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/bin/sh
 
-source ${ZPLGM[HOME_DIR]}/bin/zplugin.zsh
+. "${ZPLGM[HOME_DIR]}/bin/zplugin.zsh"
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zpcompinit

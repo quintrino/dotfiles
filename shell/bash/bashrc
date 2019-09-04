@@ -5,5 +5,5 @@ export SHELL_SESSION_HISTORY=0
 export HISTFILE="$XDG_DATA_HOME/bash/bash_history"     #Where to save history to disk
 
 function load() {
-  source $XDG_CONFIG_HOME/bash/bash
+  source "$XDG_CONFIG_HOME/bash/bash"
 }
