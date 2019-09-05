@@ -9,6 +9,10 @@
 #
 # See http://freshshell.com/readme for documentation.
 
+fresh-options --filter='erb -r $HOME/.dotfiles/config/asdf/latest_version -T -'
+    fresh config/asdf/tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
+fresh-options
+
 fresh freshshell/fresh bin/fresh --bin
 fresh shell/zsh/zshrc --file=~/.zshrc
 fresh shell/bash/bashrc --file=~/.bash_profile
@@ -42,7 +46,6 @@ fresh language/ruby/irbrc --file=$XDG_CONFIG_HOME/ruby/irbrc
 fresh language/ruby/gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
 fresh language/ruby/default-gems --file=$XDG_CONFIG_HOME/asdf/default-gems
 fresh language/ruby/railsrc --file=~/.railsrc
-fresh config/asdf/tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
 fresh config/asdf/asdfrc --file=$XDG_CONFIG_HOME/asdf/asdfrc
 fresh config/hammerspoon/init.lua --file=$XDG_CONFIG_HOME/hammerspoon/init.lua
 

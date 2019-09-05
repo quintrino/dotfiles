@@ -1,2 +1,6 @@
-ruby 2.6.2
-nodejs 11.9.0
+elixir <%= latest('elixir') || latest_available('elixir') %>
+erlang <%= latest('erlang') || latest_available('erlang') %>
+nodejs <%= latest('nodejs') || latest_available('nodejs') %>
+postgres <%= latest('postgres') || latest_available('postgres') %>
+ruby <%= latest('ruby') || latest_available('ruby') %>
+rust <%= latest('rust') || latest_available('rust') %>
