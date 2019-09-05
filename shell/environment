@@ -1,15 +1,15 @@
 #!/bin/sh
 
 export TERM="xterm-256color"
-export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
 export CLICOLOR=1
 export EDITOR=code
 export GIT_EDITOR='code --goto --new-window --wait'
-export HEX_HOME="$XDG_CONFIG_HOME/hex"
 export EXA_GRID_ROWS=8
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export HEX_HOME="$XDG_CONFIG_HOME/hex"
+export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
 export ASDF_DATA_DIR="$XDG_CONFIG_HOME/asdf"
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$XDG_CONFIG_HOME/asdf/tool-versions"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
