@@ -122,6 +122,8 @@ alias ca='cd $HOME/Code/CultureAmp'
 alias jep='cd $HOME/Code/CultureAmp/JuniorEngineer'
 alias ys='BROWSER=none yarn start'
 alias mu='cd $HOME/Code/CultureAmp/murmur'
+alias sr='cd $HOME/Code/CultureAmp/snapshot_reporting_engine'
+alias sri='sr && SRI_RAM_LIMIT="2g" ./run.sh'
 alias mus='mu && bin/murmur-tmux start'
 alias mut='mu && bin/murmur-tmux stop'
 
