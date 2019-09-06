@@ -85,6 +85,7 @@ function install_fresh() {
 function install_asdf_defaults() {
   echo -e "\033[1;31mInstalling ASDF Defaults \033[0m"
   export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
+  export ASDF_RUBY_VERSION='system'
   while read line; do
     asdf plugin-add "$(echo $line | cut -f 1 -d " " )"
     case "$(echo $line | cut -f 1 -d " " )" in
@@ -93,6 +94,8 @@ function install_asdf_defaults() {
     asdf install "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
     asdf global "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
   done <~/.dotfiles/config/asdf/static
+  unset KERL_CONFIGURE_OPTIONS
+  unset ASDF_RUBY_VERSION
 }
 
 function install_apple_defaults() {
