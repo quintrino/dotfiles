@@ -173,20 +173,20 @@ git_prepare_content_conflicts() {
 
 bail() {
   local count=$(wc -l < "$1")
-  local final_line="$(( $count - 0 ))"
+  local final_line=$(( count - 0 ))
   if [[ $# == 1 ]]; then
-  local ten_count="$(( $count - 10 ))"
+  local ten_count=$(( count - 10 ))
   else
-  local ten_count="$(( $count - $2 + 1 ))"
+  local ten_count=$(( count - $2 + 1 ))
   fi
   bat "$1" --line-range "$ten_count":"$final_line"
 }
 
 bead() {
   if [[ $# == 1 ]]; then
-    local final_line="$((10))"
+    local final_line=10
   else
-    local final_line="$(( $2 ))"
+    local final_line="$2"
   fi
   bat "$1" --line-range 1:"$final_line"
 }
