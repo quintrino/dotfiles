@@ -299,7 +299,7 @@ mac_software_update() {
   printf "\033[1;31mUpdating Mac Software \033[0m\n"
   xcode-select -p 1>/dev/null;local xcode_installed=$?
   if ! [[ $xcode_installed -eq '0' ]]; then
-    echo 'XCode CLI Tools not installed, Installing now'
+    printf 'XCode CLI Tools not installed, Installing now'
     xcode-select --install
   fi
   softwareupdate -ia
@@ -335,7 +335,8 @@ asdf_ruby_version() {
   if [ ! -f .tool-versions ]; then
     echo "$ASDF_GLOBAL_RUBY"
   else
-    echo "$(bat .tool-versions | rg "ruby")"
+    local local_ruby_version=$(bat .tool-versions | rg "ruby")
+    echo "$local_ruby_version"
   fi
 }
 

@@ -37,7 +37,7 @@
     "search.location": "panel",
     "search.showLineNumbers": true,
     "search.smartCase": true,
-    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "terminal.integrated.fontFamily": "MesloLGSDZ Nerd Font",
     "terminal.integrated.letterSpacing": 0,
     "window.closeWhenEmpty": true,
     "window.openFoldersInNewWindow": "off",
