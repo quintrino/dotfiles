@@ -1,5 +1,5 @@
 elixir 1.9.1
-erlang 22.0.7
+erlang 22.1
 nodejs 12.10.0
 postgres 11.5
 ruby 2.6.4
