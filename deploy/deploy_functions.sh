@@ -175,7 +175,7 @@ function install_apple_defaults() {
   killall Dock
 
   # Set Clock to 24 hour time
-  defaults write com.apple.menuextra.clock "DateFormat" 'EEE HH:mm'
+  defaults write com.apple.menuextra.clock "DateFormat" 'EEE d MMM HH:mm'
 
   # Allow installing user scripts via GitHub Gist or Userscripts.org
   # defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
