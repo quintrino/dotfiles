@@ -17,15 +17,17 @@ fresh freshshell/fresh bin/fresh --bin
 fresh shell/zsh/zshrc --file=~/.zshrc
 fresh shell/bash/bashrc --file=~/.bash_profile
 
-fresh shell/path
-fresh shell/environment
-fresh shell/zsh/zsh
-fresh shell/zsh/zplugin
-fresh shell/zsh/completions
-fresh shell/zsh/aliases
-fresh shell/zsh/functions
-fresh shell/zsh/fzf.zsh
-fresh shell/zsh/lessrc
+fresh-options --filter='erb'
+  fresh shell/path
+  fresh shell/environment
+  fresh shell/zsh/zsh
+  fresh shell/zsh/zplugin
+  fresh shell/zsh/completions
+  fresh shell/zsh/aliases
+  fresh shell/zsh/functions
+  fresh shell/zsh/fzf.zsh
+  fresh shell/zsh/lessrc
+fresh-options
 
 fresh shell/utilities/extract --bin
 
