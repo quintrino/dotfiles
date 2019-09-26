@@ -42,3 +42,5 @@ cd "$starting_directory" || exit
 unset starting_directory
 
 . /usr/local/opt/asdf/asdf.sh
+
+eval "$(starship init zsh)"

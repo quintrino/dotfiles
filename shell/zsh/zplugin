@@ -5,8 +5,6 @@
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zpcompinit
 
-zplugin light bhilburn/powerlevel9k
-
 zplugin ice silent wait'0'
 zplugin light djui/alias-tips
 export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1

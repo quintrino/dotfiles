@@ -20,7 +20,6 @@ fresh shell/bash/bashrc --file=~/.bash_profile
 fresh shell/path
 fresh shell/environment
 fresh shell/zsh/zsh
-fresh shell/zsh/powerlevel9k
 fresh shell/zsh/zplugin
 fresh shell/zsh/completions
 fresh shell/zsh/aliases
