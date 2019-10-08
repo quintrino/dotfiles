@@ -35,6 +35,7 @@ function install_config_folders() {
   mkdir -p $XDG_CONFIG_HOME/karabiner
   mkdir -p $XDG_CONFIG_HOME/zplugin/bin
   mkdir -p $XDG_CONFIG_HOME/hammerspoon
+  mkdir -p $XDG_CONFIG_HOME/tmuxinator
 }
 
 

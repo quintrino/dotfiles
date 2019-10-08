@@ -22,6 +22,10 @@ stop() {
   fi
 }
 
+tmux_pane() {
+  tmux select-pane -t:.$1 -P 'bg=colour232'
+}
+
 tmux_title() {
   clear
   tmux set-option -g pane-border-style "bg=red,fg=white"
@@ -227,6 +231,10 @@ path() {
 }
 
 update() {
+  tmuxinator start update
+}
+
+singled_threaded_update() {
   starting_directory=$(pwd)
   fresh_update
   asdf_update
