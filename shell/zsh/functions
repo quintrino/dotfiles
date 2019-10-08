@@ -240,6 +240,11 @@ update() {
   exec zsh
 }
 
+doctor_update() {
+  printf "\033[1;31mBrew Doctor issues \033[0m\n"
+  brew doctor
+}
+
 fresh_update() {
   printf "\033[1;31mUpdating Fresh \033[0m\n"
   fresh up | rg -v "Current branch master is up to date."
