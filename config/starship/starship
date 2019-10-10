@@ -1,0 +1,42 @@
+prompt_order = [
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_state",
+    "git_status",
+    "ruby",
+    "nix_shell",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "battery",
+    "time",
+    "character",
+]
+
+[git_status]
+diverged = "😵"
+stashed = "📦"
+renamed = "👅"
+conflicted = "⁉"
+ahead = "⬆"
+behind = "⬇"
+untracked = "❓"
+modified = "❕"
+staged = "➕"
+deleted = "🗑 "
+
+[git_branch]
+style = "bold blue"
+
+[hostname]
+ssh_only = false
+
+[username]
+show_always = true
+
+[ruby]
+symbol = "🔺 Ruby "
+style = 'fg:black bg:red'
+suffix = '>'

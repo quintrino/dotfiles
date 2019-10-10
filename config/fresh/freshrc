@@ -37,6 +37,7 @@ fresh-options --file=$XDG_CONFIG_HOME/bash/bash
 fresh-options
 
 fresh config/tmuxinator/update --file=$XDG_CONFIG_HOME/tmuxinator/update.yml
+fresh config/starship/starship --file=$XDG_CONFIG_HOME/starship.toml
 
 # Git
 fresh config/git/cc_menu --bin
