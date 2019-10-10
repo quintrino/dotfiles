@@ -14,6 +14,7 @@
   unstage = reset
   back = !git show $(git log --format=%h^ master..HEAD | tail -n 1) --format=%cr --quiet
   force-pull = "!git fetch origin $(git rev-parse --abbrev-ref HEAD) && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
+  hub = !open https://github.com/$(git config remote.origin.url | cut -f2 -d:)
 
 [color]
   branch      = auto
