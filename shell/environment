@@ -24,6 +24,7 @@ export FRESH_RCFILE="$HOME/.dotfiles/config/fresh/freshrc"
 export LOLCOMMITS_DIR="$XDG_DATA_HOME/lolcommits"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export ELM_HOME="$XDG_CONFIG_HOME/elm"
 export FRESH_PATH="$XDG_CONFIG_HOME/fresh"
 
