@@ -19,7 +19,7 @@ GEM
     htmlentities (4.3.4)
     iniparse (1.4.4)
     interception (0.5)
-    jaro_winkler (1.5.3)
+    jaro_winkler (1.5.4)
     launchy (2.4.3)
       addressable (~> 2.3)
     lolcommits (0.16.0)
