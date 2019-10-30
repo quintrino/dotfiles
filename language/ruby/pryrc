@@ -66,6 +66,7 @@ if defined?(AwesomePrint)
     sort_keys: true # sort hash keys
     # more customization
   }
+  AwesomePrint.pry!
 end
 
 if defined?(PryByebug)
