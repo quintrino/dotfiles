@@ -16,16 +16,25 @@ prompt_order = [
 ]
 
 [git_status]
-diverged = "😵"
-stashed = "📦"
-renamed = "👅"
-conflicted = "⁉"
-ahead = "⬆"
-behind = "⬇"
+enabled = "true"
+diverged = " 😵 "
+stashed = " 📦 "
+stashed_count.enabled = true
+renamed = " 👅 "
+renamed_count.enabled = true
+conflicted = "⁉ "
+conflicted_count.enabled = true
+ahead = " ⬆ "
+behind = " ⬇ "
 untracked = "❓"
-modified = "❕"
-staged = "➕"
-deleted = "🗑 "
+untracked_count.enabled = true
+modified = " ❕"
+modified_count.enabled = true
+staged = " ➕"
+staged_count.enabled = true
+deleted = " 🗑 "
+deleted_count.enabled = true
+show_sync_count = true
 
 [git_branch]
 style = "bold blue"
