@@ -23,11 +23,11 @@ stop() {
 }
 
 tmux_pane() {
-  tmux select-pane -t:.$1 -P 'bg=colour232'
+  tmux select-pane -t:."$1" -P 'bg=colour232'
 }
 
 arv() {
-  ASDF_RUBY_VERSION=$1 ${@:2}
+  ASDF_RUBY_VERSION=$1 "${@:2}"
 }
 
 tmux_title() {
@@ -48,7 +48,7 @@ vsplit_tab() {
   local command="cd \\\"$PWD\\\"; clear"
   (( $# > 0 )) && command="${command}; $*"
 
-  local the_app=$(_omz_osx_get_frontmost_app)
+  the_app=$(_omz_osx_get_frontmost_app)
 
   if [[ "$the_app" == 'iTerm' ]]; then
     osascript <<EOF
@@ -82,10 +82,11 @@ EOF
     false
 
   fi
+  unset the_app
 }
 
 _omz_osx_get_frontmost_app() {
-  local the_app=$(
+  the_app=$(
     osascript 2>/dev/null <<EOF
       tell application "System Events"
         name of first item of (every process whose frontmost is true)
@@ -93,6 +94,7 @@ _omz_osx_get_frontmost_app() {
 EOF
   )
   echo "$the_app"
+  unset the_app
 }
 
 gj () { git branch "$1" && git switch "$1"; }
@@ -169,10 +171,11 @@ git_conflicts_with_line_numbers(){
 }
 
 git_open_conflicts() {
-  local active_conflicts=$(git_conflicts_with_line_numbers)
+  active_conflicts=$(git_conflicts_with_line_numbers)
   if [[ -n "$active_conflicts" ]]; then
     git_edit "$active_conflicts" && git_open_conflicts
   fi
+  unset active_conflicts
 }
 
 git_prepare_content_conflicts() {
@@ -181,7 +184,7 @@ git_prepare_content_conflicts() {
 }
 
 bail() {
-  local count=$(wc -l < "$1")
+  count=$(wc -l < "$1")
   local final_line=$(( count - 0 ))
   if [[ $# == 1 ]]; then
   local ten_count=$(( count - 10 ))
@@ -189,6 +192,7 @@ bail() {
   local ten_count=$(( count - $2 + 1 ))
   fi
   bat "$1" --line-range "$ten_count":"$final_line"
+  unset count
 }
 
 bead() {
@@ -353,9 +357,10 @@ asdf_ruby_version() {
   if [ ! -f .tool-versions ]; then
     echo "$ASDF_GLOBAL_RUBY"
   else
-    local local_ruby_version=$(bat .tool-versions | rg "ruby")
+    local_ruby_version=$(bat .tool-versions | rg "ruby")
     echo "$local_ruby_version"
   fi
+  unset local_ruby_version
 }
 
 current_directory() {
