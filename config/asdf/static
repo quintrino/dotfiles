@@ -1,6 +1,6 @@
 elixir 1.9.4
-erlang 22.1.6
+erlang 22.1.7
 nodejs 13.1.0
-postgres 12.0
+postgres 12.1
 ruby 2.6.5
-rust 1.38.0
+rust 1.39.0
