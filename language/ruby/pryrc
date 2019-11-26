@@ -36,6 +36,10 @@ end
 
 Pry.config.commands.import default_command_set
 
+Pry::Commands.block_command('enable-pry', 'Enable `binding.pry` feature') do
+  ENV['DISABLE_PRY'] = nil
+end
+
 def gemdir
   @gemdir ||= "#{`gem env gemdir`.chomp}/gems"
 end
