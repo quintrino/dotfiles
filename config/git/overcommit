@@ -57,6 +57,12 @@ PreCommit:
     enabled: false
     command: ["bundle", "exec", "rubocop"]
 
+  ShellCheck:
+    enabled: false
+    install_command: "brew install shellcheck"
+    required_executable: "shellcheck"
+    include: "**/*.sh"
+
 PostCommit:
   Lolcommits:
     enabled: true
