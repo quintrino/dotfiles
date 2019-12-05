@@ -131,6 +131,7 @@ alias mut='mu && bin/murmur-tmux stop'
 #Folders
 
 alias drive='cd $HOME/Google\ Drive/'
+alias nick='cd $HOME/Code/Personal/nickwolf.com.au'
 
 
 #Fun
