@@ -15,7 +15,11 @@ prompt_order = [
     "character",
 ]
 
+[directory]
+prefix = ""
+
 [git_status]
+prefix = ""
 enabled = "true"
 diverged = " 😵 "
 stashed = " 📦 "
@@ -40,12 +44,15 @@ show_sync_count = true
 style = "bold blue"
 
 [hostname]
+prefix = ""
 ssh_only = false
 
 [username]
+prefix = ""
 show_always = true
 
 [ruby]
+prefix = ""
 symbol = "🔺 Ruby "
 style = 'fg:black bg:red'
 suffix = '>'
