@@ -3,6 +3,7 @@ prompt_order = [
     "hostname",
     "directory",
     "git_branch",
+    "git_commit",
     "git_state",
     "git_status",
     "ruby",
@@ -17,6 +18,12 @@ prompt_order = [
 
 [directory]
 prefix = ""
+
+[git_commit]
+prefix = ""
+suffix = ""
+disabled = false
+commit_hash_length = 7
 
 [git_status]
 prefix = ""
