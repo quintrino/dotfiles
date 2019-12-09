@@ -19,6 +19,10 @@ prompt_order = [
 [directory]
 prefix = ""
 
+[git_branch]
+prefix = ""
+style = "bold blue"
+
 [git_commit]
 prefix = ""
 suffix = ""
@@ -46,9 +50,6 @@ staged_count.enabled = true
 deleted = " 🗑 "
 deleted_count.enabled = true
 show_sync_count = true
-
-[git_branch]
-style = "bold blue"
 
 [hostname]
 prefix = ""
