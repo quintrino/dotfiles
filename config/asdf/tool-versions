@@ -1,6 +1,3 @@
-elixir <%= latest('elixir') || latest_available('elixir') %>
-erlang <%= latest('erlang') || latest_available('erlang') %>
 nodejs <%= latest('nodejs') || latest_available('nodejs') %>
 postgres <%= latest('postgres') || latest_available('postgres') %>
 ruby <%= latest('ruby') || latest_available('ruby') %>
-rust <%= latest('rust') || latest_available('rust') %>
