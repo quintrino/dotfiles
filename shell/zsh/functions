@@ -217,6 +217,14 @@ files_changed_in_commit() {
   git diff-tree --no-commit-id --name-only -r "$@"
 }
 
+files_changed_in_branch() {
+  git diff master... --name-only
+}
+
+eb() {
+  $EDITOR $(files_changed_in_branch)
+}
+
 ec() {
   if [[ $# -gt 0 ]]; then
     $EDITOR "$(files_changed_in_commit "$1")"
