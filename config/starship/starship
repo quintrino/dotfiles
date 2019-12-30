@@ -25,7 +25,7 @@ style = "bold blue"
 
 [git_commit]
 prefix = ""
-suffix = ""
+suffix = " "
 disabled = false
 commit_hash_length = 7
 
