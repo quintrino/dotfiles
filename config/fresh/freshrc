@@ -30,6 +30,7 @@ fresh-options --filter='erb'
 fresh-options
 
 fresh shell/utilities/extract --bin
+fresh shell/utilities/asdf_cleanse --bin
 
 fresh-options --file=$XDG_CONFIG_HOME/bash/bash
   fresh shell/path

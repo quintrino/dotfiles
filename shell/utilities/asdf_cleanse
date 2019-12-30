@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+lang = ARGV[0] || 'ruby'
+excluded_versions = ARGV[1..-1]
+current_versions = `asdf list #{lang}`.split
+puts "Latest version #{current_versions[-1]} will be preserved"
+removable_versions = current_versions[0..-2] - excluded_versions
+removable_versions.each do |version|
+  `asdf uninstall #{lang} #{version}`
+end
