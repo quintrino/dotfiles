@@ -10,11 +10,11 @@ windows:
   - update_format:
       panes:
         - tmuxinator stop update \
-        - tmux_title "Zplugin" && zpl_update && tmux_pane 1
-        - tmux_title "asdf" && asdf_update | rg -v "up to date.|already installed|^$" && tmux_pane 2
-        - tmux_title "Fresh" && fresh_update && tmux_pane 3
-        - tmux_title "Ruby" && ruby_update | rg -v 'Using' && tmux_pane 4
-        - tmux_title "Brew" && brew_update && tmux_pane 5
-        - tmux_title "Mac Software" && mac_software_update && tmux_pane 6
-        - tmux_title "VS Code" && vscode_update && tmux_pane 7
-        - tmux_title "Brew Doctor" && doctor_update && tmux_pane 8
+        - tmux_title "Zplugin" && zpl_update && tmux_pane 2
+        - tmux_title "asdf" && asdf_update | rg -v "Already on|already installed|^$" && tmux_pane 3
+        - tmux_title "Fresh" && fresh_update && tmux_pane 4
+        - tmux_title "Ruby" && ruby_update | rg -v 'Using' && tmux_pane 5
+        - tmux_title "Brew" && brew_update && tmux_pane 6
+        - tmux_title "Mac Software" && mac_software_update && tmux_pane 7
+        - tmux_title "VS Code" && vscode_update && tmux_pane 8
+        - tmux_title "Brew Doctor" && doctor_update && tmux_pane 9
