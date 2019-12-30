@@ -1,5 +1,7 @@
 name: update
 root: ~
+
+tmux_options: -f ~/.dotfiles/config/tmuxinator/tmux
 pre_window: tmux set pane-border-status top
 
 on_project_exit: echo 'update complete'
