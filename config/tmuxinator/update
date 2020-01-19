@@ -11,7 +11,7 @@ windows:
       panes:
         - tmuxinator stop update \
         - tmux_title "Zplugin" && zpl_update && tmux_pane 2
-        - tmux_title "asdf" && asdf_update | rg -v "Already on|already installed|^$" && tmux_pane 3
+        - tmux_title "asdf" && asdf_update | rg -v "origin/master|already installed" && tmux_pane 3
         - tmux_title "Fresh" && fresh_update && tmux_pane 4
         - tmux_title "Ruby" && ruby_update | rg -v 'Using' && tmux_pane 5
         - tmux_title "Brew" && brew_update && tmux_pane 6
