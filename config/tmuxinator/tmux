@@ -1,3 +1,20 @@
 set -g display-panes-time 50000
 
 set -g pane-base-index 1
+
+# Vim style pane selection
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Set control q to display pane numbers
+bind -n C-u display-panes
+
+
+# No delay for escape key press
+set -sg escape-time 0
+
+# Set pane resize
+
+bind -n C-i resize-pane -Z
