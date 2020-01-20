@@ -2,6 +2,7 @@
 
 If you're me and you're looking to exactly replicate my system on a new system
 you simply need to run
+
 ```
 # curl -fsSL https://raw.githubusercontent.com/quintrino/dotfiles/master/deploy/deploy.sh | zsh
 ```
@@ -10,7 +11,7 @@ My dotfiles use a very eclectic set of tools.
 
 For Dotfile managment I use [Fresh](https://github.com/freshshell/fresh)
 
-My zsh plugin manager is [Zplugin](https://github.com/zdharma/zplugin)
+My zsh plugin manager is [zinit](https://github.com/zdharma/zinit) (formally Zplugin)
 
 My Package and program installer is [Brew](https://brew.sh/)
 
