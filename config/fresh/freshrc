@@ -27,6 +27,7 @@ fresh-options --filter='erb'
   fresh shell/zsh/functions
   fresh shell/zsh/fzf.zsh
   fresh shell/zsh/lessrc
+  fresh shell/zsh/local
 fresh-options
 
 fresh shell/utilities/extract --bin

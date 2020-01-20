@@ -24,8 +24,6 @@ HISTSIZE=50000
 SAVEHIST=10000
 HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"     #Where to save history to disk
 
-. $XDG_DATA_HOME/zsh/zshrc
-
 setopt autopushd
 setopt auto_cd
 setopt pushdminus
