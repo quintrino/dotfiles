@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # curl -fsSL https://raw.githubusercontent.com/quintrino/dotfiles/master/deploy/deploy.sh | zsh
 
 set -e
@@ -8,16 +10,18 @@ else
   xcode-select --install
 fi
 
-if [ -d $HOME/.dotfiles ]; then
-    cd $HOME/.dotfiles
+if [ -d "$HOME/.dotfiles" ]; then
+    cd "$HOME/.dotfiles"
     git pull --rebase
     cd "$OLDPWD"
   else
     git clone https://github.com/quintrino/dotfiles.git .dotfiles
   fi
 
-source $HOME/.dotfiles/deploy/deploy_functions.sh
-source $HOME/.dotfiles/shell/environment
+# shellcheck disable=SC1090
+source "$HOME/.dotfiles/deploy/deploy_functions.sh"
+# shellcheck disable=SC1090
+source "$HOME/.dotfiles/shell/environment"
 
 install_config_folders
 install_homebrew

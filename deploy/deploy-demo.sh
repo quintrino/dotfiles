@@ -1,3 +1,3 @@
-
+#!/bin/zsh
 
 echo 'EOF'

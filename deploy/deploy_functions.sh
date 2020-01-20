@@ -1,3 +1,4 @@
+#!/bin/zsh
 
 function install_homebrew() {
   echo -e "\033[1;31mInstalling Homebrew \033[0m"
@@ -12,36 +13,36 @@ function install_zinit() {
 
 function install_brew_bundle() {
   echo -e "\033[1;31mBrew Bundle Install \033[0m"
-  cd $HOME/.dotfiles/brew
+  cd "$HOME/.dotfiles/brew" || exit
   brew bundle
   if [ "$WORK" == 1 ];
-    then cd work
+    then cd work || exit
     brew bundle
   fi
   if [ "$HOME" == 1 ];
-    then cd home
+    then cd home || exit
     brew bundle
   fi
-  cd
+  cd || exit
 }
 
 function install_config_folders() {
   echo -e "\033[1;31mInstalling Config Folders \033[0m"
   mkdir -p ~/Library/Application\ Support/Code/User/
-  mkdir -p $XDG_DATA_HOME/z
-  touch $XDG_DATA_HOME/z/z
-  mkdir -p $XDG_DATA_HOME/zsh
-  mkdir -p $XDG_DATA_HOME/bash
-  mkdir -p $XDG_CONFIG_HOME/karabiner
-  mkdir -p $XDG_CONFIG_HOME/zinit/bin
-  mkdir -p $XDG_CONFIG_HOME/hammerspoon
-  mkdir -p $XDG_CONFIG_HOME/tmuxinator
+  mkdir -p "$XDG_DATA_HOME/z"
+  touch "$XDG_DATA_HOME/z/z"
+  mkdir -p "$XDG_DATA_HOME/zsh"
+  mkdir -p "$XDG_DATA_HOME/bash"
+  mkdir -p "$XDG_CONFIG_HOME/karabiner"
+  mkdir -p "$XDG_CONFIG_HOME/zinit/bin"
+  mkdir -p "$XDG_CONFIG_HOME/hammerspoon"
+  mkdir -p "$XDG_CONFIG_HOME/tmuxinator"
 }
 
 
 function install_zsh_defaults() {
   echo -e "\033[1;31mSetting Default Shell \033[0m"
-  [ -f $HOME/.local/share/zsh/zshrc ] || echo '#!/bin/zsh' >> $HOME/.local/share/zsh/zshrc
+  [ -f "$HOME/.local/share/zsh/zshrc" ] || echo '#!/bin/zsh' >> "$HOME/.local/share/zsh/zshrc"
   sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells' # Set brew zsh as acceptable shell choice
   chsh -s /usr/local/bin/zsh # Set shell to brew zsh
   chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
@@ -49,15 +50,15 @@ function install_zsh_defaults() {
 
 function install_fresh() {
   echo -e "\033[1;31mInstall Fresh \033[0m"
-  rm $HOME/.zshrc
-  mkdir -p $XDG_CONFIG_HOME/fresh/source/freshshell
+  rm "$HOME/.zshrc"
+  mkdir -p "$XDG_CONFIG_HOME/fresh/source/freshshell"
 
-  if [ -d $XDG_CONFIG_HOME/fresh/source/freshshell/fresh ]; then
-    cd $XDG_CONFIG_HOME/fresh/source/freshshell/fresh
+  if [ -d "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh" ]; then
+    cd "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh" || exit
     git pull --rebase
-    cd "$OLDPWD"
+    cd "$OLDPWD" || exit
   else
-    git clone https://github.com/freshshell/fresh $XDG_CONFIG_HOME/fresh/source/freshshell/fresh
+    git clone https://github.com/freshshell/fresh "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh"
   fi
 
   FRESH_LOCAL="${FRESH_LOCAL:-$HOME/.dotfiles}"
@@ -75,25 +76,25 @@ function install_fresh() {
     fi
   fi
 
-  if ! [ -e $FRESH_RCFILE ]; then
+  if ! [ -e "$FRESH_RCFILE" ]; then
     if [ -r "$FRESH_LOCAL/freshrc" ]; then
-      ln -s "$FRESH_LOCAL/freshrc" $FRESH_RCFILE
+      ln -s "$FRESH_LOCAL/freshrc" "$FRESH_RCFILE"
     fi
   fi
-  $XDG_CONFIG_HOME/fresh/source/freshshell/fresh/bin/fresh
+  "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh/bin/fresh"
 }
 
 function install_asdf_defaults() {
   echo -e "\033[1;31mInstalling ASDF Defaults \033[0m"
   export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
   export ASDF_RUBY_VERSION='system'
-  while read line; do
-    asdf plugin-add "$(echo $line | cut -f 1 -d " " )"
-    case "$(echo $line | cut -f 1 -d " " )" in
-      "nodejs") bash $ASDF_DATA_DIR/plugins/nodejs/bin/import-release-team-keyring
+  while read -r line; do
+    asdf plugin-add "$(echo "$line" | cut -f 1 -d " " )"
+    case "$(echo "$line" | cut -f 1 -d " " )" in
+      "nodejs") bash "$ASDF_DATA_DIR/plugins/nodejs/bin/import-release-team-keyring"
     esac
-    asdf install "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
-    asdf global "$(echo $line | cut -f 1 -d " " )" "$(echo $line | cut -f 2 -d " " )"
+    asdf install "$(echo "$line" | cut -f 1 -d " " )" "$(echo "$line" | cut -f 2 -d " " )"
+    asdf global "$(echo "$line" | cut -f 1 -d " " )" "$(echo "$line" | cut -f 2 -d " " )"
   done <~/.dotfiles/config/asdf/static
   unset KERL_CONFIGURE_OPTIONS
   unset ASDF_RUBY_VERSION
@@ -183,7 +184,7 @@ function install_apple_defaults() {
   # defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
 
   # Set Hammerspoon to use XDG config location
-  defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+  defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
 
   # Reset SystemUIServer
   killall -KILL SystemUIServer
@@ -192,17 +193,19 @@ function install_apple_defaults() {
 function set_iterm_defaults() {
   echo -e "\033[1;31mSetting iTerm Defaults \033[0m"
   # Specify the preferences directory
-  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/apps/iTerm"
+  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.dotfiles/apps/iTerm"
   # Tell iTerm2 to use the custom preferences in the directory
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 }
 
 function remind_install_steps() {
-  echo "$(cat $HOME/.dotfiles/deploy/post_deploy_steps)"
+  while read -r line; do
+    echo "$line"
+  done <"$HOME/.dotfiles/deploy/post_deploy_steps"
 }
 
 function set_computer_name() {
-  sudo scutil --set HostName $1
-  sudo scutil --set LocalHostName $1
-  sudo scutil --set ComputerName $1
+  sudo scutil --set HostName "$1"
+  sudo scutil --set LocalHostName "$1"
+  sudo scutil --set ComputerName "$1"
 }
