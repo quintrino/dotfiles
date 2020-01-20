@@ -21,7 +21,7 @@ source $HOME/.dotfiles/shell/environment
 
 install_config_folders
 install_homebrew
-install_zplugin
+install_zinit
 (install_brew_bundle || true)
 install_asdf_defaults
 install_fresh

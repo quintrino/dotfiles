@@ -26,7 +26,7 @@ fresh-options --filter='erb'
   fresh shell/path
   fresh shell/environment
   fresh shell/zsh/zsh
-  fresh shell/zsh/zplugin
+  fresh shell/zsh/zinit
   fresh shell/zsh/completions
   fresh shell/zsh/aliases
   fresh shell/zsh/functions

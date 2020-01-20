@@ -5,9 +5,9 @@ function install_homebrew() {
 }
 
 
-function install_zplugin() {
-  echo -e "\033[1;31mInstalling Zplugin \033[0m"
-  ZPLG_HOME=$XDG_CONFIG_HOME/zplugin sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+function install_zinit() {
+  echo -e "\033[1;31mInstalling Zinit \033[0m"
+  ZINIT_HOME=$XDG_CONFIG_HOME/zinit sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 }
 
 function install_brew_bundle() {
@@ -33,7 +33,7 @@ function install_config_folders() {
   mkdir -p $XDG_DATA_HOME/zsh
   mkdir -p $XDG_DATA_HOME/bash
   mkdir -p $XDG_CONFIG_HOME/karabiner
-  mkdir -p $XDG_CONFIG_HOME/zplugin/bin
+  mkdir -p $XDG_CONFIG_HOME/zinit/bin
   mkdir -p $XDG_CONFIG_HOME/hammerspoon
   mkdir -p $XDG_CONFIG_HOME/tmuxinator
 }

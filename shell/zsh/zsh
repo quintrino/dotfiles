@@ -1,9 +1,9 @@
 #!/bin/sh
 
-declare -A ZPLGM
-ZPLGM[HOME_DIR]="$XDG_CONFIG_HOME/zplugin"
-ZPLGM[BIN_DIR]="$XDG_CONFIG_HOME/zplugin/bin"
-ZPLGM[ZCOMPDUMP_PATH]="$XDG_CONFIG_HOME/zplugin/zcompdump"
+declare -A ZINIT
+ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zinit"
+ZINIT[BIN_DIR]="$XDG_CONFIG_HOME/zinit/bin"
+ZINIT[ZCOMPDUMP_PATH]="$XDG_CONFIG_HOME/zinit/zcompdump"
 
 precmd() {
     DIRS=$(pwd | awk '{ sub("/Users/nick.wolf/Code", "~"); print $0 }')
