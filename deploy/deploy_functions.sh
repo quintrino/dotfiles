@@ -40,7 +40,6 @@ function install_config_folders() {
   mkdir -p "$XDG_CONFIG_HOME/npm"
 }
 
-
 function install_zsh_defaults() {
   echo -e "\033[1;31mSetting Default Shell \033[0m"
   [ -f "$HOME/.local/share/zsh/zshrc" ] || echo '#!/bin/zsh' >> "$HOME/.local/share/zsh/zshrc"
@@ -129,7 +128,6 @@ function install_apple_defaults() {
   # Set menubar to show percentage
   defaults write com.apple.menuextra.battery ShowPercent YES
 
-
   # Trackpad: enable tap to click for this user and for the login screen
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
   defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -209,4 +207,12 @@ function set_computer_name() {
   sudo scutil --set HostName "$1"
   sudo scutil --set LocalHostName "$1"
   sudo scutil --set ComputerName "$1"
+}
+
+function install_personal_projects() {
+ mkdir -p $HOME/Code/Personal
+ cd $HOME/Code/Personal || exit
+ while read -r line; do
+    git clone "git@github.com:quintrino/$line.git"
+  done <~/.dotfiles/deploy/personal_projects
 }
