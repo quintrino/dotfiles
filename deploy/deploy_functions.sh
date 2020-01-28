@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# shellcheck disable=SC1090
+source "$HOME/.dotfiles/shell/environment"
+
 function install_homebrew() {
   echo -e "\033[1;31mInstalling Homebrew \033[0m"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

@@ -20,8 +20,6 @@ if [ -d "$HOME/.dotfiles" ]; then
 
 # shellcheck disable=SC1090
 source "$HOME/.dotfiles/deploy/deploy_functions.sh"
-# shellcheck disable=SC1090
-source "$HOME/.dotfiles/shell/environment"
 
 install_config_folders
 install_homebrew
