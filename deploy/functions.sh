@@ -144,11 +144,11 @@ function install_apple_defaults() {
   defaults write NSGlobalDomain KeyRepeat -int 1
   defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
-  # Use scroll gesture with the Ctrl (^) modifier key to zoom
-  defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-  defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-  # Follow the keyboard focus while zoomed in
-  defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+  # # Use scroll gesture with the Ctrl (^) modifier key to zoom
+  # defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+  # defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+  # # Follow the keyboard focus while zoomed in
+  # defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
   # Require password immediately after sleep or screen saver begins
   defaults write com.apple.screensaver askForPassword -int 1
