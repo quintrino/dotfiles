@@ -76,6 +76,7 @@ alias ghb='gh tree/$(git symbolic-ref --quiet --short HEAD )'
 alias ghbf='gh tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)'
 # Open current directory/file in master branch
 alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
+alias lol='cd ~/.local/share/lolcommits/'
 
 #Ruby
 
