@@ -401,3 +401,11 @@ exer_all() {
 evs() {
   env | rg "$@"
 }
+
+sw() {
+  if [[ $# -gt 0 ]]; then
+    git switch "$@"
+  else
+    git switch -
+  fi
+}
