@@ -375,7 +375,7 @@ current_directory() {
 
 restart_mongodb() {
   mongo --eval "db.getSiblingDB('admin').shutdownServer()"
-  mongod --dbpath ~/.config/asdf/installs/mongodb/3.4.15/data
+  mongod --dbpath ~/.config/asdf/installs/mongodb/3.6.9/data
 }
 
 exer_all() {
