@@ -76,6 +76,14 @@ if defined?(PryByebug)
   Pry.commands.alias_command 'fi', 'finish'
 end
 
+if defined?(Rails)
+  require 'rails/console/app'
+  extend Rails::ConsoleMethods
+  puts 'Rails Console Helpers loaded'
+else
+  puts 'Rails not defined; reload! method not loaded'
+end
+
 require 'rbreadline'
 if defined?(RbReadline)
   def RbReadline.rl_reverse_search_history(_sign, _key)
