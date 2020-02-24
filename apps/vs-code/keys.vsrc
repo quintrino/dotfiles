@@ -68,5 +68,9 @@
     "key": "cmd+ctrl+t",
     "command": "extension.goToSpec",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "editor.action.revealDefinition"
   }
 ]
