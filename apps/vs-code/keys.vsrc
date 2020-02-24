@@ -76,5 +76,17 @@
   {
     "key": "shift+ctrl+cmd+f",
     "command": "revealInExplorer"
+  },
+  {
+    "key": "shift+cmd+1",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "shift+cmd+2",
+    "command": "workbench.action.focusSecondEditorGroup"
+  },
+  {
+    "key": "shift+cmd+3",
+    "command": "workbench.action.focusThirdEditorGroup"
   }
 ]
