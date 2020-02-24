@@ -34,7 +34,6 @@
     "files.trimTrailingWhitespace": true,
     "ruby.intellisense": "rubyLocate",
     "ruby.rubocop.executePath": "/Users/nick.wolf/.config/asdf/shims/",
-    "search.location": "panel",
     "search.showLineNumbers": true,
     "search.smartCase": true,
     "terminal.integrated.fontFamily": "MesloLGSDZ Nerd Font",
