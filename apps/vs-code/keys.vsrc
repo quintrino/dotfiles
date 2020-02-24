@@ -60,5 +60,13 @@
     "key": "escape",
     "command": "extension.jumpy-exit",
     "when": "jumpy.isJumpyMode"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.reopenClosedEditor"
+  } {
+    "key": "cmd+ctrl+t",
+    "command": "extension.goToSpec",
+    "when": "editorTextFocus"
   }
 ]
