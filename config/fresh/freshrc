@@ -27,12 +27,12 @@ fresh-options --filter='erb'
   fresh shell/environment
   fresh shell/zsh/zsh
   fresh shell/zsh/zinit
-  fresh shell/zsh/completions
   fresh shell/zsh/aliases
   fresh shell/zsh/functions
   fresh shell/zsh/fzf.zsh
   fresh shell/zsh/lessrc
   fresh shell/zsh/local
+  fresh shell/zsh/completions
 fresh-options
 
 fresh shell/utilities/extract --bin
