@@ -43,7 +43,6 @@
     "window.restoreFullscreen": true,
     "window.zoomLevel": 1,
     "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Dracula",
     "workbench.editor.closeEmptyGroups": false,
     "workbench.editor.enablePreview": false,
     "workbench.editor.highlightModifiedTabs": true,
@@ -57,5 +56,6 @@
     "[scss]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "SpunBeat Superhero"
 }
