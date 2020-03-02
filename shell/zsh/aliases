@@ -134,6 +134,11 @@ alias mut='mu && bin/murmur-tmux stop'
 alias drive='cd $HOME/Google\ Drive/'
 alias nick='cd $HOME/Code/Personal/nickwolf.com.au'
 
+#Tmux
+
+alias tm='tmuxinator'
+alias tms='tmuxinator start'
+alias tmt='tmuxinator stop'
 
 #Fun
 
