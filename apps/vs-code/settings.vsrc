@@ -17,9 +17,7 @@
         "**/node_modules": true
     },
     "breadcrumbs.enabled": true,
-    "elm.compiler": "/Users/nick.wolf/.config/asdf/shims/",
     "editor.formatOnSave": true,
-    "editor.formatOnSaveTimeout": 500,
     "editor.formatOnType": true,
     "editor.renderLineHighlight": "all",
     "editor.renderWhitespace": "all",
@@ -50,7 +48,6 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.feedback.visible": false,
     "workbench.statusBar.visible": true,
     "workbench.tree.indent": 6,
     "[scss]": {
