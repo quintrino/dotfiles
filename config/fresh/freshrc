@@ -65,4 +65,6 @@ fresh_after_build(){
   ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Code/User/settings.json
   ln -sf ~/.dotfiles/apps/vs-code/keys.vsrc ~/Library/Application\ Support/Code/User/keybindings.json
   ln -sf ~/.dotfiles/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
+  ln -sf ~/Google\ Drive/Sync/environment/zshrc ~/.local/share/zsh/zshrc
+
 }
