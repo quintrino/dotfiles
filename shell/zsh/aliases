@@ -26,6 +26,7 @@ alias t='touch '
 
 alias guns='git reset'
 alias gunc='git reset HEAD^'
+alias gss='forgit::stash::show'
 alias oc='overcommit'
 alias ocs='overcommit --sign'
 alias ocp='overcommit --sign post-commit'
