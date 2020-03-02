@@ -54,5 +54,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.minimap.enabled": false,
-    "workbench.colorTheme": "SpunBeat Superhero"
+    "workbench.colorTheme": "SpunBeat Superhero",
+    "search.searchOnType": true
 }
