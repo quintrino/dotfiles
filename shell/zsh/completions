@@ -1,6 +1,4 @@
 #!/bin/sh
 
-. <%= ("#{`brew --prefix asdf`.chomp}/etc/bash_completion.d/asdf.bash") || ''%>
-
 compdef g=git
 compdef gcf=git-fixup
