@@ -9,12 +9,12 @@ on_project_exit: echo 'update complete'
 windows:
   - update_format:
       panes:
+        - tmux_title "VS Code" && vscode_update; tmux_pane
         - tmuxinator stop update \
-        - tmux_title "Zinit" && zinit_update && tmux_pane 2
-        - tmux_title "asdf" && asdf_update | rg -v "origin/master|already installed" && tmux_pane 3
-        - tmux_title "Fresh" && fresh_update && tmux_pane 4
-        - tmux_title "Ruby" && ruby_update | rg -v 'Using' && tmux_pane 5
-        - tmux_title "Brew" && brew_update && tmux_pane 6
-        - tmux_title "Mac Software" && mac_software_update && tmux_pane 7
-        - tmux_title "VS Code" && vscode_update && tmux_pane 8
-        - tmux_title "Brew Doctor" && doctor_update && tmux_pane 9
+        - tmux_title "Zinit" && zinit_update; tmux_pane
+        - tmux_title "asdf" && asdf_update | rg -v "origin/master|already installed"; tmux_pane
+        - tmux_title "Brew" && brew_update; tmux_pane
+        - tmux_title "Fresh" && fresh_update; tmux_pane
+        - tmux_title "Ruby" && ruby_update | rg -v 'Using'; tmux_pane
+        - tmux_title "Mac Software" && mac_software_update; tmux_pane
+        - tmux_title "Brew Doctor" && doctor_update; tmux_pane
