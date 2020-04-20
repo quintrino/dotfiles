@@ -23,7 +23,7 @@ stop() {
 }
 
 tmux_pane() {
-  tmux select-pane -t:."$1" -P 'bg=colour232'
+  tmux select-pane -t:."$TMUX_PANE" -P 'bg=colour232'
 }
 
 arv() {
