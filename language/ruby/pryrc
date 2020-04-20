@@ -52,9 +52,6 @@ end
   awesome_print
   byebug
   pry-byebug
-  debug_inspector
-  binding_of_caller
-  pry-stack_explorer
   rb-readline
 ].each do |plugin|
   load_non_bundled_plugins(plugin)

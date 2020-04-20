@@ -58,10 +58,7 @@ GEM
     pry-rescue (1.5.0)
       interception (>= 0.5)
       pry (>= 0.12.0)
-    pry-stack_explorer (0.4.9.3)
-      binding_of_caller (>= 0.7)
-      pry (>= 0.9.11)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     rainbow (3.0.0)
     rb-readline (0.5.5)
     reverse_markdown (1.4.0)
@@ -130,7 +127,6 @@ DEPENDENCIES
   pry
   pry-byebug
   pry-rescue
-  pry-stack_explorer
   rb-readline
   rspec
   rubocop
