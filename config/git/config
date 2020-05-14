@@ -46,7 +46,7 @@
   verbose = true
 
 [core]
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Solarized (dark)'
   mergeoptions = --no-edit
   ignorecase = false
 
@@ -73,6 +73,7 @@
   templateDir = <%= ("#{`overcommit --template-dir`}".chomp if "#{`command -v overcommit`}" != '') || ''%>
 
 [interactive]
+  diffFilter = delta --color-only
   singleKey = true
 
 [log]
