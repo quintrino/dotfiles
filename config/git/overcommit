@@ -86,6 +86,12 @@ PrePush:
     destructive_only: true
     branches: ["master", "production"]
 
+  PushAlert:
+    enabled: false
+    quiet: false
+    required_executable: "push_alert"
+    command: ["push_alert"]
+
 # Hooks that run during `git rebase`, before any commits are rebased.
 # If a hook fails, the rebase is aborted.
 PreRebase:

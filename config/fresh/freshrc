@@ -48,6 +48,7 @@ fresh config/starship/starship --file=$XDG_CONFIG_HOME/starship.toml
 
 # Git
 fresh config/git/cc_menu --bin
+fresh config/git/push_alert --bin
 fresh config/git/ignore --file=$XDG_CONFIG_HOME/git/ignore
 fresh config/git/config --file=$XDG_CONFIG_HOME/git/config --filter=erb
 

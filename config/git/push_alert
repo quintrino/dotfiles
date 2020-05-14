@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+if hash terminal-notifier
+then
+  terminal-notifier \
+    -message "Do you need to update the ticket?" \
+    -title "$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) updated"
+else
+  echo "Terminal Notifier not installed, install via Homebrew" >> /dev/stderr
+fi
