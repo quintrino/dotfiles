@@ -8,6 +8,12 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
+bind-key -n C-q select-pane -t 1
+bind-key -n C-w select-pane -t 2
+bind-key -n C-e select-pane -t 3
+bind-key -n C-a select-pane -t 4
+bind-key -n C-s select-pane -t 5
+
 # Set control q to display pane numbers
 bind -n C-u display-panes
 
