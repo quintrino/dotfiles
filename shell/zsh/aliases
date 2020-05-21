@@ -123,8 +123,8 @@ alias mu='cd $HOME/Code/CultureAmp/murmur'
 alias sr='cd $HOME/Code/CultureAmp/snapshot_reporting_engine'
 alias sri='tmuxinator start sri'
 alias sris='tmuxinator stop sri'
-alias mus='mu && bin/murmur-tmux start'
-alias mut='mu && bin/murmur-tmux stop'
+alias mus='mu && tmuxinator start murmur --suppress-tmux-version-warning'
+alias mut='mu && tmuxinator stop murmur --suppress-tmux-version-warning'
 
 #Folders
 
