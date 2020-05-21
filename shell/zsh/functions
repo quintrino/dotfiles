@@ -392,8 +392,8 @@ exer_all() {
     | awk '{print $3}' \
     | cut -d/ -f5 \
     | cut -d\" -f1 > exercises.txt
-    while read -r in; do
-      exercism download --exercise="$in" --track="$language";
+    while read -r line; do
+      exercism download --exercise="$line" --track="$language";
     done < exercises.txt
   fi
 }
