@@ -38,7 +38,7 @@
   },
   {
     "key": "shift+cmd+c",
-    "command": "copyRelativeFilePath"
+    "command": "copy-relative-path-and-line-numbers.both"
   },
   {
     "key": "cmd+w",
