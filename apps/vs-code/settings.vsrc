@@ -1,59 +1,53 @@
 {
-    "editor.rulers": [
-        80,
-        120,
-        160,
-        200,
-        240
-    ],
-    "emmet.includeLanguages": {
-        "erb": "html"
-    },
-    "files.associations": {
-        "overcommit": "yaml",
-        "*.vsrc": "jsonc"
-    },
-    "files.exclude": {
-        "**/node_modules": true
-    },
-    "breadcrumbs.enabled": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.renderLineHighlight": "all",
-    "editor.renderWhitespace": "all",
-    "editor.tabSize": 2,
-    "editor.lineNumbers": "on",
-    "editor.trimAutoWhitespace": true,
-    "explorer.confirmDelete": false,
-    "files.autoSave": "onFocusChange",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "ruby.intellisense": "rubyLocate",
-    "ruby.rubocop.executePath": "/Users/nick.wolf/.config/asdf/shims/",
-    "search.showLineNumbers": true,
-    "search.smartCase": true,
-    "terminal.integrated.fontFamily": "MesloLGSDZ Nerd Font",
-    "terminal.integrated.letterSpacing": 0,
-    "window.closeWhenEmpty": true,
-    "window.openFoldersInNewWindow": "off",
-    "window.restoreFullscreen": true,
-    "window.zoomLevel": 1,
-    "workbench.activityBar.visible": false,
-    "workbench.editor.closeEmptyGroups": false,
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.tabCloseButton": "off",
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true,
-    "workbench.tree.indent": 6,
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.minimap.enabled": false,
-    "workbench.colorTheme": "SpunBeat Superhero",
-    "search.searchOnType": true,
-    "files.defaultLanguage": "markdown"
+  "editor.rulers": [80, 120, 160, 200, 240],
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "files.associations": {
+    "overcommit": "yaml",
+    "*.vsrc": "jsonc"
+  },
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "breadcrumbs.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.renderLineHighlight": "all",
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.lineNumbers": "on",
+  "editor.trimAutoWhitespace": true,
+  "explorer.confirmDelete": false,
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "ruby.intellisense": "rubyLocate",
+  "ruby.rubocop.executePath": "/Users/nick.wolf/.config/asdf/shims/",
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+  "terminal.integrated.fontFamily": "MesloLGSDZ Nerd Font",
+  "terminal.integrated.letterSpacing": 0,
+  "window.closeWhenEmpty": true,
+  "window.openFoldersInNewWindow": "off",
+  "window.restoreFullscreen": true,
+  "window.zoomLevel": 1,
+  "workbench.activityBar.visible": false,
+  "workbench.editor.closeEmptyGroups": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true,
+  "workbench.tree.indent": 6,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": false,
+  "workbench.colorTheme": "SpunBeat Superhero",
+  "search.searchOnType": true,
+  "files.defaultLanguage": "markdown"
 }
