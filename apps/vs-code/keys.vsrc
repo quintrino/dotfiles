@@ -98,4 +98,8 @@
     "key": "cmd+]",
     "command": "workbench.action.navigateForward"
   },
+  {
+    "key": "shift+cmd+f",
+    "command": "search.action.openNewEditor"
+  },
 ]
