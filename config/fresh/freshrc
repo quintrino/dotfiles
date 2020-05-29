@@ -59,7 +59,7 @@ fresh language/ruby/irbrc --file=$XDG_CONFIG_HOME/ruby/irbrc
 fresh language/ruby/gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
 fresh language/nodejs/npmrc --file=$XDG_CONFIG_HOME/npm/npmrc
 fresh language/ruby/default-gems --file=$XDG_CONFIG_HOME/asdf/default-gems
-fresh language/ruby/railsrc --file=~/.railsrc
+fresh language/ruby/railsrc --file=$XDG_CONFIG_HOME/rails/railsrc
 fresh config/asdf/asdfrc --file=$XDG_CONFIG_HOME/asdf/asdfrc
 fresh config/hammerspoon/init.lua --file=$XDG_CONFIG_HOME/hammerspoon/init.lua
 

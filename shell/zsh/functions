@@ -409,3 +409,12 @@ sw() {
     git switch -
   fi
 }
+
+rails() {
+  if [[ "$1" == 'new' ]]; then
+    echo string
+    command rails new --rc "$XDG_CONFIG_HOME/rails/railsrc"
+  else
+    command rails "$@"
+  fi
+}
