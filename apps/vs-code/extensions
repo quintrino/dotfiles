@@ -1,8 +1,6 @@
-bgse.relative-path-and-line
 bradgashler.htmltagwrap
 castwide.solargraph
 CoenraadS.bracket-pair-colorizer-2
-elmTooling.elm-ls-vscode
 esbenp.prettier-vscode
 extr0py.vscode-relative-line-numbers
 ezforo.copy-relative-path-and-line-numbers
@@ -11,8 +9,6 @@ HookyQR.beautify
 karunamurti.haml
 Lourenci.go-to-spec
 misogi.ruby-rubocop
-mjmcloug.vscode-elixir
-ms-vscode.vscode-typescript-tslint-plugin
 ms-vscode.wordcount
 ms-vsliveshare.vsliveshare
 oderwat.indent-rainbow
