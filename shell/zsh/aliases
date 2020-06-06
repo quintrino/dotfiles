@@ -18,6 +18,7 @@ alias md='mkdir -p'
 alias h='http '
 alias rmf='rm -rf'
 alias t='touch '
+alias bash='bash --rcfile $XDG_CONFIG_HOME/bash/profile'
 
 #Git
 
