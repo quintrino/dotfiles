@@ -2,6 +2,7 @@
 
 Sign into Google Drive, Google Chrome and 1Password\033[0m
 Sign into Apple iCloud account
+Remove Siri from Touchbar
 Set computer name by running set_computer_name COMPUTER_NAME
 Enable autostart on login for Bartender
 Enable autostart on login for Bettertouchtool
