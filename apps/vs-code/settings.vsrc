@@ -32,7 +32,7 @@
   "window.closeWhenEmpty": true,
   "window.openFoldersInNewWindow": "off",
   "window.restoreFullscreen": true,
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "workbench.editor.closeEmptyGroups": false,
   "workbench.editor.enablePreview": false,
