@@ -49,5 +49,6 @@
   "editor.minimap.enabled": false,
   "workbench.colorTheme": "SpunBeat Superhero",
   "search.searchOnType": true,
-  "files.defaultLanguage": "markdown"
+  "files.defaultLanguage": "markdown",
+  "rust-client.channel": null
 }
