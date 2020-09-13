@@ -26,7 +26,7 @@ zinit light wfxr/forgit
 forgit_diff=gid
 forgit_restore=forgit_restore
 
-zinit ice silent wait'1' atload'_zsh_autosuggest_start'
+zinit ice silent wait:1 atload:_zsh_autosuggest_start
 zinit light zsh-users/zsh-autosuggestions
 bindkey '^[[[CE' autosuggest-execute
 export ZSH_AUTOSUGGEST_IGNORE_WIDGETS=(fzfz-file-widget)
