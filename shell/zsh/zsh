@@ -30,10 +30,17 @@ setopt pushdminus
 setopt pushd_ignore_dups
 
 starting_directory=$(pwd)
+
 cd "$HOME/.dotfiles" || exit
 git fetch --quiet &>/dev/null &|
 if ! git diff --quiet --ignore-submodules HEAD; then
   echo "WARNING: ~/.dotfiles has unsynchronized changes"
+fi
+
+cd "$HOME/documents/obsidian" || exit
+git fetch --quiet &>/dev/null &|
+if ! git diff --quiet --ignore-submodules HEAD; then
+  echo "WARNING: Obsidian has unsynchronized changes"
 fi
 
 cd "$starting_directory" || exit
