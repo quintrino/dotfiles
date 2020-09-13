@@ -302,7 +302,7 @@ zinit_update() {
   printf "\033[1;31mUpdating Zinit \033[0m\n"
   zi self-update
   printf "\033[1;31mUpdating Zsh plugins \033[0m\n"
-  zi update --all | rg -v "up to date.|unloaded|^$"
+  zi update --parallel
 }
 
 ruby_update() {
