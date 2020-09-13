@@ -399,7 +399,15 @@ exer_all() {
 }
 
 evs() {
-  env | rg "$@"
+  env | fzf --height 10%
+}
+
+o() {
+  if [[ $# -gt 0 ]]; then
+    open "$@"
+  else
+    open .
+  fi
 }
 
 sw() {
