@@ -320,7 +320,7 @@ brew_update() {
   printf "\033[1;31mUpgrading Brew \033[0m\n"
   brew upgrade
   printf "\033[1;31mOutdated Casks \033[0m\n"
-  brew cask upgrade
+  brew upgrade --cask
 }
 
 mac_software_update() {
