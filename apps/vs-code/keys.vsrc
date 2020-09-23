@@ -102,4 +102,6 @@
     "key": "shift+cmd+f",
     "command": "search.action.openNewEditor"
   },
+  { "key": "shift+cmd+r",
+    "command": "code-runner.run" },
 ]

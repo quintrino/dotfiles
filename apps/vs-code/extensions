@@ -6,6 +6,7 @@ esbenp.prettier-vscode
 extr0py.vscode-relative-line-numbers
 ezforo.copy-relative-path-and-line-numbers
 formulahendry.auto-rename-tag
+formulahendry.code-runner
 HookyQR.beautify
 Lourenci.go-to-spec
 misogi.ruby-rubocop
