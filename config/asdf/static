@@ -1,4 +1,4 @@
-nodejs 14.11.0
-postgres 12.4
+nodejs 14.13.0
+postgres 13.0
 ruby 2.7.1
 rust 1.46.0
