@@ -3,8 +3,8 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.2.1)
     ast (2.4.1)
-    awesome_print (1.8.0)
     backport (1.1.2)
     benchmark (0.1.0)
     binding_of_caller (0.8.0)
@@ -122,7 +122,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
+  amazing_print
   binding_of_caller
   bundler
   byebug
