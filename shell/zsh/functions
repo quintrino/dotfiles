@@ -426,3 +426,15 @@ rails() {
     command rails "$@"
   fi
 }
+
+rename() {
+  for f in *; do mv "$f" "${f//$1/$2}"; done
+}
+
+bulk_replace() {
+  sed -i'bak' 's|$1|$2|g'
+}
+
+convert_docx_to_md() {
+  for i in *.docx ; do echo "$i" && pandoc -s $i -o $i.md ; done
+}
