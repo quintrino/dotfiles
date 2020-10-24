@@ -20,20 +20,18 @@ format = """\
 format = "| took [$duration]($style) "
 
 [directory]
-prefix = ""
+format = "| [$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-prefix = ""
+format = "| [$symbol$branch]($style) "
 style = "bold blue"
 
 [git_commit]
-prefix = ""
-suffix = " "
-disabled = false
 commit_hash_length = 7
+disabled = false
+format = "[\\($hash\\)]($style)"
 
 [git_status]
-prefix = ""
 enabled = "true"
 diverged = " 😵 "
 stashed = " 📦 "
@@ -55,15 +53,14 @@ deleted_count.enabled = true
 show_sync_count = true
 
 [hostname]
-prefix = ""
 ssh_only = false
+format = "| [$hostname]($style) "
 
 [username]
-prefix = ""
+format = "[$user]($style) "
 show_always = true
 
 [ruby]
-prefix = ""
+format = "[$symbol$version]($style) "
 symbol = "🔺 Ruby "
 style = 'fg:black bg:red'
-suffix = '>'
