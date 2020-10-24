@@ -50,6 +50,7 @@ end
   amazing_print
   byebug
   pry-byebug
+  pry-stack_explorer
   rb-readline
 ].each do |plugin|
   load_non_bundled_plugins(plugin)
