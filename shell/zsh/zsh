@@ -49,3 +49,4 @@ unset starting_directory
 . <%= ("#{`brew --prefix asdf`.chomp}/asdf.sh") || ''%>
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh --no-aliases --cmd=ff)"
