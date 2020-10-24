@@ -1,20 +1,23 @@
-prompt_order = [
-    "username",
-    "hostname",
-    "directory",
-    "git_branch",
-    "git_commit",
-    "git_state",
-    "git_status",
-    "ruby",
-    "nix_shell",
-    "cmd_duration",
-    "line_break",
-    "jobs",
-    "battery",
-    "time",
-    "character",
-]
+format = """\
+    $username\
+    $hostname\
+    $directory\
+    $git_branch\
+    $git_commit\
+    $git_state\
+    $git_status\
+    $ruby\
+    $nix_shell\
+    $cmd_duration\
+    $line_break\
+    $jobs\
+    $battery\
+    $time\
+    $character\
+"""
+
+[cmd_duration]
+format = "| took [$duration]($style) "
 
 [directory]
 prefix = ""
