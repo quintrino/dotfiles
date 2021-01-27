@@ -447,3 +447,11 @@ quote() {
   cd $HOME/Code/Personal/nickwolf.com.au
   $EDITOR quotes.md
 }
+
+jo() {
+  cd "$HOME/Documents/obsidian/journal" || return
+  if [ ! -f "$(date +%Y%m%d).md" ]; then
+    cp "template.md" "$(date +%Y%m%d).md"
+  fi
+  open "obsidian://open?vault=obsidian&file=journal%2F$(date +%Y%m%d)"
+}
