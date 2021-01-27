@@ -4,7 +4,8 @@ Sign into Google Drive, Google Chrome and 1Password\033[0m
 Sign into Apple iCloud account
 Remove Siri from Touchbar
 Set computer name by running set_computer_name COMPUTER_NAME
-Enable autostart on login for Bartender
+add "auth sufficient pam_tid.so" to /etc/pam.d/sudo file
+Enable autostart on login for HiddenBar
 Enable autostart on login for Bettertouchtool
 Enable autostart on login for Hammerspoon
 Enable Karabiner in security and privacy settings
@@ -12,10 +13,10 @@ Set Bluetooth to display icon in Menu Bar
 Enable Security > Accessibility:
 * Alfred
 * Bettertouchtool
-* Bartender
+* HiddenBar
 * Muzzle
 * Hammerspoon
-Configure Bartender to auto hide apps
+Configure HiddenBar to auto hide apps
 Set Spotlight to control option command space in Keyboard > Shortcuts
 
 \033[1;31mComplete after 1Password Sync\033[0m
