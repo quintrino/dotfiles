@@ -133,7 +133,8 @@ alias mut='mu && tmuxinator stop murmur --suppress-tmux-version-warning'
 #Folders
 
 alias drive='cd $HOME/Google\ Drive/'
-alias nick='cd $HOME/Code/Personal/nickwolf.com.au'
+alias nick='cd $HOME/Code/personal/nickwolf.com.au'
+alias per='cd $HOME/Code/personal'
 alias ob='cd $HOME/Documents/obsidian'
 
 #Tmux
