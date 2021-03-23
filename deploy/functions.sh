@@ -216,9 +216,66 @@ function set_computer_name() {
 }
 
 function install_personal_projects() {
- mkdir -p $HOME/Code/Personal
- cd $HOME/Code/Personal || exit
- while read -r line; do
+  mkdir -p $HOME/Code/Personal
+  cd $HOME/Code/Personal || exit
+  while read -r line; do
     git clone "git@github.com:quintrino/$line.git"
   done <~/.dotfiles/deploy/personal_projects
+}
+
+function deploy_from_step() {
+
+  set -e
+
+  local stepNumber=$1
+
+  if [ $stepNumber -eq 1 ]
+  then
+    install_config_folders
+  fi
+
+  if [ $stepNumber -le 2 ]
+  then
+    install_homebrew
+  fi
+
+  if [ $stepNumber -le 3 ]
+  then
+    install_zinit
+  fi
+
+  if [ $stepNumber -le 4 ]
+  then
+    (install_brew_bundle || true)
+  fi
+
+  if [ $stepNumber -le 5 ]
+  then
+    install_asdf_defaults
+  fi
+
+  if [ $stepNumber -le 6 ]
+  then
+    install_fresh
+  fi
+
+  if [ $stepNumber -le 7 ]
+  then
+    install_apple_defaults
+  fi
+
+  if [ $stepNumber -le 8 ]
+  then
+    install_zsh_defaults
+  fi
+
+  if [ $stepNumber -le 9 ]
+  then
+    set_iterm_defaults
+  fi
+
+  if [ $stepNumber -le 10 ]
+  then
+    remind_install_steps
+  fi
 }

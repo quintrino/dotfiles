@@ -21,13 +21,4 @@ if [ -d "$HOME/.dotfiles" ]; then
 # shellcheck disable=SC1090
 source "$HOME/.dotfiles/deploy/functions.sh"
 
-install_config_folders
-install_homebrew
-install_zinit
-(install_brew_bundle || true)
-install_asdf_defaults
-install_fresh
-install_apple_defaults
-install_zsh_defaults
-set_iterm_defaults
-remind_install_steps
+deploy_from_step 1
