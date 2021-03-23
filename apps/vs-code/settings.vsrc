@@ -50,5 +50,6 @@
   "workbench.colorTheme": "SpunBeat Superhero",
   "search.searchOnType": true,
   "files.defaultLanguage": "markdown",
-  "rust-client.channel": null
+  "rust-client.channel": null,
+  "search.mode": "reuseEditor"
 }
