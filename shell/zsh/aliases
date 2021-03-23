@@ -20,6 +20,7 @@ alias h='http '
 alias rmf='rm -rf'
 alias t='touch '
 alias bash='bash --rcfile $XDG_CONFIG_HOME/bash/profile'
+alias ps='echo Consider using procs instead'
 
 #Git
 
