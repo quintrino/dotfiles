@@ -60,6 +60,7 @@ fresh language/ruby/gemrc --file=$XDG_CONFIG_HOME/ruby/gemrc
 fresh language/nodejs/npmrc --file=$XDG_CONFIG_HOME/npm/npmrc
 fresh language/ruby/default-gems --file=$XDG_CONFIG_HOME/asdf/default-gems
 fresh language/ruby/railsrc --file=$XDG_CONFIG_HOME/rails/railsrc
+fresh language/ruby/rspec --file=$XDG_CONFIG_HOME/rspec/options
 fresh config/asdf/asdfrc --file=$XDG_CONFIG_HOME/asdf/asdfrc
 fresh config/hammerspoon/init.lua --file=$XDG_CONFIG_HOME/hammerspoon/init.lua
 
