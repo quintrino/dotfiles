@@ -43,6 +43,58 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + m move one space right",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "right_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + n move one space left",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "right_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
