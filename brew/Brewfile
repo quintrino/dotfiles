@@ -1,67 +1,130 @@
+tap "federico-terzi/espanso"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+# GNU File, Shell, and Text utilities
 brew "coreutils"
+# Library for command-line editing
 brew "readline"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# New way to see and navigate directory trees
 brew "broot"
-brew "sqlite"
+# Manage compile and link flags for libraries
 brew "pkg-config"
+# Cross-platform make
 brew "cmake"
+# Color-highlighted diff(1) output
 brew "colordiff"
+# Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# Load/unload environment variables based on $PWD
 brew "direnv"
+# Modern replacement for 'ls'
 brew "exa"
+# Command-line tool to interact with exercism.io
 brew "exercism"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Alias for git commit --fixup <ref>
 brew "git-fixup"
+# GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
+# Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Swiss-army knife of markup format conversion
 brew "pandoc"
+# Modern replacement for ps written by Rust
 brew "procs"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
+# Cross-shell prompt for astronauts
 brew "starship"
+# Very fast implementation of tldr in Rust
 brew "tealdeer"
+# Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Friendly and fast tool for sending HTTP requests
 brew "xh"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# UNIX shell (command interpreter)
 brew "zsh"
+# Additional completion definitions for zsh
 brew "zsh-completions"
+# Cross-platform Text Expander written in Rust
+brew "federico-terzi/espanso/espanso"
+# Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Application launcher and productivity software
 cask "alfred"
+# Memory training application
 cask "anki"
+# Tool to customize input devices and automate computer systems
 cask "bettertouchtool"
+# Desktop password and login vault
 cask "bitwarden"
+# E-books management software
 cask "calibre"
+# Application to monitor continuous integration servers
 cask "ccmenu"
+# API documentation browser and code snippet manager
 cask "dash"
 cask "dynalist"
+# Web browser
 cask "firefox"
+# Web browser
 cask "firefox-developer-edition"
 cask "font-meslolg-nerd-font"
 cask "freedom"
 cask "google-backup-and-sync"
+# Desktop automation application
 cask "hammerspoon"
+# Utility to hide menu bar items
 cask "hiddenbar"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Keyboard customizer
 cask "karabiner-elements"
+# Open-source firewall to block unknown outgoing connections
 cask "lulu"
+# Silence embarrassing notifications while screensharing
 cask "muzzle"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Instant messaging application focusing on security
 cask "signal"
+# Video chat, voice call and instant messaging application
 cask "skype"
+# Team communication and collaboration software
 cask "slack"
+# Video game digital distribution service
+cask "steam"
+# Text editor for code, markup and prose
 cask "sublime-text"
+# Remote access and connectivity software focused on security
 cask "teamviewer"
+# To-do & task list manager
 cask "ticktick"
+# Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
 cask "vlc"
+# Video communication and virtual meeting platform
 cask "zoom"
