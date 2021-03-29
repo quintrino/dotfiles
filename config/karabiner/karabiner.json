@@ -45,6 +45,32 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "Hyper + a activates VoiceOver",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f5",
+                                        "modifiers": [
+                                            "right_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Hyper + m move one space right",
                                 "from": {
                                     "key_code": "m",
