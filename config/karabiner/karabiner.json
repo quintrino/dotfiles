@@ -18,6 +18,25 @@
                     {
                         "manipulators": [
                             {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                    "mandatory": [
+                                        "shift"
+                                    ],
+                                    "optional": [
+                                        "caps_lock"
+                                    ]
+                                }
+                                },
+                                "to": [
+                                    {
+                                    "key_code": "caps_lock"
+                                }
+                                ]
+                            },
+                            {
                                 "description": "Change caps_lock to Hyper key.",
                                 "from": {
                                     "key_code": "caps_lock",
