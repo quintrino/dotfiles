@@ -37,6 +37,8 @@ fresh-options
 
 fresh shell/utilities/extract --bin
 fresh shell/utilities/asdf_cleanse --bin
+fresh shell/utilities/toggle_full_screen --bin
+
 
 fresh-options --file=$XDG_CONFIG_HOME/bash/bash
   fresh shell/path
