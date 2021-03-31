@@ -159,6 +159,29 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "Hyper + y toggles Full Screen",
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "$HOME/Applications/bin/toggle_full_screen"
+                                }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Hyper + d in iTerm sends EOF",
                                 "from": {
                                     "key_code": "d",

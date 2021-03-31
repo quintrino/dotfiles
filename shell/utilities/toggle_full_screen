@@ -1,0 +1,9 @@
+#!/usr/bin/osascript
+
+tell application "System Events"
+	set activeApp to name of first application process whose frontmost is true
+	tell process activeApp
+		set isFullScreen to get value of attribute "AXFullScreen" of window 1
+		set value of attribute "AXFullScreen" of window 1 to not isFullScreen
+	end tell
+end tell
