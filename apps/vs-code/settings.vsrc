@@ -24,7 +24,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "ruby.intellisense": "rubyLocate",
-  "ruby.rubocop.executePath": "/Users/nick.wolf/.config/asdf/shims/",
+  "ruby.rubocop.executePath": "/Users/nick.wolf/.local/share/asdf/shims/",
   "search.showLineNumbers": true,
   "search.smartCase": true,
   "terminal.integrated.fontFamily": "MesloLGSDZ Nerd Font",
