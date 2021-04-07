@@ -14,6 +14,9 @@ zinit ice silent wait'0'
 zinit light zdharma/fast-syntax-highlighting
 
 zinit ice silent wait'0'
+zinit light Aloxaf/fzf-tab
+
+zinit ice silent wait'0'
 zinit light wfxr/forgit
 forgit_diff=gid
 forgit_restore=forgit_restore
