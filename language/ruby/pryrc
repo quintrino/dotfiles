@@ -14,7 +14,6 @@ end
 Pry.commands.alias_command 'l', 'whereami'
 Pry.commands.alias_command 'bt', 'pry-backtrace'
 Pry.commands.alias_command 'sm', 'show-method'
-Pry.commands.alias_command 'ss', 'show-stack'
 Pry.commands.alias_command 'dp', 'disable-pry'
 Pry.commands.alias_command 'ee', 'exit-program'
 Pry.commands.alias_command 'ds_pry', 'disable-pry'
@@ -40,32 +39,17 @@ def gemdir
 end
 
 def load_non_bundled_plugins(plugin)
-  gem_version = Dir.entries(gemdir).detect { |s| s[/^#{plugin}\-[0-9]/] }
+  gem_version = Dir.entries(gemdir).detect { |s| s[/^#{plugin}-[0-9]/] }
   $LOAD_PATH << "#{gemdir}/#{gem_version}/lib"
   require plugin
 rescue LoadError
   puts "no #{plugin} :("
 end
 
-%w[
-  amazing_print
-  byebug
-  pry-byebug
-  pry-stack_explorer
-  rb-readline
-].each do |plugin|
-  load_non_bundled_plugins(plugin)
-end
+# load_non_bundled_plugins('pry-reload')
 
-if defined?(AmazingPrint)
-  AmazingPrint.defaults = {
-    indent: -1, # left aligned
-    sort_keys: true # sort hash keys
-    # more customization
-  }
-  AmazingPrint.pry!
-end
-
+# load_non_bundled_plugins('byebug')
+# load_non_bundled_plugins('pry-byebug')
 if defined?(PryByebug)
   Pry.commands.alias_command 'co', 'continue'
   Pry.commands.alias_command 'st', 'step'
@@ -73,15 +57,22 @@ if defined?(PryByebug)
   Pry.commands.alias_command 'fi', 'finish'
 end
 
+load_non_bundled_plugins('amazing_print')
+if defined?(AmazingPrint)
+  AmazingPrint.defaults = {
+    indent: -1,
+    sort_keys: true
+  }
+  AmazingPrint.pry!
+end
+
 if defined?(Rails)
   require 'rails/console/app'
   extend Rails::ConsoleMethods
-  puts 'Rails Console Helpers loaded'
-else
-  puts 'Rails not defined; reload! method not loaded'
 end
 
-require 'rbreadline'
+load_non_bundled_plugins('readline')
+load_non_bundled_plugins('rb-readline')
 if defined?(RbReadline)
   def RbReadline.rl_reverse_search_history(_sign, _key)
     rl_insert_text `cat ~/.local/share/pry/pry_history |
@@ -90,14 +81,20 @@ if defined?(RbReadline)
   end
 end
 
-# Add toy method to array
+load_non_bundled_plugins('debug_inspector')
+load_non_bundled_plugins('binding_of_caller')
+load_non_bundled_plugins('pry-stack_explorer')
+if defined?(PryStackExplorer)
+  Pry.commands.alias_command 'fr', 'frame'
+  Pry.commands.alias_command 'ss', 'stack'
+end
+
 class Array
   def self.toy(num = 10, &block)
     block_given? ? Array.new(num, &block) : Array.new(num) { |i| i + 1 }
   end
 end
 
-# Add toy method to hash
 class Hash
   def self.toy(num = 10)
     Hash[Array.toy(num).zip(Array.toy(num) { |c| (96 + (c + 1)).chr })]
