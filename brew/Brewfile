@@ -111,6 +111,8 @@ cask "mtmr"
 cask "muzzle"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
 # Instant messaging application focusing on security
 cask "signal"
 # Video chat, voice call and instant messaging application
