@@ -106,6 +106,7 @@ cask "iterm2"
 cask "karabiner-elements"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
+cask "mtmr"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
 # Knowledge base that works on top of a local folder of plain text Markdown files

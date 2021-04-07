@@ -45,6 +45,7 @@ fresh-options --file=$XDG_CONFIG_HOME/bash/bash
   fresh shell/environment
 fresh-options
 
+fresh config/mtmr/items.json --file=$HOME/Library/ApplicationSupport/MTMR/items.json
 fresh config/tmux/tmux.conf --file=$XDG_CONFIG_HOME/tmux/tmux.conf
 fresh config/tmuxinator/update --file=$XDG_CONFIG_HOME/tmuxinator/update.yml
 fresh config/starship/starship --file=$XDG_CONFIG_HOME/starship.toml
