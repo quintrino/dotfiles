@@ -44,6 +44,8 @@ brew "gnupg"
 brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Swiss Army Knife for macOS
+brew "m-cli"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Modern replacement for ps written by Rust
