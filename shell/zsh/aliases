@@ -11,7 +11,6 @@ alias ffi='__zoxide_zi '
 alias dot='cd $HOME/.dotfiles'
 alias edot='$EDITOR $HOME/.dotfiles'
 alias freq='history 0 | sed -E "s/ *[0-9]+  //" | sort | uniq -c | sort -rn | head -50'
-alias setup='$EDITOR $HOME/Google\ Drive/Sync/Mac/setup'
 alias now='date +"%T"'
 alias l='exa --long --grid --all --header --git --classify --icons'
 alias md='mkdir -p'
@@ -145,7 +144,3 @@ alias tmt='tmuxinator stop'
 #Fun
 
 alias star='telnet towel.blinkenlights.nl'
-
-# to unalias something just do 'unalias foo'
-
-#alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
