@@ -1,0 +1,65 @@
+matches:
+  # Simple text replacement
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  - trigger: ":gh"
+    replace: "https://github.com/"
+
+  - trigger: ":nwn"
+    replace: "Nick Wolf"
+
+  - trigger: ":nww"
+    replace: "https://nickwolf.com.au/"
+
+  - trigger: ":nwg"
+    replace: "https://github.com/quintrino"
+
+  - trigger: ":nwt"
+    replace: "https://twitter.com/quintrino"
+
+  - trigger: ":nwl"
+    replace: "https://www.linkedin.com/in/quintrino/"
+
+  - trigger: ":hp"
+    replace: "[High Priority]"
+
+  - trigger: ":mp"
+    replace: "[Medium Priority]"
+
+  - trigger: ":lp"
+    replace: "[Low Priority]"
+
+  - trigger: ":dl"
+    replace: "[Deadline: $|$]"
+
+  - trigger: ":job"
+    replace: "Software Engineer"
+
+  - trigger: ":text"
+    replace: |
+      - trigger: ""
+        replace: ""
+
+  # Dates
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d/%m/%Y"
+
+  # Code
+
+  - trigger: ":bind"
+    replace: "require 'pry'; binding.pry"
+
+  # Shell commands
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo Hello from your shell"

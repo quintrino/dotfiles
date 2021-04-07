@@ -45,6 +45,7 @@ fresh-options --file=$XDG_CONFIG_HOME/bash/bash
   fresh shell/environment
 fresh-options
 
+fresh config/espanso --file=~/.config/espanso/
 fresh config/mtmr/items.json --file=$HOME/Library/ApplicationSupport/MTMR/items.json
 fresh config/tmux/tmux.conf --file=$XDG_CONFIG_HOME/tmux/tmux.conf
 fresh config/tmuxinator/update --file=$XDG_CONFIG_HOME/tmuxinator/update.yml
@@ -72,4 +73,5 @@ fresh_after_build(){
   ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Code/User/settings.json
   ln -sf ~/.dotfiles/apps/vs-code/keys.vsrc ~/Library/Application\ Support/Code/User/keybindings.json
   ln -sf ~/.dotfiles/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
+  ln -sf ~/Drive/Sync/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
 }
