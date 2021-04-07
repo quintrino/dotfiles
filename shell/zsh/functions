@@ -457,6 +457,10 @@ lc() {
   ls -A | wc -l
 }
 
+install_pg() {
+  gem install pg -- --with-pg-config="$(ASDF_POSTGRES_VERSION=$(asdf latest postgres) asdf where postgres)/bin/pg_config"
+}
+
 up(){
   if [[ "$#" -ne 1 ]]; then
     cd ..
