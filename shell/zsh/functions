@@ -384,7 +384,7 @@ exer_all() {
     return 1
   else
     local language=$1
-    cd "/Users/nick.wolf/Code/Personal/exercism" || exit
+    cd "$(exercism workspace)" || exit
     mkdir "$language"
     cd "$language" || exit
     curl -LS "https://exercism.io/tracks/$language/exercises" \
