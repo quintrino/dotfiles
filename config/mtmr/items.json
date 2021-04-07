@@ -27,12 +27,11 @@
         "type": "timeButton",
         "formatTemplate": "EE dd HH:mm",
         "align": "left",
-        "bordered": false,
-        "longAction": "close"
+        "bordered": false
       },
       {
         "type": "currency",
-        "refreshInterval": 600, // in seconds
+        "refreshInterval": 600,
         "align": "left",
         "from": "BTC",
         "to": "AUD",
@@ -72,7 +71,7 @@
   },
   {
     "type": "pomodoro",
-    "workTime": 1500, // set time work in seconds. Default 1500 (25 min)
-    "restTime": 300 // set time rest in seconds. Default 300 (5 min)
+    "workTime": 1500,
+    "restTime": 300
   }
 ]
