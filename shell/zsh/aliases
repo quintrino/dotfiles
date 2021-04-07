@@ -14,7 +14,6 @@ alias freq='history 0 | sed -E "s/ *[0-9]+  //" | sort | uniq -c | sort -rn | he
 alias setup='$EDITOR $HOME/Google\ Drive/Sync/Mac/setup'
 alias now='date +"%T"'
 alias l='exa --long --grid --all --header --git --classify --icons'
-alias up='cd ..'
 alias md='mkdir -p'
 alias h='xh '
 alias rmf='rm -rf'
