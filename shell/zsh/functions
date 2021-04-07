@@ -477,3 +477,12 @@ up(){
     cd $d
   fi
 }
+
+freq() {
+  history 0 |
+  sed -E "s/ *[0-9]+  //" |
+  sort |
+  uniq -c |
+  sort -rn |
+  head -50
+}
