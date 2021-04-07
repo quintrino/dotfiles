@@ -14,8 +14,8 @@
     "align": "left",
     "bordered": false,
     "longAction": "shellScript",
-    "longExecutablePath": "/usr/bin/pmset",
-    "longShellArguments": ["sleepnow"]
+    "longExecutablePath": "/usr/bin/open",
+    "longShellArguments": ["https://calendar.google.com"]
   },
   {
     "type": "group",
