@@ -431,6 +431,7 @@ convert_docx_to_md() {
 }
 
 ds_store_remove() {
+  fd --hidden '.DS_Store'
   fd --hidden '.DS_Store' | tr \\n \\0 | xargs -0 rm
 }
 
