@@ -1,0 +1,9 @@
+#!/usr/bin/env osascript
+on run argv
+  set Activeapp to item 1 of argv
+  if application Activeapp is running then
+    tell application Activeapp to activate
+  else
+    open application Activeapp
+  end if
+end run
