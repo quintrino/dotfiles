@@ -1,18 +1,18 @@
-\033[1;31mComplete before Google Drive Sync and 1Password Sync\033[0m
+\033[1;31mComplete before Google Drive Sync and Bitwarden Sync\033[0m
 
-Sign into Google Drive, Google Chrome and 1Password\033[0m
+Sign into Google Drive, Firefox, BitWarden\033[0m
 Sign into Apple iCloud account
-Remove Siri from Touchbar
+Set Touchbar quick actions to Volume slider, Mute, Brightness slider
 Set computer name by running set_computer_name COMPUTER_NAME
 add "auth sufficient pam_tid.so" to /etc/pam.d/sudo file
 Enable autostart on login for HiddenBar
-Enable autostart on login for Bettertouchtool
+Enable autostart on login for MTMR
 Enable autostart on login for Hammerspoon
 Enable Karabiner in security and privacy settings
 Set Bluetooth to display icon in Menu Bar
 Enable Security > Accessibility:
 * Alfred
-* Bettertouchtool
+* MTMR
 * HiddenBar
 * Muzzle
 * Hammerspoon
@@ -21,19 +21,13 @@ Set Spotlight to control option command space in Keyboard > Shortcuts
 
 \033[1;31mComplete after 1Password Sync\033[0m
 
-Set Bettertouchtool to sync from Dropbox
-Enable licence for Bettertouchtool, Alfred and Bartender
+Enable licence for Alfred
 Sign into Teamviewer, Anki and Freedom
 Add ssh key for Github
-
-\033[1;31mCompleted after Google Chrome Sync\033[0m
-
-Copy 1Password.json from Google Chrome to Google Chrome Canary
-Set Chrome uBlock Origin to point to github filter
 
 \033[1;31mComplete after Google Drive Sync\033[0m
 
 Set Dash and Alfred to Sync from Google Drive
 Set Google Drive to ignore warnings for removing shared items
-Set Alfred to command space
+Set Alfred to Hyper F
 Set Alfred appearance to stretch
