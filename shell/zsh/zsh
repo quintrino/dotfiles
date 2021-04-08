@@ -23,6 +23,8 @@ setopt share_history          # share command history data
 HISTSIZE=50000
 SAVEHIST=10000
 HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"     #Where to save history to disk
+HISTORY_IGNORE="(tmux_title *|tmuxinator stop update *|tmux set pane-border-status top)"
+
 
 setopt autopushd
 setopt auto_cd
