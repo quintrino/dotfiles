@@ -40,6 +40,8 @@ brew "git-delta"
 brew "git-fixup"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Add GitHub support to git on the command-line
+brew "hub"
 # ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 brew "libheif"
 # Tools and libraries to manipulate images in many formats
