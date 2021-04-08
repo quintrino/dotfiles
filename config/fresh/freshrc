@@ -45,6 +45,11 @@ fresh-options --file=$XDG_CONFIG_HOME/bash/bash
   fresh shell/environment
 fresh-options
 
+# Fish
+
+fresh shell/fish/config --file=~/.config/fish/config.fish
+
+# Config
 fresh config/espanso --file=~/.config/espanso/
 fresh config/mtmr/items.json --file=$HOME/Library/ApplicationSupport/MTMR/items.json
 fresh config/tmux/tmux.conf --file=$XDG_CONFIG_HOME/tmux/tmux.conf
