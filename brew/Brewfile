@@ -82,8 +82,6 @@ cask "1password"
 cask "alfred"
 # Memory training application
 cask "anki"
-# Tool to customize input devices and automate computer systems
-cask "bettertouchtool"
 # Desktop password and login vault
 cask "bitwarden"
 # E-books management software
