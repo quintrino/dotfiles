@@ -491,3 +491,26 @@ freq() {
 yt() {
   youtube-dl --output "$HOME/Downloads/videos/%(title)s.mp4" $1
 }
+
+roff() {
+  kill -9 "$( lsof -i tcp:3000 -t )"
+}
+
+gitroot() {
+  cd "$(git rev-parse --show-toplevel)" || exit
+}
+
+gh() {
+  echo  "opening repo in browser"
+  local url="$(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/tree/$(git symbolic-ref --quiet --short HEAD )"
+  open ${url/.git}
+}
+
+ghb() {
+  echo  "Opening current branch"
+  gh tree/"$(git symbolic-ref --quiet --short HEAD )"
+}
+
+gitback() {
+  git show "$(git log --format=%h^ master..HEAD | tail -n 1 )" --format=%cr
+}

@@ -29,7 +29,6 @@ alias oc='overcommit'
 alias ocs='overcommit --sign'
 alias ocp='overcommit --sign post-commit'
 alias axe='git log --patch -S'
-alias gitback='git show $(git log --format=%h^ master..HEAD | tail -n 1) --format=%cr'
 alias glob='glo master..HEAD'
 alias gfc='git fixup --commit'
 alias grc='git_open_conflicts && git add . && git rebase --continue'
@@ -65,15 +64,7 @@ alias add='git_track_untracked && git add --patch && git_untrack_new_blank && gi
 alias logic='echo -e "\033[1;31m If applied this commit will... \033[0m"'
 alias force-push='git push origin HEAD --force-with-lease'
 alias afp='amend && force-push'
-alias gitroot='cd $(git rev-parse --show-toplevel)'
-# open repo in browser
-alias gh='open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/tree/$(git symbolic-ref --quiet --short HEAD )'
-# Open current branch
-alias ghb='gh tree/$(git symbolic-ref --quiet --short HEAD )'
-# Open current directory/file in current branch
-alias ghbf='gh tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)'
-# Open current directory/file in master branch
-alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
+
 alias lol='cd ~/.local/share/lolcommits/'
 
 #Ruby
@@ -87,7 +78,6 @@ alias js='bundle exec jekyll serve'
 #Rails
 
 alias rc='bundle exec rails console'
-alias roff='kill -9 $(lsof -i tcp:3000 -t)'
 alias pryrc='pry -r ./config/environment'
 alias ras='bundle exec rails server'
 alias work='bin/rake jobs:work'
