@@ -123,8 +123,6 @@ cask "skype"
 cask "slack"
 # Video game digital distribution service
 cask "steam"
-# Text editor for code, markup and prose
-cask "sublime-text"
 # Remote access and connectivity software focused on security
 cask "teamviewer"
 # To-do & task list manager
