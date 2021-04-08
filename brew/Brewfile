@@ -68,6 +68,8 @@ brew "tmux"
 brew "tree"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)

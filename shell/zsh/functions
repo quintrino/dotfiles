@@ -487,3 +487,7 @@ freq() {
   sort -rn |
   head -50
 }
+
+yt() {
+  youtube-dl --output "$HOME/Downloads/videos/%(title)s.mp4" $1
+}
