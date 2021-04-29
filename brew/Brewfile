@@ -110,6 +110,7 @@ cask "firefox"
 # Web browser
 cask "firefox-developer-edition"
 cask "font-meslolg-nerd-font"
+# App and website blocker
 cask "freedom"
 cask "google-backup-and-sync"
 # Desktop automation application
