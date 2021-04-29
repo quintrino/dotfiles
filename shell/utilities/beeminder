@@ -1,0 +1,20 @@
+#!/bin/sh
+
+. ~/.local/share/environment/beeminder
+
+user_url="https://www.beeminder.com/api/v1/users/$BEEMINDER_USER"
+user_token="auth_token=$BEEMINDER_TOKEN"
+goal=$2
+
+if [ "$1" = "datapoint" ]
+then
+  output=$(curl "$user_url/goals/$goal/datapoints.json?$user_token&datapoints=false&per=1&count=1" )
+  datapoint=$(echo $output | /usr/local/bin/jq ".[0].canonical")
+  echo "${datapoint%???}" | cut -d'"' -f3
+fi
+
+if [ "$1" = "title" ]
+then
+  output=$(curl "$user_url/goals/$goal.json?$user_token&datapoints=false" | /usr/local/bin/jq .'title')
+  echo "$output" | awk '{print substr($0,2,length($0)-2)}'
+fi
