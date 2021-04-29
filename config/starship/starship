@@ -32,25 +32,17 @@ disabled = false
 format = "[\\($hash\\)]($style)"
 
 [git_status]
-enabled = "true"
+disabled = false
 diverged = " 😵 "
 stashed = " 📦 "
-stashed_count.enabled = true
 renamed = " 👅 "
-renamed_count.enabled = true
 conflicted = "⁉ "
-conflicted_count.enabled = true
 ahead = " ⬆ "
 behind = " ⬇ "
 untracked = "❓"
-untracked_count.enabled = true
 modified = " ❕"
-modified_count.enabled = true
 staged = " ➕"
-staged_count.enabled = true
 deleted = " 🗑 "
-deleted_count.enabled = true
-show_sync_count = true
 
 [hostname]
 ssh_only = false
