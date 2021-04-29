@@ -26,5 +26,4 @@ zinit wait:1 lucid atload"abbr import-aliases --quiet 2> /dev/null &|" for olets
 zinit ice lucid wait:1 atload:_zsh_autosuggest_start
 zinit light zsh-users/zsh-autosuggestions
 bindkey '^[[[CE' autosuggest-execute
-export ZSH_AUTOSUGGEST_IGNORE_WIDGETS=(fzfz-file-widget)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
