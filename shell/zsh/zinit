@@ -5,18 +5,18 @@
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zpcompinit
 
-zinit ice silent wait'0'
+zinit ice lucid wait
 zinit light djui/alias-tips
 export ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
 export ZSH_PLUGINS_ALIAS_TIPS_REVEAL_TEXT='\033[0m\033[94mAlias for: \033[1;94m'
 
-zinit ice silent wait'0'
+zinit ice silent wait
 zinit light zdharma/fast-syntax-highlighting
 
-zinit ice silent wait'0'
+zinit ice lucid wait
 zinit light Aloxaf/fzf-tab
 
-zinit ice silent wait'0'
+zinit ice lucid wait
 zinit light wfxr/forgit
 forgit_diff=gid
 forgit_restore=forgit_restore
@@ -24,7 +24,7 @@ forgit_restore=forgit_restore
 zinit ice silent wait'0'
 zinit light olets/zsh-abbr
 
-zinit ice silent wait:1 atload:_zsh_autosuggest_start
+zinit ice lucid wait:1 atload:_zsh_autosuggest_start
 zinit light zsh-users/zsh-autosuggestions
 bindkey '^[[[CE' autosuggest-execute
 export ZSH_AUTOSUGGEST_IGNORE_WIDGETS=(fzfz-file-widget)
