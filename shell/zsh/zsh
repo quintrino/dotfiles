@@ -6,7 +6,7 @@ ZINIT[BIN_DIR]="$XDG_CONFIG_HOME/zinit/bin"
 ZINIT[ZCOMPDUMP_PATH]="$XDG_CONFIG_HOME/zinit/zcompdump"
 
 precmd() {
-    DIRS=$(pwd | awk '{ sub("/Users/nick.wolf/Code", "~"); print $0 }')
+    DIRS=$(pwd | awk '{ sub("/Users/nick.wolf", "~"); print $0 }')
     export DIRS
     echo -ne "\e]1;${DIRS/#$HOME/~}\a"
     [ -d "$XDG_DATA_HOME/zsh/history" ] || mkdir -p "$XDG_DATA_HOME/zsh/history"
