@@ -441,7 +441,7 @@
                                     {
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
-                                            "^org\\.whispersystems\\.signal-desktop$"
+                                            "^org\\.whispersystems\\.signal-desktop"
                                         ]
                                     }
                                 ]
@@ -475,7 +475,7 @@
                                     {
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
-                                            "^org\\.whispersystems\\.signal-desktop$"
+                                            "^org\\.whispersystems\\.signal-desktop"
                                         ]
                                     }
                                 ]
@@ -643,7 +643,7 @@
                                     {
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
-                                            "^org\\.whispersystems\\.signal-desktop$"
+                                            "^org\\.whispersystems\\.signal-desktop"
                                         ]
                                     }
                                 ]
