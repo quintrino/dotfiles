@@ -12,6 +12,8 @@ brew "readline"
 brew "asdf"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
 # New way to see and navigate directory trees
 brew "broot"
 # Manage compile and link flags for libraries
