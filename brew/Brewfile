@@ -14,6 +14,8 @@ brew "asdf"
 brew "bat"
 # Secure and free password manager for all of your devices
 brew "bitwarden-cli"
+# Connect and disconnect Bluetooth devices
+brew "bluetoothconnector"
 # New way to see and navigate directory trees
 brew "broot"
 # Manage compile and link flags for libraries
