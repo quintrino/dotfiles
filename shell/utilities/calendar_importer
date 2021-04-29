@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require 'cgi'
+require 'icalendar'
+
+event_file = File.open(ARGV[0])
+calendar_event = Icalendar::Event.parse(event_file).first
+
+event = Hash.new('')
+event['text'] = calendar_event.summary || ''
+event['details'] = calendar_event.description || ''
+event['location'] = calendar_event.location || ''
+start_time = calendar_event.dtstart.strftime('%Y%m%dT%H%M')
+end_time = calendar_event.dtend.strftime('%Y%m%dT%H%M')
+event['dates'] = "#{start_time}/#{end_time}" || ''
+case calendar_event.dtstart.ical_params['tzid']
+when String
+  event['ctz'] = calendar_event.dtstart.ical_params['tzid']
+when Array
+  event['ctz'] = calendar_event.dtstart.ical_params['tzid'].first
+end
+
+url = 'https://www.google.com/calendar/render?action=TEMPLATE&'
+
+params = event.each_with_object('') do |(key, value), string|
+  string << "#{key}=#{CGI.escape(value)}&"
+end.strip
+
+full_url = "#{url}#{params}sf=true&output=xml"
+
+`open "#{full_url}"`
