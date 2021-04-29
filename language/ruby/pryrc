@@ -52,10 +52,10 @@ rescue LoadError
   puts "no #{plugin} :("
 end
 
-# load_non_bundled_plugins('pry-reload')
+load_non_bundled_plugins('pry-reload')
 
-# load_non_bundled_plugins('byebug')
-# load_non_bundled_plugins('pry-byebug')
+load_non_bundled_plugins('byebug')
+load_non_bundled_plugins('pry-byebug')
 if defined?(PryByebug)
   Pry.commands.alias_command 'co', 'continue'
   Pry.commands.alias_command 'st', 'step'
