@@ -21,8 +21,7 @@ zinit light wfxr/forgit
 forgit_diff=gid
 forgit_restore=forgit_restore
 
-zinit ice silent wait'0'
-zinit light olets/zsh-abbr
+zinit wait:1 lucid atload"abbr import-aliases --quiet 2> /dev/null &|" for olets/zsh-abbr
 
 zinit ice lucid wait:1 atload:_zsh_autosuggest_start
 zinit light zsh-users/zsh-autosuggestions
