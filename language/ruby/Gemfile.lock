@@ -1,3 +1,18 @@
+GIT
+  remote: https://github.com/deivid-rodriguez/pry-byebug
+  revision: 3119d7709874446edcd4ac8cce51c8e8be39a9bf
+  specs:
+    pry-byebug (3.9.0)
+      byebug (~> 11.0)
+      pry (>= 0.13, < 0.15)
+
+GIT
+  remote: https://github.com/runa/pry-reload.git
+  revision: 5307937483131561572baf4827e76819eed7e27a
+  specs:
+    pry-reload (0.2)
+      listen (~> 3.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -16,9 +31,16 @@ GEM
     diff-lcs (1.4.4)
     e2mmap (0.1.0)
     erubis (2.7.0)
+    ffi (1.15.0)
     foreman (0.87.2)
     git (1.8.1)
       rchardet (~> 1.8)
+    iStats (1.6.1)
+      parseconfig (~> 1.0)
+      sparkr (~> 0.4)
+    icalendar (2.7.1)
+      ice_cube (~> 0.16)
+    ice_cube (0.16.3)
     iniparse (1.5.0)
     interception (0.5)
     jaro_winkler (1.5.4)
@@ -28,6 +50,9 @@ GEM
       kramdown (~> 2.0)
     launchy (2.5.0)
       addressable (~> 2.7)
+    listen (3.5.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     lolcommits (0.16.3)
       git (~> 1.8.1)
       launchy (~> 2.5.0)
@@ -43,7 +68,7 @@ GEM
       bundler
     method_source (1.0.0)
     mini_magick (4.11.0)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.5.1)
     nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -52,14 +77,12 @@ GEM
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
     parallel (1.20.1)
+    parseconfig (1.1.0)
     parser (3.0.1.0)
       ast (~> 2.4.1)
-    pry (0.13.1)
+    pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pry-byebug (3.9.0)
-      byebug (~> 11.0)
-      pry (~> 0.13.0)
     pry-rescue (1.5.2)
       interception (>= 0.5)
       pry (>= 0.12.0)
@@ -69,6 +92,9 @@ GEM
     public_suffix (4.0.6)
     racc (1.5.2)
     rainbow (3.0.0)
+    rb-fsevent (0.10.4)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     rb-readline (0.5.5)
     rchardet (1.8.0)
     regexp_parser (2.1.1)
@@ -88,7 +114,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.12.1)
+    rubocop (1.13.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -99,7 +125,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.1)
       parser (>= 2.7.1.5)
-    rubocop-rspec (2.2.0)
+    rubocop-rspec (2.3.0)
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
@@ -117,9 +143,10 @@ GEM
       thor (~> 1.0)
       tilt (~> 2.0)
       yard (~> 0.9, >= 0.9.24)
+    sparkr (0.4.1)
     thor (1.1.0)
     tilt (2.0.10)
-    tmuxinator (2.0.2)
+    tmuxinator (2.0.3)
       erubis (~> 2.6)
       thor (~> 1.0)
       xdg (~> 2.2, >= 2.2.5)
@@ -137,10 +164,13 @@ DEPENDENCIES
   byebug
   debug_inspector
   foreman
+  iStats
+  icalendar
   lolcommits
   overcommit
   pry
-  pry-byebug
+  pry-byebug!
+  pry-reload!
   pry-rescue
   pry-stack_explorer
   rb-readline
