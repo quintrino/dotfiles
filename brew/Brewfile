@@ -46,6 +46,8 @@ brew "git"
 brew "git-delta"
 # Alias for git commit --fixup <ref>
 brew "git-fixup"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Add GitHub support to git on the command-line
