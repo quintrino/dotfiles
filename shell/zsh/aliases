@@ -130,6 +130,7 @@ alias ob='cd $HOME/Documents/obsidian'
 alias tm='tmuxinator'
 alias tms='tmuxinator start'
 alias tmt='tmuxinator stop'
+alias update='tmuxinator start update --suppress-tmux-version-warning'
 
 #Fun
 

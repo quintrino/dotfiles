@@ -251,10 +251,6 @@ path() {
             print }"
 }
 
-update() {
-  tmuxinator start update
-}
-
 singled_threaded_update() {
   starting_directory=$(pwd)
   fresh_update
