@@ -1,5 +1,5 @@
 #!/bin/sh
-ct () {
+ct() {
   for code in $(seq 000 255); do
     print -P -- "$code: %F{$code} $1 %f"
   done
