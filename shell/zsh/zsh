@@ -10,7 +10,7 @@ precmd() {
     export DIRS
     echo -ne "\e]1;${DIRS/#$HOME/~}\a"
     [ -d "$XDG_DATA_HOME/zsh/history" ] || mkdir -p "$XDG_DATA_HOME/zsh/history"
-    echo ": [$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> "$XDG_DATA_HOME/zsh/history/history-$(date +%Y%m%d)"
+    echo "[$(date)] $$ ${USER} ${PWD}\; $(fc -nl | tail -n 1)" >> "$XDG_DATA_HOME/zsh/history/history-$(date +%Y%m%d)"
 }
 
 setopt append_history
@@ -24,7 +24,6 @@ HISTSIZE=50000
 SAVEHIST=10000
 HISTFILE="$XDG_DATA_HOME/zsh/zsh_history"     #Where to save history to disk
 HISTORY_IGNORE="(tmux_title *|tmuxinator stop update *|tmux set pane-border-status top)"
-
 
 setopt autopushd
 setopt auto_cd
