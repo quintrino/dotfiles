@@ -36,10 +36,26 @@ matches:
   - trigger: ":job"
     replace: "Software Engineer"
 
+  - trigger: ":template"
+    replace: |
+      ---
+      icon: fa-
+      permalink: blog/
+      categories: Blog
+      ---
+
   - trigger: ":text"
     replace: |
       - trigger: ""
         replace: ""
+
+  - trigger: ":post"
+    replace: "e _posts/{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
 
   # Dates
   - trigger: ":date"
