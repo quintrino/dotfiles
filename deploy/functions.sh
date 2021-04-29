@@ -4,18 +4,18 @@
 source "$HOME/.dotfiles/shell/environment"
 
 function install_homebrew() {
-  echo -e "\033[1;31mInstalling Homebrew \033[0m"
+  printf "\033[1;31mInstalling Homebrew \033[0m\n"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 
 function install_zinit() {
-  echo -e "\033[1;31mInstalling Zinit \033[0m"
+  printf "\033[1;31mInstalling Zinit \033[0m\n"
   ZINIT_HOME=$XDG_CONFIG_HOME/zinit sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 }
 
 function install_brew_bundle() {
-  echo -e "\033[1;31mBrew Bundle Install \033[0m"
+  printf "\033[1;31mBrew Bundle Install \033[0m\n"
   cd "$HOME/.dotfiles/brew" || exit
   brew bundle
   if [ "$WORK" == 1 ];
@@ -30,7 +30,7 @@ function install_brew_bundle() {
 }
 
 function install_config_folders() {
-  echo -e "\033[1;31mInstalling Config Folders \033[0m"
+  printf "\033[1;31mInstalling Config Folders \033[0m\n"
   mkdir -p ~/Library/Application\ Support/Code/User/
   mkdir -p "$XDG_DATA_HOME/z"
   touch "$XDG_DATA_HOME/z/z"
@@ -46,10 +46,11 @@ function install_config_folders() {
   mkdir -p "$XDG_CONFIG_HOME/tmux"
   mkdir -p "$XDG_CONFIG_HOME/tmuxinator"
   mkdir -p "$XDG_CONFIG_HOME/npm"
+  mkdir -p "$XDG_CONFIG_HOME/zsh"
 }
 
 function install_zsh_defaults() {
-  echo -e "\033[1;31mSetting Default Shell \033[0m"
+  printf "\033[1;31mSetting Default Shell \033[0m\n"
   [ -f "$HOME/.local/share/zsh/zshrc" ] || echo '#!/bin/zsh' >> "$HOME/.local/share/zsh/zshrc"
   sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells' # Set brew zsh as acceptable shell choice
   chsh -s /usr/local/bin/zsh # Set shell to brew zsh
@@ -57,7 +58,7 @@ function install_zsh_defaults() {
 }
 
 function install_fresh() {
-  echo -e "\033[1;31mInstall Fresh \033[0m"
+  printf "\033[1;31mInstall Fresh \033[0m\n"
   rm "$HOME/.zshrc"
   mkdir -p "$XDG_CONFIG_HOME/fresh/source/freshshell"
 
@@ -93,7 +94,7 @@ function install_fresh() {
 }
 
 function install_asdf_defaults() {
-  echo -e "\033[1;31mInstalling ASDF Defaults \033[0m"
+  printf "\033[1;31mInstalling ASDF Defaults \033[0m\n"
   export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
   export ASDF_RUBY_VERSION='system'
   while read -r line; do
@@ -109,7 +110,7 @@ function install_asdf_defaults() {
 }
 
 function install_apple_defaults() {
-  echo -e "\033[1;31mInstalling Apple Defaults \033[0m"
+  printf "\033[1;31mInstalling Apple Defaults \033[0m\n"
   # Disable the sound effects on boot
   sudo nvram SystemAudioVolume=" "
 
@@ -198,7 +199,7 @@ function install_apple_defaults() {
 }
 
 function set_iterm_defaults() {
-  echo -e "\033[1;31mSetting iTerm Defaults \033[0m"
+  printf "\033[1;31mSetting iTerm Defaults \033[0m\n"
   # Specify the preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.dotfiles/apps/iTerm"
   # Tell iTerm2 to use the custom preferences in the directory
