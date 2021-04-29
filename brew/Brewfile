@@ -64,6 +64,8 @@ brew "shellcheck"
 brew "starship"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
+# Send macOS User Notifications from the command-line
+brew "terminal-notifier"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
