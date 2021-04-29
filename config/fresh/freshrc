@@ -53,6 +53,7 @@ fresh shell/fish/config --file=~/.config/fish/config.fish
 # Config
 fresh config/espanso --file=~/.config/espanso/
 fresh config/mtmr/items.json --file=$HOME/Library/ApplicationSupport/MTMR/items.json
+fresh config/organize/config.yaml --file=$XDG_CONFIG_HOME/organize/config.yaml
 fresh config/tmux/tmux.conf --file=$XDG_CONFIG_HOME/tmux/tmux.conf
 fresh config/tmuxinator/update --file=$XDG_CONFIG_HOME/tmuxinator/update.yml
 fresh config/starship/starship --file=$XDG_CONFIG_HOME/starship.toml

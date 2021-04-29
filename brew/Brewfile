@@ -60,6 +60,8 @@ brew "imagemagick"
 brew "m-cli"
 # Show markdown documents on text terminals
 brew "mdcat"
+# File management automation tool
+brew "organize-tool"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Modern replacement for ps written by Rust

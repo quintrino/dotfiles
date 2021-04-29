@@ -24,6 +24,7 @@ export FRESH_BIN_PATH="$HOME/Applications/bin"
 export FORGIT_NO_ALIASES=1
 export LOLCOMMITS_DIR="$XDG_DATA_HOME/lolcommits"
 export LOLCOMMITS_DELAY='1'
+export ORGANIZE_CONFIG="$XDG_CONFIG_HOME/organize/config.yaml"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"

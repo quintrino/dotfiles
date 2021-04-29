@@ -1,0 +1,48 @@
+rules:
+  - folders: ~/Downloads/capture
+    subfolders: true
+    filters:
+      - extension: md
+      - python: |
+          if " " not in path.stem:
+            return False
+          clean_name = path.stem.replace(" ", "_") + path.suffix
+          return {
+            "clean_name": clean_name
+          }
+    actions:
+      - rename: "{python.clean_name}"
+      - move: ~/Documents/obsidian/zen_inbox/websites/
+
+  - folders: ~/Documents/obsidian/zen_inbox/youtube
+    filters:
+      - extension: md
+      - python: |
+          if " " not in path.stem:
+            return False
+          clean_name = path.stem.replace(" ", "_") + path.suffix
+          return {
+            "clean_name": clean_name
+          }
+    actions:
+      - rename: "{python.clean_name}"
+
+  - folders: ~/Downloads/
+    filters:
+      - extension: ics
+    actions:
+      - shell: 'calendar_importer "{path}"'
+      - move: ~/Downloads/imported_events/
+
+  - folders: ~/Downloads/
+    filters:
+      - extension: mp4
+    actions:
+      - move: ~/Downloads/videos/
+
+  - folders: ~/Downloads/
+    filters:
+      - extension: mp3
+    actions:
+      - shell: 'vlc --play-and-exit "{path}"'
+      - move: ~/Downloads/audio/

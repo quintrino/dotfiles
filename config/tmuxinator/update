@@ -12,6 +12,7 @@ windows:
         - tmuxinator stop update \
         - tmux_title "Brew" && brew_update; tmux_pane
         - tmux_title "Zinit" && zinit_update; tmux_pane
+        - tmux_title "Organize" && organize run; tmux_pane
         - tmux_title "asdf" && asdf_update | rg -v "origin/master|already installed"; tmux_pane
         - tmux_title "Fresh" && fresh_update; tmux_pane
         - tmux_title "Ruby" && ruby_update | rg -v 'Using'; tmux_pane
