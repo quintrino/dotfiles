@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+`bw login`
+bw_key = `bw unlock`.split("\n")[7].split('--session ')[1]
+`bw sync --session #{bw_key}`
+data_dir = ENV['XDG_DATA_HOME']
+
+xdg_env_dir = "#{data_dir}/environment"
+
+Dir.mkdir(xdg_env_dir) unless Dir.exist?(xdg_env_dir)
+
+bw_env_output = `bw list folders --search Environment --session #{bw_key}`
+
+env_id = JSON.parse(bw_env_output)[0]['id']
+
+env_folder = JSON.parse(`bw list items --folderid #{env_id} --session #{bw_key}`)
+
+env_folder.each do |file|
+  filename = "#{data_dir}/environment/#{file['name']}"
+  `chmod +w #{filename}` if File.file?(filename)
+  File.open(filename, 'w') do |f|
+    f.write file['notes']
+  end
+  `chmod -w #{filename}`
+end
