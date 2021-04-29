@@ -1,0 +1,8 @@
+# Set location and file name
+--output "$HOME/Downloads/videos/%(channel)s-%(title)s.mp4"
+
+# Set quality for minimum size
+--format worst
+
+# Download Subtitles
+--write-sub --write-auto-sub
