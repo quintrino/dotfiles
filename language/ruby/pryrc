@@ -40,7 +40,13 @@ end
 
 def load_non_bundled_plugins(plugin)
   gem_version = Dir.entries(gemdir).detect { |s| s[/^#{plugin}-[0-9]/] }
-  $LOAD_PATH << "#{gemdir}/#{gem_version}/lib"
+  if gem_version.nil?
+    gem_version = `cd ~/.dotfiles/language/ruby && bundle info #{plugin} --path`.chomp
+    gem_path = "#{gem_version}/lib"
+  else
+    gem_path = "#{gemdir}/#{gem_version}/lib"
+  end
+  $LOAD_PATH << gem_path
   require plugin
 rescue LoadError
   puts "no #{plugin} :("
