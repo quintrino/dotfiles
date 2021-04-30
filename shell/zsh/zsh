@@ -51,3 +51,7 @@ unset starting_directory
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd=f)"
+
+for file in "$XDG_DATA_HOME/environment"; do
+    source "$file"
+done
