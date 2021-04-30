@@ -42,8 +42,7 @@ function configure_filetypes() {
 function install_config_folders() {
   printf "\033[1;31mInstalling Config Folders \033[0m\n"
   mkdir -p ~/Library/Application\ Support/Code/User/
-  mkdir -p "$XDG_DATA_HOME/z"
-  touch "$XDG_DATA_HOME/z/z"
+  mkdir -p "$XDG_CACHE_HOME/less"
   mkdir -p "$XDG_DATA_HOME/zsh"
   mkdir -p "$HOME/Code/Personal"
   mkdir -p "$XDG_DATA_HOME/bash"
