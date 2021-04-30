@@ -51,7 +51,15 @@ fresh-options
 
 # Fish
 
-fresh shell/fish/config --file=~/.config/fish/config.fish
+fresh-options --filter='ABBR_COMPLIANT=1 erb -T -' --file=~/.config/fish/config.fish
+  fresh shell/path
+  fresh shell/environment
+  fresh shell/aliases
+  fresh shell/fish/config
+  fresh shell/fish/bindings
+  fresh shell/fish/functions
+fresh-options
+
 
 # Config
 fresh config/espanso --file=~/.config/espanso/
@@ -84,4 +92,5 @@ fresh_after_build(){
   ln -sf ~/.dotfiles/apps/vs-code/keys.vsrc ~/Library/Application\ Support/Code/User/keybindings.json
   ln -sf ~/.dotfiles/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
   ln -sf ~/Drive/Sync/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
+  ln -sf ~/.dotfiles/shell/fish/plugins $XDG_CONFIG_HOME/fish/fish_plugins
 }

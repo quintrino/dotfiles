@@ -1,0 +1,29 @@
+
+function e
+    if test -d $argv
+        $EDITOR -a .
+    else
+        $EDITOR -a --goto $argv
+    end
+ end
+
+function g
+    if test -d $argv
+        git status --short
+    else
+        git $argv
+    end
+end
+
+function git_track_untracked
+    git ls-files --others --exclude-standard | xargs git add -N
+end
+
+function git_untrack_new_blank
+    git diff --name-only --no-renames --diff-filter=A | xargs git reset --quiet --
+end
+
+function alert
+    eval "$argv"
+    echo "$argv" | xargs -I {} osascript -e 'display alert "{} complete"'
+end

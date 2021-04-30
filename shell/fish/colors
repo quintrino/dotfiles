@@ -1,0 +1,20 @@
+#!/bin/fish
+
+set -U fish_color_normal 575F66
+set -U fish_color_command 55B4D4
+set -U fish_color_quote 86B300
+set -U fish_color_redirection A37ACC
+set -U fish_color_end ED9366
+set -U fish_color_error F51818
+set -U fish_color_param ff8700
+set -U fish_color_comment white
+set -U fish_color_selection FF9940
+set -U fish_color_search_match normal
+set -U fish_color_cwd 399EE6
+set -U fish_color_cwd_root 800000
+set -U fish_color_autosuggestion 5fff00
+set -U fish_color_cancel normal
+set -U fish_pager_color_progress brwhite --background=cyan
+set -U fish_pager_color_prefix white --bold --underline
+set -U fish_pager_color_description B3A06D yellow
+set -U fish_pager_color_completion normal

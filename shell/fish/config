@@ -1,1 +1,36 @@
+#!/bin/fish
+
+fish_add_path $FRESH_BIN_PATH
+set fish_greeting
+
+function __fish_preexec_history --on-event fish_preexec
+  if not test -d $XDG_DATA_HOME/fish/history
+    mkdir -p $XDG_DATA_HOME/fish/history
+  end
+  echo "["(date)"]" $fish_pid $USER $PWD";" $argv >> "$XDG_DATA_HOME/fish/history/history-"(date +%Y%m%d)
+end
+
+function fish_title
+    echo (pwd | awk '{ sub("/Users/nick.wolf", "~"); print $0 }')
+end
+
+for file in $XDG_DATA_HOME/environment/*
+    source $file
+end
+
+
+set starting_directory (pwd)
+cd "$HOME/.dotfiles" || exit
+git fetch --quiet >/dev/null & disown
+git diff --quiet --ignore-submodules HEAD
+if test $status -eq 1
+  echo "WARNING: ~/.dotfiles has unsynchronized changes"
+end
+cd $starting_directory
+set -e starting_directory
+
+
+source <%= ("#{`brew --prefix asdf`.chomp}/asdf.fish") || ''%>
+
 starship init fish | source
+zoxide init fish --cmd f | source

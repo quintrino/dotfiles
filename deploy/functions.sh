@@ -14,6 +14,11 @@ function install_zinit() {
   ZINIT_HOME=$XDG_CONFIG_HOME/zinit sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 }
 
+function install_fisher() {
+  echo 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher' | fish
+  echo 'fisher update' | fish | rg -v "has unsynchronized changes"
+}
+
 function install_brew_bundle() {
   printf "\033[1;31mBrew Bundle Install \033[0m\n"
   cd "$HOME/.dotfiles/brew" || exit
@@ -27,6 +32,11 @@ function install_brew_bundle() {
     brew bundle
   fi
   cd || exit
+}
+
+function configure_filetypes() {
+  printf "\033[1;31mConfigure Filetype default applications \033[0m\n"
+  duti ~/.dotfiles/deploy/duti.config
 }
 
 function install_config_folders() {
@@ -264,21 +274,37 @@ function deploy_from_step() {
 
   if [ $stepNumber -le 7 ]
   then
-    install_apple_defaults
+    install_fisher
   fi
 
   if [ $stepNumber -le 8 ]
   then
-    install_zsh_defaults
+    install_apple_defaults
   fi
 
   if [ $stepNumber -le 9 ]
   then
-    set_iterm_defaults
+    install_zsh_defaults
   fi
 
   if [ $stepNumber -le 10 ]
   then
+    set_iterm_defaults
+  fi
+
+  if [ $stepNumber -le 11 ]
+  then
+    configure_filetypes
+  fi
+
+  if [ $stepNumber -le 12 ]
+  then
+    install_personal_projects
+  fi
+
+  if [ $stepNumber -le 13 ]
+  then
     remind_install_steps
   fi
+
 }

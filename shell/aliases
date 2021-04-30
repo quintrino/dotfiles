@@ -1,0 +1,174 @@
+# My alias/abbreviation file is generated dynamically depending on whether
+# I have access to the fish abbr command or not.
+<%- aliases =
+  {
+    'Terminal': {
+
+      'zhist': '$EDITOR $XDG_DATA_HOME/zsh/history/',
+      'bhist': '$EDITOR $XDG_DATA_HOME/bash/history/',
+      'b': 'bat',
+      'bp': 'bat --plain',
+      'ffi': '__zoxide_zi',
+      'now': 'date +"%T"',
+      'l': 'exa --long --grid --all --header --git --classify --icons',
+      'md': 'mkdir -p',
+      'h': 'xh',
+      'rmf': 'rm -rf',
+      't': 'touch',
+      'bash': 'bash --rcfile $XDG_CONFIG_HOME/bash/profile',
+      'ps': 'echo Consider using procs instead',
+
+    },
+
+    'Dotfiles': {
+      'ali': '$EDITOR $HOME/.dotfiles/shell/zsh/aliases',
+      'dot': 'cd $HOME/.dotfiles',
+      'edot': '$EDITOR $HOME/.dotfiles',
+    },
+
+    'Git': {
+
+      'guns': 'git reset',
+      'gunc': 'git reset HEAD^',
+      'gss': 'forgit::stash::show',
+      'gap': 'git add --patch',
+      'oc': 'overcommit',
+      'ocs': 'overcommit --sign',
+      'ocp': 'overcommit --sign post-commit',
+      'axe': 'git log --patch -S',
+      'glob': 'glo master..HEAD',
+      'gfc': 'git fixup --commit',
+      'grc': 'git_open_conflicts && git add . && git rebase --continue',
+      'git_track_untracked': 'git ls-files --others --exclude-standard | xargs git add -N',
+      'amend': 'git commit --amend --no-edit',
+      'grasm': 'git rebase --autosquash --autostash master',
+      'gb': 'git log --oneline master..HEAD',
+      'gs': 'git status --long',
+      'gd': 'git diff --ignore-all-space --ignore-blank-lines',
+      'gdn': 'git diff --name-only',
+      'gds': 'git diff --ignore-all-space --ignore-blank-lines --staged',
+      'gbl': 'git branch --list',
+      'upstream': 'git pull upstream master',
+      'push': 'git push origin HEAD',
+      'commit': 'git commit --verbose',
+      'doccommit': 'OVERCOMMIT_DISABLE=1 commit',
+      'ocd': 'OVERCOMMIT_DISABLE=1',
+      'gp': 'git pull',
+      'co': 'echo git checkout does not exist any more',
+      'gcm': 'echo git checkout master does not exist any more',
+      'gsm': 'git switch master',
+      'gdm': 'git diff master...',
+      'prod': 'git push production master',
+      'dep': 'push && prod',
+      'gc': 'git config --list',
+      'gr': 'git restore',
+      'show': 'git show --ignore-all-space --ignore-blank-lines',
+      'gcp': 'echo git checkout --patch does not exist any more',
+      'grp': 'git restore --patch',
+      'gcmp': 'gcm && gp',
+      'gundo': 'git reset HEAD~1',
+      'add': 'git_track_untracked && git add --patch && git_untrack_new_blank && git status --short && logic',
+      'logic': 'echo -e "\033[1;31m If applied this commit will... \033[0m"',
+      'force-push': 'git push origin HEAD --force-with-lease',
+      'afp': 'amend && force-push'
+
+    },
+
+    'Ruby': {
+
+      'ru': 'bundle exec rubocop',
+      'rus': 'ru spec/* --display-only-fail-level-offenses --fail-level=C',
+      'rua': 'ru --auto-correct',
+      'geml': 'cp $HOME/.dotfiles/language/ruby/Gems.local Gemfile.local',
+      'js': 'bundle exec jekyll serve',
+      'mp': 'ruby -r minitest/pride'
+
+    },
+
+    'Rails': {
+
+      'rc': 'bundle exec rails console',
+      'pryrc': 'pry -r ./config/environment',
+      'ras': 'bundle exec rails server',
+      'work': 'bin/rake jobs:work',
+      'rt': 'bundle exec rake test',
+      'rr': 'bundle exec rspec --format documentation',
+      'be': 'bundle exec',
+      'bi': 'bundle install',
+      'beg': 'bundle exec guard --plugin Rspec',
+      'ud': 'git switch master && git pull && bundle install && yarn install'
+
+    },
+
+    'Docker': {
+
+      'dcu': 'docker-compose up',
+      'sup': 'vsplit_tab dcu && fs'
+
+    },
+
+    'Directory Jumping': {
+
+      'd': 'dirs -v | head -10',
+      '1': 'cd -',
+      '2': 'cd -2',
+      '3': 'cd -3',
+      '4': 'cd -4',
+      '5': 'cd -5',
+      '6': 'cd -6',
+      '7': 'cd -7',
+      '8': 'cd -8',
+      '9': 'cd -9'
+
+    },
+
+    'CultureAmp': {
+
+      'ca': 'cd $HOME/Code/CultureAmp',
+      'jep': 'cd $HOME/Code/CultureAmp/JuniorEngineer',
+      'ys': 'BROWSER=none yarn start',
+      'mu': 'cd $HOME/Code/CultureAmp/murmur',
+      'sr': 'cd $HOME/Code/CultureAmp/snapshot_reporting_engine',
+      'sri': 'tmuxinator start sri',
+      'sris': 'tmuxinator stop sri',
+      'mus': 'mu && tmuxinator start murmur --suppress-tmux-version-warning',
+      'mut': 'mu && tmuxinator stop murmur --suppress-tmux-version-warning'
+
+    },
+
+    'Folders': {
+
+      'drive': 'cd $HOME/Drive/',
+      'nick': 'cd $HOME/Code/personal/nickwolf.com.au',
+      'per': 'cd $HOME/Code/personal',
+      'ob': 'cd $HOME/Documents/obsidian',
+      'lol': 'cd $XDG_DATA_HOME/lolcommits/'
+
+    },
+
+    'Tmux': {
+
+      'tm': 'tmuxinator',
+      'tms': 'tmuxinator start',
+      'tmt': 'tmuxinator stop',
+      'update': 'tmuxinator start update --suppress-tmux-version-warning'
+
+    },
+
+    'Fun': {
+
+      'star': 'telnet towel.blinkenlights.nl'
+    }
+  } -%>
+
+<% -%>
+<% aliases.each_pair do |key, value| -%>
+<%= "\n##{key}\n" %>
+<% value.each_pair do |abbr, command| -%>
+<%- if ENV['ABBR_COMPLIANT'] == '1' -%>
+<%= "abbr --add --global #{abbr} '#{command}'\n" -%>
+<%- else -%>
+<%= "alias #{abbr}='#{command}'\n" -%>
+<% end -%>
+<% end -%>
+<% end -%>
