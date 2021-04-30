@@ -8,6 +8,7 @@ format = """\
     $git_status\
     $ruby\
     $nix_shell\
+    $shell\
     $cmd_duration\
     $line_break\
     $jobs\
@@ -25,6 +26,11 @@ format = "| [$path]($style)[$read_only]($read_only_style) "
 [git_branch]
 format = "| [$symbol$branch]($style) "
 style = "bold blue"
+
+[shell]
+disabled = false
+fish_indicator = "🐠"
+zsh_indicator = "🐙"
 
 [git_commit]
 commit_hash_length = 7
