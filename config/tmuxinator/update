@@ -9,7 +9,7 @@ windows:
   - update_format:
       panes:
         - tmux_title "VS Code" && vscode_update; tmux_pane
-        - tmuxinator stop update \
+        - tmux_title "Brew Doctor" && doctor_update; tmux_pane
         - tmux_title "Brew" && brew_update; tmux_pane
         - tmux_title "Zinit" && zinit_update; tmux_pane
         - tmux_title "Organize" && organize run; tmux_pane
@@ -17,4 +17,4 @@ windows:
         - tmux_title "Fresh" && fresh_update; tmux_pane
         - tmux_title "Ruby" && ruby_update | rg -v 'Using'; tmux_pane
         - tmux_title "Mac Software" && mac_software_update; tmux_pane
-        - tmux_title "Brew Doctor" && doctor_update; tmux_pane
+        - tmuxinator stop update  --suppress-tmux-version-warning \
