@@ -22,7 +22,7 @@ fresh freshshell/fresh bin/fresh --bin
 fresh shell/zsh/zshrc --file=~/.zshrc
 fresh shell/bash/bashrc --file=$XDG_CONFIG_HOME/bash/profile
 
-fresh-options --filter='erb'
+fresh-options --filter='erb -T -'
   fresh shell/path
   fresh shell/environment
   fresh shell/zsh/zsh
