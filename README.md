@@ -11,7 +11,7 @@ My dotfiles use a very eclectic set of tools.
 
 For Dotfile managment I use [Fresh](https://github.com/freshshell/fresh)
 
-My zsh plugin manager is [zinit](https://github.com/zdharma/zinit) (formally Zplugin)
+My fish plugin manager is [fisher](https://github.com/jorgebucaran/fisher)
 
 My Package and program installer is [Brew](https://brew.sh/)
 
