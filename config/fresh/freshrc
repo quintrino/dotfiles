@@ -18,8 +18,7 @@ else
   fresh config/asdf/tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
 fi
 
-fresh freshshell/fresh bin/fresh --bin
-fresh shell/zsh/zshrc --file=~/.zshrc
+fresh shell/zsh/zshrc --file=$XDG_CONFIG_HOME/zsh/.zshrc
 fresh shell/bash/bashrc --file=$XDG_CONFIG_HOME/bash/profile
 
 fresh-options --filter='erb -T -'

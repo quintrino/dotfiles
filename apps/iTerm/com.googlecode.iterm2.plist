@@ -20,6 +20,8 @@
 	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<true/>
+	<key>Command</key>
+	<string>ZDOTDIR=~/.config/zsh//usr/local/bin/zsh</string>
 	<key>CommandSelection</key>
 	<true/>
 	<key>Control</key>
@@ -1074,6 +1076,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Text</key>
+			<string>zsh</string>
 			<key>Blend</key>
 			<real>0.30000001192092896</real>
 			<key>Blink Allowed</key>
@@ -1104,7 +1108,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/usr/local/bin/zsh --login</string>
+			<string>/usr/local/bin/zsh --login -c 'ZDOTDIR=~/.config/zsh /usr/local/bin/zsh'</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
