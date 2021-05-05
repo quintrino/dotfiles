@@ -46,10 +46,6 @@
     "when": "!editorIsOpen"
   },
   {
-    "key": "alt+ctrl+shift+cmd+f",
-    "command": "workbench.action.toggleZenMode"
-  },
-  {
     "key": "ctrl+shift+cmd+l",
     "command": "relative-path-and-line.copyRelativePathAndLine"
   },
