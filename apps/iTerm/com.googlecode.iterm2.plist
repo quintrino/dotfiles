@@ -4605,7 +4605,7 @@
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
 	<key>TmuxUsesDedicatedProfile</key>
-	<true/>
+	<false/>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Profiles</string>
