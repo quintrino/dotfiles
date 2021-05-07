@@ -49,6 +49,12 @@ matches:
       - trigger: ""
         replace: ""
 
+  - trigger: ":lk"
+    replace: "---\nlink: {{clip}}\n---\n$|$"
+    vars:
+      - name: "clip"
+        type: "clipboard"
+
   - trigger: ":post"
     replace: "e _posts/{{mydate}}"
     vars:
