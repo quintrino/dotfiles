@@ -12,7 +12,7 @@
   },
   "breadcrumbs.enabled": true,
   "editor.formatOnSave": true,
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
