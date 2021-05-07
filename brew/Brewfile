@@ -60,6 +60,10 @@ brew "imagemagick"
 brew "m-cli"
 # Show markdown documents on text terminals
 brew "mdcat"
+# NCurses Disk Usage
+brew "ncdu"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+brew "openvpn"
 # File management automation tool
 brew "organize-tool"
 # Swiss-army knife of markup format conversion
