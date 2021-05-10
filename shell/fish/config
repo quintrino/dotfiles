@@ -18,17 +18,21 @@ for file in $XDG_DATA_HOME/environment/*
     source $file
 end
 
-
-set starting_directory (pwd)
-cd "$HOME/.dotfiles" || exit
-git fetch --quiet >/dev/null & disown
-git diff --quiet --ignore-submodules HEAD
-if test $status -eq 1
-  echo "WARNING: ~/.dotfiles has unsynchronized changes"
+function git_check
+  set starting_directory (pwd)
+  cd $argv[1]
+  git fetch --quiet >/dev/null & disown
+  git diff --quiet --ignore-submodules HEAD
+  if test $status -eq 1
+    echo "WARNING: $argv[2] has unsynchronized changes"
+  end
+  cd $starting_directory
+  set -e starting_directory
 end
-cd $starting_directory
-set -e starting_directory
 
+git_check $HOME/.dotfiles 'Dotfiles'
+git_check $HOME/Documents/obsidian 'Obsidian'
+git_check $HOME/.config/alfred/Alfred.alfredpreferences 'Alfred'
 
 source <%= ("#{`brew --prefix asdf`.chomp}/asdf.fish") || ''%>
 
