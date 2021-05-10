@@ -68,6 +68,7 @@ fresh config/organize/config.yaml --file=$XDG_CONFIG_HOME/organize/config.yaml
 fresh config/tmux/tmux.conf --file=$XDG_CONFIG_HOME/tmux/tmux.conf
 fresh config/tmuxinator/update --file=$XDG_CONFIG_HOME/tmuxinator/update.yml
 fresh config/starship/starship --file=$XDG_CONFIG_HOME/starship.toml
+fresh config/alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
 
 # Git
 fresh config/git/cc_menu --bin

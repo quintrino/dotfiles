@@ -1,5 +1,6 @@
 #!/bin/fish
 
 bind \e\[\[CE 'commandline -f accept-autosuggestion execute'
+bind \cy 'commandline -f accept-autosuggestion execute'
 bind \ce 'e (commandline -b)'
 bind \cc 'cd (commandline -b)'
