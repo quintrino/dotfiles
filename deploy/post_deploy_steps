@@ -19,7 +19,7 @@ Enable Security > Accessibility:
 Configure HiddenBar to auto hide apps
 Set Spotlight to control option command space in Keyboard > Shortcuts
 
-\033[1;31mComplete after 1Password Sync\033[0m
+\033[1;31mComplete after Bitwarden Sync\033[0m
 
 Enable licence for Alfred
 Sign into Teamviewer, Anki and Freedom
