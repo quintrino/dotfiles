@@ -5,6 +5,8 @@ pre_window: tmux set pane-border-status top
 
 on_project_exit: echo 'update complete'
 
+pre_window: 'clear && ZDOTDIR=~/.config/zsh/ /usr/local/bin/zsh && exit'
+
 windows:
   - update_format:
       panes:
@@ -17,4 +19,5 @@ windows:
         - tmux_title "Fresh" && fresh_update; tmux_pane
         - tmux_title "Ruby" && ruby_update | rg -v 'Using'; tmux_pane
         - tmux_title "Mac Software" && mac_software_update; tmux_pane
+        - tmux_title "Fisher" && fisher_update; tmux_pane
         - tmuxinator stop update  --suppress-tmux-version-warning \
