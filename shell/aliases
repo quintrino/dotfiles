@@ -142,7 +142,8 @@
       'nick': 'cd $HOME/Code/personal/nickwolf.com.au',
       'per': 'cd $HOME/Code/personal',
       'ob': 'cd $HOME/Documents/obsidian',
-      'lol': 'cd $XDG_DATA_HOME/lolcommits/'
+      'lol': 'cd $XDG_DATA_HOME/lolcommits/',
+      'alfred': 'cd /Users/nick.wolf/.config/alfred/Alfred.alfredpreferences'
 
     },
 
