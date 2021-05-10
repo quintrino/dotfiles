@@ -26,6 +26,15 @@ function ef
     end
 end
 
+function af
+    set fzf_file (fd . . | fzf --height 20%)
+    if test -d $fzf_file
+        cd $fzf_file
+    else
+        bat $fzf_file
+    end
+end
+
 function git_track_untracked
     git ls-files --others --exclude-standard | xargs git add -N
 end
