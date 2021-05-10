@@ -506,7 +506,8 @@ up(){
 }
 
 freq() {
-  history 0 |
+  cat /Users/nick.wolf/.local/share/zsh/history/* |\
+  cut -d';' -f2 |
   sed -E "s/ *[0-9]+  //" |
   sort |
   uniq -c |
