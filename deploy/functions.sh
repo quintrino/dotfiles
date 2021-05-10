@@ -215,6 +215,16 @@ function set_iterm_defaults() {
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 }
 
+function set_dash_defaults() {
+  printf "\033[1;31mSetting Dash Defaults \033[0m\n"
+  # Specify the preferences directory
+  defaults write com.kapeli.dashdoc shouldSyncBookmarks -bool true
+  defaults write com.kapeli.dashdoc shouldSyncDocsets -bool true
+  defaults write com.kapeli.dashdoc shouldSyncGeneral -bool true
+  defaults write com.kapeli.dashdoc shouldSyncView -bool true
+  defaults write com.kapeli.dashdoc syncFolderPath -string "$HOME/.dotfiles/apps/Dash"
+}
+
 function remind_install_steps() {
   while read -r line; do
     echo "$line"
