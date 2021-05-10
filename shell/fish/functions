@@ -34,6 +34,10 @@ function git_untrack_new_blank
     git diff --name-only --no-renames --diff-filter=A | xargs git reset --quiet --
 end
 
+function logic
+     echo -e "\033[1;31m If applied this commit will... \033[0m"
+end
+
 function alert
     eval "$argv"
     echo "$argv" | xargs -I {} osascript -e 'display alert "{} complete"'
