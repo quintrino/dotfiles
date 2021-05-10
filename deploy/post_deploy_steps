@@ -25,9 +25,11 @@ Enable licence for Alfred
 Sign into Teamviewer, Anki and Freedom
 Add ssh key for Github
 
+\033[1;31mComplete after Git configuration\033[0m
+git clone git@github.com:quintrino/alfredpreferences.git ~/.config/alfred/Alfred.alfredpreferences
+
 \033[1;31mComplete after Google Drive Sync\033[0m
 
-Set Dash and Alfred to Sync from Google Drive
 Set Google Drive to ignore warnings for removing shared items
 Set Alfred to Hyper F
 Set Alfred appearance to stretch
