@@ -117,6 +117,17 @@ g() {
   fi
 }
 
+ef() {
+  if [[ $# -gt 0 ]]; then
+    fzf_file=$(fd . $1 | fzf --height 20%)
+  else
+    fzf_file=$(fd . ~/.dotfiles | fzf --height 20%)
+  fi
+  if [[ $? -eq 0 ]]; then
+    $EDITOR "$fzf_file"
+  fi
+}
+
 e() {
   if [[ $# -gt 0 ]]; then
     $EDITOR -a --goto "$@"
