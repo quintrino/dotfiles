@@ -42,3 +42,16 @@ function alert
     eval "$argv"
     echo "$argv" | xargs -I {} osascript -e 'display alert "{} complete"'
 end
+
+
+function up
+  if test -d $argv
+    cd ..
+  else if string match -qr '^[0-9]+$' $argv[1]
+    for i in (seq 1 $argv[1])
+        cd ..
+    end
+  else
+    echo "Usage: Provide a number of directories to go up. Defaults to 1"
+  end
+end
