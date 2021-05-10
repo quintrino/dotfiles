@@ -15,6 +15,17 @@ function g
     end
 end
 
+function ef
+    if test -d $argv
+        set fzf_file (fd . ~/.dotfiles | fzf --height 20%)
+    else
+        set fzf_file (fd . $argv[1] | fzf --height 20%)
+    end
+    if test $status -eq 0
+        $EDITOR $fzf_file
+    end
+end
+
 function git_track_untracked
     git ls-files --others --exclude-standard | xargs git add -N
 end
