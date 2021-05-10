@@ -21,7 +21,7 @@
     },
 
     'Dotfiles': {
-      'ali': '$EDITOR $HOME/.dotfiles/shell/zsh/aliases',
+      'ali': '$EDITOR $HOME/.dotfiles/shell/aliases',
       'dot': 'cd $HOME/.dotfiles',
       'edot': '$EDITOR $HOME/.dotfiles',
     },
