@@ -127,6 +127,7 @@ key_bindings:
   - { key: D, mods: Command|Shift, chars: "\x06\x73" }
   - { key: W, mods: Command, chars: "\x06\x78" }
   - { key: F, mods: Command, chars: "\x06" }
+  - { key: F, mods: Command|Shift, mode: ~Search, action: SearchForward }
   - { key: U, mods: Command, chars: "\x06\x71" }
   - { key: I, mods: Command, chars: "\x06\x7a" }
   - { key: H, mods: Command, chars: "\x06\x68" }
