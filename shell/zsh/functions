@@ -515,6 +515,16 @@ freq() {
   head -50
 }
 
+prevd(){
+  if [ "$1" = "-l" ]; then
+    dirs -v | head -10
+  elif [[ $# -gt 0 ]]; then
+    cd -"$1"
+  else
+    cd -
+  fi
+}
+
 yt() {
   youtube-dl --output "$HOME/Downloads/videos/%(title)s.mp4" $1
 }

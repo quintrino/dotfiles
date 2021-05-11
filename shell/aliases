@@ -109,16 +109,16 @@
 
     'Directory Jumping': {
 
-      'd': 'dirs -v | head -10',
-      '1': 'cd -',
-      '2': 'cd -2',
-      '3': 'cd -3',
-      '4': 'cd -4',
-      '5': 'cd -5',
-      '6': 'cd -6',
-      '7': 'cd -7',
-      '8': 'cd -8',
-      '9': 'cd -9'
+      'd': 'prevd -l',
+      '1': 'prevd ',
+      '2': 'prevd 2',
+      '3': 'prevd 3',
+      '4': 'prevd 4',
+      '5': 'prevd 5',
+      '6': 'prevd 6',
+      '7': 'prevd 7',
+      '8': 'prevd 8',
+      '9': 'prevd 9'
 
     },
 
