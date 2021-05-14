@@ -17,6 +17,7 @@
       't': 'touch',
       'bash': 'bash --rcfile $XDG_CONFIG_HOME/bash/profile',
       'ps': 'echo Consider using procs instead',
+      'fzfb': 'fzf --preview "bat --style numbers,changes --color=always {}"'
 
     },
 
