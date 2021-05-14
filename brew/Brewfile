@@ -4,6 +4,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "quintrino/formula"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Library for command-line editing
@@ -96,6 +97,10 @@ brew "zsh"
 brew "zsh-completions"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
+# NodeJS wrapper for the Beeminder API
+brew "quintrino/formula/beeminder"
+# Command-line tool to decrypt Signal backups
+brew "quintrino/formula/signal-backup-decode"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # GPU-accelerated terminal emulator
