@@ -100,4 +100,8 @@
   },
   { "key": "shift+cmd+r",
     "command": "code-runner.run" },
+  {
+    "key": "shift+ctrl+cmd+r",
+    "command": "workbench.action.removeRootFolder",
+  }
 ]
