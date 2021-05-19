@@ -105,18 +105,13 @@ function install_fresh() {
 
 function install_asdf_defaults() {
   printf "\033[1;31mInstalling ASDF Defaults \033[0m\n"
-  export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
-  export ASDF_RUBY_VERSION='system'
-  while read -r line; do
-    asdf plugin-add "$(echo "$line" | cut -f 1 -d " " )"
-    case "$(echo "$line" | cut -f 1 -d " " )" in
-      "nodejs") bash "$ASDF_DATA_DIR/plugins/nodejs/bin/import-release-team-keyring"
-    esac
-    asdf install "$(echo "$line" | cut -f 1 -d " " )" "$(echo "$line" | cut -f 2 -d " " )"
-    asdf global "$(echo "$line" | cut -f 1 -d " " )" "$(echo "$line" | cut -f 2 -d " " )"
-  done <~/.dotfiles/config/asdf/static
-  unset KERL_CONFIGURE_OPTIONS
-  unset ASDF_RUBY_VERSION
+  while read -r lang; do
+    asdf plugin-add $lang
+    latest="$(asdf latest $lang)"
+    asdf install $lang $latest
+    asdf global $lang $latest
+    asdf reshim $lang
+  done <"$HOME/.dotfiles/config/asdf/static"
 }
 
 function install_apple_defaults() {

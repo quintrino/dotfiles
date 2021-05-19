@@ -9,15 +9,6 @@
 #
 # See http://freshshell.com/readme for documentation.
 
-
-if [ -z "${FRESH_ASDF_STATIC:-}" ]; then
-  fresh-options --filter='erb -r $HOME/.dotfiles/config/asdf/latest_version -T -'
-      fresh config/asdf/tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
-  fresh-options
-else
-  fresh config/asdf/tool-versions --file=$XDG_CONFIG_HOME/asdf/.tool-versions
-fi
-
 fresh shell/zsh/zshrc --file=$XDG_CONFIG_HOME/zsh/.zshrc
 fresh shell/bash/bashrc --file=$XDG_CONFIG_HOME/bash/profile
 
