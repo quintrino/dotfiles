@@ -44,7 +44,8 @@ function install_config_folders() {
   mkdir -p ~/Library/Application\ Support/Code/User/
   mkdir -p "$XDG_CACHE_HOME/less"
   mkdir -p "$XDG_DATA_HOME/zsh"
-  mkdir -p "$HOME/Code/Personal"
+  mkdir -p "$HOME/Code/personal"
+  mkdir -p "$HOME/Code/personal/exercism"
   mkdir -p "$XDG_DATA_HOME/bash"
   mkdir -p "$XDG_DATA_HOME/gnupg"
   mkdir -p "$HOME/Library/ApplicationSupport/MTMR"

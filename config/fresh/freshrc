@@ -72,6 +72,7 @@ fresh config/alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
 
 fresh-options --filter='erb -T -'
   fresh config/beeminder/bmndrrc --file=$XDG_CONFIG_HOME/.bmndrrc
+  fresh config/exercism/user.json --file=$XDG_CONFIG_HOME/exercism/user.json
 fresh-options
 
 
