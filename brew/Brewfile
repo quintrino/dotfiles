@@ -25,8 +25,6 @@ brew "pkg-config"
 brew "cmake"
 # Color-highlighted diff(1) output
 brew "colordiff"
-# Good-lookin' diffs with diff-highlight and more
-brew "diff-so-fancy"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Select default apps for documents and URL schemes on macOS
