@@ -15,6 +15,14 @@ function g
     end
 end
 
+function o
+    if test -d $argv
+        open .
+    else
+        open $argv
+    end
+end
+
 function ef
     if test -d $argv
         set fzf_file (fd . ~/.dotfiles | fzf --height 20%)
