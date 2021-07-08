@@ -25,6 +25,7 @@
       'ali': '$EDITOR $HOME/.dotfiles/shell/aliases',
       'dot': 'cd $HOME/.dotfiles',
       'edot': '$EDITOR $HOME/.dotfiles',
+      'bun': 'cd $HOME/.dotfiles/brew && brew bundle dump --force --describe',
     },
 
     'Git': {
