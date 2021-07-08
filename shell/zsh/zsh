@@ -35,7 +35,7 @@ starting_directory=$(pwd)
 cd "$HOME/.dotfiles" || exit
 git fetch --quiet &>/dev/null &|
 if ! git diff --quiet --ignore-submodules HEAD; then
-  echo "WARNING: ~/.dotfiles has unsynchronized changes"
+  echo "WARNING: Dotfiles has unsynchronized changes"
 fi
 
 cd "$HOME/documents/obsidian" || exit
