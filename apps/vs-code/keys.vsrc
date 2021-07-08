@@ -98,10 +98,20 @@
     "key": "shift+cmd+f",
     "command": "search.action.openNewEditor"
   },
-  { "key": "shift+cmd+r",
-    "command": "code-runner.run" },
+  {
+    "key": "shift+cmd+r",
+    "command": "code-runner.run"
+  },
   {
     "key": "shift+ctrl+cmd+r",
     "command": "workbench.action.removeRootFolder",
-  }
+  },
+  {
+    "key": "shift+cmd+u",
+    "command": "workbench.action.moveEditorLeftInGroup"
+  },
+  {
+    "key": "shift+cmd+i",
+    "command": "workbench.action.moveEditorRightInGroup"
+  },
 ]
