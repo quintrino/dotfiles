@@ -1,5 +1,11 @@
 {
-  "editor.rulers": [80, 120, 160, 200, 240],
+  "editor.rulers": [
+    80,
+    120,
+    160,
+    200,
+    240
+  ],
   "emmet.includeLanguages": {
     "erb": "html"
   },
@@ -11,7 +17,7 @@
     "**/node_modules": true
   },
   "breadcrumbs.enabled": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.formatOnType": false,
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
