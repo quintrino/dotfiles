@@ -70,7 +70,8 @@
                                         "shell_command": "screencapture -c"
                                 }
                                 ]
-                            },{
+                            },
+                            {
                                 "type": "basic",
                                 "from": {
                                     "key_code": "4",
@@ -153,6 +154,32 @@
                                         "key_code": "f5",
                                         "modifiers": [
                                             "right_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + f activates Alfred",
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "right_control"
                                         ]
                                     }
                                 ],
