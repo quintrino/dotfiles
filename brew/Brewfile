@@ -119,6 +119,8 @@ cask "1password"
 cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
+# Utility to set up alt-tab to switch between windows
+cask "alt-tab"
 # Memory training application
 cask "anki"
 # Desktop password and login vault
