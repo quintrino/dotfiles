@@ -63,6 +63,8 @@ brew "hub"
 brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Compression program with a very high compression ratio
+brew "lrzip"
 # Swiss Army Knife for macOS
 brew "m-cli"
 # Show markdown documents on text terminals
