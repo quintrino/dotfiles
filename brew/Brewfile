@@ -1,5 +1,6 @@
 tap "clementtsang/bottom"
 tap "federico-terzi/espanso"
+tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -98,6 +99,8 @@ brew "zsh-completions"
 brew "clementtsang/bottom/bottom"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku"
 # NodeJS wrapper for the Beeminder API
 brew "quintrino/formula/beeminder"
 # Command-line tool to decrypt Signal backups
