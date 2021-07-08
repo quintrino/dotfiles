@@ -52,7 +52,9 @@ def gemdir
   @gemdir ||= "#{`gem env gemdir`.chomp}/gems"
 end
 
-def load_non_bundled_plugins(plugin)
+def load_non_bundled_plugins(plugin, loaded)
+  return if loaded
+
   gem_version = Dir.entries(gemdir).detect { |s| s[/^#{plugin}-[0-9]/] }
   if gem_version.nil?
     gem_version = `cd ~/.dotfiles/language/ruby && bundle info #{plugin} --path`.chomp
