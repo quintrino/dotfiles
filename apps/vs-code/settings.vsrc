@@ -57,5 +57,8 @@
   "search.searchOnType": true,
   "files.defaultLanguage": "markdown",
   "rust-client.channel": null,
-  "search.mode": "reuseEditor"
+  "search.mode": "reuseEditor",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 }
