@@ -15,6 +15,14 @@ function g
     end
 end
 
+function gl
+    if test -d $argv
+        git log --oneline -1
+    else
+        git log --oneline -$argv
+    end
+end
+
 function o
     if test -d $argv
         open .
