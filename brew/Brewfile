@@ -1,3 +1,4 @@
+tap "clementtsang/bottom"
 tap "federico-terzi/espanso"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -93,6 +94,8 @@ brew "zoxide"
 brew "zsh"
 # Additional completion definitions for zsh
 brew "zsh-completions"
+# A cross-platform graphical process/system monitor with a customizable interface and a multitude of features.
+brew "clementtsang/bottom/bottom"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
 # NodeJS wrapper for the Beeminder API
