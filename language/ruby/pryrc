@@ -68,18 +68,17 @@ rescue LoadError
   puts "no #{plugin} :("
 end
 
-load_non_bundled_plugins('pry-reload')
-
-load_non_bundled_plugins('byebug')
-load_non_bundled_plugins('pry-byebug')
-if defined?(PryByebug)
-  Pry.commands.alias_command 'co', 'continue'
-  Pry.commands.alias_command 'st', 'step'
-  Pry.commands.alias_command 'ne', 'next'
-  Pry.commands.alias_command 'fi', 'finish'
+load_non_bundled_plugins('readline', defined?(RbReadline))
+load_non_bundled_plugins('rb-readline', defined?(RbReadline))
+if defined?(RbReadline)
+  def RbReadline.rl_reverse_search_history(_sign, _key)
+    rl_insert_text `cat ~/.local/share/pry/pry_history |
+    fzf --tac --height 16 |
+    tr '\n' ' '`
+  end
 end
 
-load_non_bundled_plugins('amazing_print')
+load_non_bundled_plugins('amazing_print', defined?(AmazingPrint))
 if defined?(AmazingPrint)
   AmazingPrint.defaults = {
     indent: -1,
@@ -93,32 +92,22 @@ if defined?(Rails)
   extend Rails::ConsoleMethods
 end
 
-load_non_bundled_plugins('readline')
-load_non_bundled_plugins('rb-readline')
-if defined?(RbReadline)
-  def RbReadline.rl_reverse_search_history(_sign, _key)
-    rl_insert_text `cat ~/.local/share/pry/pry_history |
-    fzf --tac --height 16 |
-    tr '\n' ' '`
-  end
-end
+def setup
+  load_non_bundled_plugins('pry-reload', defined?(PryReload))
 
-load_non_bundled_plugins('debug_inspector')
-load_non_bundled_plugins('binding_of_caller')
-load_non_bundled_plugins('pry-stack_explorer')
-if defined?(PryStackExplorer)
-  Pry.commands.alias_command 'fr', 'frame'
-  Pry.commands.alias_command 'ss', 'stack'
-end
-
-class Array
-  def self.toy(num = 10, &block)
-    block_given? ? Array.new(num, &block) : Array.new(num) { |i| i + 1 }
+  load_non_bundled_plugins('pry-byebug', defined?(PryByebug))
+  if defined?(PryByebug)
+    Pry.commands.alias_command 'co', 'continue'
+    Pry.commands.alias_command 'st', 'step'
+    Pry.commands.alias_command 'ne', 'next'
+    Pry.commands.alias_command 'fi', 'finish'
   end
-end
 
-class Hash
-  def self.toy(num = 10)
-    Hash[Array.toy(num).zip(Array.toy(num) { |c| (96 + (c + 1)).chr })]
+  load_non_bundled_plugins('pry-stack_explorer', defined?(PryStackExplorer))
+  if defined?(PryStackExplorer)
+    Pry.commands.alias_command 'fr', 'frame'
+    Pry.commands.alias_command 'ss', 'stack'
   end
+
+  'Setup Config loaded successfully'
 end
