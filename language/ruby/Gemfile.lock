@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/deivid-rodriguez/pry-byebug
-  revision: ba47acc39f6ed7771ffa2f090f615cbf35e1799f
+  revision: 65c3199089ba93544022022a859ba3e63e23bf85
   specs:
     pry-byebug (3.9.0)
       byebug (~> 11.0)
@@ -30,7 +30,6 @@ GEM
     debug_inspector (1.1.0)
     diff-lcs (1.4.4)
     e2mmap (0.1.0)
-    erubis (2.7.0)
     ffi (1.15.3)
     foreman (0.87.2)
     git (1.8.1)
@@ -79,7 +78,7 @@ GEM
       rexml (~> 3.2)
     parallel (1.20.1)
     parseconfig (1.1.0)
-    parser (3.0.1.1)
+    parser (3.0.2.0)
       ast (~> 2.4.1)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -148,12 +147,7 @@ GEM
     sparkr (0.4.1)
     thor (1.1.0)
     tilt (2.0.10)
-    tmuxinator (3.0.1)
-      erubis (~> 2.6)
-      thor (~> 1.0)
-      xdg (~> 2.2, >= 2.2.5)
     unicode-display_width (2.0.0)
-    xdg (2.2.5)
     yard (0.9.26)
 
 PLATFORMS
@@ -180,7 +174,6 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   solargraph
-  tmuxinator
 
 BUNDLED WITH
-   2.2.21
+   2.2.22
