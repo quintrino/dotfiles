@@ -154,7 +154,8 @@
       'tm': 'tmuxinator',
       'tms': 'tmuxinator start',
       'tmt': 'tmuxinator stop',
-      'update': 'tmuxinator start update --suppress-tmux-version-warning'
+      'update': 'tmuxinator start update --suppress-tmux-version-warning',
+      'ts': 'tmux choose-session'
 
     },
 
