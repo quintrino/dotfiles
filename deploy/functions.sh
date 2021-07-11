@@ -16,7 +16,7 @@ function install_zinit() {
 
 function install_fisher() {
   echo 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher' | fish
-  echo 'fisher update' | fish | rg -v "has unsynchronized changes"
+  echo 'fisher update' | fish
 }
 
 function install_brew_bundle() {
