@@ -234,8 +234,8 @@ function set_computer_name() {
 }
 
 function install_personal_projects() {
-  mkdir -p $HOME/Code/Personal
-  cd $HOME/Code/Personal || exit
+  mkdir -p $HOME/Code/personal
+  cd $HOME/Code/personal || exit
   while read -r line; do
     git clone "git@github.com:quintrino/$line.git"
   done <~/.dotfiles/deploy/personal_projects
