@@ -1,41 +1,40 @@
-
 function e
-    if test -d $argv
-        $EDITOR -a .
-    else
+    if test $argv
         $EDITOR -a --goto $argv
+    else
+        $EDITOR -a .
     end
- end
+end
 
 function g
-    if test -d $argv
-        git status --short
-    else
+    if test $argv
         git $argv
+    else
+        git status --short
     end
 end
 
 function gl
-    if test -d $argv
-        git log --oneline -1
-    else
+    if test $argv
         git log --oneline -$argv
+    else
+        git log --oneline -1
     end
 end
 
 function o
-    if test -d $argv
-        open .
-    else
+    if test $argv
         open $argv
+    else
+        open .
     end
 end
 
 function ef
-    if test -d $argv
-        set fzf_file (fd . ~/.dotfiles | fzf --height 20%)
-    else
+    if test $argv
         set fzf_file (fd . $argv[1] | fzf --height 20%)
+    else
+        set fzf_file (fd . ~/.dotfiles | fzf --height 20%)
     end
     if test $status -eq 0
         $EDITOR $fzf_file
