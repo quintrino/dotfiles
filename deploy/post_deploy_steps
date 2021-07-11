@@ -17,7 +17,6 @@ Enable Security > Accessibility:
 * Muzzle
 * Hammerspoon
 Configure HiddenBar to auto hide apps
-Set Spotlight to control option command space in Keyboard > Shortcuts
 
 \033[1;31mComplete after Bitwarden Sync\033[0m
 
@@ -31,5 +30,4 @@ git clone git@github.com:quintrino/alfredpreferences.git ~/.config/alfred/Alfred
 \033[1;31mComplete after Google Drive Sync\033[0m
 
 Set Google Drive to ignore warnings for removing shared items
-Set Alfred to Hyper F
 Set Alfred appearance to stretch
