@@ -277,7 +277,7 @@
                                 ]
                             },
                             {
-                                "description": "Hyper + u in iTerm move one tab left",
+                                "description": "Hyper + u in Alacritty move one tab left",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -312,7 +312,7 @@
                                 ]
                             },
                             {
-                                "description": "Hyper + i in iTerm move one tab right",
+                                "description": "Hyper + i in Alacritty move one tab right",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -333,6 +333,74 @@
                                         "modifiers": [
                                             "right_shift",
                                             "right_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^io\\.alacritty$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Hyper + [ in Alacritty move one pane left",
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^io\\.alacritty$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Hyper + ] in Alacritty move one pane right",
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "left_control"
                                         ]
                                     }
                                 ],
