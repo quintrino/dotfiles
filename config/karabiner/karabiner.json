@@ -441,7 +441,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + e selects emoji",
+                                "description": "Hyper + e opens editor",
                                 "from": {
                                     "key_code": "e",
                                     "modifiers": {
@@ -458,11 +458,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_control"
-                                        ]
+                                        "shell_command": "open -a 'Visual Studio Code.app'"
                                     }
                                 ],
                                 "type": "basic"
