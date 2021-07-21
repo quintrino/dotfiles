@@ -490,6 +490,29 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "Hyper + b opens Browser",
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Firefox.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Hyper + n move one space left",
                                 "from": {
                                     "key_code": "n",
