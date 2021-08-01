@@ -50,13 +50,8 @@
     "command": "relative-path-and-line.copyRelativePathAndLine"
   },
   {
-    "key": "shift+cmd+j",
-    "command": "extension.jumpy-word"
-  },
-  {
-    "key": "escape",
-    "command": "extension.jumpy-exit",
-    "when": "jumpy.isJumpyMode"
+    "key": "shift+cmd+l",
+    "command": "toggleVim"
   },
   {
     "key": "shift+cmd+t",
