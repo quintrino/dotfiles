@@ -11,6 +11,7 @@ function g
         git $argv
     else
         git status --short
+        git diff --shortstat
     end
 end
 
