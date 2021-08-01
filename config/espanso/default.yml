@@ -1,11 +1,7 @@
+secure_input_notification: false
+
 matches:
   # Simple text replacement
-  - trigger: ":espanso"
-    replace: "Hi there!"
-
-  - trigger: ":gh"
-    replace: "https://github.com/"
-
   - trigger: ":nwn"
     replace: "Nick Wolf"
 
@@ -35,6 +31,9 @@ matches:
 
   - trigger: ":job"
     replace: "Software Engineer"
+
+  - trigger: ":gh"
+    replace: "https://github.com/"
 
   - trigger: ":template"
     replace: |
