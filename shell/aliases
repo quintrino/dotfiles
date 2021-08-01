@@ -124,17 +124,10 @@
 
     },
 
-    'CultureAmp': {
+    'Splitrock': {
 
-      'ca': 'cd $HOME/Code/CultureAmp',
-      'jep': 'cd $HOME/Code/CultureAmp/JuniorEngineer',
-      'ys': 'BROWSER=none yarn start',
-      'mu': 'cd $HOME/Code/CultureAmp/murmur',
-      'sr': 'cd $HOME/Code/CultureAmp/snapshot_reporting_engine',
-      'sri': 'tmuxinator start sri',
-      'sris': 'tmuxinator stop sri',
-      'mus': 'mu && tmuxinator start murmur --suppress-tmux-version-warning',
-      'mut': 'mu && tmuxinator stop murmur --suppress-tmux-version-warning'
+      'split': 'cd $HOME/Code/splitrock',
+      'bug': 'cd $HOME/Code/splitrock/BugHerd'
 
     },
 
