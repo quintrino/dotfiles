@@ -19,6 +19,11 @@ for file in $XDG_DATA_HOME/environment/*
 end
 
 function git_check
+  git -C $argv[1] rev-parse 2>/dev/null
+  if test $status -eq 128
+    echo "$argv[1] does not exist or is not a git repository"
+    return 128
+  end
   set starting_directory (pwd)
   cd $argv[1]
   git fetch --quiet >/dev/null & disown
