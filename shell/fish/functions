@@ -23,6 +23,14 @@ function gl
     end
 end
 
+function sw
+    if test $argv
+        git switch $argv
+    else
+        git switch -
+    end
+end
+
 function o
     if test $argv
         open $argv
