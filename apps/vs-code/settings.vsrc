@@ -55,7 +55,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.minimap.enabled": false,
-  "workbench.colorTheme": "SpunBeat Superhero",
+  "workbench.colorTheme": "Monokai Dimmed",
   "search.searchOnType": true,
   "files.defaultLanguage": "markdown",
   "rust-client.channel": null,
