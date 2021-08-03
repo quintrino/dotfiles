@@ -19,7 +19,12 @@
       'bash': 'bash --rcfile $XDG_CONFIG_HOME/bash/profile',
       'fb': 'fzf --preview "bat --style numbers,changes --color=always {}"',
       'ps': 'echo Consider using procs instead',
-      'fzfb': 'fzf --preview "bat --style numbers,changes --color=always {}"'
+
+    },
+
+    'Fish': {
+
+      'sf': 'source $HOME/.config/fish/config.fish'
 
     },
 
