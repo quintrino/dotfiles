@@ -1,6 +1,7 @@
 #!/bin/fish
 
 fish_add_path $FRESH_BIN_PATH
+fish_add_path /usr/local/bin
 set fish_greeting
 
 function __fish_preexec_history --on-event fish_preexec
