@@ -76,6 +76,11 @@ function alert
     echo "$argv" | xargs -I {} osascript -e 'display alert "{} complete"'
 end
 
+function tmux_title
+  clear
+  tmux set-option -g pane-border-style "bg=blue,fg=white"
+  printf "\033]2;%s\033\\" "$argv"
+end
 
 function up
   if test -d $argv
