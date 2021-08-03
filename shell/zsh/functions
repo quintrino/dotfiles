@@ -328,9 +328,10 @@ brew_update() {
   printf "\033[1;31mUpdating Brew \033[0m\n"
   brew update
   printf "\033[1;31mUpgrading Brew \033[0m\n"
-  brew upgrade
+  OUTDATED=$(brew outdated) && brew upgrade
   printf "\033[1;31mOutdated Casks \033[0m\n"
   brew upgrade --cask
+  echo $OUTDATED
 }
 
 mac_software_update() {
