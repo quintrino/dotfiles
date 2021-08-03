@@ -102,6 +102,12 @@
 
     },
 
+    'Javascript': {
+
+      'es': 'node_modules/.bin/eslint app/javascript'
+
+    },
+
     'Rails': {
 
       'rc': 'bundle exec rails console',
