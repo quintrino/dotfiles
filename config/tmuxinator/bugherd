@@ -1,0 +1,18 @@
+name: bugherd
+root: ~/Code/splitrock/BugHerd
+
+pre_window: tmux set pane-border-status top
+
+windows:
+  - server:
+      layout: ecf9,320x82,0,0{217x82,0,0,1,102x82,218,0[102x27,218,0,3,102x26,218,28,4,102x27,218,55,5]}
+      panes:
+        - bundle exec rails console
+        - bundle exec rails server
+        - ./bin/webpack-dev-server
+        -  pg_ctl start && git status
+  - monitor:
+      layout: even-horizontal
+      panes:
+        - bundle exec guard
+        - yarn jest --watch
