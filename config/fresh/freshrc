@@ -95,6 +95,5 @@ fresh_after_build(){
   ln -sf ~/.dotfiles/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
   ln -sf ~/Drive/Sync/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
   ln -sf ~/.dotfiles/shell/fish/plugins $XDG_CONFIG_HOME/fish/fish_plugins
-  rm -f ~/Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
-  cp -L $XDG_CONFIG_HOME/Texpand/csv ~/Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
+  cat $XDG_CONFIG_HOME/Texpand/csv > ~/Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
 }
