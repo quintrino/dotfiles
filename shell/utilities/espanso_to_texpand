@@ -1,0 +1,4 @@
+% require 'YAML'
+% shortcuts = YAML.load_file('/Users/nick.wolf/.config/espanso/default.yml')
+<%shortcuts['matches'][0..9].each do |shortcut|%>
+<%="\"#{shortcut['trigger']}\", \"#{shortcut['replace']}\""%><% end %>

@@ -62,6 +62,7 @@ fresh config/starship/starship --file=$XDG_CONFIG_HOME/starship.toml
 fresh config/alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
 
 fresh-options --filter='erb -T -'
+  fresh shell/utilities/espanso_to_texpand --file=$XDG_CONFIG_HOME/texpand/csv
   fresh config/beeminder/bmndrrc --file=$XDG_CONFIG_HOME/.bmndrrc
   fresh config/exercism/user.json --file=$XDG_CONFIG_HOME/exercism/user.json
 fresh-options
@@ -92,4 +93,6 @@ fresh_after_build(){
   ln -sf ~/.dotfiles/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
   ln -sf ~/Drive/Sync/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
   ln -sf ~/.dotfiles/shell/fish/plugins $XDG_CONFIG_HOME/fish/fish_plugins
+  rm -f ~/Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
+  cp -L $XDG_CONFIG_HOME/Texpand/csv ~/Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
 }
