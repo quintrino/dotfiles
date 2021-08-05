@@ -46,8 +46,7 @@ key_bindings:
   - { key: PageDown, mods: Control, chars: "\x1b[6;5~" }
   - { key: PageDown, chars: "\x1b[6~" }
   - { key: Tab, mods: Shift, chars: "\x1b[Z" }
-  - { key: Back, chars: "\x7f" }
-  - { key: Back, mods: Alt, chars: "\x1b\x7f" }
+  - { key: Back, mods: Command, chars: "\x1b\x15" }
   - { key: Insert, chars: "\x1b[2~" }
   - { key: Delete, chars: "\x1b[3~" }
   - { key: Delete, mods: Command, chars: "\x1bU" }
