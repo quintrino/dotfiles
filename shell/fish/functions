@@ -31,6 +31,11 @@ function sw
     end
 end
 
+function gbf
+  set branch (git branch -vv | fzf --preview 'git diff master..{2}')
+  git checkout (echo $branch | awk '{print $1}')
+end
+
 function o
     if test $argv
         open $argv
