@@ -7,6 +7,7 @@
       'zhist': '$EDITOR $XDG_DATA_HOME/zsh/history/',
       'bhist': '$EDITOR $XDG_DATA_HOME/bash/history/',
       'b': 'bat',
+      'v': 'vim',
       'bp': 'bat --plain',
       'ffi': '__zoxide_zi',
       'now': 'date +"%T"',
