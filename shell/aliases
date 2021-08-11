@@ -25,7 +25,8 @@
 
     'Fish': {
 
-      'sf': 'source $HOME/.config/fish/config.fish'
+      'sf': 'source $HOME/.config/fish/config.fish',
+      'fsf': 'fresh && source $HOME/.config/fish/config.fish'
 
     },
 
