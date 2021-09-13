@@ -9,7 +9,7 @@ windows:
       panes:
         - bundle exec rails console
         - bundle exec rails server
-        - ./bin/webpack-dev-server
+        - yarn install && ./bin/webpack-dev-server
         -  pg_ctl start && git status
   - monitor:
       layout: even-horizontal
