@@ -21,4 +21,4 @@ if [ -d "$HOME/.dotfiles" ]; then
 # shellcheck disable=SC1090
 source "$HOME/.dotfiles/deploy/functions.sh"
 
-deploy_from_step 1
+deploy_from_step 1 |& tee -a "$HOME/.dotfiles/deploy/log"
