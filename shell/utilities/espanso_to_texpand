@@ -2,11 +2,11 @@
 % def quotify(string)
 % invalid_characters = [',', "\n"]
 %  return string unless invalid_characters.any? { |s| string.include? s }
-%  "\"#{string}\""
+%  "\"#{string}\","
 % end
 % user_files = Dir[ENV['XDG_CONFIG_HOME'] + '/espanso/user/*']
-% user_files.prepend('/Users/nick.wolf/.config/espanso/default.yml')
+% user_files.prepend( ENV['XDG_CONFIG_HOME'] + '/espanso/default.yml')
 % user_files.each do |file|
 <% YAML.load_file(file)['matches'].each do |shortcut|%>
 % next unless shortcut.is_a?(Hash) && shortcut.keys == ['trigger', 'replace']
-<%="#{shortcut['trigger']}, #{quotify(shortcut['replace'])}"%><% end %><% end %>
+<%="#{shortcut['trigger']},#{quotify(shortcut['replace'])}"%><% end %><% end %>
