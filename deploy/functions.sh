@@ -221,6 +221,11 @@ function set_dash_defaults() {
   defaults write com.kapeli.dashdoc syncFolderPath -string "$HOME/.dotfiles/apps/Dash"
 }
 
+function register_espanso() {
+  printf "\033[1;31mRegistering Espanso \033[0m\n"
+  espanso register
+}
+
 function remind_install_steps() {
   while read -r line; do
     echo "$line"
@@ -308,6 +313,16 @@ function deploy_from_step() {
   fi
 
   if [ $stepNumber -le 13 ]
+  then
+    set_dash_defaults
+  fi
+
+  if [ $stepNumber -le 14 ]
+  then
+    register_espanso
+  fi
+
+  if [ $stepNumber -le 15 ]
   then
     remind_install_steps
   fi
