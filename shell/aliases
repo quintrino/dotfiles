@@ -154,7 +154,8 @@
     'Splitrock': {
 
       'split': 'cd $HOME/Code/splitrock',
-      'bug': 'cd $HOME/Code/splitrock/BugHerd'
+      'bug': 'cd $HOME/Code/splitrock/BugHerd',
+      'tmb': 'tmuxinator start bugherd'
 
     },
 
