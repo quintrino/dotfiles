@@ -21,6 +21,7 @@
   "editor.cursorBlinking": "solid",
   "editor.formatOnType": false,
   "vim.useSystemClipboard": true,
+  "vim.handleKeys": {"<C-d>": false},
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
