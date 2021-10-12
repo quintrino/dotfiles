@@ -9,7 +9,7 @@
 			<key>Ack</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:28Z</date>
+				<date>2021-09-26T23:41:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -30,7 +30,7 @@
 			<key>Axios</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:24Z</date>
+				<date>2021-09-26T23:41:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -46,7 +46,7 @@
 			<key>Bash_Shortcuts</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:24Z</date>
+				<date>2021-09-26T23:41:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -64,7 +64,7 @@
 			<key>Capybara</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:27Z</date>
+				<date>2021-09-26T23:41:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -82,7 +82,7 @@
 			<key>Git</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:25Z</date>
+				<date>2021-09-26T23:41:33Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -103,7 +103,7 @@
 			<key>HTTP_Status_Codes</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:24Z</date>
+				<date>2021-09-26T23:41:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -119,7 +119,7 @@
 			<key>HTTP_Status_Codes_Rails</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:26Z</date>
+				<date>2021-09-26T23:41:33Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -140,7 +140,7 @@
 			<key>Mac_Startup_Keys</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:24Z</date>
+				<date>2021-09-26T23:41:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -159,7 +159,7 @@
 			<key>RSpec_Expectations</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:28Z</date>
+				<date>2021-09-26T23:41:36Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -177,7 +177,7 @@
 			<key>Ruby_strftime</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:26Z</date>
+				<date>2021-09-26T23:41:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -193,7 +193,7 @@
 			<key>Scrivener</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:27Z</date>
+				<date>2021-09-26T23:41:33Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -209,7 +209,7 @@
 			<key>Vim</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:27Z</date>
+				<date>2021-09-26T23:41:33Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -225,7 +225,7 @@
 			<key>Visual_Studio_Code</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:25Z</date>
+				<date>2021-09-26T23:41:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -241,7 +241,7 @@
 			<key>iTerm2</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:26Z</date>
+				<date>2021-09-26T23:41:36Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -262,7 +262,7 @@
 			<key>tmux</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:51:25Z</date>
+				<date>2021-09-26T23:41:32Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -354,7 +354,7 @@
 			<key>bundle</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:14:20Z</date>
+				<date>2021-09-26T23:43:06Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -368,7 +368,7 @@
 			<key>overcommit</key>
 			<dict>
 				<key>date</key>
-				<date>2020-10-14T23:32:37Z</date>
+				<date>2021-09-26T23:43:22Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -382,7 +382,7 @@
 			<key>overcommit_config</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:14:30Z</date>
+				<date>2021-09-26T23:43:12Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -396,7 +396,7 @@
 			<key>pry</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-09T10:54:11Z</date>
+				<date>2021-09-26T23:43:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -410,7 +410,7 @@
 			<key>pry-alias</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:14:27Z</date>
+				<date>2021-09-26T23:43:11Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -424,7 +424,7 @@
 			<key>pry-awesome_print</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:14:21Z</date>
+				<date>2021-09-26T23:43:08Z</date>
 				<key>entry</key>
 				<dict>
 					<key>name</key>
@@ -460,7 +460,7 @@
 			<key>Elm</key>
 			<dict>
 				<key>date</key>
-				<date>2021-03-22T03:44:12Z</date>
+				<date>2021-09-26T23:42:02Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -468,7 +468,7 @@
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Elm#readme</string>
 					<key>authorLinkText</key>
-					<string>Peter Damoc</string>
+					<string>Tomas Latal</string>
 					<key>name</key>
 					<string>Elm</string>
 					<key>platform</key>
@@ -480,7 +480,7 @@
 			<key>Pebble</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:13:09Z</date>
+				<date>2021-09-26T23:41:37Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -500,7 +500,7 @@
 			<key>Zsh</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:13:07Z</date>
+				<date>2021-09-26T23:41:34Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -508,7 +508,7 @@
 					<key>authorLinkHref</key>
 					<string>https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/Zsh#readme</string>
 					<key>authorLinkText</key>
-					<string>Marcus Adair</string>
+					<string>bosr</string>
 					<key>name</key>
 					<string>Zsh</string>
 					<key>platform</key>
@@ -520,7 +520,7 @@
 			<key>tldr</key>
 			<dict>
 				<key>date</key>
-				<date>2021-01-04T03:24:55Z</date>
+				<date>2021-09-26T23:41:33Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -562,82 +562,82 @@
 			<key>http://kapeli.com/feeds/Bash.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:13:06Z</date>
+				<date>2021-09-26T23:41:36Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:16:51Z</date>
+				<date>2021-09-26T23:42:07Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/HTML.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:16:13Z</date>
+				<date>2021-09-26T23:41:50Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/JavaScript.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:24:43Z</date>
+				<date>2021-09-26T23:43:31Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Man_Pages.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:13:01Z</date>
+				<date>2021-09-26T23:41:51Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Markdown.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:17:37Z</date>
+				<date>2021-09-26T23:41:53Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/MongoDB.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:19:38Z</date>
+				<date>2021-09-26T23:43:17Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/NodeJS.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:16:34Z</date>
+				<date>2021-09-26T23:41:49Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/PostgreSQL.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:17:09Z</date>
+				<date>2021-09-26T23:42:05Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/React.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:17:23Z</date>
+				<date>2021-09-26T23:42:02Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Ruby.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-09-29T01:35:11Z</date>
+				<date>2021-09-26T23:42:31Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Ruby_2.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:19:32Z</date>
+				<date>2021-09-26T23:42:53Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Ruby_on_Rails_5.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:19:59Z</date>
+				<date>2021-09-26T23:43:36Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Ruby_on_Rails_6.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-09-29T01:34:50Z</date>
+				<date>2021-09-26T23:43:31Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Rust.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:18:12Z</date>
+				<date>2021-09-26T23:43:34Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Vim.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2020-05-28T12:17:36Z</date>
+				<date>2021-09-26T23:43:32Z</date>
 			</dict>
 		</dict>
 		<key>uninstalled</key>
@@ -803,7 +803,7 @@
 				<key>1.8.2</key>
 				<dict>
 					<key>date</key>
-					<date>2020-05-28T12:13:26Z</date>
+					<date>2021-09-26T23:41:37Z</date>
 				</dict>
 			</dict>
 			<key>http://kapeli.com/feeds/Jekyll.xml</key>
