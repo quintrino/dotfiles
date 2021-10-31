@@ -21,6 +21,8 @@ brew "bat"
 brew "bitwarden-cli"
 # Connect and disconnect Bluetooth devices
 brew "bluetoothconnector"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
 # New way to see and navigate directory trees
 brew "broot"
 # Manage compile and link flags for libraries
@@ -105,8 +107,6 @@ brew "zoxide"
 brew "zsh"
 # Additional completion definitions for zsh
 brew "zsh-completions"
-# A cross-platform graphical process/system monitor with a customizable interface and a multitude of features.
-brew "clementtsang/bottom/bottom"
 # Cross-platform Text Expander written in Rust
 brew "federico-terzi/espanso/espanso"
 # Everything you need to get started with Heroku
