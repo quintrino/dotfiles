@@ -1,7 +1,7 @@
 shell:
   program: /usr/local/bin/fish
   args:
-    - --command=tmux
+    - --command=tmuxinator start main
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
