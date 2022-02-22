@@ -308,7 +308,7 @@ zinit_update() {
 
 fisher_update() {
   printf "\033[1;31mUpdating Fisher Plugins \033[0m\n"
-  echo 'fisher update' | fish | rg -v "has unsynchronized changes"
+  echo 'fisher update' | fish | rg -v "has unsynchronized changes|/Users/nick.wolf/.config/fish/"
   printf "\033[1;31mUpdating Abbreviations Tips \033[0m\n"
   fish "$XDG_CONFIG_HOME/fish/functions/__abbr_tips_init.fish"
 }
