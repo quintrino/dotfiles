@@ -86,14 +86,14 @@
       'logic': 'echo -e "\033[1;31m If applied this commit will... \033[0m"',
       'force-push': 'git push origin HEAD --force-with-lease',
       'afp': 'amend && force-push',
-      'fix': 'git switch -c nick/fix/',
-      'fea': 'git switch -c nick/feature/',
-      'cho': 'git switch -c nick/chore/',
-      'doc': 'git switch -c nick/docs/',
-      'sty': 'git switch -c nick/style/',
-      'ref': 'git switch -c nick/refactor/',
-      'perf': 'git switch -c nick/perf/',
-      'tes': 'git switch -c nick/test/'
+      'fix': 'git switch -c fix/',
+      'fea': 'git switch -c feature/',
+      'cho': 'git switch -c chore/',
+      'doc': 'git switch -c docs/',
+      'sty': 'git switch -c style/',
+      'ref': 'git switch -c refactor/',
+      'perf': 'git switch -c perf/',
+      'tes': 'git switch -c test/'
 
     },
 
