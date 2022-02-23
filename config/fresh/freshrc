@@ -92,7 +92,7 @@ fresh_after_build(){
   ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Code/User/settings.json
   ln -sf ~/.dotfiles/apps/vs-code/keys.vsrc ~/Library/Application\ Support/Code/User/keybindings.json
   ln -sf ~/.dotfiles/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
-  ln -sf ~/Drive/Sync/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
+  ln -sf ~/Google\ Drive/My\ Drive/Sync/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
   ln -sf ~/.dotfiles/shell/fish/plugins $XDG_CONFIG_HOME/fish/fish_plugins
-  cat $XDG_CONFIG_HOME/Texpand/csv > ~/Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
+  cat $XDG_CONFIG_HOME/Texpand/csv > ~/Google\ Drive/My\ Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
 }
