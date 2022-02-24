@@ -100,8 +100,8 @@
     'Ruby': {
 
       'ru': 'bundle exec rubocop',
-      'rus': 'ru spec/* --display-only-fail-level-offenses --fail-level=C',
-      'rua': 'ru --auto-correct',
+      'rus': 'bundle exec rubocop spec/* --display-only-fail-level-offenses --fail-level=C',
+      'rua': 'bundle exec rubocop --auto-correct',
       'geml': 'cp $HOME/.dotfiles/language/ruby/Gems.local Gemfile.local',
       'js': 'bundle exec jekyll serve',
       'mp': 'ruby -r minitest/pride'
