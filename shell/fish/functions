@@ -76,6 +76,15 @@ function logic
      echo -e "\033[1;31m If applied this commit will... \033[0m"
 end
 
+function stop
+    if test -d $argv
+        echo "No port provided, killing port 3000 "
+        kill -9 (lsof -i tcp:3000 -t)
+    else
+        kill -9 (lsof -i tcp:$argv -t)
+    end
+end
+
 function alert
     eval "$argv"
     echo "$argv" | xargs -I {} osascript -e 'display alert "{} complete"'
