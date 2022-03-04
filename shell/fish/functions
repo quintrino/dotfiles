@@ -44,6 +44,10 @@ function o
     end
 end
 
+function evs
+        env | fzf --height 10%
+end
+
 function ef
     if test $argv
         set fzf_file (fd . $argv[1] | fzf --height 20%)
