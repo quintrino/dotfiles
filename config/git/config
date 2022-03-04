@@ -46,9 +46,18 @@
   verbose = true
 
 [core]
-  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Solarized (dark)'
+  pager = delta
   mergeoptions = --no-edit
   ignorecase = false
+
+[delta]
+    features = decorations
+    minus-style = 'syntax bold auto'
+    plus-style = 'syntax bold "#245c1b"'
+    keep-plus-minus-markers = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = true
 
 [diff]
   colorMoved = zebra
