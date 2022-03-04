@@ -11,7 +11,7 @@ function install_homebrew() {
 
 function install_zinit() {
   printf "\033[1;31mInstalling Zinit \033[0m\n"
-  ZINIT_HOME=$XDG_CONFIG_HOME/zinit sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+  ZINIT_HOME=$XDG_CONFIG_HOME/zinit sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/main/zinit-install.zsh)"
 }
 
 function install_fisher() {
