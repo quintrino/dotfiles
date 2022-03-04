@@ -40,6 +40,7 @@
   "terminal.integrated.letterSpacing": 0,
   "window.closeWhenEmpty": true,
   "window.openFoldersInNewWindow": "off",
+  "window.restoreWindows": "none",
   "window.restoreFullscreen": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
