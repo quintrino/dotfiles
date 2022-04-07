@@ -42,7 +42,6 @@
   "window.openFoldersInNewWindow": "off",
   "window.restoreWindows": "none",
   "window.restoreFullscreen": true,
-  "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
   "workbench.editor.closeEmptyGroups": false,
   "workbench.editor.enablePreview": false,
@@ -68,4 +67,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "HookyQR.beautify"
   },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
 }
