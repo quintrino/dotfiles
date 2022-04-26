@@ -119,6 +119,8 @@
       'rc': 'bundle exec rails console',
       'pryrc': 'pry -r ./config/environment',
       'ras': 'bundle exec rails server',
+      'rdm': 'bundle exec rails db:migrate',
+      'rdr': 'bundle exec rails db:rollback',
       'work': 'bin/rake jobs:work',
       'rt': 'bundle exec rake test',
       'rr': 'bundle exec rspec --format documentation',
