@@ -1,5 +1,7 @@
 rules:
-  - folders: ~/Downloads/capture
+  - name: "Capture Websites"
+    locations:
+      - ~/Downloads/capture
     subfolders: true
     filters:
       - extension: md
@@ -14,7 +16,9 @@ rules:
       - rename: "{python.clean_name}"
       - move: ~/Documents/obsidian/zen_inbox/websites/
 
-  - folders: ~/Documents/obsidian/zen_inbox/youtube
+  - name: "Capture Youtube"
+    locations:
+    - ~/Documents/obsidian/zen_inbox/youtube
     filters:
       - extension: md
       - python: |
@@ -27,20 +31,26 @@ rules:
     actions:
       - rename: "{python.clean_name}"
 
-  - folders: ~/Downloads/
+  - name: "Load calendar invites"
+    locations:
+    - ~/Downloads/
     filters:
       - extension: ics
     actions:
       - shell: 'calendar_importer "{path}"'
       - move: ~/Downloads/imported_events/
 
-  - folders: ~/Downloads/
+  - name: "Transfer videos"
+    locations:
+      - ~/Downloads/
     filters:
       - extension: mp4
     actions:
       - move: ~/Downloads/videos/
 
-  - folders: ~/Downloads/
+  - name: 'Play audio'
+    locations:
+      - ~/Downloads/
     filters:
       - extension: mp3
     actions:
