@@ -49,7 +49,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "screencapture $HOME/Drive/Sync/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
+                                        "shell_command": "screencapture $HOME/Google\\ Drive/My\\ Drive/Sync/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
                                 }
                                 ]
                             },
@@ -84,7 +84,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "screencapture -s $HOME/Drive/Sync/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
+                                        "shell_command": "screencapture -s $HOME/Google\\ Drive/My\\ Drive/Sync/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
                                 }
                                 ]
                             },
