@@ -25,10 +25,12 @@ brew "bitwarden-cli"
 brew "bluetoothconnector"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
-# New way to see and navigate directory trees
-brew "broot"
 # Manage compile and link flags for libraries
 brew "pkg-config"
+# New way to see and navigate directory trees
+brew "broot"
+# Core application library for C
+brew "glib"
 # Cross-platform make
 brew "cmake"
 # Color-highlighted diff(1) output
