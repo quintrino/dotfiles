@@ -162,6 +162,8 @@ cask "hiddenbar"
 cask "iterm2"
 # Keyboard customizer
 cask "karabiner-elements"
+# Display key code, unicode value and modifier keys state for any key combination
+cask "key-codes"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
 cask "mtmr"
