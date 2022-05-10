@@ -148,7 +148,6 @@ cask "dynalist"
 cask "firefox"
 # Web browser
 cask "firefox-developer-edition"
-cask "font-meslolg-nerd-font"
 # App and website blocker
 cask "freedom"
 # Back up and sync files with Google Drive
