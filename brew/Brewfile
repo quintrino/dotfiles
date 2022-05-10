@@ -123,8 +123,6 @@ brew "federico-terzi/espanso/espanso"
 brew "heroku/brew/heroku"
 # NodeJS wrapper for the Beeminder API
 brew "quintrino/formula/beeminder"
-# Command-line tool to decrypt Signal backups
-brew "quintrino/formula/signal-backup-decode"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # GPU-accelerated terminal emulator
