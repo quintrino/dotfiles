@@ -79,6 +79,8 @@ brew "m-cli"
 brew "mdcat"
 # NCurses Disk Usage
 brew "ncdu"
+# Library to simplify the interaction with PKCS#11
+brew "pkcs11-helper"
 # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 brew "openvpn"
 # File management automation tool
