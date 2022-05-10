@@ -164,6 +164,8 @@ cask "iterm2"
 cask "karabiner-elements"
 # Display key code, unicode value and modifier keys state for any key combination
 cask "key-codes"
+# Instant shortcut lookup
+cask "keycombiner"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
 cask "mtmr"
