@@ -129,7 +129,7 @@ cask "1password"
 cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
-# Utility to set up alt-tab to switch between windows
+# Enable Windows-like alt-tab
 cask "alt-tab"
 # Memory training application
 cask "anki"
@@ -141,6 +141,8 @@ cask "calibre"
 cask "ccmenu"
 # API documentation browser and code snippet manager
 cask "dash"
+# Universal database tool and SQL client
+cask "dbeaver-community"
 cask "dynalist"
 # Web browser
 cask "firefox"
