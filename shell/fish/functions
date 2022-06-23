@@ -31,6 +31,10 @@ function sw
     end
 end
 
+function install_pg
+    gem install pg  -v '1.2.3' -- --with-pg-config=(asdf where postgres)"/bin/pg_config"
+end
+
 function gbf
   set branch (git branch -vv | fzf --preview 'git diff master..{2}')
   git checkout (echo $branch | awk '{print $1}')
