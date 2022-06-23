@@ -73,6 +73,8 @@ brew "hub"
 brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Compression program with a very high compression ratio
 brew "lrzip"
 # Swiss Army Knife for macOS
