@@ -113,6 +113,8 @@ brew "tmuxinator"
 brew "tree"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
+# JavaScript package manager
+brew "yarn"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
 # Shell extension to navigate your filesystem faster
