@@ -12,4 +12,3 @@ rb-readline
 rspec
 rubocop
 rubocop-rspec
-tmuxinator
