@@ -17,7 +17,7 @@
     "**/node_modules": true
   },
   "breadcrumbs.enabled": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.cursorBlinking": "solid",
   "editor.formatOnType": false,
   "vim.useSystemClipboard": true,
