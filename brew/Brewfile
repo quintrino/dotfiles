@@ -158,6 +158,8 @@ cask "firefox-developer-edition"
 cask "freedom"
 # Back up and sync files with Google Drive
 cask "google-backup-and-sync"
+# Web browser
+cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
 # Desktop automation application
