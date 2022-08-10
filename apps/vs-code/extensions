@@ -3,6 +3,7 @@ bungcip.better-toml
 castwide.solargraph
 dbaeumer.vscode-eslint
 eamodio.gitlens
+esbenp.prettier-vscode
 ezforo.copy-relative-path-and-line-numbers
 formulahendry.auto-rename-tag
 formulahendry.code-runner
