@@ -25,7 +25,7 @@
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "on",
   "editor.trimAutoWhitespace": true,
   "explorer.confirmDelete": false,
   "files.autoSave": "onFocusChange",
