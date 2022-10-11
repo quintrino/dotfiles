@@ -176,11 +176,14 @@ cask "keycombiner"
 cask "linear-linear"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
+# TouchBar customization app
 cask "mtmr"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# VPN client for secure internet access and private browsing
+cask "nordvpn"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # GUI client for PostgreSQL databases
