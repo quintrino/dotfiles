@@ -31,6 +31,8 @@ brew "pkg-config"
 brew "broot"
 # Core application library for C
 brew "glib"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Cross-platform make
 brew "cmake"
 # Color-highlighted diff(1) output
