@@ -38,10 +38,8 @@
   "ruby.rubocop.executePath": "/Users/nick.wolf/.local/share/asdf/shims/",
   "search.showLineNumbers": true,
   "search.smartCase": true,
-  "terminal.integrated.fontFamily": "MesloLGSDZ Nerd Font",
   "terminal.integrated.letterSpacing": 0,
   "window.closeWhenEmpty": true,
-  "window.openFoldersInNewWindow": "off",
   "window.restoreWindows": "none",
   "window.restoreFullscreen": true,
   "workbench.activityBar.visible": false,
@@ -71,4 +69,12 @@
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.newWindowDimensions": "fullscreen",
+  "window.openFoldersInNewWindow": "off",
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "window.zoomLevel": 1,
 }
