@@ -60,3 +60,7 @@ eval "$(zoxide init zsh --cmd=f)"
 for file in "$XDG_DATA_HOME/environment"; do
     source "$file"
 done
+
+for file in "$XDG_DATA_HOME/zsh/environment"; do
+    source "$file"
+done
