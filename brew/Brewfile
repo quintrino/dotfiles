@@ -188,6 +188,8 @@ cask "nordvpn"
 cask "obsidian"
 # GUI client for PostgreSQL databases
 cask "postico"
+# Collaboration platform for API development
+cask "postman"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Instant messaging application focusing on security
