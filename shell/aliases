@@ -47,6 +47,7 @@
       'ocs': 'overcommit --sign',
       'ocp': 'overcommit --sign post-commit',
       'axe': 'git log --patch -S',
+      'gll': 'git log --oneline -5',
       'glob': 'glo master..HEAD',
       'gfc': 'git fixup --commit',
       'grc': 'git_open_conflicts && git add . && git rebase --continue',
