@@ -20,4 +20,4 @@ windows:
         - tmux_title "Ruby" && ruby_update | rg -v 'Using'; tmux_pane
         - tmux_title "Mac Software" && mac_software_update; tmux_pane
         - tmux_title "Fisher" && fisher_update; tmux_pane
-        - tmux choose-session \
+        - sh -c 'sleep 5 && tmuxinator stop update' & tmux choose-session \
