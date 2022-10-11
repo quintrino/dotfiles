@@ -107,6 +107,8 @@ brew "terminal-notifier"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Pager/text based browser
+brew "w3m"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
 # JavaScript package manager
