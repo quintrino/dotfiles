@@ -118,7 +118,7 @@ GEM
     rubocop-rspec (2.13.2)
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
-    solargraph (0.47.0)
+    solargraph (0.47.2)
       backport (~> 1.2)
       benchmark
       bundler (>= 1.17.2)
@@ -168,4 +168,4 @@ DEPENDENCIES
   solargraph
 
 BUNDLED WITH
-   2.3.17
+   2.3.22
