@@ -40,6 +40,11 @@ function gbf
   git checkout (echo $branch | awk '{print $1}')
 end
 
+function gbc
+    set branch (string join _ $argv)
+    git switch -c $branch
+end
+
 function o
     if test $argv
         open $argv
