@@ -19,6 +19,10 @@ for file in $XDG_DATA_HOME/environment/*
     source $file
 end
 
+for file in $XDG_DATA_HOME/fish/environment/*
+    source $file
+end
+
 function git_check
   git -C $argv[1] rev-parse 2>/dev/null
   if test $status -eq 128
