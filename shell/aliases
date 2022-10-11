@@ -158,7 +158,7 @@
 
       'split': 'cd $HOME/Code/splitrock',
       'bug': 'cd $HOME/Code/splitrock/BugHerd',
-      'tmb': 'tmuxinator start bugherd'
+      'tmb': 'tmuxinator start bugherd --suppress-tmux-version-warning'
 
     },
 
