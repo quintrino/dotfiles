@@ -17,11 +17,13 @@
     "**/node_modules": true
   },
   "breadcrumbs.enabled": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.cursorBlinking": "solid",
   "editor.formatOnType": false,
   "vim.useSystemClipboard": true,
-  "vim.handleKeys": {"<C-d>": false},
+  "vim.handleKeys": {
+    "<C-d>": false
+  },
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
