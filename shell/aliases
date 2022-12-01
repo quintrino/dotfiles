@@ -117,17 +117,17 @@
 
     'Rails': {
 
-      'rc': 'bundle exec rails console',
+      'rc': 'bundle install --quiet && bundle exec rails console',
       'pryrc': 'pry -r ./config/environment',
-      'ras': 'bundle exec rails server',
-      'rdm': 'bundle exec rails db:migrate',
-      'rdr': 'bundle exec rails db:rollback',
+      'ras': 'bundle install --quiet && bundle exec rails server',
+      'rdm': 'bundle install --quiet && bundle exec rails db:migrate',
+      'rdr': 'bundle install --quiet && bundle exec rails db:rollback',
       'work': 'bin/rake jobs:work',
-      'rt': 'bundle exec rake test',
-      'rr': 'bundle exec rspec --format documentation',
+      'rt': 'bundle install --quiet && bundle exec rake test',
+      'rr': 'bundle install --quiet && bundle exec rspec --format documentation',
       'be': 'bundle exec',
       'bi': 'bundle install',
-      'beg': 'bundle exec guard --plugin Rspec',
+      'beg': 'bundle install --quiet && bundle exec guard --plugin Rspec',
       'ud': 'git switch master && git pull && bundle install && yarn install'
 
     },
