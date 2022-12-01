@@ -17,6 +17,8 @@ format = """\
     $character\
 """
 
+command_timeout = 2000
+
 [cmd_duration]
 format = "| took [$duration]($style) "
 
