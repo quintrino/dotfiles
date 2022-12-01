@@ -76,5 +76,5 @@
   "window.newWindowDimensions": "fullscreen",
   "window.openFoldersInNewWindow": "off",
   "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "window.zoomLevel": 1,
+  "security.workspace.trust.untrustedFiles": "open",
 }
