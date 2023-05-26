@@ -5,7 +5,7 @@ source "$HOME/.dotfiles/shell/environment"
 
 function install_homebrew() {
   printf "\033[1;31mInstalling Homebrew \033[0m\n"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 
