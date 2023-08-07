@@ -94,8 +94,8 @@ fresh_after_build(){
   ln -sf ~/.dotfiles/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
   ln -sf ~/.dotfiles/shell/fish/plugins $XDG_CONFIG_HOME/fish/fish_plugins
   if [ -d $HOME/Google\ Drive ]; then
-    cp ~/Google\ Drive/My\ Drive/Sync/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
-    cat $XDG_CONFIG_HOME/Texpand/csv > ~/Google\ Drive/My\ Drive/Sync/Mac/Texpand/Texpand\ Backup.csv
+    cp ~/Google\ Drive/My\ Drive/Sync/Devices/Mac/Espanso/private.yml $XDG_CONFIG_HOME/espanso/user/private.yml
+    cat $XDG_CONFIG_HOME/Texpand/csv > ~/Google\ Drive/My\ Drive/Sync/Devices/Mac/Texpand/Texpand\ Backup.csv
   else
     echo "Google Drive not found"
   fi
