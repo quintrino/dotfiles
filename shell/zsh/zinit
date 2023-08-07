@@ -14,7 +14,6 @@ zinit ice silent wait
 zinit light zdharma/fast-syntax-highlighting
 
 zinit ice lucid wait
-zinit light Aloxaf/fzf-tab
 
 zinit ice lucid wait
 zinit light wfxr/forgit
