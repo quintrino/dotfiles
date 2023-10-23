@@ -1,5 +1,4 @@
 bradgashler.htmltagwrap
-bungcip.better-toml
 castwide.solargraph
 dbaeumer.vscode-eslint
 eamodio.gitlens
@@ -8,6 +7,7 @@ ezforo.copy-relative-path-and-line-numbers
 formulahendry.auto-rename-tag
 formulahendry.code-runner
 GitHub.copilot
+GitHub.copilot-chat
 Lourenci.go-to-spec
 misogi.ruby-rubocop
 ms-vsliveshare.vsliveshare
@@ -15,8 +15,6 @@ ms-vsliveshare.vsliveshare-pack
 oderwat.indent-rainbow
 olveralan.spunbeat
 PKief.material-icon-theme
-rebornix.ruby
 streetsidesoftware.code-spell-checker
 timonwong.shellcheck
 vscodevim.vim
-wingrunr21.vscode-ruby
