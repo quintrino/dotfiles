@@ -52,10 +52,14 @@ git_check "$HOME/.config/alfred/Alfred.alfredpreferences" 'Alfred'
 cd "$starting_directory" || exit
 unset starting_directory
 
-. <%= ("#{`brew --prefix asdf`.chomp}/libexec/asdf.sh") || ''%>
+. <%=("#{`brew --prefix asdf`.chomp}/libexec/asdf.sh") || ''%>
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh --cmd=f)"
+eval "$(zoxide init zsh)"
+unalias f 2>/dev/null || true
+unalias fi 2>/dev/null || true
+
+alias f=__zoxide_z
 
 for file in "$XDG_DATA_HOME/environment"; do
     source "$file"
