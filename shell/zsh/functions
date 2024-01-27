@@ -300,8 +300,6 @@ asdf_update() {
 }
 
 zinit_update() {
-  printf "\033[1;31mUpdating Zinit \033[0m\n"
-  zi self-update
   printf "\033[1;31mUpdating Zsh plugins \033[0m\n"
   zi update --parallel
 }
