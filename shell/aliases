@@ -156,8 +156,8 @@
 
     'Splitrock': {
 
-      'split': 'cd $HOME/Code/splitrock',
-      'bug': 'cd $HOME/Code/splitrock/BugHerd',
+      'split': 'cd $HOME/Developer/splitrock',
+      'bug': 'cd $HOME/Developer/splitrock/BugHerd',
       'tmb': 'tmuxinator start bugherd --suppress-tmux-version-warning'
 
     },
@@ -165,8 +165,8 @@
     'Folders': {
 
       'drive': 'cd $HOME/Drive/',
-      'nick': 'cd $HOME/Code/personal/nickwolf.com.au',
-      'per': 'cd $HOME/Code/personal',
+      'nick': 'cd $HOME/Developer/personal/nickwolf.com.au',
+      'per': 'cd $HOME/Developer/personal',
       'ob': 'cd $HOME/Documents/obsidian',
       'lol': 'cd $XDG_DATA_HOME/lolcommits/',
       'alfred': 'cd /Users/nick.wolf/.config/alfred/Alfred.alfredpreferences'

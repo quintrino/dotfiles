@@ -44,8 +44,8 @@ function install_config_folders() {
   mkdir -p ~/Library/Application\ Support/Code/User/
   mkdir -p "$XDG_CACHE_HOME/less"
   mkdir -p "$XDG_DATA_HOME/zsh"
-  mkdir -p "$HOME/Code/personal"
-  mkdir -p "$HOME/Code/personal/exercism"
+  mkdir -p "$HOME/Developer/personal"
+  mkdir -p "$HOME/Developer/personal/exercism"
   mkdir -p "$XDG_DATA_HOME/bash"
   mkdir -p "$XDG_DATA_HOME/gnupg"
   mkdir -p "$HOME/Library/ApplicationSupport/MTMR"
@@ -239,8 +239,8 @@ function set_computer_name() {
 }
 
 function install_personal_projects() {
-  mkdir -p $HOME/Code/personal
-  cd $HOME/Code/personal || exit
+  mkdir -p $HOME/Developer/personal
+  cd $HOME/Developer/personal || exit
   while read -r line; do
     git clone "git@github.com:quintrino/$line.git"
   done <~/.dotfiles/deploy/personal_projects
