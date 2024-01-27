@@ -20,7 +20,8 @@
       'bash': 'bash --rcfile $XDG_CONFIG_HOME/bash/profile',
       'fb': 'fzf --preview "bat --style numbers,changes --color=always {}"',
       'ps': 'echo Consider using procs instead',
-
+      'ncdu': 'echo Consider using di (dua interactive) instead',
+      'di': 'dua interactive'
     },
 
     'Fish': {
