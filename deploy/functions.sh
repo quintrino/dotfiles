@@ -57,6 +57,7 @@ function install_config_folders() {
   mkdir -p "$XDG_CONFIG_HOME/tmuxinator"
   mkdir -p "$XDG_CONFIG_HOME/npm"
   mkdir -p "$XDG_CONFIG_HOME/zsh"
+  mdkir -p "$XDG_CACHE_HOME/vim"
 }
 
 function install_zsh_defaults() {
