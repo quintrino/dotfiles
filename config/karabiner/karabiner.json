@@ -1542,7 +1542,78 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + a activates VoiceOver",
+                                "description": "Hyper/cmd + o opens Obsidian",
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "left_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                  {
+                                      "shell_command": "open -a 'Obsidian.app'"
+                                  }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                              "description": "Hyper/cmd + s opens Signal",
+                              "from": {
+                                  "key_code": "s",
+                                  "modifiers": {
+                                      "mandatory": [
+                                          "right_shift",
+                                          "right_control",
+                                          "right_command",
+                                          "left_command",
+                                          "right_option"
+                                      ]
+                                  }
+                              },
+                              "parameters": {
+                                  "basic.simultaneous_threshold_milliseconds": 500
+                              },
+                              "to": [
+                                {
+                                    "shell_command": "open -a 'Signal Beta.app'"
+                                }
+                              ],
+                              "type": "basic"
+                          },
+                            {
+                                "description": "Hyper + y toggles Full Screen",
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "$HOME/Applications/bin/toggle_full_screen"
+                                }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + a opens VoiceOver",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": {
@@ -1568,33 +1639,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + r toggles Menubar",
-                                "from": {
-                                    "key_code": "r",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f2",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + f activates Alfred",
+                                "description": "Hyper + f opens default Application Launcher",
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
@@ -1620,9 +1665,9 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + y toggles Full Screen",
+                                "description": "Hyper + b opens default Browser",
                                 "from": {
-                                    "key_code": "y",
+                                    "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_shift",
@@ -1637,15 +1682,15 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/Applications/bin/toggle_full_screen"
-                                }
+                                        "shell_command": "open -a 'Brave Browser Beta.app'"
+                                    }
                                 ],
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + d in iTerm sends EOF",
+                                "description": "Hyper + e opens default Editor",
                                 "from": {
-                                    "key_code": "d",
+                                    "key_code": "e",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_shift",
@@ -1660,21 +1705,56 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "d",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
+                                        "shell_command": "open -a 'Visual Studio Code.app'"
                                     }
                                 ],
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": [
-                                            "^com\\.googlecode\\.iterm2$"
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + t opens default Terminal",
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
                                         ]
                                     }
-                                ]
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Alacritty.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + s opens Slack",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Slack.app'"
+                                    }
+                                ],
+                                "type": "basic"
                             },
                             {
                                 "description": "Hyper + d in Alacritty sends EOF",
@@ -1711,7 +1791,7 @@
                                 ]
                             },
                             {
-                                "description": "Hyper + u in Alacritty move one tab left",
+                                "description": "Hyper + u in Alacritty/Obsidian move one tab left",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -1740,13 +1820,14 @@
                                     {
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
-                                            "^org\\.alacritty$"
+                                            "^org\\.alacritty$",
+                                            "^md\\.obsidian"
                                         ]
                                     }
                                 ]
                             },
                             {
-                                "description": "Hyper + i in Alacritty move one tab right",
+                                "description": "Hyper + i in Alacritty/Obsidian move one tab right",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1775,7 +1856,8 @@
                                     {
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
-                                            "^org\\.alacritty$"
+                                            "^org\\.alacritty$",
+                                            "^md\\.obsidian"
                                         ]
                                     }
                                 ]
@@ -1844,336 +1926,6 @@
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
                                             "^org\\.alacritty$"
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "Hyper + d closes tab",
-                                "from": {
-                                    "key_code": "d",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "w",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + e opens editor",
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Visual Studio Code.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + m move one space right",
-                                "from": {
-                                    "key_code": "m",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + b opens Browser",
-                                "from": {
-                                    "key_code": "b",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Firefox.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + n move one space left",
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + h triggers left arrow",
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + s opens Slack",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Slack.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + j triggers down arrow",
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + t opens terminal",
-                                "from": {
-                                    "key_code": "t",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Alacritty.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + k triggers up arrow",
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + l triggers right arrow",
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + u in Signal moves up",
-                                "from": {
-                                    "key_code": "u",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": [
-                                            "^org\\.whispersystems\\.signal-desktop"
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "description": "Hyper + i in signal moves down",
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "parameters": {
-                                    "basic.simultaneous_threshold_milliseconds": 500
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": [
-                                            "^org\\.whispersystems\\.signal-desktop"
                                         ]
                                     }
                                 ]
@@ -2315,6 +2067,278 @@
                                 ]
                             },
                             {
+                                "description": "Hyper + d in iTerm sends EOF",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "d",
+                                        "modifiers": [
+                                            "right_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.googlecode\\.iterm2$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Hyper + d closes tab",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "right_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + m move one space right",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "right_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + n move one space left",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "right_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + h triggers left arrow",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + j triggers down arrow",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + k triggers up arrow",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + l triggers right arrow",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper + u in Signal moves up",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "right_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^org\\.whispersystems\\.signal-desktop"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "description": "Hyper + i in signal moves down",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "parameters": {
+                                    "basic.simultaneous_threshold_milliseconds": 500
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "right_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^org\\.whispersystems\\.signal-desktop"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
                                 "description": "Command + e archives in Signal",
                                 "from": {
                                     "key_code": "e",
@@ -2425,144 +2449,50 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
+                            },
+                            {
+                              "description": "Z in VLC skips back",
+                              "from": {
+                                  "key_code": "z"
+                              },
+                              "to": [
+                                  {
+                                      "key_code": "left_arrow"
+                                  }
+                              ],
+                              "type": "basic",
+                              "conditions": [
+                                  {
+                                      "type": "frontmost_application_if",
+                                      "bundle_identifiers": [
+                                        "^org\\.videolan\\.vlc$"
+                                      ]
+                                  }
+                              ]
+                          },
+                          {
+                            "description": "X in VLC skips forward",
+                            "from": {
+                                "key_code": "x"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "right_arrow"
+                                }
+                            ],
+                            "type": "basic",
+                            "conditions": [
+                                {
+                                    "type": "frontmost_application_if",
+                                    "bundle_identifiers": [
+                                      "^org\\.videolan\\.vlc$"
+                                    ]
+                                }
+                            ]
+                        }
                         ]
                     }
                 ]
-            },
-            "devices": [],
-            "fn_function_keys": [
-                {
-                    "from": {
-                        "key_code": "f1"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "display_brightness_decrement"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f2"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "display_brightness_increment"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f3"
-                    },
-                    "to": [
-                        {
-                            "key_code": "mission_control"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f4"
-                    },
-                    "to": [
-                        {
-                            "key_code": "launchpad"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f5"
-                    },
-                    "to": [
-                        {
-                            "key_code": "illumination_decrement"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f6"
-                    },
-                    "to": [
-                        {
-                            "key_code": "illumination_increment"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f7"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "rewind"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f8"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "play_or_pause"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f9"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "fastforward"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f10"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "mute"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f11"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "volume_decrement"
-                        }
-                    ]
-                },
-                {
-                    "from": {
-                        "key_code": "f12"
-                    },
-                    "to": [
-                        {
-                            "consumer_key_code": "volume_increment"
-                        }
-                    ]
-                }
-            ],
-            "name": "Default profile",
-            "parameters": {
-                "delay_milliseconds_before_open_device": 1000
-            },
-            "selected": true,
-            "simple_modifications": [],
-            "virtual_hid_keyboard": {
-                "country_code": 0,
-                "indicate_sticky_modifier_keys_state": true,
-                "mouse_key_xy_scale": 100
             }
         }
     ]
