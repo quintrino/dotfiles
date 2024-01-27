@@ -69,7 +69,7 @@ matches:
       - name: mydate
         type: date
         params:
-          format: "%d/%m/%Y"
+          format: "%Y-%m-%d"
 
   # Code
 
@@ -84,3 +84,31 @@ matches:
         type: shell
         params:
           cmd: "echo Hello from your shell"
+
+  - trigger: ":sid"
+    replace: |
+      Something I did that I liked:
+
+      Something you did that I liked:
+
+      Something for next time:
+
+  - trigger: ":hl"
+    replace: "Highlight:: "
+
+  - trigger: ":le"
+    replace: "Lesson:: "
+
+  - trigger: ":dc"
+    replace: "Decision:: "
+
+  - trigger: ":meet"
+    replace: "[Meeting](Meetings/{{date}}-$|$)"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":peop"
+    replace: "[[People/$|$]]"
