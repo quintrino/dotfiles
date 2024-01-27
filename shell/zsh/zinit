@@ -1,6 +1,5 @@
 #!/bin/sh
-
-. "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
+. <%= ("#{`brew --prefix zinit`.chomp}/zinit.zsh") || ''%>
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zpcompinit
