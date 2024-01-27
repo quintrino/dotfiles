@@ -130,3 +130,14 @@ function freq
     sort -rn |\
     head -50
 end
+
+function ef
+    if test (count $argv) -gt 0
+        set fzf_file (fd . $argv[1] | fzf --height 20%)
+    else
+        set fzf_file (fd | fzf --height 20%)
+    end
+    if test $status -eq 0
+        eval $EDITOR "$fzf_file"
+    end
+end

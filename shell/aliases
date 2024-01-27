@@ -35,6 +35,7 @@
       'ali': '$EDITOR $HOME/.dotfiles/shell/aliases',
       'dot': 'cd $HOME/.dotfiles',
       'edot': '$EDITOR $HOME/.dotfiles',
+      'efd': '$EDITOR (fd . ~/.dotfiles | fzf --height 20%)',
       'bun': 'cd $HOME/.dotfiles/brew && brew bundle dump --force --describe',
     },
 
