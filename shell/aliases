@@ -113,7 +113,8 @@
 
     'Javascript': {
 
-      'es': 'node_modules/.bin/eslint app/javascript'
+      'es': 'node_modules/.bin/eslint app/javascript',
+      'yarn': 'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
 
     },
 
