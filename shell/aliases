@@ -11,7 +11,7 @@
       'bp': 'bat --plain',
       'ffi': '__zoxide_zi',
       'now': 'date +"%T"',
-      'l': 'exa --long --grid --all --header --git --classify --icons',
+      'l': 'eza --long --grid --all --header --git --classify --icons',
       'md': 'mkdir -p',
       'h': 'xh',
       'rmf': 'rm -rf',
