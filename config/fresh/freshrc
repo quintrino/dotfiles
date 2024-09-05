@@ -60,7 +60,7 @@ fresh config/mtmr/items.json --file=$HOME/Library/ApplicationSupport/MTMR/items.
 fresh config/organize/config.yaml --file=$XDG_CONFIG_HOME/organize/config.yaml
 fresh config/tmux/tmux.conf --file=$XDG_CONFIG_HOME/tmux/tmux.conf
 fresh config/starship/starship --file=$XDG_CONFIG_HOME/starship.toml
-fresh config/alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
+fresh config/alacritty/alacritty.toml --file=~/.config/alacritty/alacritty.toml
 
 fresh-options --filter='erb -T -'
   fresh shell/utilities/espanso_to_texpand --file=$XDG_CONFIG_HOME/texpand/csv
