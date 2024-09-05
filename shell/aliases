@@ -172,7 +172,7 @@
       'per': 'cd $HOME/Developer/personal',
       'ob': 'cd $HOME/Documents/obsidian',
       'lol': 'cd $XDG_DATA_HOME/lolcommits/',
-      'alfred': 'cd /Users/nick.wolf/.config/alfred/Alfred.alfredpreferences'
+      'alfred': 'cd $HOME/.config/alfred/Alfred.alfredpreferences'
 
     },
 
