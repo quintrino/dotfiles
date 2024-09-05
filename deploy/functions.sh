@@ -49,6 +49,7 @@ function install_config_folders() {
   mkdir -p "$XDG_DATA_HOME/bash"
   mkdir -p "$XDG_DATA_HOME/gnupg"
   mkdir -p "$HOME/Library/ApplicationSupport/MTMR"
+  mkdir -p "$HOME/Library/Preferences/org.videolan.vlc"
   mkdir -p "$XDG_CONFIG_HOME/karabiner"
   mkdir -p "$XDG_CONFIG_HOME/zinit/bin"
   mkdir -p "$XDG_CONFIG_HOME/hammerspoon"
