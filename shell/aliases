@@ -88,6 +88,7 @@
       'add': 'git_track_untracked && git add --patch && git_untrack_new_blank && git status --short && logic',
       'logic': 'echo -e "\033[1;31m If applied this commit will... \033[0m"',
       'force-push': 'git push origin HEAD --force-with-lease',
+      'lh': 'lefthook',
       'afp': 'amend && force-push',
       'fix': 'git switch -c fix/',
       'fea': 'git switch -c feature/',
@@ -97,7 +98,6 @@
       'ref': 'git switch -c refactor/',
       'perf': 'git switch -c perf/',
       'tes': 'git switch -c test/'
-
     },
 
     'Ruby': {
