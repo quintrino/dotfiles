@@ -85,6 +85,14 @@ function git_untrack_new_blank
     git diff --name-only --no-renames --diff-filter=A | xargs git reset --quiet --
 end
 
+function yt
+    echo 'Switching to Download/videos'
+    mkdir -p $HOME/Downloads/videos
+    cd $HOME/Downloads/videos
+    echo 'Downloading video using yt-dlp'
+    yt-dlp "$argv"
+end
+
 function logic
      echo -e "\033[1;31m If applied this commit will... \033[0m"
 end
