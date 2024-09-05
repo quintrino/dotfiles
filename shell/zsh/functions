@@ -396,13 +396,12 @@ exer_all() {
     cd "$(exercism workspace)" || exit
     mkdir "$language"
     cd "$language" || exit
-    curl -LS "https://exercism.io/tracks/$language/exercises" \
-    | grep "/tracks/$language/exercises/" \
-    | awk '{print $3}' \
-    | cut -d/ -f5 \
-    | cut -d\" -f1 > exercises.txt
+    curl -LS "https://exercism.io/tracks/ruby/exercises" \
+    | grep -o 'exercises/[^&]*' \
+    | grep -v ".svg" \
+    | cut -d '/' -f2 > exercises.txt
     while read -r line; do
-      exercism download --exercise="$line" --track="$language";
+      exercism download --exercise="$line" --track="$language" --force;
     done < exercises.txt
   fi
 }
