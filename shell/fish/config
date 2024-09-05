@@ -44,7 +44,7 @@ git_check $HOME/.dotfiles 'Dotfiles'
 git_check $HOME/Documents/obsidian 'Obsidian'
 git_check $HOME/.config/alfred/Alfred.alfredpreferences 'Alfred'
 
-source <%= ("#{`brew --prefix asdf`.chomp}/libexec/asdf.fish") || ''%>
+mise activate fish | source
 
 starship init fish | source
 zoxide init fish --cmd f | source
