@@ -15,7 +15,7 @@ My fish plugin manager is [fisher](https://github.com/jorgebucaran/fisher)
 
 My Package and program installer is [Brew](https://brew.sh/)
 
-My Language version manager is [ASDF](https://github.com/asdf-vm)
+My Language version manager is [Mise](https://github.com/jdx/mise)
 
 My Dotfiles are constantly evolving and I'm happy to hear suggestions or
 receive pull requests if you think you have improvements on what to change.
