@@ -41,7 +41,6 @@
   "window.closeWhenEmpty": true,
   "window.restoreWindows": "none",
   "window.restoreFullscreen": true,
-  "workbench.activityBar.visible": false,
   "workbench.editor.closeEmptyGroups": false,
   "workbench.editor.enablePreview": false,
   "workbench.editor.highlightModifiedTabs": true,
@@ -76,4 +75,7 @@
   "window.openFoldersInNewWindow": "off",
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "security.workspace.trust.untrustedFiles": "open",
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.tabActionCloseVisibility": false,
+  "window.confirmSaveUntitledWorkspace": false,
 }
