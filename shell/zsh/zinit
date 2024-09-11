@@ -1,5 +1,8 @@
 #!/bin/sh
-. <%= ("#{`brew --prefix zinit`.chomp}/zinit.zsh") || ''%>
+{{#if (command_success "brew --prefix zinit")}}
+. {{command_output "brew --prefix zinit | tr -d '\n'"}}/zinit.zsh
+{{/if}}
+
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zpcompinit

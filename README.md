@@ -9,7 +9,7 @@ you simply need to run
 
 My dotfiles use a very eclectic set of tools.
 
-For Dotfile managment I use [Fresh](https://github.com/freshshell/fresh)
+For Dotfile managment I use [dotter](https://github.com/supercuber/dotter)
 
 My fish plugin manager is [fisher](https://github.com/jorgebucaran/fisher)
 

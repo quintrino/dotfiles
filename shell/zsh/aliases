@@ -1,0 +1,8 @@
+{{#each aliases as |section section_name|}}
+# {{section_name}}
+
+{{#each section as |value key|}}
+alias {{key}}='{{value}}'
+{{/each}}
+
+{{/each}}

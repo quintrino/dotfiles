@@ -332,6 +332,16 @@ brew_update() {
   echo $OUTDATED
 }
 
+dotter_update() {
+  cd $HOME/.dotfiles
+  dotter \
+    --global-config $HOME/.dotfiles/config/dotter/global.toml \
+    --local-config $HOME/.dotfiles/config/dotter/local.toml \
+    --cache-file $XDG_CACHE_HOME/dotter.toml \
+    --cache-directory $XDG_CACHE_HOME/dotter/ \
+    --verbose --verbose
+}
+
 mac_software_update() {
   printf "\033[1;31mUpdating Mac Software \033[0m\n"
   xcode-select -p 1>/dev/null;local xcode_installed=$?

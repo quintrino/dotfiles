@@ -52,8 +52,6 @@ git_check "$HOME/.config/alfred/Alfred.alfredpreferences" 'Alfred'
 cd "$starting_directory" || exit
 unset starting_directory
 
-. <%=("#{`brew --prefix asdf`.chomp}/libexec/asdf.sh") || ''%>
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 unalias f 2>/dev/null || true

@@ -1,0 +1,58 @@
+
+# ZSH configuration
+[zsh]
+depends = ["base"]
+
+[zsh.files]
+"shell/zsh/rc" = "$XDG_CONFIG_HOME/zsh/.zshrc"
+
+# Fish configuration
+[fish]
+depends = ["base"]
+
+[fish.files]
+"shell/fish/rc" = "$XDG_CONFIG_HOME/fish/config.fish"
+"shell/fish/plugins" = "$XDG_CONFIG_HOME/fish/fish_plugins"
+
+[bash.files]
+"shell/bash/bashrc" = "$XDG_CONFIG_HOME/bash/profile"
+"shell/bash/rc" = "$XDG_CONFIG_HOME/bash/bash"
+
+[bin.files]
+"shell/utilities/calendar_importer" = "$XDG_DATA_HOME/bin/calendar_importer"
+"shell/utilities/extract" = "$XDG_DATA_HOME/bin/extract"
+"shell/utilities/toggle_full_screen" = "$XDG_DATA_HOME/bin/toggle_full_screen"
+"shell/utilities/apple_select" = "$XDG_DATA_HOME/bin/apple_select"
+"shell/utilities/beeminder" = "$XDG_DATA_HOME/bin/beeminder"
+"config/git/cc_menu" = "$XDG_DATA_HOME/bin/cc_menu"
+"config/git/push_alert" = "$XDG_DATA_HOME/bin/push_alert"
+
+[config.files]
+"config/espanso" =  { target = "$XDG_CONFIG_HOME/espanso/", type = "symbolic" }
+"config/tmuxinator" =  { target = "$XDG_CONFIG_HOME/tmuxinator/", type = "symbolic" }
+
+"config/mtmr/items.json" = "$HOME/Library/ApplicationSupport/MTMR/items.json"
+"config/organize/config.yaml" = "$XDG_CONFIG_HOME/organize/config.yaml"
+"config/tmux/tmux.conf" = "$XDG_CONFIG_HOME/tmux/tmux.conf"
+"config/starship/starship" = "$XDG_CONFIG_HOME/starship.toml"
+"config/alacritty/alacritty.toml" = "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+"config/beeminder/bmndrrc" = "$XDG_CONFIG_HOME/.bmndrrc"
+"config/exercism/user.json" = "$XDG_CONFIG_HOME/exercism/user.json"
+"apps/vlc/vlcrc" = "~/Library/Preferences/org.videolan.vlc/vlcrc"
+"apps/vs-code/settings.vsrc" = "~/Library/Application Support/Code/User/settings.json"
+"apps/vs-code/keys.vsrc" = "~/Library/Application Support/Code/User/keybindings.json"
+"config/karabiner/karabiner.json" = "$XDG_CONFIG_HOME/karabiner/karabiner.json"
+
+[git.files]
+"config/git/ignore" = "$XDG_CONFIG_HOME/git/ignore"
+"config/git/config" = "$XDG_CONFIG_HOME/git/config"
+
+[ruby.files]
+"language/ruby/pryrc" = "$XDG_CONFIG_HOME/pry/pryrc"
+"language/ruby/irbrc" = "$XDG_CONFIG_HOME/ruby/irbrc"
+"language/ruby/gemrc" = "$XDG_CONFIG_HOME/ruby/gemrc"
+"language/ruby/railsrc" = "$XDG_CONFIG_HOME/rails/railsrc"
+"language/ruby/rspec" = "$XDG_CONFIG_HOME/rspec/options"
+
+[nodejs.files]
+"language/nodejs/npmrc" = "$XDG_CONFIG_HOME/npm/npmrc"

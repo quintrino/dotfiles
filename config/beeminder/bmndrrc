@@ -1,2 +1,2 @@
 [account]
-auth_token: <%= ENV["BEEMINDER_TOKEN"]%>
+auth_token: {{command_output "echo $BEEMINDER_TOKEN"}}

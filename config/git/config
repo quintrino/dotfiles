@@ -78,9 +78,6 @@
 [help]
   autoCorrect = 20
 
-[init]
-  templateDir = <%= ("#{`overcommit --template-dir`}".chomp if "#{`command -v overcommit`}" != '') || ''%>
-
 [interactive]
   diffFilter = delta --color-only
   singleKey = true

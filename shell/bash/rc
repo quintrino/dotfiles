@@ -1,0 +1,2 @@
+{{ include_template "shell/path" }}
+{{ include_template "shell/environment" }}

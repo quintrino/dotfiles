@@ -1,0 +1,169 @@
+# aliases.toml
+
+[base.variables.aliases.Terminal]
+
+zhist = '$EDITOR $XDG_DATA_HOME/zsh/history/'
+bhist = '$EDITOR $XDG_DATA_HOME/bash/history/'
+b = 'bat'
+v = 'vim'
+bp = 'bat --plain'
+ffi = '__zoxide_zi'
+now = 'date +"%T"'
+l = 'eza --long --grid --all --header --git --classify --icons'
+md = 'mkdir -p'
+h = 'xh'
+rmf = 'rm -rf'
+t = 'touch'
+tl = 'tldr'
+bash = 'bash --rcfile $XDG_CONFIG_HOME/bash/profile'
+fb = 'fzf --preview "bat --style numbers,changes --color=always {}"'
+ps = 'echo Consider using procs instead'
+ncdu = 'echo Consider using di (dua interactive) instead'
+di = 'dua interactive'
+
+[base.variables.aliases.Fish]
+
+sf = 'source $HOME/.config/fish/config.fish'
+fsf = 'fresh && source $HOME/.config/fish/config.fish'
+
+[base.variables.aliases.Dotfiles]
+
+ali = '$EDITOR $HOME/.dotfiles/shell/aliases'
+dot = 'cd $HOME/.dotfiles'
+edot = '$EDITOR $HOME/.dotfiles'
+efd = '$EDITOR (fd . ~/.dotfiles | fzf --height 20%)'
+bun = 'cd $HOME/.dotfiles/brew && brew bundle dump --force --describe'
+
+[base.variables.aliases.Git]
+
+guns = 'git reset'
+gunc = 'git reset HEAD^'
+gss = 'forgit::stash::show'
+gap = 'git add --patch'
+oc = 'overcommit'
+ocs = 'overcommit --sign'
+ocp = 'overcommit --sign post-commit'
+axe = 'git log --patch -S'
+gll = 'git log --oneline -5'
+glob = 'glo master..HEAD'
+gfc = 'git fixup --commit'
+grc = 'git_open_conflicts && git add . && git rebase --continue'
+git_track_untracked = 'git ls-files --others --exclude-standard | xargs git add -N'
+amend = 'git commit --amend --no-edit'
+grasm = 'git rebase --autosquash --autostash master'
+gb = 'git log --oneline master..HEAD'
+gs = 'git status --long'
+gd = 'git diff --ignore-all-space --ignore-blank-lines'
+gdn = 'git diff --name-only'
+gds = 'git diff --ignore-all-space --ignore-blank-lines --staged'
+gdb = 'git diff master...'
+gdbn = 'git diff master... --name-only'
+gdc = 'git diff-tree --no-commit-id -r'
+gdcn = 'git diff-tree --no-commit-id --name-only -r'
+gbl = 'git branch --list'
+upstream = 'git pull upstream master'
+push = 'git push origin HEAD'
+commit = 'git commit --verbose'
+doccommit = 'OVERCOMMIT_DISABLE=1 commit'
+ocd = 'OVERCOMMIT_DISABLE=1'
+gp = 'git pull'
+co = 'echo git checkout does not exist any more'
+gcm = 'echo git checkout master does not exist any more'
+gsm = 'git switch master'
+gdm = 'git diff master...'
+prod = 'git push production master'
+dep = 'push && prod'
+gc = 'git config --list'
+gr = 'git restore'
+show = 'git show --ignore-all-space --ignore-blank-lines'
+gcp = 'echo git checkout --patch does not exist any more'
+grp = 'git restore --patch'
+gcmp = 'gcm && gp'
+gundo = 'git reset HEAD~1'
+add = 'git_track_untracked && git add --patch && git_untrack_new_blank && git status --short && logic'
+logic = 'echo -e "\033[1;31m If applied this commit will... \033[0m"'
+force-push = 'git push origin HEAD --force-with-lease'
+lh = 'lefthook'
+afp = 'amend && force-push'
+fix = 'git switch -c fix/'
+fea = 'git switch -c feature/'
+cho = 'git switch -c chore/'
+doc = 'git switch -c docs/'
+sty = 'git switch -c style/'
+ref = 'git switch -c refactor/'
+perf = 'git switch -c perf/'
+tes = 'git switch -c test/'
+
+[base.variables.aliases.Ruby]
+
+ru = 'bundle exec rubocop'
+rus = 'bundle exec rubocop spec/* --display-only-fail-level-offenses --fail-level=C'
+rua = 'bundle exec rubocop --auto-correct'
+geml = 'cp $HOME/.dotfiles/language/ruby/Gems.local Gemfile.local'
+js = 'bundle exec jekyll serve'
+mp = 'ruby -r minitest/pride'
+
+[base.variables.aliases.Javascript]
+
+es = 'node_modules/.bin/eslint app/javascript'
+yarn = 'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
+
+[base.variables.aliases.Rails]
+
+rc = 'bundle install --quiet && bundle exec rails console'
+pryrc = 'pry -r ./config/environment'
+ras = 'bundle install --quiet && bundle exec rails server'
+rdm = 'bundle install --quiet && bundle exec rails db:migrate'
+rdr = 'bundle install --quiet && bundle exec rails db:rollback'
+work = 'bin/rake jobs:work'
+rt = 'bundle install --quiet && bundle exec rake test'
+rr = 'bundle install --quiet && bundle exec rspec --format documentation'
+be = 'bundle exec'
+bi = 'bundle install'
+beg = 'bundle install --quiet && bundle exec guard --plugin Rspec'
+ud = 'git switch master && git pull && bundle install && yarn install'
+
+[base.variables.aliases.Docker]
+
+dcu = 'docker-compose up'
+sup = 'vsplit_tab dcu && fs'
+
+[base.variables.aliases.Navigation]
+
+d = 'prevd -l'
+1 = 'prevd '
+2 = 'prevd 2'
+3 = 'prevd 3'
+4 = 'prevd 4'
+5 = 'prevd 5'
+6 = 'prevd 6'
+7 = 'prevd 7'
+8 = 'prevd 8'
+9 = 'prevd 9'
+
+[base.variables.aliases.Splitrock]
+
+split = 'cd $HOME/Developer/splitrock'
+bug = 'cd $HOME/Developer/splitrock/BugHerd'
+tmb = 'tmuxinator start bugherd --suppress-tmux-version-warning'
+
+[base.variables.aliases.Folders]
+
+drive = 'cd $HOME/Drive/'
+nick = 'cd $HOME/Developer/personal/nickwolf.com.au'
+per = 'cd $HOME/Developer/personal'
+ob = 'cd $HOME/Documents/obsidian'
+lol = 'cd $XDG_DATA_HOME/lolcommits/'
+alfred = 'cd $HOME/.config/alfred/Alfred.alfredpreferences'
+
+[base.variables.aliases.Tmux]
+
+tm = 'tmuxinator'
+tms = 'tmuxinator start'
+tmt = 'tmuxinator stop'
+update = 'tmuxinator start update --suppress-tmux-version-warning'
+ts = 'tmux choose-session'
+
+[base.variables.aliases.Fun]
+
+star = 'telnet towel.blinkenlights.nl'

@@ -1,0 +1,14 @@
+includes = [
+  "shell/aliases.toml"
+  ]
+
+packages = [
+  "zsh",
+  "fish",
+  "bash",
+  "bin",
+  "config",
+  "git",
+  "ruby",
+  "nodejs"
+]

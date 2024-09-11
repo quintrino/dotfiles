@@ -149,3 +149,13 @@ function ef
         eval $EDITOR "$fzf_file"
     end
 end
+
+function dotter_update
+  cd $HOME/.dotfiles
+  dotter \
+    --global-config $HOME/.dotfiles/config/dotter/global.toml \
+    --local-config $HOME/.dotfiles/config/dotter/local.toml \
+    --cache-file $XDG_CACHE_HOME/dotter.toml \
+    --cache-directory $XDG_CACHE_HOME/dotter/ \
+    --verbose --verbose
+end
