@@ -43,6 +43,7 @@ depends = ["base"]
 "apps/vs-code/settings.vsrc" = "~/Library/Application Support/Code/User/settings.json"
 "apps/vs-code/keys.vsrc" = "~/Library/Application Support/Code/User/keybindings.json"
 "config/karabiner/karabiner.json" = "$XDG_CONFIG_HOME/karabiner/karabiner.json"
+"config/teeldear/config.toml" = "$XDG_CONFIG_HOME/teeldear/config.toml"
 
 [git.files]
 "config/git/ignore" = "$XDG_CONFIG_HOME/git/ignore"
