@@ -713,7 +713,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [shell]
-args = ["--command=tmuxinator start main --suppress-tmux-version-warning"]
+args = ["--command=zellij"]
 program = "/usr/local/bin/fish"
 
 [window]

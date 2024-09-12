@@ -30,6 +30,7 @@ depends = ["base"]
 [config.files]
 "config/espanso" =  { target = "$XDG_CONFIG_HOME/espanso/", type = "symbolic" }
 "config/tmuxinator" =  { target = "$XDG_CONFIG_HOME/tmuxinator/", type = "symbolic" }
+"config/zellij" = { target = "$XDG_CONFIG_HOME/zellij/", type = "symbolic" }
 
 "config/mtmr/items.json" = "$HOME/Library/ApplicationSupport/MTMR/items.json"
 "config/organize/config.yaml" = "$XDG_CONFIG_HOME/organize/config.yaml"
