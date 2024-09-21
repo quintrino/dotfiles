@@ -1,40 +1,26 @@
-secure_input_notification: false
-
 matches:
-  # Simple text replacement
   - trigger: ":nwn"
-    replace: "Nick Wolf"
-
+    replace: Nick Wolf
   - trigger: ":nww"
     replace: "https://nickwolf.com.au/"
-
   - trigger: ":nwg"
     replace: "https://github.com/quintrino"
-
   - trigger: ":nwt"
     replace: "https://twitter.com/quintrino"
-
   - trigger: ":nwl"
     replace: "https://www.linkedin.com/in/quintrino/"
-
   - trigger: ":hp"
     replace: "[High Priority]"
-
   - trigger: ":mp"
     replace: "[Medium Priority]"
-
   - trigger: ":lp"
     replace: "[Low Priority]"
-
   - trigger: ":dl"
     replace: "[Deadline: $|$]"
-
   - trigger: ":job"
-    replace: "Software Engineer"
-
+    replace: Software Engineer
   - trigger: ":gh"
     replace: "https://github.com/"
-
   - trigger: ":template"
     replace: |
       ---
@@ -42,18 +28,17 @@ matches:
       permalink: blog/
       categories: Blog
       ---
-
   - trigger: ":text"
-    replace: |
-      - trigger: ""
-        replace: ""
-
+    replace: "- trigger: \"\"\n  replace: \"\"\n"
   - trigger: ":lk"
-    replace: "---\nlink: {{clip}}\n---\n$|$"
+    replace: |-
+      ---
+      link: {{clip}}
+      ---
+      $|$
     vars:
-      - name: "clip"
-        type: "clipboard"
-
+      - name: clip
+        type: clipboard
   - trigger: ":post"
     replace: "e _posts/{{mydate}}"
     vars:
@@ -61,8 +46,6 @@ matches:
         type: date
         params:
           format: "%Y-%m-%d"
-
-  # Dates
   - trigger: ":date"
     replace: "{{mydate}}"
     vars:
@@ -70,21 +53,15 @@ matches:
         type: date
         params:
           format: "%Y-%m-%d"
-
-  # Code
-
   - trigger: ":bind"
     replace: "require 'pry'; binding.pry"
-
-  # Shell commands
   - trigger: ":shell"
     replace: "{{output}}"
     vars:
       - name: output
         type: shell
         params:
-          cmd: "echo Hello from your shell"
-
+          cmd: echo Hello from your shell
   - trigger: ":sid"
     replace: |
       Something I did that I liked:
@@ -92,16 +69,12 @@ matches:
       Something you did that I liked:
 
       Something for next time:
-
   - trigger: ":hl"
     replace: "Highlight:: "
-
   - trigger: ":le"
     replace: "Lesson:: "
-
   - trigger: ":dc"
     replace: "Decision:: "
-
   - trigger: ":meet"
     replace: "[Meeting](Meetings/{{date}}-$|$)"
     vars:
@@ -109,6 +82,15 @@ matches:
         type: date
         params:
           format: "%Y-%m-%d"
-
   - trigger: ":peop"
     replace: "[[People/$|$]]"
+  - trigger: ":)"
+    replace: "🙂"
+  - trigger: ":p"
+    replace: "😛"
+  - trigger: ":P"
+    replace: "😛"
+  - trigger: ";)"
+    replace: "😉"
+  - trigger: ":("
+    replace: "🙁"
