@@ -1,0 +1,4 @@
+github.com:
+ - user: quintrino
+   oauth_token: {{command_output "echo $HUB_OAUTH | tr -d '\n'"}}
+   protocol: https

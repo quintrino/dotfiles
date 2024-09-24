@@ -39,6 +39,7 @@ depends = ["base"]
 "config/alacritty/alacritty.toml" = "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
 "config/beeminder/bmndrrc" = "$XDG_CONFIG_HOME/.bmndrrc"
 "config/exercism/user.json" = "$XDG_CONFIG_HOME/exercism/user.json"
+"config/hub/config" = "$XDG_CONFIG_HOME/hub"
 "apps/vlc/vlcrc" = "~/Library/Preferences/org.videolan.vlc/vlcrc"
 "apps/vs-code/settings.vsrc" = "~/Library/Application Support/Code/User/settings.json"
 "apps/vs-code/keys.vsrc" = "~/Library/Application Support/Code/User/keybindings.json"
