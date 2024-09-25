@@ -114,6 +114,7 @@ g() {
     git "$@"
   else
     git status --short
+    git diff --shortstat | grep -v "EMPTY"
   fi
 }
 
