@@ -58,7 +58,9 @@ function install_config_folders() {
   mkdir -p "$XDG_CONFIG_HOME/tmuxinator"
   mkdir -p "$XDG_CONFIG_HOME/npm"
   mkdir -p "$XDG_CONFIG_HOME/zsh"
+  mkdir -p "$XDG_CONFIG_HOME/mise"
   mdkir -p "$XDG_CACHE_HOME/vim"
+
 }
 
 function install_zsh_defaults() {
@@ -105,15 +107,11 @@ function install_fresh() {
   "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh/bin/fresh"
 }
 
-function install_asdf_defaults() {
-  printf "\033[1;31mInstalling ASDF Defaults \033[0m\n"
-  while read -r lang; do
-    asdf plugin-add $lang
-    latest="$(asdf latest $lang)"
-    asdf install $lang $latest
-    asdf global $lang $latest
-    asdf reshim $lang
-  done <"$HOME/.dotfiles/config/asdf/static"
+function install_language_defaults() {
+  printf "\033[1;31mInstalling language Defaults \033[0m\n"
+  for lang in $(ls "$HOME/.dotfiles/language"); do
+    mise install $lang@latest
+  done
 }
 
 function install_apple_defaults() {
@@ -276,7 +274,7 @@ function deploy_from_step() {
 
   if [ $stepNumber -le 5 ]
   then
-    install_asdf_defaults
+    install_language_defaults
   fi
 
   if [ $stepNumber -le 6 ]

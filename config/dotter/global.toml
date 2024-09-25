@@ -42,6 +42,7 @@ depends = ["base"]
 "config/hub/config" = "$XDG_CONFIG_HOME/hub"
 "config/karabiner/karabiner.json" = "$XDG_CONFIG_HOME/karabiner/karabiner.json"
 "config/teeldear/config.toml" = "$XDG_CONFIG_HOME/teeldear/config.toml"
+"config/mise/config.toml" = "$XDG_CONFIG_HOME/mise/config.toml"
 
 [git.files]
 "config/git/ignore" = "$XDG_CONFIG_HOME/git/ignore"

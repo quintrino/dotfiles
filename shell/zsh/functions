@@ -557,3 +557,12 @@ ghb() {
 gitback() {
   git show "$(git log --format=%h^ master..HEAD | tail -n 1 )" --format=%cr
 }
+
+mise_cleanse() {
+  lang=${1:-ruby}
+  latest_version=$(mise latest $lang)
+
+  for version in $(mise list $lang | grep -v "$latest_version" | awk '{print $2}'); do
+  mise uninstall $lang $version
+done
+}
