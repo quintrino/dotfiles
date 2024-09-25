@@ -129,6 +129,19 @@ function up
   end
 end
 
+function mise_cleanse
+    set -l lang $argv[1]
+    if test -z "$lang"
+        set lang ruby
+    end
+
+    set -l latest_version (mise latest $lang)
+
+    for lang_version in (mise list $lang | grep -v "$latest_version" | awk '{print $2}')
+        mise uninstall $lang $lang_version
+    end
+end
+
 function freq
     cat /Users/nick.wolf/.local/share/fish/history/* |\
     cut -d';' -f2 |\

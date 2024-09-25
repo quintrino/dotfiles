@@ -300,6 +300,14 @@ asdf_update() {
   done <"$HOME/.dotfiles/config/asdf/static"
 }
 
+function mise_update() {
+  printf "\033[1;31mUpdating Mise plugins\033[0m\n"
+  for lang in $(ls "$HOME/.dotfiles/language"); do
+    mise install "$lang@latest"
+    mise use -g "$lang@latest"
+  done
+}
+
 zinit_update() {
   printf "\033[1;31mUpdating Zsh plugins \033[0m\n"
   zi update --parallel
