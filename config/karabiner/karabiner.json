@@ -1868,7 +1868,6 @@
                                     {
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
-                                            "^org\\.alacritty$",
                                             "^md\\.obsidian"
                                         ]
                                     }
@@ -1904,12 +1903,80 @@
                                     {
                                         "type": "frontmost_application_if",
                                         "bundle_identifiers": [
-                                            "^org\\.alacritty$",
                                             "^md\\.obsidian"
                                         ]
                                     }
                                 ]
                             },
+                            {
+                              "description": "Hyper + u in Alacritty move one tab left",
+                              "from": {
+                                  "key_code": "u",
+                                  "modifiers": {
+                                      "mandatory": [
+                                          "right_shift",
+                                          "right_control",
+                                          "right_command",
+                                          "right_option"
+                                      ]
+                                  }
+                              },
+                              "parameters": {
+                                  "basic.simultaneous_threshold_milliseconds": 500
+                              },
+                              "to": [
+                                  {
+                                      "key_code": "u",
+                                      "modifiers": [
+                                          "right_option"
+                                      ]
+                                  }
+                              ],
+                              "type": "basic",
+                              "conditions": [
+                                  {
+                                      "type": "frontmost_application_if",
+                                      "bundle_identifiers": [
+                                          "^org\\.alacritty$"
+                                      ]
+                                  }
+                              ]
+                          },
+                          {
+                              "description": "Hyper + i in Alacritty move one tab right",
+                              "from": {
+                                  "key_code": "i",
+                                  "modifiers": {
+                                      "mandatory": [
+                                          "right_shift",
+                                          "right_control",
+                                          "right_command",
+                                          "right_option"
+                                      ]
+                                  }
+                              },
+                              "parameters": {
+                                  "basic.simultaneous_threshold_milliseconds": 500
+                              },
+                              "to": [
+                                  {
+                                      "key_code": "i",
+                                      "modifiers": [
+                                          "right_option"
+                                      ]
+                                  }
+                              ],
+                              "type": "basic",
+                              "conditions": [
+                                  {
+                                      "type": "frontmost_application_if",
+                                      "bundle_identifiers": [
+                                          "^org\\.alacritty$"
+                                      ]
+                                  }
+                              ]
+                          },
+
                             {
                                 "description": "Hyper + [ in Alacritty move one pane left",
                                 "from": {
