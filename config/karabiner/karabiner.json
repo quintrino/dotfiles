@@ -1457,7 +1457,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "screencapture $HOME/Google\\ Drive/My\\ Drive/Sync/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
+                                        "shell_command": "screencapture $HOME/Proton/Sync/Devices/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
                                 }
                                 ]
                             },
@@ -1492,7 +1492,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "screencapture -s $HOME/Google\\ Drive/My\\ Drive/Sync/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
+                                        "shell_command": "screencapture -s $HOME/Proton/Sync/Devices/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S).png"
                                 }
                                 ]
                             },
@@ -1655,7 +1655,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/Applications/bin/toggle_full_screen"
+                                        "shell_command": "$XDG_DATA_HOME/bin/toggle_full_screen'"
                                 }
                                 ],
                                 "type": "basic"
