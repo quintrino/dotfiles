@@ -91,4 +91,5 @@ bindings = [
   # Command + u/i to emulate next/previous tab in Zellij
   { key = "U", mods = "Command", chars = "\u001bu" },
   { key = "I", mods = "Command", chars = "\u001bi" },
+  { key = "S", mods = "Command", chars = "\u001bs" },
 ]
