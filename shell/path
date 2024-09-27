@@ -1,4 +1,1 @@
 #!/bin/sh
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$XDG_DATA_HOME/bin/:$PATH"
