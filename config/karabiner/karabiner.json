@@ -2636,6 +2636,33 @@
                                 "type": "basic"
                             },
                             {
+                              "description": "Hyper + ' enable espanso search",
+                              "from": {
+                                  "key_code": "quote",
+                                  "modifiers": {
+                                      "mandatory": [
+                                          "right_shift",
+                                          "right_control",
+                                          "right_command",
+                                          "right_option"
+                                      ]
+                                  }
+                              },
+                              "parameters": {
+                                  "basic.simultaneous_threshold_milliseconds": 500
+                              },
+                              "to": [
+                                  {
+                                      "key_code": "e",
+                                      "modifiers": [
+                                          "right_command",
+                                          "right_shift"
+                                      ]
+                                  }
+                              ],
+                              "type": "basic"
+                          },
+                            {
                               "description": "Z in VLC skips back",
                               "from": {
                                   "key_code": "z"
