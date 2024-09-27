@@ -254,7 +254,7 @@ path() {
   echo "$PATH" | tr ":" "\n" | \
     awk "{  sub(\"/usr\",   \"${fg_no_bold[green]}/usr$reset_color\"); \
             sub(\"/bin\",   \"${fg_no_bold[blue]}/bin$reset_color\"); \
-            sub(\".config/asdf/shims\",   \"${fg_no_bold[red]}.config/asdf/shims$reset_color\"); \
+            sub(\".local/share/mise/installs\",   \"${fg_no_bold[red]}.local/share/mise/installs$reset_color\"); \
             sub(\"-$RUBY_VERSION\",   \"${fg_no_bold[red]}-$RUBY_VERSION$reset_color\"); \
             sub(\"/opt\",   \"${fg_no_bold[cyan]}/opt$reset_color\"); \
             sub(\"/sbin\",  \"${fg_no_bold[magenta]}/sbin$reset_color\"); \

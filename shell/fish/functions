@@ -194,3 +194,28 @@ function dotter_update
     --cache-directory $XDG_CACHE_HOME/dotter/ \
     --verbose --verbose
 end
+
+function path
+    set -l green (set_color green)
+    set -l blue (set_color blue)
+    set -l red (set_color red)
+    set -l cyan (set_color cyan)
+    set -l magenta (set_color magenta)
+    set -l yellow (set_color yellow)
+    set -l reset (set_color normal)
+
+    set -l index 1
+    for path_item in (string split : $PATH)
+        set -l colored_path $path_item
+        set colored_path (string replace -a '.local/share/mise/installs/' "$red.local/share/mise/installs/$reset" $colored_path)
+        set colored_path (string replace -a '/usr' "$green/usr$reset" $colored_path)
+        set colored_path (string replace -a '/bin' "$blue/bin$reset" $colored_path)
+        set colored_path (string replace -a '/opt' "$cyan/opt$reset" $colored_path)
+        set colored_path (string replace -a '/sbin' "$magenta/sbin$reset" $colored_path)
+        set colored_path (string replace -a "$HOME" "\$HOME$reset" $colored_path)
+        set colored_path (string replace -a '/local' "$yellow/local$reset" $colored_path)
+
+        echo "$index: $colored_path"
+        set index (math $index + 1)
+    end
+end
