@@ -180,6 +180,11 @@ function ef
     end
 end
 
+function ds_store_remove
+    find . -name ".DS_Store" -type f -print
+    find . -name ".DS_Store" -type f -print0 | xargs -0 rm
+end
+
 function dotter_update
   cd $HOME/.dotfiles
   dotter \
