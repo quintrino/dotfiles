@@ -489,6 +489,23 @@ install_pg() {
   gem install pg -- --with-pg-config="$(ASDF_POSTGRES_VERSION=$(asdf latest postgres) asdf where postgres)/bin/pg_config"
 }
 
+smart_cd() {
+    local base_dir="$1"  # Change this to the actual path of your 'con' directory
+    cd $base_dir
+    local partial="$2"
+    local match
+
+    # Find the first matching directory
+    match=$(find "$base_dir" -maxdepth 1 -type d -name "$partial*" | head -n 1)
+
+    if [ -n "$match" ]; then
+        cd "$match"
+        echo "Changed to directory: $match"
+    else
+        echo "No matching directory found for '$partial'"
+    fi
+}
+
 run_organize() {
   printf "\033[1;31mUpdating Mac Software \033[0m\n"
   organize run

@@ -152,6 +152,23 @@ function freq
     head -50
 end
 
+function smart_cd
+    set base_dir "$argv[1]"  # Change this to the actual path of your 'con' directory
+    cd $base_dir
+    set partial $argv[2]
+
+    if test -n "$partial"
+        set matches (find $base_dir -maxdepth 1 -type d -name "$partial*")
+        if test (count $matches) -gt 0
+            cd $matches[1]
+            echo "Changed to directory: $matches[1]"
+        else
+            echo "No matching directory found for '$partial'"
+        end
+    else
+    end
+end
+
 function ef
     if test (count $argv) -gt 0
         set fzf_file (fd . $argv[1] | fzf --height 20%)

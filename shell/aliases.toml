@@ -149,9 +149,11 @@ tmb = 'tmuxinator start bugherd --suppress-tmux-version-warning'
 
 [base.variables.aliases.Folders]
 
+proton = 'smart_cd $HOME/Proton'
 drive = 'cd $HOME/Drive/'
+con = 'smart_cd $XDG_CONFIG_HOME'
 nick = 'cd $HOME/Developer/personal/nickwolf.com.au'
-per = 'cd $HOME/Developer/personal'
+per = 'smart_cd $HOME/Developer/personal'
 ob = 'cd $HOME/Documents/obsidian'
 lol = 'cd $XDG_DATA_HOME/lolcommits/'
 alfred = 'cd $HOME/.config/alfred/Alfred.alfredpreferences'
