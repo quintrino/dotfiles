@@ -143,7 +143,7 @@ function mise_cleanse
 end
 
 function freq
-    cat /Users/nick.wolf/.local/share/fish/history/* |\
+    cat $XDG_DATA_HOME/fish/history/* |\
     cut -d';' -f2 |\
     sed -E "s/ *[0-9]+  //" |\
     sort |\

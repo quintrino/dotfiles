@@ -315,7 +315,7 @@ zinit_update() {
 
 fisher_update() {
   printf "\033[1;31mUpdating Fisher Plugins \033[0m\n"
-  echo 'fisher update' | fish | rg -v "has unsynchronized changes|/Users/nick.wolf/.config/fish/|Fetching"
+  echo 'fisher update' | fish | rg -v "has unsynchronized changes|$XDG_CONFIG_HOME/fish/|Fetching"
   printf "\033[1;31mUpdating Abbreviations Tips \033[0m\n"
   fish "$XDG_CONFIG_HOME/fish/functions/__abbr_tips_init.fish"
 }
@@ -403,7 +403,7 @@ current_directory() {
 
 restart_mongodb() {
   mongo --eval "db.getSiblingDB('admin').shutdownServer()"
-  mongod --dbpath ~/.config/asdf/installs/mongodb/3.6.9/data
+  mongod --dbpath $XDG_CONFIG_HOME.config/asdf/installs/mongodb/3.6.9/data
 }
 
 exer_all() {
@@ -463,7 +463,7 @@ ds_store_remove() {
 }
 
 quote() {
-  cd $HOME/Code/Personal/nickwolf.com.au
+  cd $HOME/Developer/personal/nickwolf.com.au
   $EDITOR quotes.md
 }
 
@@ -512,7 +512,7 @@ up(){
 }
 
 freq() {
-  cat /Users/nick.wolf/.local/share/zsh/history/* |\
+  cat $XDG_DATA_HOME/zsh/history/* |\
   cut -d';' -f2 |
   sed -E "s/ *[0-9]+  //" |
   sort |

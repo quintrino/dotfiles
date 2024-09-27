@@ -1,5 +1,5 @@
 {
   "apibaseurl": "https://api.exercism.io/v1",
   "token": "{{command_output "echo $EXERCISM_TOKEN | tr -d '\n'"}}",
-  "workspace": "/Users/nick.wolf/Developer/personal/exercism"
+  "workspace": "{{command_output "echo $HOME | tr -d '\n'"}}/Developer/personal/exercism"
 }

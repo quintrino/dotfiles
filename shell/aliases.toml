@@ -28,7 +28,7 @@ fsf = 'fresh && source $HOME/.config/fish/config.fish'
 
 [base.variables.aliases.Dotfiles]
 
-ali = '$EDITOR $HOME/.dotfiles/shell/aliases'
+ali = '$EDITOR $HOME/.dotfiles/shell/aliases.toml'
 dot = 'cd $HOME/.dotfiles'
 edot = '$EDITOR $HOME/.dotfiles'
 efd = '$EDITOR (fd . ~/.dotfiles | fzf --height 20%)'

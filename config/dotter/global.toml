@@ -54,8 +54,8 @@ depends = ["base"]
 "language/ruby/gemrc" = "$XDG_CONFIG_HOME/ruby/gemrc"
 "language/ruby/railsrc" = "$XDG_CONFIG_HOME/rails/railsrc"
 "language/ruby/rspec" = "$XDG_CONFIG_HOME/rspec/options"
-"language/ruby/default-gems" = "/Users/roxton/.config/mise/ruby"
+"language/ruby/default-gems" = "$XDG_CONFIG_HOME/mise/ruby"
 
 [nodejs.files]
 "language/nodejs/npmrc" = "$XDG_CONFIG_HOME/npm/npmrc"
-"language/nodejs/default-packages" = "/Users/roxton/.config/mise/nodejs"
+"language/nodejs/default-packages" = "$XDG_CONFIG_HOME/mise/nodejs"
