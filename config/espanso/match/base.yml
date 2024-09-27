@@ -94,3 +94,7 @@ matches:
     replace: "😉"
   - trigger: ":("
     replace: "🙁"
+  - trigger: "Ss."
+    replace: "See Signal."
+  - trigger: "ss."
+    replace: "See Signal."
