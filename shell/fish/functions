@@ -192,6 +192,7 @@ function dotter_update
     --local-config $HOME/.dotfiles/config/dotter/local.toml \
     --cache-file $XDG_CACHE_HOME/dotter.toml \
     --cache-directory $XDG_CACHE_HOME/dotter/ \
+    --post-deploy $HOME/.dotfiles/config/dotter/post_deploy.sh \
     --verbose --verbose
 end
 
