@@ -415,7 +415,7 @@ exer_all() {
     cd "$(exercism workspace)" || exit
     mkdir "$language"
     cd "$language" || exit
-    curl -LS "https://exercism.io/tracks/ruby/exercises" \
+    curl -LS "https://exercism.io/tracks/$language/exercises" \
     | grep -o 'exercises/[^&]*' \
     | grep -v ".svg" \
     | cut -d '/' -f2 > exercises.txt
