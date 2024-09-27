@@ -33,6 +33,8 @@ dot = 'cd $HOME/.dotfiles'
 edot = '$EDITOR $HOME/.dotfiles'
 efd = '$EDITOR (fd . ~/.dotfiles | fzf --height 20%)'
 bun = 'cd $HOME/.dotfiles/brew && brew bundle dump --force --describe'
+update = 'zellij -l update --session update'
+nup = 'zellij kill-session update'
 
 [base.variables.aliases.Git]
 
@@ -163,7 +165,6 @@ alfred = 'cd $HOME/.config/alfred/Alfred.alfredpreferences'
 tm = 'tmuxinator'
 tms = 'tmuxinator start'
 tmt = 'tmuxinator stop'
-update = 'tmuxinator start update --suppress-tmux-version-warning'
 ts = 'tmux choose-session'
 
 [base.variables.aliases.Fun]

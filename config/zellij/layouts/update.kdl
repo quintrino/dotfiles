@@ -1,0 +1,72 @@
+
+session:
+  name: "update"
+
+env {
+    ZDOTDIR "/Users/roxton/.config/zsh"
+}
+
+layout {
+    pane split_direction="vertical" {
+        pane split_direction="horizontal" {
+            pane {
+                name "Zinit Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && zinit_update \\
+                    && zsh"
+            }
+            pane {
+                name "Fisher Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && fisher_update \\
+                    && zsh"
+            }
+            pane {
+                name "Mise Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && mise_update \\
+                    && zsh"
+            }
+            pane {
+                name "Ruby Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && ruby_update \\
+                    && zsh"
+            }
+        }
+        pane split_direction="horizontal" {
+            pane {
+                name "Doctor Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && doctor_update \\
+                    && zsh"
+            }
+            pane {
+                name "Brew Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && brew_update \\
+                    && zsh"
+            }
+            pane {
+                name "Mac Software Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && mac_software_update \\
+                    && zsh"
+            }
+            pane {
+                name "Dotter Update"
+                command "zsh"
+                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                    && dotter_update \\
+                    && zsh"
+            }
+        }
+    }
+}
