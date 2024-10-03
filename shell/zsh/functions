@@ -322,11 +322,18 @@ fisher_update() {
 
 ruby_update() {
   printf "\033[1;31mUpdating Ruby Gems \033[0m\n"
-  cd ~/.dotfiles/language/ruby && gem update --system
+  cd $XDG_CONFIG_HOME/ruby && gem update --system
+  printf "\033[1;31mGenerating Gemfile \033[0m\n"
+  cd $XDG_CONFIG_HOME/ruby && rm Gemfile
+  cd $XDG_CONFIG_HOME/ruby &&
+  echo "# frozen_string_literal: true\n" >> Gemfile &&
+  echo "source 'https://rubygems.org'\n" >> Gemfile &&
+  sed "s/^/gem '/" ~/.dotfiles/language/ruby/default-gems |
+  sed "s/$/'/" >> Gemfile
   printf "\033[1;31mUpdating Bundler \033[0m\n"
-  cd ~/.dotfiles/language/ruby && gem install bundler
+  cd $XDG_CONFIG_HOME/ruby && gem install bundler
   printf "\033[1;31mUpdating Gems \033[0m\n"
-  cd ~/.dotfiles/language/ruby && bundle update
+  cd $XDG_CONFIG_HOME/ruby && bundle update
 }
 
 brew_update() {

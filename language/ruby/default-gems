@@ -1,11 +1,13 @@
-awesome_print
+amazing_print
 binding_of_caller
 bundler
+byebug
 debug_inspector
 foreman
 lolcommits
-overcommit
 pry
+pry-byebug
+pry-reload
 pry-rescue
 pry-stack_explorer
 rb-readline
