@@ -344,7 +344,7 @@ brew_update() {
   printf "\033[1;31mUpgrading Brew \033[0m\n"
   OUTDATED=$(brew outdated) && brew upgrade
   printf "\033[1;31mOutdated Casks \033[0m\n"
-  brew upgrade --cask
+  brew upgrade --cask --greedy
   echo $OUTDATED
 }
 
