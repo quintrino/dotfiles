@@ -53,6 +53,12 @@ function o
     end
 end
 
+function gcf
+    git log $argv --oneline -1
+    git commit --fixup="$argv"; and env GIT_SEQUENCE_EDITOR=true git rebase --autosquash --autostash "$argv"^ -i
+end
+
+
 function evs
         env | fzf --height 10%
 end
