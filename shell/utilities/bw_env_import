@@ -1,27 +1,40 @@
-#!/usr/bin/env ruby
+#!/bin/bash
 
-require 'json'
+# Login to Bitwarden
+bw login
 
-`bw login`
-bw_key = `bw unlock`.split("\n")[7].split('--session ')[1]
-`bw sync --session #{bw_key}`
-data_dir = ENV['XDG_DATA_HOME']
+# Unlock Bitwarden and get session key
+bw_key=$(bw unlock | awk '/$ export BW_SESSION=/{print $NF}')
 
-xdg_env_dir = "#{data_dir}/environment"
+# Sync Bitwarden
+bw sync --session "$bw_key"
 
-Dir.mkdir(xdg_env_dir) unless Dir.exist?(xdg_env_dir)
+# Set data directory
+data_dir="${XDG_DATA_HOME:-$HOME/.local/share}"
 
-bw_env_output = `bw list folders --search Environment --session #{bw_key}`
+xdg_env_dir="$data_dir/environment"
 
-env_id = JSON.parse(bw_env_output)[0]['id']
+# Create environment directory if it doesn't exist
+mkdir -p "$xdg_env_dir"
 
-env_folder = JSON.parse(`bw list items --folderid #{env_id} --session #{bw_key}`)
+# Get Environment folder ID
+env_id=$(bw list folders --search Environment --session "$bw_key" | jq -r '.[0].id')
 
-env_folder.each do |file|
-  filename = "#{data_dir}/environment/#{file['name']}"
-  `chmod +w #{filename}` if File.file?(filename)
-  File.open(filename, 'w') do |f|
-    f.write file['notes']
-  end
-  `chmod -w #{filename}`
-end
+# Get items in the Environment folder
+env_folder=$(bw list items --folderid "$env_id" --session "$bw_key")
+
+# Process each item in the folder
+echo "$env_folder" | jq -c '.[]' | while read -r item; do
+    filename="$xdg_env_dir/$(echo "$item" | jq -r '.name')"
+
+    # Make file writable if it exists
+    [ -f "$filename" ] && chmod +w "$filename"
+
+    # Write content to file
+    echo "$item" | jq -r '.notes' > "$filename"
+
+    # Make file read-only
+    chmod -w "$filename"
+done
+
+echo "Environment variables synced to $xdg_env_dir"
