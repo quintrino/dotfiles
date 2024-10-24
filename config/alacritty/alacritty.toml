@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [[colors.indexed_colors]]
@@ -64,7 +65,7 @@ foreground = "#000000"
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
-[shell]
+[terminal.shell]
 args = ["--command=zellij attach main; or zellij -l main --session main"]
 program = "/usr/local/bin/fish"
 
