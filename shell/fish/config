@@ -9,6 +9,13 @@ function __fish_preexec_history --on-event fish_preexec
   echo "["(date)"]" $fish_pid $USER $PWD";" $argv >> "$XDG_DATA_HOME/fish/history/history-"(date +%Y%m%d)
 end
 
+function zellij_tab_name_update --on-event fish_postexec
+    if set -q ZELLIJ
+        set title (string replace -r "^/Users/roxton" "~" $PWD)
+        command nohup zellij action rename-tab "$title" >/dev/null 2>&1
+    end
+end
+
 function fish_title
     echo (pwd | awk '{ sub("/Users/nick.wolf", "~"); print $0 }')
 end
