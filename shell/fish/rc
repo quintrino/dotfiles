@@ -2,5 +2,6 @@
 {{ include_template "shell/environment" }}
 {{ include_template "shell/fish/abbr" }}
 {{ include_template "shell/fish/config" }}
+{{ include_template "shell/fish/completions" }}
 {{ include_template "shell/fish/bindings" }}
 {{ include_template "shell/fish/functions" }}
