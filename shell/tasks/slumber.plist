@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.alfred.slumber</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/sh</string>
+        <string>-c</string>
+        <string>open alfred://runtrigger/slumber/slumber/</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>0</integer>
+            <key>Minute</key>
+            <integer>1</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>1</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>2</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>KeepAlive</key>
+    <false/>
+
+    <key>StartOnMount</key>
+    <false/>
+</dict>
+</plist>
