@@ -10,5 +10,6 @@ packages = [
   "config",
   "git",
   "ruby",
-  "nodejs"
+  "nodejs",
+  "tasks"
 ]

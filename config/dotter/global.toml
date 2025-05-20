@@ -24,6 +24,7 @@ depends = ["base"]
 "shell/utilities/toggle_full_screen" = "$XDG_DATA_HOME/bin/toggle_full_screen"
 "shell/utilities/apple_select" = "$XDG_DATA_HOME/bin/apple_select"
 "shell/utilities/beeminder" = "$XDG_DATA_HOME/bin/beeminder"
+"shell/utilities/mov_to_mp3" = "$XDG_DATA_HOME/bin/mov_to_mp3"
 "config/git/cc_menu" = "$XDG_DATA_HOME/bin/cc_menu"
 "config/git/push_alert" = "$XDG_DATA_HOME/bin/push_alert"
 
@@ -59,3 +60,6 @@ depends = ["base"]
 [nodejs.files]
 "language/nodejs/npmrc" = "$XDG_CONFIG_HOME/npm/npmrc"
 "language/nodejs/default-packages" = "$XDG_CONFIG_HOME/mise/nodejs"
+
+[tasks.files]
+"shell/tasks/slumber.plist" = "$HOME/Library/LaunchAgents/com.user.alfred.slumber.plist"
