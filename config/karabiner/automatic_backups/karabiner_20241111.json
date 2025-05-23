@@ -1223,21 +1223,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + r toggles Menubar",
-                                "from": {
-                                    "key_code": "r",
-                                    "modifiers": { "mandatory": ["right_shift", "right_control", "right_command", "right_option"] }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
-                                "to": [
-                                    {
-                                        "key_code": "f2",
-                                        "modifiers": ["fn", "left_control"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "description": "Hyper + f opens default Application Launcher",
                                 "from": {
                                     "key_code": "f",
@@ -1319,13 +1304,12 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^md\\.obsidian",
-                                            "^app\\.zen-browser\\.zen"
+                                            "^md\\.obsidian"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Hyper + u in Obsidian/Zen move one tab left",
+                                "description": "Hyper + u in Alacritty/Obsidian move one tab left",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": { "mandatory": ["right_shift", "right_control", "right_command", "right_option"] }
@@ -1343,13 +1327,12 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^md\\.obsidian",
-                                            "^app\\.zen-browser\\.zen"
+                                            "^md\\.obsidian"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Hyper + i in Obsidian/Zen move one tab right",
+                                "description": "Hyper + i in Alacritty/Obsidian move one tab right",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": { "mandatory": ["right_shift", "right_control", "right_command", "right_option"] }
@@ -1451,52 +1434,6 @@
                                     {
                                         "key_code": "close_bracket",
                                         "modifiers": ["left_control"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.automattic\\.beeper\\.desktop$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "Hyper + u in Beeper moves up",
-                                "from": {
-                                    "key_code": "u",
-                                    "modifiers": { "mandatory": ["right_shift", "right_control", "right_command", "right_option"] }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow",
-                                        "modifiers": ["right_option", "right_command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.automattic\\.beeper\\.desktop$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "Hyper + i in Beeper moves down",
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": { "mandatory": ["right_shift", "right_control", "right_command", "right_option"] }
-                                },
-                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow",
-                                        "modifiers": ["right_option", "right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1771,6 +1708,52 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^im\\.beeper"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Hyper + u in Beeper moves up",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "mandatory": ["right_shift", "right_control", "right_command", "right_option"] }
+                                },
+                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["right_option", "right_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^im\\.beeper"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Hyper + i in Beeper moves down",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": { "mandatory": ["right_shift", "right_control", "right_command", "right_option"] }
+                                },
+                                "parameters": { "basic.simultaneous_threshold_milliseconds": 500 },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": ["right_option", "right_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Hyper + u move one tab left",
                                 "from": {
                                     "key_code": "u",
@@ -1862,7 +1845,6 @@
                     }
                 ]
             },
-            "name": "Main",
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]
