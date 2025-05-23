@@ -24,3 +24,4 @@ yarn.lock
 /node_modules/
 /dist/
 language/ruby/Gemfile.lock
+karabiner/automatic_backups/
