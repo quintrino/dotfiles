@@ -29,7 +29,7 @@ matches:
       categories: Blog
       ---
   - trigger: ":text"
-    replace: "- trigger: \"\"\n  replace: \"\"\n"
+    replace: "#$|$\"\"\n- trigger:$ \"\"\n  replace: \"\"\n"
   - trigger: ":lk"
     replace: |-
       ---
@@ -94,7 +94,57 @@ matches:
     replace: "😉"
   - trigger: ":("
     replace: "🙁"
+  - trigger: ":D"
+    replace: "😃"
   - trigger: "Ss."
     replace: "See Signal."
-  - trigger: "ss."
-    replace: "See Signal."
+  - trigger: "::p"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "pbpaste -o | tr ' ' '-'"
+  - trigger: ":low"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | tr '[:upper:]' '[:lower:]'"
+  - trigger: ":up"
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: shell
+        params:
+          cmd: "echo $ESPANSO_CLIPBOARD | tr '[:lower:]' '[:upper:]'"
+  - trigger: ":tableflip:"
+    replace: "(╯°□°）╯︵ ┻━┻"
+  - trigger: ":fliptable:"
+    replace: "(╯°□°）╯︵ ┻━┻"
+  - trigger: ":fixtable:"
+    replace: "┬─┬ノ( º _ ºノ)"
+  - trigger: ":shrug"
+    replace: "¯\\_(ツ)_/¯"
+  - trigger: ":st1"
+    replace: "⭐"
+  - trigger: ":st2"
+    replace: "⭐⭐"
+  - trigger: ":st3"
+    replace: "⭐⭐⭐"
+  - trigger: ":st4"
+    replace: "⭐⭐⭐⭐"
+  - trigger: ":st5"
+    replace: "⭐⭐⭐⭐⭐"
+  - regex: ":ml(?P<label>.*):"
+    replace: "[{{label}}]({{clip}})"
+    vars:
+      - name: "clip"
+        type: "clipboard"
+  - trigger: ":gs"
+    replace: "⚡GodSpeed"
