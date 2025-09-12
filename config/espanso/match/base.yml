@@ -141,10 +141,5 @@ matches:
     replace: "⭐⭐⭐⭐"
   - trigger: ":st5"
     replace: "⭐⭐⭐⭐⭐"
-  - regex: ":ml(?P<label>.*):"
-    replace: "[{{label}}]({{clip}})"
-    vars:
-      - name: "clip"
-        type: "clipboard"
   - trigger: ":gs"
     replace: "⚡GodSpeed"
