@@ -50,8 +50,14 @@
     "command": "relative-path-and-line.copyRelativePathAndLine"
   },
   {
-    "key": "shift+cmd+l",
-    "command": "toggleVim"
+    "key": "cmd+ctrl+l",
+    "command": "extension.helixKeymap.enterDisabledMode",
+    "when": "!extension.helixKeymap.DisabledMode"
+  },
+  {
+    "key": "cmd+ctrl+l",
+    "command": "extension.helixKeymap.enableHelix",
+    "when": "extension.helixKeymap.disabledMode"
   },
   {
     "key": "shift+cmd+t",
