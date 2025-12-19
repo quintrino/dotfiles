@@ -1,0 +1,4 @@
+#!/bin/sh
+
+launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server
+osascript -e 'display notification "Karabiner Reset" with title "Notification"'

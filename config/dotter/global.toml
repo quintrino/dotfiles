@@ -24,6 +24,7 @@ depends = ["base"]
 "shell/utilities/toggle_full_screen" = "$XDG_DATA_HOME/bin/toggle_full_screen"
 "shell/utilities/apple_select" = "$XDG_DATA_HOME/bin/apple_select"
 "shell/utilities/beeminder" = "$XDG_DATA_HOME/bin/beeminder"
+"shell/utilities/karabiner_reset" = "$XDG_DATA_HOME/bin/karabiner_reset"
 "shell/utilities/mov_to_mp3" = "$XDG_DATA_HOME/bin/mov_to_mp3"
 "config/git/cc_menu" = "$XDG_DATA_HOME/bin/cc_menu"
 "config/git/push_alert" = "$XDG_DATA_HOME/bin/push_alert"
