@@ -1,21 +1,50 @@
-!Ublock Origin Blocklist
+! uBlock Origin Custom Filters
+! Add this URL to your custom filters in the Filter List tab:
+! https://raw.githubusercontent.com/quintrino/dotfiles/master/apps/Chrome/ublock-Origin
 
-!Add https://raw.githubusercontent.com/quintrino/dotfiles/master/apps/Chrome/ublock-Origin
-!to your custom filters in the Filter List tab
+! ============================================
+! Stack Exchange
+! ============================================
+stackoverflow.com,stackexchange.com##.s-hero--container
+stackoverflow.com,stackexchange.com##.mb16.s-anchors__grayscale.s-anchors.s-sidebarwidget__yellow.s-sidebarwidget
+stackoverflow.com,stackexchange.com##.new-login-form.md\:fd-column.gs16.grid
+stackoverflow.com,stackexchange.com###hot-network-questions
+stackoverflow.com,stackexchange.com###js-gdpr-consent-banner
+stackoverflow.com,stackexchange.com###footer
 
-!Stack Exchange
+! ============================================
+! YouTube - Distractions & Recommendations
+! ============================================
+! Sidebar and recommendations
+www.youtube.com###secondary
+www.youtube.com###sections
+www.youtube.com###related
+www.youtube.com##.ytd-rich-section-renderer.style-scope > .ytd-rich-shelf-renderer.style-scope
+www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope > .ytd-reel-shelf-renderer.style-scope
+www.youtube.com##.grid-disabled.grid.ytd-browse.style-scope
 
-##.s-hero--container
-##.mb16.s-anchors__grayscale.s-anchors.s-sidebarwidget__yellow.s-sidebarwidget
-##.new-login-form.md\:fd-column.gs16.grid
-###hot-network-questions
-###js-gdpr-consent-banner
-###footer
+! Comments
+www.youtube.com###comments
 
+! End screens and cards
+youtube.com##.html5-endscreen-content
+youtube.com##.html5-endscreen
+youtube.com##.ytp-ce-element
 
-!www.youtube.com
+! Player controls
+www.youtube.com##.ytp-button.ytp-next-button
+www.youtube.com##.ytp-title-fullerscreen-link.yt-uix-sessionlink.ytp-title-link
+www.youtube.com##.ytp-fullscreen-grid-stills-container
 
-###secondary
-###sections
-###related
-###comments
+! ============================================
+! Reddit
+! ============================================
+www.reddit.com##.hover\:no-underline.no-underline.no-visited.cursor-pointer.a.inset-0.absolute
+www.reddit.com##.flex-auto.right-sidebar-contents
+
+! ============================================
+! Other Sites
+! ============================================
+! IndexBox
+www.indexbox.io##.px-3.pt-5.result_get_started
+###credential_picker_container
