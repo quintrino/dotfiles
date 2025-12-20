@@ -26,6 +26,7 @@ depends = ["base"]
 "shell/utilities/beeminder" = "$XDG_DATA_HOME/bin/beeminder"
 "shell/utilities/karabiner_reset" = "$XDG_DATA_HOME/bin/karabiner_reset"
 "shell/utilities/mov_to_mp3" = "$XDG_DATA_HOME/bin/mov_to_mp3"
+"shell/utilities/merge_upload" = "$XDG_DATA_HOME/bin/merge_upload"
 "config/git/cc_menu" = "$XDG_DATA_HOME/bin/cc_menu"
 "config/git/push_alert" = "$XDG_DATA_HOME/bin/push_alert"
 

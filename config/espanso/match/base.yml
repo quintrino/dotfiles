@@ -1,4 +1,5 @@
 matches:
+#Self
   - trigger: ":nwn"
     replace: Nick Wolf
   - trigger: ":nww"
@@ -9,6 +10,11 @@ matches:
     replace: "https://twitter.com/quintrino"
   - trigger: ":nwl"
     replace: "https://www.linkedin.com/in/quintrino/"
+  - trigger: ":nf"
+    replace: "https://nick.wf/"
+  - trigger: ":job"
+    replace: Software Engineer
+#Priority
   - trigger: ":hp"
     replace: "[High Priority]"
   - trigger: ":mp"
@@ -17,10 +23,7 @@ matches:
     replace: "[Low Priority]"
   - trigger: ":dl"
     replace: "[Deadline: $|$]"
-  - trigger: ":job"
-    replace: Software Engineer
-  - trigger: ":gh"
-    replace: "https://github.com/"
+#Blogging
   - trigger: ":template"
     replace: |
       ---
@@ -28,51 +31,45 @@ matches:
       permalink: blog/
       categories: Blog
       ---
+  - trigger: ":post"
+    replace: "e _posts/{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d"
+#Programming
   - trigger: ":text"
-    replace: "#$|$\"\"\n- trigger:$ \"\"\n  replace: \"\"\n"
+    replace: "#$|$\"\"\n- trigger: \"\"\n  replace: \"\"\n"
+  - trigger: ":bind"
+    replace: "require 'pry'; binding.pry"
+  - trigger: ":gh"
+    replace: "https://github.com/"
   - trigger: ":lk"
     replace: |-
       ---
-      link: {{clip}}
+      link: {{clipboard}}
       ---
       $|$
     vars:
-      - name: clip
+      - name: clipboard
         type: clipboard
-  - trigger: ":post"
-    replace: "e _posts/{{mydate}}"
-    vars:
-      - name: mydate
-        type: date
-        params:
-          format: "%Y-%m-%d"
   - trigger: ":date"
-    replace: "{{mydate}}"
+    replace: "{{date}}"
     vars:
-      - name: mydate
+      - name: date
         type: date
         params:
           format: "%Y-%m-%d"
-  - trigger: ":bind"
-    replace: "require 'pry'; binding.pry"
-  - trigger: ":shell"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: echo Hello from your shell
-  - trigger: ":sid"
-    replace: |
-      Something I did that I liked:
-
-      Something you did that I liked:
-
-      Something for next time:
+#Journalling
   - trigger: ":hl"
     replace: "Highlight:: "
   - trigger: ":le"
     replace: "Lesson:: "
+  - trigger: ":ir"
+    replace: "InvisibleRule:: "
+  - trigger: ":vi"
+    replace: "Victory:: "
   - trigger: ":dc"
     replace: "Decision:: "
   - trigger: ":meet"
@@ -84,6 +81,7 @@ matches:
           format: "%Y-%m-%d"
   - trigger: ":peop"
     replace: "[[People/$|$]]"
+#Emoji
   - trigger: ":)"
     replace: "🙂"
   - trigger: ":p"
@@ -96,33 +94,6 @@ matches:
     replace: "🙁"
   - trigger: ":D"
     replace: "😃"
-  - trigger: "Ss."
-    replace: "See Signal."
-  - trigger: "::p"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: "pbpaste -o | tr ' ' '-'"
-  - trigger: ":low"
-    replace: "{{output}}"
-    vars:
-      - name: "clipboard"
-        type: "clipboard"
-      - name: output
-        type: shell
-        params:
-          cmd: "echo $ESPANSO_CLIPBOARD | tr '[:upper:]' '[:lower:]'"
-  - trigger: ":up"
-    replace: "{{output}}"
-    vars:
-      - name: "clipboard"
-        type: "clipboard"
-      - name: output
-        type: shell
-        params:
-          cmd: "echo $ESPANSO_CLIPBOARD | tr '[:lower:]' '[:upper:]'"
   - trigger: ":tableflip:"
     replace: "(╯°□°）╯︵ ┻━┻"
   - trigger: ":fliptable:"

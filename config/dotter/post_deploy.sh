@@ -14,3 +14,4 @@ if [ -d $HOME/Proton ]; then
 else
   echo "Proton Drive not found"
 fi
+merge_upload $ESPANSO_MATCH/base.yml $ESPANSO_MATCH/private.yml espanso.yml $ESPANSO_FILE_ID

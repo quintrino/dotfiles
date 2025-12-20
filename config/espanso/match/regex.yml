@@ -1,6 +1,0 @@
-matches:
-  - regex: ":ml(?P<label>.*):"
-    replace: "[{{label}}]({{clip}})"
-    vars:
-      - name: "clip"
-        type: "clipboard"
