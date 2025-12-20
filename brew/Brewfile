@@ -1,50 +1,25 @@
-tap "clementtsang/bottom"
-tap "federico-terzi/espanso"
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
-tap "quintrino/formula"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
-# Library for command-line editing
-brew "readline"
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew "asdf"
-# Official Amazon AWS command-line interface
-brew "awscli"
+tap "heroku/heroku"
+tap "unsecretised/tap"
+# Mozilla CA certificate store
+brew "ca-certificates"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Platform built on V8 to build network applications
-brew "node"
-# Secure and free password manager for all of your devices
-brew "bitwarden-cli"
-# Connect and disconnect Bluetooth devices
-brew "bluetoothconnector"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
-# Manage compile and link flags for libraries
-brew "pkg-config"
-# New way to see and navigate directory trees
-brew "broot"
-# Core application library for C
-brew "glib"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
-# Cross-platform make
-brew "cmake"
-# Color-highlighted diff(1) output
-brew "colordiff"
-# Load/unload environment variables based on $PWD
-brew "direnv"
+# Dotfile manager and templater written in rust
+brew "dotter"
+# View disk space usage and delete unwanted data, fast
+brew "dua-cli"
 # Select default apps for documents and URL schemes on macOS
 brew "duti"
-# Modern replacement for 'ls'
-brew "exa"
 # Command-line tool to interact with exercism.io
 brew "exercism"
+# Modern, maintained replacement for ls
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -53,80 +28,52 @@ brew "fish"
 brew "fisher"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GitHub command-line tool
-brew "gh"
+# Google Drive CLI Client
+brew "gdrive"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Alias for git commit --fixup <ref>
 brew "git-fixup"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Pretty Good Privacy (PGP) package
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Post-modern modal text editor
+brew "helix"
 # Add GitHub support to git on the command-line
 brew "hub"
-# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
-brew "libheif"
-# Tools and libraries to manipulate images in many formats
-brew "imagemagick"
-# Lightweight and flexible command-line JSON processor
-brew "jq"
-# Compression program with a very high compression ratio
-brew "lrzip"
-# Swiss Army Knife for macOS
-brew "m-cli"
-# Show markdown documents on text terminals
-brew "mdcat"
-# NCurses Disk Usage
-brew "ncdu"
-# Library to simplify the interaction with PKCS#11
-brew "pkcs11-helper"
-# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
-brew "openvpn"
-# File management automation tool
-brew "organize-tool"
-# Swiss-army knife of markup format conversion
-brew "pandoc"
-# Modern replacement for ps written by Rust
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# Modern replacement for ps written in Rust
 brew "procs"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Static analysis and lint tool, for (ba)sh scripts
-brew "shellcheck"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
-# Send macOS User Notifications from the command-line
-brew "terminal-notifier"
-# Terminal multiplexer
-brew "tmux"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
-# Pager/text based browser
-brew "w3m"
+# Check your $HOME for unwanted files and directories
+brew "xdg-ninja"
 # Friendly and fast tool for sending HTTP requests
 brew "xh"
-# JavaScript package manager
-brew "yarn"
-# Download YouTube videos from the command-line
-brew "youtube-dl"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
+# Flexible and fast Zsh plugin manager
+brew "zinit"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Additional completion definitions for zsh
 brew "zsh-completions"
-# Cross-platform Text Expander written in Rust
-brew "federico-terzi/espanso/espanso"
 # Everything you need to get started with Heroku
-brew "heroku/brew/heroku"
-# NodeJS wrapper for the Beeminder API
-brew "quintrino/formula/beeminder"
+brew "heroku/heroku/heroku"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Time tracker
+cask "activitywatch"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Application launcher and productivity software
@@ -135,76 +82,58 @@ cask "alfred"
 cask "alt-tab"
 # Memory training application
 cask "anki"
+# Universal chat app powered by Matrix
+cask "beeper"
 # Desktop password and login vault
 cask "bitwarden"
-# E-books management software
-cask "calibre"
-# Application to monitor continuous integration servers
-cask "ccmenu"
-# API documentation browser and code snippet manager
-cask "dash"
-# Universal database tool and SQL client
-cask "dbeaver-community"
-cask "dynalist"
+# Web browser focusing on privacy
+cask "brave-browser@beta"
+# Cross-platform Text Expander written in Rust
+cask "espanso"
 # Web browser
 cask "firefox"
-# Web browser
-cask "firefox-developer-edition"
-# App and website blocker
-cask "freedom"
-# Back up and sync files with Google Drive
-cask "google-backup-and-sync"
-# Web browser
-cask "google-chrome"
-# Client for the Google Drive storage service
-cask "google-drive"
-# Desktop automation application
-cask "hammerspoon"
+# Keyboard-focused todo manager
+cask "godspeed"
 # Utility to hide menu bar items
 cask "hiddenbar"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
-# Keyboard customizer
+# Keyboard shortcuts for every button on your screen
+cask "homerow"
+# System monitoring app
+cask "istat-menus"
+# Keyboard customiser
 cask "karabiner-elements"
-# Display key code, unicode value and modifier keys state for any key combination
-cask "key-codes"
-# Instant shortcut lookup
-cask "keycombiner"
-# App to manage software development and track bugs
-cask "linear-linear"
-# Open-source firewall to block unknown outgoing connections
-cask "lulu"
-# TouchBar customization app
-cask "mtmr"
-# Silence embarrassing notifications while screensharing
-cask "muzzle"
-# Reverse proxy, secure introspectable tunnels to localhost
-cask "ngrok"
-# VPN client for secure internet access and private browsing
-cask "nordvpn"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
+# Native chat application for all major LLM APIs
+cask "macai"
+# Music tagger
+cask "musicbrainz-picard"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# GUI client for PostgreSQL databases
-cask "postico"
-# Collaboration platform for API development
-cask "postman"
+# Client for Proton Drive
+cask "proton-drive"
+# Bridges Proton Mail to email clients supporting IMAP and SMTP protocols
+cask "proton-mail-bridge"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Google search for your system
+cask "rustcast"
 # Instant messaging application focusing on security
-cask "signal-beta"
-# Video chat, voice call and instant messaging application
-cask "skype"
+cask "signal@beta"
 # Team communication and collaboration software
 cask "slack"
-# Video game digital distribution service
-cask "steam"
 # Remote access and connectivity software focused on security
 cask "teamviewer"
-# To-do & task list manager
-cask "ticktick"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+# Gecko based web browser
+cask "zen"
 # Video communication and virtual meeting platform
 cask "zoom"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "jasew.vscode-helix-emulation"
