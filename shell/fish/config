@@ -36,17 +36,33 @@ function git_check
   end
   set starting_directory (pwd)
   cd $argv[1]
-  git fetch --quiet >/dev/null & disown
+  git fetch --quiet >/dev/null 2>&1 & disown
   git diff --quiet --ignore-submodules HEAD
   if test $status -eq 1
     echo "WARNING: $argv[2] has unsynchronized changes"
+
+    # Check if auto-commit is enabled (3rd argument passed)
+    if test -n "$argv[3]"
+      # Get the timestamp of the last commit
+      set last_commit_time (git log -1 --format=%ct)
+      set current_time (date +%s)
+      set time_diff (math $current_time - $last_commit_time)
+      set hours_diff (math $time_diff / 3600)
+
+      if test $hours_diff -gt 24
+        echo "Last commit was $hours_diff hours ago. Auto-committing changes..."
+        git add -A
+        git commit -m "Auto-commit: unsynchronized changes from $(date '+%Y-%m-%d %H:%M:%S')"
+        echo "Changes committed successfully"
+      end
+    end
   end
   cd $starting_directory
   set -e starting_directory
 end
 
 git_check $HOME/.dotfiles 'Dotfiles'
-git_check $HOME/Documents/obsidian 'Obsidian'
+git_check $HOME/Documents/obsidian 'Obsidian' "auto"
 git_check $HOME/.config/alfred/Alfred.alfredpreferences 'Alfred'
 
 mise activate fish | source

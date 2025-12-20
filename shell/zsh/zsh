@@ -30,28 +30,6 @@ setopt auto_cd
 setopt pushdminus
 setopt pushd_ignore_dups
 
-starting_directory=$(pwd)
-
-git_check() {
-  git -C $1 rev-parse 2>/dev/null
-  exit_code=$?
-  if [ "$exit_code" -ne 0 ]; then
-    echo "$1 does not exist or is not a git repository"
-    return 128
-  fi
-  cd "$1" || exit
-  if ! git diff --quiet --ignore-submodules HEAD; then
-    echo "WARNING: $2 has unsynchronized changes"
-  fi
-}
-
-git_check "$HOME/.dotfiles" 'Dotfiles'
-git_check "$HOME/Documents/obsidian" 'Obsidian'
-git_check "$HOME/.config/alfred/Alfred.alfredpreferences" 'Alfred'
-
-cd "$starting_directory" || exit
-unset starting_directory
-
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"

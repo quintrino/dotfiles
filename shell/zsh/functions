@@ -311,7 +311,7 @@ function mise_update() {
 
 zinit_update() {
   printf "\033[1;31mUpdating Zsh plugins \033[0m\n"
-  zi update --parallel
+  zi update --parallel 2>&1 | grep -v "fatal: not a git repository"
 }
 
 fisher_update() {
@@ -591,4 +591,8 @@ mise_cleanse() {
   for version in $(mise list $lang | grep -v "$latest_version" | awk '{print $2}'); do
   mise uninstall $lang $version
 done
+}
+
+d() {
+  prevd -l
 }
