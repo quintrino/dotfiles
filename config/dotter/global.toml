@@ -43,7 +43,6 @@ depends = ["base"]
 "config/beeminder/bmndrrc" = "$XDG_CONFIG_HOME/.bmndrrc"
 "config/exercism/user.json" = "$XDG_CONFIG_HOME/exercism/user.json"
 "config/hub/config" = "$XDG_CONFIG_HOME/hub"
-"config/karabiner/" = "$XDG_CONFIG_HOME/karabiner/"
 "config/teeldear/config.toml" = "$XDG_CONFIG_HOME/teeldear/config.toml"
 "config/mise/config.toml" = "$XDG_CONFIG_HOME/mise/config.toml"
 

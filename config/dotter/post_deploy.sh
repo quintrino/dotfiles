@@ -2,6 +2,8 @@ echo "\033[1;31mRunning Post Deploy Hooks\033[0m"
 echo "Generating symlinks"
 echo "Symlinking apps/vlc/vlcrc"
 ln -sf ~/.dotfiles/apps/vlc/vlcrc ~/Library/Preferences/org.videolan.vlc/vlcrc
+echo "Symlinking config/karabiner/"
+ln -sf ~/.dotfiles/config/karabiner/ $XDG_CONFIG_HOME/
 echo "Symlinking apps/vs-code/settings.vsrc"
 ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Code/User/settings.json
 echo "Symlinking apps/vs-code/settings.vsrc"
