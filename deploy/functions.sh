@@ -71,40 +71,16 @@ function install_zsh_defaults() {
   chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
 }
 
-function install_fresh() {
-  printf "\033[1;31mInstall Fresh \033[0m\n"
-  rm "$HOME/.zshrc"
-  mkdir -p "$XDG_CONFIG_HOME/fresh/source/freshshell"
+function install_config_files() {
+  printf "\033[1;31mInstall Config Files \033[0m\n"
 
-  if [ -d "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh" ]; then
-    cd "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh" || exit
-    git pull --rebase
-    cd "$OLDPWD" || exit
-  else
-    git clone https://github.com/freshshell/fresh "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh"
-  fi
-
-  FRESH_LOCAL="${FRESH_LOCAL:-$HOME/.dotfiles}"
-  if [ -n "$FRESH_LOCAL_SOURCE" ] && ! [ -d "$FRESH_LOCAL" ]; then
-    if ! [[ "$FRESH_LOCAL_SOURCE" == */* || "$FRESH_LOCAL_SOURCE" == *:* ]]; then
-      echo 'FRESH_LOCAL_SOURCE must be either in user/repo format or a full Git URL.' >&2
-      exit 1
-    fi
-
-    if echo "$FRESH_LOCAL_SOURCE" | grep -q :; then
-      git clone "$FRESH_LOCAL_SOURCE" "$FRESH_LOCAL"
-    else
-      git clone "https://github.com/$FRESH_LOCAL_SOURCE.git" "$FRESH_LOCAL"
-      git --git-dir="$FRESH_LOCAL/.git" remote set-url --push origin "git@github.com:$FRESH_LOCAL_SOURCE.git"
-    fi
-  fi
-
-  if ! [ -e "$FRESH_RCFILE" ]; then
-    if [ -r "$FRESH_LOCAL/freshrc" ]; then
-      ln -s "$FRESH_LOCAL/freshrc" "$FRESH_RCFILE"
-    fi
-  fi
-  "$XDG_CONFIG_HOME/fresh/source/freshshell/fresh/bin/fresh"
+  /usr/local/opt/dotter/bin/dotter \
+    --global-config $HOME/.dotfiles/config/dotter/global.toml \
+    --local-config $HOME/.dotfiles/config/dotter/local.toml \
+    --cache-file $XDG_CACHE_HOME/dotter.toml \
+    --cache-directory $XDG_CACHE_HOME/dotter/ \
+    --post-deploy $HOME/.dotfiles/config/dotter/post_deploy.sh \
+    --verbose --verbose
 }
 
 function install_language_defaults() {
@@ -268,65 +244,55 @@ function deploy_from_step() {
 
   if [ $stepNumber -le 3 ]
   then
-    install_zinit
+    (install_brew_bundle || true)
   fi
 
   if [ $stepNumber -le 4 ]
   then
-    (install_brew_bundle || true)
+    install_language_defaults
   fi
 
   if [ $stepNumber -le 5 ]
   then
-    install_language_defaults
+    install_config_files
   fi
 
   if [ $stepNumber -le 6 ]
   then
-    install_fresh
+    install_apple_defaults
   fi
 
   if [ $stepNumber -le 7 ]
   then
-    install_fisher
+    install_zsh_defaults
   fi
 
   if [ $stepNumber -le 8 ]
   then
-    install_apple_defaults
+    set_iterm_defaults
   fi
 
   if [ $stepNumber -le 9 ]
   then
-    install_zsh_defaults
+    configure_filetypes
   fi
 
   if [ $stepNumber -le 10 ]
   then
-    set_iterm_defaults
+    install_personal_projects
   fi
 
   if [ $stepNumber -le 11 ]
   then
-    configure_filetypes
+    set_dash_defaults
   fi
 
   if [ $stepNumber -le 12 ]
   then
-    install_personal_projects
-  fi
-
-  if [ $stepNumber -le 13 ]
-  then
-    set_dash_defaults
-  fi
-
-  if [ $stepNumber -le 14 ]
-  then
     register_espanso
   fi
 
-  if [ $stepNumber -le 15 ]
+  if [ $stepNumber -le 13 ]
   then
     remind_install_steps
   fi

@@ -1,27 +1,24 @@
-\033[1;31mComplete before Google Drive Sync and Bitwarden Sync\033[0m
+\033[1;31mComplete before Drive Sync and Bitwarden Sync\033[0m
 
-Sign into Google Drive, Firefox, BitWarden\033[0m
+Sign into Browser, BitWarden\033[0m
 Sign into Apple iCloud account
-Set Touchbar quick actions to Volume slider, Mute, Brightness slider
 Set computer name by running set_computer_name COMPUTER_NAME
 add "auth sufficient pam_tid.so" to /etc/pam.d/sudo file
 Enable autostart on login for HiddenBar
-Enable autostart on login for MTMR
-Enable autostart on login for Hammerspoon
+Enable autostart on login for Retangle
+Enable autostart on login for ActivityWatch
+Enable autostart on login for AltTab
 Enable Karabiner in security and privacy settings
 Set Bluetooth to display icon in Menu Bar
 Enable Security > Accessibility:
 * Alfred
 * Karabiner
 * HiddenBar
-* Muzzle
-* Hammerspoon
 Configure HiddenBar to auto hide apps
 
 \033[1;31mComplete after Bitwarden Sync\033[0m
 
 Enable licence for Alfred
-Sign into Teamviewer, Anki and Freedom
 Add ssh key for Github
 
 \033[1;31mComplete after Git configuration\033[0m
