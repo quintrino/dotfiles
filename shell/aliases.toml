@@ -9,9 +9,9 @@ v = 'vim'
 bp = 'bat --plain'
 ffi = '__zoxide_zi'
 now = 'date +"%T"'
-l = 'eza --long --grid --all --header --git --classify --icons'
+l = 'eza --long --grid --all --header --git --classify --icons --time-style=long-iso'
 md = 'mkdir -p'
-h = 'xh'
+h = 'hx'
 rmf = 'rm -rf'
 t = 'touch'
 tl = 'tldr'
@@ -20,6 +20,7 @@ fb = 'fzf --preview "bat --style numbers,changes --color=always {}"'
 ps = 'echo Consider using procs instead'
 ncdu = 'echo Consider using di (dua interactive) instead'
 di = 'dua interactive'
+temp = 'sudo powermetrics --samplers smc | grep -i "CPU die temperature"'
 
 [base.variables.aliases.Fish]
 
@@ -31,10 +32,10 @@ fsf = 'fresh && source $HOME/.config/fish/config.fish'
 ali = '$EDITOR $HOME/.dotfiles/shell/aliases.toml'
 dot = 'cd $HOME/.dotfiles'
 edot = '$EDITOR $HOME/.dotfiles'
-efd = '$EDITOR (fd . ~/.dotfiles | fzf --height 20%)'
+efd = '$EDITOR (fd . ~/.dotfiles | fzf --height 20% --preview "bat --style numbers,changes --color=always {}")'
 bun = 'cd $HOME/.dotfiles/brew && brew bundle dump --force --describe'
-update = 'zellij -l update --session update'
-nup = 'zellij kill-session update'
+update = 'zellij attach --create update --force-run-commands options --default-layout update'
+nup = 'zellij delete-session --force update'
 
 [base.variables.aliases.Git]
 
@@ -132,7 +133,6 @@ sup = 'vsplit_tab dcu && fs'
 
 [base.variables.aliases.Navigation]
 
-d = 'prevd -l'
 1 = 'prevd '
 2 = 'prevd 2'
 3 = 'prevd 3'

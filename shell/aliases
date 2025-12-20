@@ -21,7 +21,9 @@
       'fb': 'fzf --preview "bat --style numbers,changes --color=always {}"',
       'ps': 'echo Consider using procs instead',
       'ncdu': 'echo Consider using di (dua interactive) instead',
-      'di': 'dua interactive'
+      'di': 'dua interactive',
+      'es': 'espanso',
+      'esr': 'espanso restart'
     },
 
     'Fish': {
@@ -113,7 +115,6 @@
 
     'Javascript': {
 
-      'es': 'node_modules/.bin/eslint app/javascript',
       'yarn': 'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
 
     },
@@ -144,8 +145,7 @@
 
     'Directory Jumping': {
 
-      'd': 'prevd -l',
-      '1': 'prevd ',
+      '1': 'prevd',
       '2': 'prevd 2',
       '3': 'prevd 3',
       '4': 'prevd 4',
