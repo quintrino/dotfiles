@@ -60,7 +60,7 @@ function install_config_folders() {
   mkdir -p "$XDG_CONFIG_HOME/zsh"
   mkdir -p "$XDG_CONFIG_HOME/mise"
   mdkir -p "$XDG_CACHE_HOME/vim"
-
+  mdkir -p "$HOME/Library/LaunchAgents/Scripts/bin
 }
 
 function install_zsh_defaults() {
@@ -198,6 +198,10 @@ function install_apple_defaults() {
 
   # Set Hammerspoon to use XDG config location
   defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
+
+  # Set Alfred Sleep alert
+  launchctl load $HOME/Library/LaunchAgents/com.user.alfred.slumber.plist
+  launchctl load $HOME/Library/LaunchAgents/local.timed_lockscreen.plist
 
   # Reset SystemUIServer
   killall -KILL SystemUIServer

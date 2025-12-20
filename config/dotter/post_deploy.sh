@@ -8,6 +8,7 @@ echo "Symlinking apps/vs-code/settings.vsrc"
 ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Code/User/settings.json
 echo "Symlinking apps/vs-code/settings.vsrc"
 ln -sf ~/.dotfiles/apps/vs-code/keys.vsrc ~/Library/Application\ Support/Code/User/keybindings.json
+clang -F /System/Library/PrivateFrameworks -framework login -o $HOME/Library/LaunchAgents/Scripts/bin/locknow $HOME/.dotfiles/shell/tasks/locknow.c
 if [ -d $HOME/Proton ]; then
       echo "/Proton/ detected"
       echo "Generating symlinks"

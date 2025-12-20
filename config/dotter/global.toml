@@ -64,3 +64,5 @@ depends = ["base"]
 
 [tasks.files]
 "shell/tasks/slumber.plist" = "$HOME/Library/LaunchAgents/com.user.alfred.slumber.plist"
+"shell/tasks/lockscreen.plist" = "$HOME/Library/LaunchAgents/local.timed_lockscreen.plist"
+"shell/tasks/lockscreen.sh" = "$HOME/Library/LaunchAgents/Scripts/local.timed_lockscreen.sh"
