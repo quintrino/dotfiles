@@ -63,23 +63,18 @@ function evs
         env | fzf --height 10%
 end
 
-function ef
+function ff
     if test $argv
-        set fzf_file (fd . $argv[1] | fzf --height 20%)
+        set fzf_file (fd . $argv[1] | fzf --height 20% --preview "bat --style numbers,changes --color=always {}")
     else
-        set fzf_file (fd . ~/.dotfiles | fzf --height 20%)
+        set fzf_file (fd . . | fzf --height 20% --preview "bat --style numbers,changes --color=always {}")
     end
     if test $status -eq 0
-        $EDITOR $fzf_file
-    end
-end
-
-function af
-    set fzf_file (fd . . | fzf --height 20%)
-    if test -d $fzf_file
-        cd $fzf_file
-    else
-        bat $fzf_file
+        if test -d $fzf_file
+            cd $fzf_file
+        else
+            $EDITOR $fzf_file
+        end
     end
 end
 
@@ -96,9 +91,17 @@ function yt
     mkdir -p $HOME/Downloads/videos
     cd $HOME/Downloads/videos
     echo 'Downloading video using yt-dlp'
-    yt-dlp "$argv"
+    yt-dlp --restrict-filenames -o "%(webpage_url)s - %(title).180s.%(ext)s" "$argv"
 end
 
+function music
+    echo 'Switching to Downloads/Music'
+    mkdir -p $HOME/Downloads/Music
+    cd $HOME/Downloads/Music
+    echo 'Downloading song using yt-dlp'
+    yt-dlp -f bestaudio[ext=m4a] --restrict-filenames -o "%(title).180s.%(ext)s" "$argv"
+end
+    
 function logic
      echo -e "\033[1;31m If applied this commit will... \033[0m"
 end
@@ -225,4 +228,78 @@ function path
         echo "$index: $colored_path"
         set index (math $index + 1)
     end
+end
+
+function d
+    dirh
+end
+
+function doctor_update
+    printf "\033[1;31mBrew Doctor issues \033[0m\n"
+    brew doctor
+end
+
+function fresh_update
+    printf "\033[1;31mUpdating Fresh \033[0m\n"
+    fresh up | rg -v "Current branch master is up to date."
+end
+
+function mise_update
+    printf "\033[1;31mUpdating Mise plugins\033[0m\n"
+    for lang in (ls "$HOME/.dotfiles/language")
+        mise install "$lang@latest"
+        mise use -g "$lang@latest"
+    end
+    mise prune --yes
+end
+
+function zinit_update
+    printf "\033[1;31mUpdating Zsh plugins \033[0m\n"
+    zi update --parallel
+end
+
+function fisher_update
+    printf "\033[1;31mUpdating Fisher Plugins \033[0m\n"
+    echo 'fisher update' | fish | rg -v "has unsynchronized changes|$XDG_CONFIG_HOME/fish/|Fetching"
+    printf "\033[1;31mUpdating Abbreviations Tips \033[0m\n"
+    fish "$XDG_CONFIG_HOME/fish/functions/__abbr_tips_init.fish"
+end
+
+function ruby_update
+    printf "\033[1;31mUpdating Ruby Gems \033[0m\n"
+    cd $XDG_CONFIG_HOME/ruby && gem update --system
+    printf "\033[1;31mGenerating Gemfile \033[0m\n"
+    cd $XDG_CONFIG_HOME/ruby && rm Gemfile
+    cd $XDG_CONFIG_HOME/ruby &&
+        echo "# frozen_string_literal: true\n" >>Gemfile &&
+        echo "source 'https://rubygems.org'\n" >>Gemfile &&
+        sed "s/^/gem '/" ~/.dotfiles/language/ruby/default-gems |
+        sed 's/$/'\''/g' >>Gemfile
+    printf "\033[1;31mUpdating Bundler \033[0m\n"
+    cd $XDG_CONFIG_HOME/ruby && gem install bundler
+    printf "\033[1;31mUpdating Gems \033[0m\n"
+    cd $XDG_CONFIG_HOME/ruby && bundle update
+end
+
+function brew_update
+    printf "\033[1;31mUpdating Brewfile \033[0m\n"
+    cd ~/.dotfiles/brew && brew bundle dump --force --describe
+    printf "\033[1;31mUpdating Brew \033[0m\n"
+    brew update
+    printf "\033[1;31mUpgrading Brew \033[0m\n"
+    set OUTDATED (brew outdated) && brew upgrade
+    printf "\033[1;31mOutdated Casks \033[0m\n"
+    brew upgrade --cask --greedy
+    echo $OUTDATED
+end
+
+function mac_software_update
+    printf "\033[1;31mUpdating Mac Software \033[0m\n"
+    xcode-select -p 1>/dev/null
+    set xcode_installed $status
+    if test $xcode_installed -ne 0
+        printf 'XCode CLI Tools not installed, Installing now'
+        xcode-select --install
+    end
+    softwareupdate -ia
 end
