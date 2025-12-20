@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# Merge Files and Upload to Google Drive Script
+# Usage: ./merge_upload.sh <file1> <file2> <output_name> <gdrive_file_id>
+
+set -e  # Exit on any error
+
+# Check if correct number of arguments provided
+if [ $# -ne 4 ]; then
+    echo "Usage: $0 <file1> <file2> <output_name> <gdrive_file_id>"
+    echo "Example: $0 file1.txt file2.txt merged_output.txt 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+    echo ""
+    echo "To find your Google Drive folder ID:"
+    echo "1. Open the folder in Google Drive web interface"
+    echo "2. Copy the ID from the URL after '/folders/'"
+    echo "Or use: gdrive list --query \"name='YourFolderName' and mimeType='application/vnd.google-apps.folder'\""
+    exit 1
+fi
+
+# Assign arguments to variables
+FILE1="$1"
+FILE2="$2"
+OUTPUT_NAME="$3"
+GOOGLE_FILE_ID="$4"
+
+# Check if gdrive is installed
+if ! command -v gdrive &> /dev/null; then
+    echo "Error: gdrive command not found!"
+    echo "Please install gdrive CLI tool first:"
+    echo "brew install gdrive"
+    echo "or download from: https://github.com/prasmussen/gdrive"
+    exit 1
+fi
+
+# Check if input files exist
+if [ ! -f "$FILE1" ]; then
+    echo "Error: File '$FILE1' not found!"
+    exit 1
+fi
+
+if [ ! -f "$FILE2" ]; then
+    echo "Error: File '$FILE2' not found!"
+    exit 1
+fi
+
+# Create temporary merged file
+TEMP_FILE="/tmp/$OUTPUT_NAME"
+
+echo "Merging files..."
+echo "File 1: $FILE1"
+echo "File 2: $FILE2"
+echo "Output: $OUTPUT_NAME"
+
+# Merge the files (concatenate)
+cat "$FILE1" "$FILE2" > "$TEMP_FILE"
+
+# Check if merge was successful
+if [ ! -f "$TEMP_FILE" ]; then
+    echo "Error: Failed to create merged file!"
+    exit 1
+fi
+
+echo "Files merged successfully. Size: $(wc -c < "$TEMP_FILE") bytes"
+
+# Upload to Google Drive
+echo "Updating on Google Drive..."
+
+# Upload the file with the specified name to the specified folder
+#  <local_file_path>
+UPLOAD_RESULT=$(gdrive files update "$GOOGLE_FILE_ID" "$TEMP_FILE")
+
+if [ $? -eq 0 ]; then
+    echo "Upload successful!"
+    echo "$UPLOAD_RESULT"
+
+    # Extract file ID from upload result (assuming standard gdrive output format)
+    FILE_ID=$(echo "$UPLOAD_RESULT" | grep -oE '[A-Za-z0-9_-]{28,}' | head -1)
+    if [ -n "$FILE_ID" ]; then
+        echo "File ID: $FILE_ID"
+        echo "Direct link: https://drive.google.com/file/d/$FILE_ID/view"
+    fi
+else
+    echo "Upload failed!"
+    echo "Please check:"
+    echo "1. Your Google Drive authentication (run: gdrive about)"
+    echo "2. The folder ID is correct"
+    echo "3. You have write permissions to the folder"
+    exit 1
+fi
+
+# Clean up temporary file
+rm "$TEMP_FILE"
+echo "Temporary file cleaned up."
+echo "Operation completed successfully!"

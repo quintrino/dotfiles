@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Check if ffmpeg is installed
+if ! command -v vlc > /dev/null 2>&1; then
+    echo "Error: vlc is not installed. Please install it first."
+    exit 1
+fi
+
+if [ -z "$(find . -maxdepth 1 -type f \( -name "*.mp4" -o -name "*.mov" \))" ]; then
+    echo "No .mov or .mp4 files found in the current directory."
+    exit 1
+fi
+
+# Convert .mov to .mp3 and rename original files
+for file in *.mp4 *.mov; do
+    [ -f "$file" ] || continue  # Skip if no matches
+    filename="${file%.*}"
+
+    echo "Converting $file to MP3..."
+    if vlc "$file" --sout "#transcode{acodec=mp3,ab=192}:std{access=file,mux=raw,dst=\"$filename.mp3\"}" vlc://quit; then
+        echo "Conversion successful. Renaming original file to $file.backup"
+        mv "$file" "$file.backup"
+    else
+        echo "Error converting $file. Skipping..."
+    fi
+done
+
+echo "All conversions and renames completed!"
