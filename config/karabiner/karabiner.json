@@ -1510,6 +1510,70 @@
                                 ],
                                 "type": "basic"
                             },
+
+                                    {
+                                    "type": "basic",
+                                    "from": {
+                                        "key_code": "s",
+                                        "modifiers": {
+                                        "mandatory": ["command"]
+                                        }
+                                    },
+                                    "to": [
+                                        {
+                                        "shell_command": "open -a 'Slack.app'"
+                                        }
+                                    ],
+                                    "conditions": [
+                                        {
+                                        "type": "variable_if",
+                                        "name": "command_tapped",
+                                        "value": 1
+                                        }
+                                    ]
+                                    },
+                                    {
+                                    "type": "basic",
+                                    "from": {
+                                        "key_code": "left_command",
+                                        "modifiers": {
+                                        "optional": ["any"]
+                                        }
+                                    },
+                                    "to": [
+                                        {
+                                        "set_variable": {
+                                            "name": "command_tapped",
+                                            "value": 1
+                                        }
+                                        },
+                                        {
+                                        "key_code": "left_command"
+                                        }
+                                    ],
+                                    "to_delayed_action": {
+                                        "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                            "name": "command_tapped",
+                                            "value": 0
+                                            }
+                                        }
+                                        ],
+                                        "to_if_canceled": [
+                                        {
+                                            "set_variable": {
+                                            "name": "command_tapped",
+                                            "value": 0
+                                            }
+                                        }
+                                        ]
+                                    },
+                                    "parameters": {
+                                        "basic.to_delayed_action_delay_milliseconds": 500
+                                    }
+
+                                    },
                             {
                                 "description": "Change caps_lock to Hyper key.",
                                 "from": {
