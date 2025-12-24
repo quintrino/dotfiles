@@ -22,6 +22,7 @@ tree = 'eza --tree --all --icons --level=3'
 ncdu = 'echo Consider using di (dua interactive) instead'
 di = 'dua interactive'
 temp = 'sudo powermetrics --samplers smc | grep -i "CPU die temperature"'
+god = 'cd $XDG_DATA_HOME/godspeed-cli && bat cache'
 
 [base.variables.aliases.Fish]
 

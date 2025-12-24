@@ -1,4 +1,5 @@
 tap "heroku/heroku"
+tap "quintrino/godspeed-cli"
 tap "unsecretised/tap"
 # Mozilla CA certificate store
 brew "ca-certificates"
@@ -72,6 +73,8 @@ brew "zsh"
 brew "zsh-completions"
 # Everything you need to get started with Heroku
 brew "heroku/heroku/heroku"
+# Rust-based Godspeed CLI
+brew "quintrino/godspeed-cli/godspeed-cli"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Time tracker
