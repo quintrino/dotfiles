@@ -133,6 +133,8 @@ cask "signal@beta"
 cask "slack"
 # Remote access and connectivity software focused on security
 cask "teamviewer"
+# Customizable timing of breaks
+cask "time-out"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
