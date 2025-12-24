@@ -47,6 +47,8 @@ brew "hub"
 brew "libyaml"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# File management automation tool
+brew "organize-tool"
 # Modern replacement for ps written in Rust
 brew "procs"
 # Search tool like grep and The Silver Searcher

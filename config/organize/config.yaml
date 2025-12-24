@@ -1,58 +1,173 @@
 rules:
-  - name: "Capture Websites"
-    locations:
-      - ~/Downloads/capture
-    subfolders: true
+  # Images
+  - locations: "~/Downloads"
+    subfolders: false
     filters:
-      - extension: md
-      - python: |
-          if " " not in path.stem:
-            return False
-          clean_name = path.stem.replace(" ", "_") + path.suffix
-          return {
-            "clean_name": clean_name
-          }
+      - extension:
+          - jpg
+          - jpeg
+          - png
+          - gif
+          - bmp
+          - svg
+          - webp
+          - ico
+          - tiff
+          - heic
     actions:
-      - rename: "{python.clean_name}"
-      - move: ~/Documents/obsidian/zen_inbox/websites/
+      - move: "~/Downloads/Images/"
 
-  - name: "Capture Youtube"
-    locations:
-    - ~/Documents/obsidian/zen_inbox/youtube
+  # Documents
+  - locations: "~/Downloads"
+    subfolders: false
     filters:
-      - extension: md
-      - python: |
-          if " " not in path.stem:
-            return False
-          clean_name = path.stem.replace(" ", "_") + path.suffix
-          return {
-            "clean_name": clean_name
-          }
+      - extension:
+          - pdf
+          - doc
+          - docx
+          - txt
+          - rtf
+          - odt
+          - pages
     actions:
-      - rename: "{python.clean_name}"
+      - move: "~/Downloads/Documents/"
 
-  - name: "Load calendar invites"
-    locations:
-    - ~/Downloads/
+  # Spreadsheets
+  - locations: "~/Downloads"
+    subfolders: false
     filters:
-      - extension: ics
+      - extension:
+          - xls
+          - xlsx
+          - csv
+          - ods
+          - numbers
     actions:
-      - shell: 'calendar_importer "{path}"'
-      - move: ~/Downloads/imported_events/
+      - move: "~/Downloads/Spreadsheets/"
 
-  - name: "Transfer videos"
-    locations:
-      - ~/Downloads/
+  # Presentations
+  - locations: "~/Downloads"
+    subfolders: false
     filters:
-      - extension: mp4
+      - extension:
+          - ppt
+          - pptx
+          - key
+          - odp
     actions:
-      - move: ~/Downloads/videos/
+      - move: "~/Downloads/Presentations/"
 
-  - name: 'Play audio'
-    locations:
-      - ~/Downloads/
+  # Videos
+  - locations: "~/Downloads"
+    subfolders: false
     filters:
-      - extension: mp3
+      - extension:
+          - mp4
+          - avi
+          - mov
+          - mkv
+          - flv
+          - wmv
+          - webm
+          - m4v
+          - mpeg
     actions:
-      - shell: 'vlc --play-and-exit "{path}"'
-      - move: ~/Downloads/audio/
+      - move: "~/Downloads/Videos/"
+
+  # Audio
+  - locations: "~/Downloads"
+    subfolders: false
+    filters:
+      - extension:
+          - mp3
+          - wav
+          - flac
+          - aac
+          - ogg
+          - m4a
+          - wma
+    actions:
+      - move: "~/Downloads/Audio/"
+
+  # Archives
+  - locations: "~/Downloads"
+    subfolders: false
+    filters:
+      - extension:
+          - zip
+          - rar
+          - 7z
+          - tar
+          - gz
+          - bz2
+          - xz
+          - iso
+    actions:
+      - move: "~/Downloads/Archives/"
+
+  # Code
+  - locations: "~/Downloads"
+    subfolders: false
+    filters:
+      - extension:
+          - py
+          - js
+          - html
+          - css
+          - java
+          - cpp
+          - c
+          - go
+          - rs
+          - php
+          - rb
+          - swift
+          - kt
+          - ts
+          - jsx
+          - tsx
+          - vue
+          - json
+          - xml
+          - yaml
+          - yml
+    actions:
+      - move: "~/Downloads/Code/"
+
+  # Executables/Installers
+  - locations: "~/Downloads"
+    subfolders: false
+    filters:
+      - extension:
+          - exe
+          - msi
+          - dmg
+          - pkg
+          - deb
+          - rpm
+          - appimage
+          - apk
+    actions:
+      - move: "~/Downloads/Installers/"
+
+  # eBooks
+  - locations: "~/Downloads"
+    subfolders: false
+    filters:
+      - extension:
+          - epub
+          - mobi
+          - azw
+          - azw3
+    actions:
+      - move: "~/Downloads/eBooks/"
+
+  # Markdown
+  - locations: "~/Downloads"
+    subfolders: false
+    filters:
+      - extension:
+          - md
+          - markdown
+    actions:
+      - move: "~/Documents/obsidian/Backlog/"
