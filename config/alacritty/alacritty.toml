@@ -89,8 +89,19 @@ bindings = [
   { key = "T", mods = "Command", chars = "\u001bt" },
   # Command + d to emulate pane creation in Zellij
   { key = "D", mods = "Command", chars = "\u001bd" },
+  # Command + p to emulate pane creation in Zellij
+  { key = "P", mods = "Command", chars = "\u001bp" },
+  # Command + [ to emulate pane creation in Zellij
+  { key = "LBracket", mods = "Command", chars = "\u001b\u005b" },
+  # Command + ] to emulate pane creation in Zellij
+  { key = "RBracket", mods = "Command", chars = "\u001b\u005d" },
   # Command + u/i to emulate next/previous tab in Zellij
   { key = "U", mods = "Command", chars = "\u001bu" },
   { key = "I", mods = "Command", chars = "\u001bi" },
+  # Command + s to activate Session Manager
   { key = "S", mods = "Command", chars = "\u001bs" },
+  # Command + R to rename tab
+  { key = "R", mods = "Command", chars = "\u001br" },
+  # Command + N to resize Pane
+  { key = "N", mods = "Command", chars = "\u001bn" },
 ]

@@ -1,5 +1,6 @@
 keybinds clear-defaults=true {
     normal {
+        // CMD + NUM for tab selection
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
@@ -9,11 +10,18 @@ keybinds clear-defaults=true {
         bind "Alt 7" { GoToTab 7; }
         bind "Alt 8" { GoToTab 8; }
         bind "Alt 9" { GoToTab 9; }
-        bind "Alt d" { NewPane; }
+        // CMD + d opens a new pane to the right
+        bind "Alt d" { NewPane "Right" ;}
+        // CMD + p opens a new pane below
+        bind "Alt p" { NewPane "Down" ;}
+        // CMD + [ selects one pane to the Left
         bind "Alt [" { MoveFocus "Left"; }
+        // CMD + ] selects one pane to the Right
         bind "Alt ]" { MoveFocus "Right"; }
         bind "Alt i" { GoToNextTab; }
+        // CMD + r renames the tab
         bind "Alt r" { SwitchToMode "renametab"; }
+        bind "Alt n" { SwitchToMode "resize"; }
         bind "Alt s" {
             LaunchOrFocusPlugin "session-manager" {
                 floating true
