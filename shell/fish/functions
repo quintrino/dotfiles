@@ -1,8 +1,16 @@
+function vs
+    if test $argv
+        code -a --goto $argv
+    else
+        code -a .
+    end
+end
+
 function e
     if test $argv
-        $EDITOR -a --goto $argv
+        $EDITOR $argv
     else
-        $EDITOR -a .
+        $EDITOR .
     end
 end
 

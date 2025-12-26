@@ -2,8 +2,8 @@
 
 export TERM="xterm-256color"
 export CLICOLOR='1'
-export EDITOR='code'
-export GIT_EDITOR='code --goto --new-window --wait'
+export EDITOR='hx'
+export GIT_EDITOR='hx'
 export EXA_GRID_ROWS=8
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
