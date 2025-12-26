@@ -8,17 +8,6 @@ function install_homebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-
-function install_zinit() {
-  printf "\033[1;31mInstalling Zinit \033[0m\n"
-  ZINIT_HOME=$XDG_CONFIG_HOME/zinit sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/main/zinit-install.zsh)"
-}
-
-function install_fisher() {
-  echo 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher' | fish
-  echo 'fisher update' | fish
-}
-
 function install_brew_bundle() {
   printf "\033[1;31mBrew Bundle Install \033[0m\n"
   cd "$HOME/.dotfiles/brew" || exit
@@ -59,8 +48,8 @@ function install_config_folders() {
   mkdir -p "$XDG_CONFIG_HOME/npm"
   mkdir -p "$XDG_CONFIG_HOME/zsh"
   mkdir -p "$XDG_CONFIG_HOME/mise"
-  mdkir -p "$XDG_CACHE_HOME/vim"
-  mdkir -p "$HOME/Library/LaunchAgents/Scripts/bin
+  mkdir -p "$XDG_CACHE_HOME/vim"
+  mkdir -p "$HOME/Library/LaunchAgents/Scripts/bin"
 }
 
 function install_zsh_defaults() {
@@ -168,27 +157,12 @@ function install_apple_defaults() {
   # Set Clock to 24 hour time
   defaults write com.apple.menuextra.clock "DateFormat" 'EEE d MMM HH:mm'
 
-  # Allow installing user scripts via GitHub Gist or Userscripts.org
-  # defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
-  # defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
-
-  # Set Hammerspoon to use XDG config location
-  defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
-
   # Set Alfred Sleep alert
   launchctl load $HOME/Library/LaunchAgents/com.user.alfred.slumber.plist
   launchctl load $HOME/Library/LaunchAgents/local.timed_lockscreen.plist
 
   # Reset SystemUIServer
   killall -KILL SystemUIServer
-}
-
-function set_iterm_defaults() {
-  printf "\033[1;31mSetting iTerm Defaults \033[0m\n"
-  # Specify the preferences directory
-  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.dotfiles/apps/iTerm"
-  # Tell iTerm2 to use the custom preferences in the directory
-  defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 }
 
 function set_dash_defaults() {

@@ -4,7 +4,7 @@ If you're me and you're looking to exactly replicate my system on a new system
 you simply need to run
 
 ```
-# curl -fsSL https://git.io/nickwolf-dotfiles | zsh
+# curl -L https://nick.wf/install | zsh
 ```
 
 My dotfiles use a very eclectic set of tools.
