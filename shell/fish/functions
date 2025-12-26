@@ -87,11 +87,11 @@ function ff
 end
 
 function git_track_untracked
-    git ls-files --others --exclude-standard | xargs git add -N
+    git ls-files -z --others --exclude-standard | xargs -0 git add -N
 end
 
 function git_untrack_new_blank
-    git diff --name-only --no-renames --diff-filter=A | xargs git reset --quiet --
+    git diff -z --name-only --no-renames --diff-filter=A | xargs -0 git reset --quiet --
 end
 
 function yt
