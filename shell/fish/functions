@@ -25,9 +25,9 @@ end
 
 function gl
     if test $argv
-        git log --oneline -$argv
+        git --no-pager log --oneline -$argv
     else
-        git log --oneline -1
+        git --no-pager log --oneline -1
     end
 end
 
