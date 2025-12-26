@@ -286,7 +286,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$XDG_DATA_HOME/bin/toggle_full_screen'"
+                                        "shell_command": "~/.dotfiles/shell/utilities/toggle_full_screen"
                                     }
                                 ],
                                 "type": "basic"
