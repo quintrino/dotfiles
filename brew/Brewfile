@@ -55,6 +55,8 @@ brew "procs"
 brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Open source continuous file synchronization application
+brew "syncthing"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
 # Check your $HOME for unwanted files and directories
