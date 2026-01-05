@@ -334,7 +334,7 @@ ruby_update() {
   printf "\033[1;31mUpdating Bundler \033[0m\n"
   cd $XDG_CONFIG_HOME/ruby && gem install bundler
   printf "\033[1;31mUpdating Gems \033[0m\n"
-  cd $XDG_CONFIG_HOME/ruby && bundle update
+  cd $XDG_CONFIG_HOME/ruby && bundle update --all
 }
 
 brew_update() {
