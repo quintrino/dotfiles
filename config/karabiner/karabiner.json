@@ -1454,6 +1454,29 @@
                         ]
                     },
                     {
+                        "description": "App-Specific: Safari",
+                        "manipulators": [
+                            {
+                                "description": "Disable Escape as exit fullscreen in Safari",
+                                "manipulators": [
+                                    {
+                                        "type": "basic",
+                                        "conditions": [
+                                            {
+                                                "type": "frontmost_application_if",
+                                                "bundle_identifiers": ["com.apple.Safari"]
+                                            }
+                                        ],
+                                        "from": {
+                                            "key_code": "escape"
+                                        },
+                                        "to": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Hyper Key - Default Tab and Window Navigation",
                         "manipulators": [
                             {
