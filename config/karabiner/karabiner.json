@@ -1,7 +1,7 @@
 {
     "profiles": [
         {
-                        "name": "Main",
+            "name": "Main",
             "virtual_hid_keyboard": {
                 "keyboard_type_v2": "ansi"
             },
@@ -38,12 +38,8 @@
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
+                                        "mandatory": ["shift"],
+                                        "optional": ["caps_lock"]
                                     }
                                 },
                                 "to": [
@@ -58,9 +54,7 @@
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -90,10 +84,7 @@
                                 "from": {
                                     "key_code": "3",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_command"
-                                        ]
+                                        "mandatory": ["left_shift", "left_command"]
                                     }
                                 },
                                 "to": [
@@ -108,11 +99,7 @@
                                 "from": {
                                     "key_code": "3",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_control",
-                                            "left_command"
-                                        ]
+                                        "mandatory": ["left_shift", "left_control", "left_command"]
                                     }
                                 },
                                 "to": [
@@ -127,10 +114,7 @@
                                 "from": {
                                     "key_code": "4",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_command"
-                                        ]
+                                        "mandatory": ["left_shift", "left_command"]
                                     }
                                 },
                                 "to": [
@@ -145,11 +129,7 @@
                                 "from": {
                                     "key_code": "4",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_control",
-                                            "left_command"
-                                        ]
+                                        "mandatory": ["left_shift", "left_control", "left_command"]
                                     }
                                 },
                                 "to": [
@@ -260,9 +240,7 @@
                                 "to": [
                                     {
                                         "key_code": "left_arrow",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
+                                        "modifiers": ["right_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -283,9 +261,7 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
+                                        "modifiers": ["right_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -326,9 +302,7 @@
                                 "to": [
                                     {
                                         "key_code": "f5",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -349,10 +323,7 @@
                                 "to": [
                                     {
                                         "key_code": "f2",
-                                        "modifiers": [
-                                            "fn",
-                                            "left_control"
-                                        ]
+                                        "modifiers": ["fn", "left_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -373,9 +344,7 @@
                                 "to": [
                                     {
                                         "key_code": "spacebar",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -396,10 +365,7 @@
                                 "to": [
                                     {
                                         "key_code": "e",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_shift"
-                                        ]
+                                        "modifiers": ["right_command", "right_shift"]
                                     }
                                 ],
                                 "type": "basic"
@@ -511,10 +477,7 @@
                                 "to": [
                                     {
                                         "key_code": "space",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_shift"
-                                        ]
+                                        "modifiers": ["right_command", "right_shift"]
                                     }
                                 ],
                                 "type": "basic"
@@ -848,9 +811,7 @@
                                 "description": "Alacritty: Hyper + D sends EOF (Ctrl+D)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.alacritty$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.alacritty$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -868,9 +829,7 @@
                                 "to": [
                                     {
                                         "key_code": "d",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
+                                        "modifiers": ["right_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -879,9 +838,7 @@
                                 "description": "Alacritty: Hyper + U previous tab (Option+U)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.alacritty$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.alacritty$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -899,9 +856,7 @@
                                 "to": [
                                     {
                                         "key_code": "u",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -910,9 +865,7 @@
                                 "description": "Alacritty: Hyper + I next tab (Option+I)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.alacritty$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.alacritty$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -930,9 +883,7 @@
                                 "to": [
                                     {
                                         "key_code": "i",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -941,9 +892,7 @@
                                 "description": "Alacritty: Hyper + [ previous pane (Ctrl+[)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.alacritty$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.alacritty$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -961,9 +910,7 @@
                                 "to": [
                                     {
                                         "key_code": "open_bracket",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
+                                        "modifiers": ["left_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -972,9 +919,7 @@
                                 "description": "Alacritty: Hyper + ] next pane (Ctrl+])",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.alacritty$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.alacritty$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -992,9 +937,7 @@
                                 "to": [
                                     {
                                         "key_code": "close_bracket",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
+                                        "modifiers": ["left_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1032,10 +975,7 @@
                                 "to": [
                                     {
                                         "key_code": "open_bracket",
-                                        "modifiers": [
-                                            "right_shift",
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_shift", "right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1068,10 +1008,7 @@
                                 "to": [
                                     {
                                         "key_code": "close_bracket",
-                                        "modifiers": [
-                                            "right_shift",
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_shift", "right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1105,10 +1042,7 @@
                                 "to": [
                                     {
                                         "key_code": "up_arrow",
-                                        "modifiers": [
-                                            "right_option",
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_option", "right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1137,10 +1071,7 @@
                                 "to": [
                                     {
                                         "key_code": "down_arrow",
-                                        "modifiers": [
-                                            "right_option",
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_option", "right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1174,9 +1105,7 @@
                                 "to": [
                                     {
                                         "key_code": "up_arrow",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1205,9 +1134,7 @@
                                 "to": [
                                     {
                                         "key_code": "down_arrow",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1225,24 +1152,17 @@
                                 "from": {
                                     "key_code": "e",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_command"
-                                        ]
+                                        "mandatory": ["left_command"]
                                     }
                                 },
                                 "to": [
                                     {
                                         "key_code": "a",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_shift"
-                                        ]
+                                        "modifiers": ["right_command", "right_shift"]
                                     },
                                     {
                                         "key_code": "3",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1260,17 +1180,13 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_command"
-                                        ]
+                                        "mandatory": ["left_command"]
                                     }
                                 },
                                 "to": [
                                     {
                                         "key_code": "n",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1288,10 +1204,7 @@
                                 "from": {
                                     "key_code": "return_or_enter",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_command",
-                                            "left_shift"
-                                        ]
+                                        "mandatory": ["left_command", "left_shift"]
                                     }
                                 },
                                 "to": [
@@ -1328,9 +1241,7 @@
                                 "description": "Godspeed: Hyper + U move up (Option+P)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^com\\.godspeedapp\\.Godspeed"
-                                        ],
+                                        "bundle_identifiers": ["^com\\.godspeedapp\\.Godspeed"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -1348,9 +1259,7 @@
                                 "to": [
                                     {
                                         "key_code": "p",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1359,9 +1268,7 @@
                                 "description": "Godspeed: Hyper + I move down (Option+N)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^com\\.godspeedapp\\.Godspeed"
-                                        ],
+                                        "bundle_identifiers": ["^com\\.godspeedapp\\.Godspeed"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -1379,9 +1286,7 @@
                                 "to": [
                                     {
                                         "key_code": "n",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1395,9 +1300,7 @@
                                 "description": "VLC: Z skips backward (Left arrow)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.videolan\\.vlc$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.videolan\\.vlc$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -1415,9 +1318,7 @@
                                 "description": "VLC: W toggles playback (Space)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.videolan\\.vlc$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.videolan\\.vlc$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -1435,9 +1336,7 @@
                                 "description": "VLC: X skips forward (Right arrow)",
                                 "conditions": [
                                     {
-                                        "bundle_identifiers": [
-                                            "^org\\.videolan\\.vlc$"
-                                        ],
+                                        "bundle_identifiers": ["^org\\.videolan\\.vlc$"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -1495,10 +1394,7 @@
                                 "to": [
                                     {
                                         "key_code": "left_arrow",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_command", "right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1519,10 +1415,7 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_option"
-                                        ]
+                                        "modifiers": ["right_command", "right_option"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1543,9 +1436,7 @@
                                 "to": [
                                     {
                                         "key_code": "9",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1566,9 +1457,7 @@
                                 "to": [
                                     {
                                         "key_code": "w",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
+                                        "modifiers": ["right_command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -1580,9 +1469,7 @@
                         "available_since": "13.6.0",
                         "conditions": [
                             {
-                                "bundle_identifiers": [
-                                    "^com\\.automattic\\.beeper\\.desktop$"
-                                ],
+                                "bundle_identifiers": ["^com\\.automattic\\.beeper\\.desktop$"],
                                 "type": "frontmost_application_unless"
                             }
                         ],
@@ -1603,9 +1490,7 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -1628,9 +1513,7 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -1645,9 +1528,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -1722,9 +1603,7 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -1747,9 +1626,7 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -1764,9 +1641,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -1841,9 +1716,7 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -1866,9 +1739,7 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -1883,9 +1754,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -1960,9 +1829,7 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -1985,9 +1852,7 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2002,9 +1867,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2074,9 +1937,7 @@
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2089,9 +1950,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2159,9 +2018,7 @@
                                 "from": {
                                     "key_code": "b",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2174,9 +2031,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2244,9 +2099,7 @@
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2259,9 +2112,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2329,9 +2180,7 @@
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2355,9 +2204,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2436,9 +2283,7 @@
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2453,9 +2298,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2525,9 +2368,7 @@
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2542,9 +2383,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2614,9 +2453,7 @@
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2634,9 +2471,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2709,9 +2544,7 @@
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2730,9 +2563,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2806,9 +2637,7 @@
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2827,9 +2656,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2903,9 +2730,7 @@
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     }
                                 },
                                 "to": [
@@ -2924,9 +2749,7 @@
                             {
                                 "from": {
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "optional": ["any"]
                                     },
                                     "simultaneous": [
                                         {
@@ -2993,7 +2816,6 @@
                     }
                 ]
             }
-
         }
     ]
 }
