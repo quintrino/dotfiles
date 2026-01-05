@@ -8,3 +8,4 @@ true-color = true
 undercurl = true
 rulers = [80, 120]
 popup-border = "all"
+whitespace.render = { space = "all", tab = "all" }
