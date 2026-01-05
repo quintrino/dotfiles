@@ -12,6 +12,25 @@
                 },
                 "rules": [
                     {
+                        "description": "Remap Cmd+Tab to disable default app switcher and use Alfred instead",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["command"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open alfred://runtrigger/quintrino/cmdtab"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "System Modifications - Caps Lock to Hyper Key with Escape on tap",
                         "manipulators": [
                             {
