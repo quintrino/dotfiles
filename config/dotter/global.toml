@@ -47,6 +47,7 @@ depends = ["base"]
 "config/mise/config.toml" = "$XDG_CONFIG_HOME/mise/config.toml"
 "config/helix/config.toml" = "$XDG_CONFIG_HOME/helix/config.toml"
 "config/helix/languages.toml" = "$XDG_CONFIG_HOME/helix/languages.toml"
+"config/biome/default.json" = "$XDG_CONFIG_HOME/biome/default.json"
 
 [git.files]
 "config/git/ignore" = "$XDG_CONFIG_HOME/git/ignore"
