@@ -11,6 +11,8 @@ brew "libgit2"
 brew "bat"
 # Toolchain of the web
 brew "biome"
+# Get/set bluetooth power and discoverable state
+brew "blueutil"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
 # Dotfile manager and templater written in rust
