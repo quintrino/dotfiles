@@ -1,0 +1,49 @@
+{
+    "general": {
+        "theme": "Dark",
+        "notifications": {}
+    },
+    "filePanel": {
+        "general": {},
+        "presentation": {},
+        "quickSearch": {},
+        "FinderTags": {
+            "tags": {
+                "v1": []
+            }
+        },
+        "spotlight": {},
+        "operations": {},
+        "layout": {}
+    },
+    "viewer": {},
+    "terminal": {},
+    "externalTools": {
+        "tools_v1": [
+            {
+                "title": "Open System Terminal Here",
+                "path": "/System/Applications/Utilities/Terminal.app",
+                "parameters": "%r",
+                "shortcut": "\u0000",
+                "startup": 0,
+                "uuid": "d678f485-1f83-4d6d-adec-94484479df30"
+            },
+            {
+                "title": "XCode Merge",
+                "path": "/usr/bin/opendiff",
+                "parameters": "%p %-p",
+                "shortcut": "\u0000",
+                "startup": 0,
+                "uuid": "acbf85aa-1147-4edb-8fea-0579b67c17a7"
+            }
+        ]
+    },
+    "externalEditors": {},
+    "themes": {
+        "automaticSwitching": {}
+    },
+    "hotkeyOverrides_v1": {
+        "menu.view.show_tabs": "",
+        "menu.command.move_to": "⇧⌘t"
+    }
+}

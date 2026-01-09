@@ -48,6 +48,8 @@ depends = ["base"]
 "config/helix/config.toml" = "$XDG_CONFIG_HOME/helix/config.toml"
 "config/helix/languages.toml" = "$XDG_CONFIG_HOME/helix/languages.toml"
 "config/biome/default.json" = "$XDG_CONFIG_HOME/biome/default.json"
+"config/nimble/config.json" = "$HOME/Library/Application Support/Nimble Commander/Config/Config.json"
+
 
 [git.files]
 "config/git/ignore" = "$XDG_CONFIG_HOME/git/ignore"
