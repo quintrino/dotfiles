@@ -28,7 +28,7 @@ for file in $XDG_DATA_HOME/fish/environment/*
     source $file
 end
 
-if test -f $XDG_DATA_HOME/godspeed-cli/cache
+if test -s $XDG_DATA_HOME/godspeed-cli/cache
     echo "WARNING: Godspeed-cli has unsynchronized changes"
 end
 
