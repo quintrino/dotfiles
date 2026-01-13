@@ -505,7 +505,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper+Cmd + O: Open Obsidian",
+                                "description": "Hyper + O: Open Obsidian",
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
@@ -513,7 +513,6 @@
                                             "right_shift",
                                             "right_control",
                                             "right_command",
-                                            "left_command",
                                             "right_option"
                                         ]
                                     }
