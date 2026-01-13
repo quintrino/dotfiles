@@ -135,7 +135,7 @@ cask "proton-drive"
 cask "proton-mail-bridge"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# Google search for your system
+# Utility tooling for your system
 cask "rustcast"
 # Instant messaging application focusing on security
 cask "signal@beta"
