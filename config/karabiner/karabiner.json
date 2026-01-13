@@ -224,6 +224,28 @@
                                 ],
                                 "type": "basic"
                             },
+                                                        {
+                                "description": "Hyper+Cmd + L: End of Line",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "left_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "description": "Hyper + N: Move to space left",
                                 "from": {
@@ -715,27 +737,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Proton Mail.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper+Cmd + L: Open Slack",
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift",
-                                            "right_control",
-                                            "right_command",
-                                            "left_command",
-                                            "right_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Slack.app'"
                                     }
                                 ],
                                 "type": "basic"
