@@ -418,7 +418,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + E: Open default editor (VS Code)",
+                                "description": "Hyper + E: Open email client",
                                 "from": {
                                     "key_code": "e",
                                     "modifiers": {
@@ -432,7 +432,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'Visual Studio Code.app'"
+                                        "shell_command": "open -a 'eM Client.app'"
                                     }
                                 ],
                                 "type": "basic"

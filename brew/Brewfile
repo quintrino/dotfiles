@@ -101,6 +101,8 @@ cask "beeper"
 cask "bitwarden"
 # Web browser focusing on privacy
 cask "brave-browser@beta"
+# Email client
+cask "emclient"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
 # Web browser
