@@ -112,6 +112,8 @@ matches:
     replace: "🙁"
   - trigger: ":D"
     replace: "😃"
+  - trigger: ":joy"
+    replace: "😂"
   - trigger: ":tableflip:"
     replace: "(╯°□°）╯︵ ┻━┻"
   - trigger: ":fliptable:"
