@@ -398,9 +398,9 @@
                         "description": "Hyper Key - Default Application Launchers",
                         "manipulators": [
                             {
-                                "description": "Hyper + B: Open default browser (Zen)",
+                                "description": "Hyper + W: Open default browser (Zen)",
                                 "from": {
-                                    "key_code": "b",
+                                    "key_code": "w",
                                     "modifiers": {
                                         "mandatory": [
                                             "right_shift",
