@@ -81,6 +81,24 @@ matches:
           format: "%Y-%m-%d"
   - trigger: ":peop"
     replace: "[[People/$|$]]"
+#"Markdown"
+  - trigger: ":h1"
+    replace: "# "
+  - trigger: ":h2"
+    replace: "## "
+  - trigger: ":h3"
+    replace: "### "
+  - trigger: ":h4"
+    replace: "#### "
+  - trigger: ":h5"
+    replace: "##### "
+  - trigger: ":h6"
+    replace: "###### "
+  - trigger: ":table"
+    replace: |
+      | Header 1 | Header 2 | Header 3 |
+      | -------- | -------- | -------- |
+      | Content 1 | Content 2 | Content 3 |
 #Emoji
   - trigger: ":)"
     replace: "🙂"
