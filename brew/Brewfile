@@ -1,6 +1,8 @@
 tap "heroku/heroku"
 tap "quintrino/godspeed-cli"
 tap "unsecretised/tap"
+# Spell checker with better logic than ispell
+brew "aspell"
 # Mozilla CA certificate store
 brew "ca-certificates"
 # Cryptography and SSL/TLS Toolkit
