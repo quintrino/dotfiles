@@ -1234,19 +1234,22 @@
                                         "key_code": "tab"
                                     },
                                     {
-                                        "shell_command": "sleep 0.1"
+                                        "key_code": "vk_none",
+                                        "hold_down_milliseconds": 50
                                     },
                                     {
                                         "key_code": "tab"
                                     },
                                     {
-                                        "shell_command": "sleep 0.1"
+                                        "key_code": "vk_none",
+                                        "hold_down_milliseconds": 50
                                     },
                                     {
                                         "key_code": "return_or_enter"
                                     },
                                     {
-                                        "shell_command": "sleep 0.1"
+                                        "key_code": "vk_none",
+                                        "hold_down_milliseconds": 50
                                     },
                                     {
                                         "key_code": "return_or_enter"
@@ -1276,21 +1279,24 @@
                                         "modifiers": ["left_shift"]
                                     },
                                     {
-                                        "shell_command": "sleep 0.1"
+                                        "key_code": "vk_none",
+                                        "hold_down_milliseconds": 50
                                     },
                                     {
                                         "key_code": "tab",
                                         "modifiers": ["left_shift"]
                                     },
                                     {
-                                        "shell_command": "sleep 0.1"
+                                        "key_code": "vk_none",
+                                        "hold_down_milliseconds": 50
                                     },
                                     {
                                         "key_code": "tab",
                                         "modifiers": ["left_shift"]
                                     },
                                     {
-                                        "shell_command": "sleep 0.1"
+                                        "key_code": "vk_none",
+                                        "hold_down_milliseconds": 50
                                     },
                                     {
                                         "key_code": "return_or_enter"
