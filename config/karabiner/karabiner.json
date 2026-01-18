@@ -1038,6 +1038,63 @@
                         ]
                     },
                     {
+                        "description": "App-Specific: Zen Browser",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^app\\.zen-browser\\.zen"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                               "description": "Cmd + Shift + P in Zen select and paste top Proton Pass result",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "tab"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "return_or_enter"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "escape"},
+                                    {"key_code": "vk_none", "hold_down_milliseconds": 50},
+                                    {"key_code": "v", "modifiers": ["command"]}
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "App-Specific: Beeper",
                         "manipulators": [
                             {
