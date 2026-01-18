@@ -224,7 +224,7 @@
                                 ],
                                 "type": "basic"
                             },
-                                                        {
+                            {
                                 "description": "Hyper+Cmd + L: End of Line",
                                 "from": {
                                     "key_code": "l",
@@ -241,6 +241,28 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Hyper+Cmd + J: End of File",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_control",
+                                            "right_command",
+                                            "left_command",
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "end",
                                         "modifiers": ["left_command"]
                                     }
                                 ],
