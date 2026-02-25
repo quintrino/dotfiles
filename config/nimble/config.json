@@ -14,7 +14,103 @@
         },
         "spotlight": {},
         "operations": {},
-        "layout": {}
+        "layout": {
+            "layouts_v1": [
+                {
+                    "title": "Short",
+                    "brief": {
+                        "mode": 1,
+                        "fixed_mode_width": 150,
+                        "fixed_amount_value": 3,
+                        "dynamic_width_min": 140,
+                        "dynamic_width_max": 300,
+                        "dynamic_width_equal": false,
+                        "icon_scale": 1
+                    }
+                },
+                {
+                    "title": "Medium",
+                    "brief": {
+                        "mode": 2,
+                        "fixed_mode_width": 150,
+                        "fixed_amount_value": 3,
+                        "dynamic_width_min": 140,
+                        "dynamic_width_max": 300,
+                        "dynamic_width_equal": false,
+                        "icon_scale": 1
+                    }
+                },
+                {
+                    "title": "Full",
+                    "list": {
+                        "columns": [
+                            {
+                                "kind": 1,
+                                "width": 465
+                            },
+                            {
+                                "kind": 2,
+                                "width": 90
+                            },
+                            {
+                                "kind": 3,
+                                "width": 90
+                            },
+                            {
+                                "kind": 5,
+                                "width": 90
+                            },
+                            {
+                                "kind": 4,
+                                "width": 217
+                            }
+                        ],
+                        "icon_scale": 1
+                    }
+                },
+                {
+                    "title": "Wide",
+                    "list": {
+                        "columns": [
+                            {
+                                "kind": 1
+                            },
+                            {
+                                "kind": 2
+                            }
+                        ],
+                        "icon_scale": 1
+                    }
+                },
+                {
+                    "title": "Gallery",
+                    "gallery": {
+                        "icon_scale": 1,
+                        "text_lines": 2
+                    }
+                },
+                {
+                    "title": "Custom Layout VI",
+                    "disabled": null
+                },
+                {
+                    "title": "Custom Layout VII",
+                    "disabled": null
+                },
+                {
+                    "title": "Custom Layout VIII",
+                    "disabled": null
+                },
+                {
+                    "title": "Custom Layout IX",
+                    "disabled": null
+                },
+                {
+                    "title": "Custom Layout X",
+                    "disabled": null
+                }
+            ]
+        }
     },
     "viewer": {},
     "terminal": {},
