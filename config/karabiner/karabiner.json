@@ -77,6 +77,44 @@
                         ]
                     },
                     {
+                        "description": "Hyper + 3 activates Bose 35 Headphones",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": ["right_command", "right_shift", "right_option", "right_control"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open alfred://runtrigger/quintrino.bose/35"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper + 4 activates Bose 45 Headphones",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": {
+                                        "mandatory": ["right_command", "right_shift", "right_option", "right_control"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open alfred://runtrigger/quintrino.bose/45"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Screenshot Shortcuts - Custom paths to Proton Sync directory",
                         "manipulators": [
                             {
