@@ -17,4 +17,12 @@ if [ -d $HOME/Proton ]; then
 else
   echo "Proton Drive not found"
 fi
+TIMEOUT_FOLDER="$HOME/Library/Application Scripts/com.dejal.timeout/Break Actions"
+if [ -d "$TIMEOUT_FOLDER" ]; then
+  echo "Exporting Timeout scripts"
+  for script in ~/.dotfiles/apps/timeout/*.applescript; do
+    name=$(basename "$script" .applescript)
+    osacompile -o "$TIMEOUT_FOLDER/$name.scpt" "$script"
+  done
+fi
 merge_upload $ESPANSO_MATCH/base.yml $ESPANSO_MATCH/private.yml espanso.yml $ESPANSO_FILE_ID

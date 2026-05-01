@@ -1,0 +1,7 @@
+#!/bin/zsh
+FILE="$HOME/Library/Application Support/focusmode/session_state.json"
+if [ -f "$FILE" ]; then
+  jq -r 'if .status == "running" then .taskName // "Untitled" elif .status == "paused" then "\(.taskName // "Untitled")" else "what matters" end' "$FILE"
+else
+  echo "what you're meant to do"
+fi
