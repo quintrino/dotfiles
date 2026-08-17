@@ -54,6 +54,9 @@ matches:
     vars:
       - name: clipboard
         type: clipboard
+  #"Godspeed"
+  - trigger: ":go:p"
+    replace: "sort:label:Eternal|Vital|high|medium|low"
   - trigger: ":date"
     replace: "{{date}}"
     vars:
