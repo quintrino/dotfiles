@@ -9,3 +9,24 @@ undercurl = true
 rulers = [80, 120]
 popup-border = "all"
 whitespace.render = { space = "all", tab = "all" }
+
+[keys.insert]
+"J" = ["normal_mode", "extend_to_line_bounds", "delete_selection", "paste_after", "insert_mode"]  # Move line down
+"K" = ["normal_mode", "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "insert_mode"]  # Move line up
+
+[keys.normal]
+"J" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "paste_after",
+  "select_mode",
+  "goto_line_start",
+  "normal_mode",
+] # Move line(s) down
+"K" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+  "flip_selections",
+] # Move line(s) up
