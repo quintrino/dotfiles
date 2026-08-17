@@ -295,9 +295,9 @@ function brew_update
     printf "\033[1;31mUpdating Brew \033[0m\n"
     brew update
     printf "\033[1;31mUpgrading Brew \033[0m\n"
-    set OUTDATED (brew outdated) && brew upgrade
+    set OUTDATED (brew outdated) && brew upgrade --yes
     printf "\033[1;31mOutdated Casks \033[0m\n"
-    brew upgrade --cask --greedy
+    brew upgrade --cask --greedy --yes
     echo $OUTDATED
 end
 

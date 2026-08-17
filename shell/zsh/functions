@@ -341,12 +341,12 @@ brew_update() {
   cd ~/.dotfiles/brew && brew bundle dump --force --describe
   printf "\033[1;31mUpdating Brew \033[0m\n"
   brew update
+  printf "\033[1;31mUpgrading Brew \033[0m\n"
+  OUTDATED=$(brew outdated) && brew upgrade --yes
   printf  "\033[1;31mPruning Brew \033[0m\n"
   brew cleanup --prune=0
-  printf "\033[1;31mUpgrading Brew \033[0m\n"
-  OUTDATED=$(brew outdated) && brew upgrade
   printf "\033[1;31mOutdated Casks \033[0m\n"
-  brew upgrade --cask --greedy
+  brew upgrade --cask --greedy --yes
   echo $OUTDATED
 }
 
