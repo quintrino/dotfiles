@@ -36,3 +36,4 @@ auto_update = false
 auto_update_interval_hours = 720
 
 [directories]
+custom_pages_dir = "pages"
