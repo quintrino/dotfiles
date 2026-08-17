@@ -306,7 +306,6 @@ function mise_update() {
     mise install "$lang@latest"
     mise use -g "$lang@latest"
   done
-  mise prune --yes
 }
 
 zinit_update() {
