@@ -38,6 +38,8 @@ brew "ffmpeg"
 brew "fish"
 # Plugin manager for the Fish shell
 brew "fisher"
+# Command-line tools for fly.io services
+brew "flyctl"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Google Drive CLI Client
