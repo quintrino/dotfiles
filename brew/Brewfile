@@ -78,6 +78,8 @@ brew "starship"
 brew "syncthing"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
+# Execute commands when watched files change
+brew "watchexec"
 # Check your $HOME for unwanted files and directories
 brew "xdg-ninja"
 # Friendly and fast tool for sending HTTP requests
