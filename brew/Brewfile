@@ -81,7 +81,7 @@ brew "zsh"
 # Additional completion definitions for zsh
 brew "zsh-completions"
 # Rust-based Godspeed CLI
-brew "quintrino/godspeed-cli/godspeed-cli"
+brew "quintrino/godspeed-cli/godspeed-cli", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Time tracker
