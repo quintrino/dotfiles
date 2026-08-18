@@ -12,6 +12,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export HEX_HOME="$XDG_CONFIG_HOME/hex"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+export FLY_CONFIG_DIR="$XDG_STATE_HOME"/fly
 export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/nodejs"
 export MISE_RUBY_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/ruby"
 export GEMRC="$XDG_CONFIG_HOME/ruby/gemrc"
