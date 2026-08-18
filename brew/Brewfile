@@ -1,4 +1,5 @@
 tap "brewforge/extras"
+tap "nikitabobko/tap"
 tap "quintrino/godspeed-cli"
 tap "unsecretised/tap"
 # Spell checker with better logic than ispell
@@ -85,6 +86,8 @@ brew "quintrino/godspeed-cli/godspeed-cli"
 cask "1password"
 # Time tracker
 cask "activitywatch"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace", trusted: true
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab
