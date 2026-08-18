@@ -122,6 +122,7 @@ cask "emclient"
 cask "espanso"
 # Web browser
 cask "firefox"
+cask "font-jetbrains-mono-nerd-font"
 # Keyboard-focused todo manager
 cask "godspeed"
 # Keyboard shortcuts for every button on your screen
