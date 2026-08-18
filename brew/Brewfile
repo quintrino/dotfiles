@@ -161,6 +161,8 @@ cask "steam"
 cask "unsecretised/tap/sxitch", trusted: true
 # Remote access and connectivity software focused on security
 cask "teamviewer"
+# Extract text from images and other digital documents
+cask "textsniper"
 # Customizable timing of breaks
 cask "time-out"
 # Transcribe on your own
