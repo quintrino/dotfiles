@@ -1,4 +1,3 @@
-tap "heroku/heroku"
 tap "quintrino/godspeed-cli"
 tap "unsecretised/tap"
 # Spell checker with better logic than ispell
@@ -11,8 +10,6 @@ brew "openssl@3"
 brew "libgit2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Toolchain of the web
-brew "biome"
 # Get/set bluetooth power and discoverable state
 brew "blueutil"
 # Yet another cross-platform graphical process/system monitor
@@ -81,16 +78,12 @@ brew "zoxide"
 brew "zsh"
 # Additional completion definitions for zsh
 brew "zsh-completions"
-# Everything you need to get started with Heroku
-brew "heroku/heroku/heroku"
 # Rust-based Godspeed CLI
 brew "quintrino/godspeed-cli/godspeed-cli"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Time tracker
 cask "activitywatch"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
 # Enable Windows-like alt-tab
@@ -111,8 +104,6 @@ cask "espanso"
 cask "firefox"
 # Keyboard-focused todo manager
 cask "godspeed"
-# Utility to hide menu bar items
-cask "hiddenbar"
 # Keyboard shortcuts for every button on your screen
 cask "homerow"
 # System monitoring app
@@ -121,10 +112,6 @@ cask "istat-menus"
 cask "karabiner-elements"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
-# Native chat application for all major LLM APIs
-cask "macai"
-# Music tagger
-cask "musicbrainz-picard"
 # Dual-pane file manager
 cask "nimble-commander"
 # Open-source software for live streaming and screen recording
@@ -135,10 +122,6 @@ cask "obsidian"
 cask "proton-drive"
 # Bridges Proton Mail to email clients supporting IMAP and SMTP protocols
 cask "proton-mail-bridge"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
-# Utility tooling for your system
-cask "rustcast"
 # Instant messaging application focusing on security
 cask "signal@beta"
 # Team communication and collaboration software
@@ -155,6 +138,3 @@ cask "vlc"
 cask "zen"
 # Video communication and virtual meeting platform
 cask "zoom"
-vscode "github.copilot"
-vscode "github.copilot-chat"
-vscode "jasew.vscode-helix-emulation"
