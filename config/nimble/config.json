@@ -139,7 +139,9 @@
         "automaticSwitching": {}
     },
     "hotkeyOverrides_v1": {
+        "menu.view.refresh": "",
         "menu.view.show_tabs": "",
-        "menu.command.move_to": "⇧⌘t"
+        "menu.command.move_to": "⇧⌘t",
+        "menu.command.move_as": "⌘r"
     }
 }
