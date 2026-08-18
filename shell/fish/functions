@@ -307,7 +307,7 @@ end
 
 function brew_update
     printf "\033[1;31mUpdating Brewfile \033[0m\n"
-    cd ~/.dotfiles/brew && brew bundle dump --force --no-vscode
+    cd ~/.dotfiles/brew && brew bundle dump --force --no-vscode --no-cargo
     printf "\033[1;31mUpdating Brew \033[0m\n"
     brew update
     printf "\033[1;31mUpgrading Brew \033[0m\n"
