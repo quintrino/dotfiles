@@ -173,6 +173,8 @@ cask "brewforge/extras/vibe", trusted: true
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+# Multiplayer code editor
+cask "zed"
 # Gecko based web browser
 cask "zen"
 # Video communication and virtual meeting platform
