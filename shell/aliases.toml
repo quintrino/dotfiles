@@ -25,6 +25,14 @@ temp = 'sudo powermetrics --samplers smc | grep -i "CPU die temperature"'
 as = 'aerospace'
 asr = 'aerospace reload-config'
 god = 'cd $XDG_DATA_HOME/godspeed-cli && bat cache'
+ip = 'ipconfig getifaddr en0 | tee /dev/tty | pbcopy'
+
+[base.variables.aliases.Ssh]
+
+server = 'ssh quintrino@server.local'
+remote = 'ssh quintrino@server.nord'
+chal = 'ssh challenger@challenger.local'
+char = 'ssh challenger@challenger.nord'
 
 [base.variables.aliases.Fish]
 
