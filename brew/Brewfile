@@ -60,6 +60,10 @@ brew "hub"
 brew "libyaml"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
+# General-purpose speech recognition model
+brew "openai-whisper"
 # File management automation tool
 brew "organize-tool"
 # Package compiler and linker metadata toolkit
