@@ -1900,9 +1900,9 @@
                 ]
               },
               {
-                "description": "Signal: Cmd + Shift + l replies to last message",
+                "description": "Signal: Cmd + Shift + r replies to last message",
                 "from": {
-                  "key_code": "l",
+                  "key_code": "r",
                   "modifiers": {
                     "mandatory": [
                       "left_command",
@@ -1961,7 +1961,7 @@
                 ],
                 "to_after_key_up": [
                   {
-                    "shell_command": "echo $(date):: 'Signal: Cmd + Shift + l replies to last message' >> $HOME/.local/share/karabiner/history"
+                    "shell_command": "echo $(date):: 'Signal: Cmd + Shift + r replies to last message' >> $HOME/.local/share/karabiner/history"
                   }
                 ],
                 "type": "basic",
