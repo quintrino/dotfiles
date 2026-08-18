@@ -129,6 +129,8 @@ cask "godspeed"
 cask "homerow"
 # Visual exploration of genomic data
 cask "igv-desktop"
+# Free and open-source media player
+cask "iina"
 # System monitoring app
 cask "istat-menus"
 # Keyboard customiser
