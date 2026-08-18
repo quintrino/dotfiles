@@ -71,7 +71,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [terminal.shell]
-args = ["--command=zellij attach --create main options --default-layout main && zellij delete-session main"]
+args = ["--command=zellij attach --create main options --default-layout main"]
 program = "/usr/local/bin/fish"
 
 [window]

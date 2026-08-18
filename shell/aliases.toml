@@ -48,6 +48,7 @@ efd = '$EDITOR (fd . ~/.dotfiles | fzf --height 20% --preview "bat --style numbe
 bun = 'cd $HOME/.dotfiles/brew && brew bundle dump --force --describe'
 update = 'zellij attach --create update --force-run-commands options --default-layout update'
 nup = 'zellij delete-session --force update'
+nmain = 'zellij delete-session --force main'
 
 [base.variables.aliases.Git]
 
