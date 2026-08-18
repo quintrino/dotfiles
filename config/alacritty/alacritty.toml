@@ -75,7 +75,7 @@ args = ["--command=zellij attach --create main options --default-layout main && 
 program = "/usr/local/bin/fish"
 
 [window]
-startup_mode = "SimpleFullscreen"
+startup_mode = "Maximized"
 option_as_alt = "Both"
 
 [keyboard]

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+is_fullscreen="$(/usr/local/bin/aerospace list-windows --focused --format %{window-is-fullscreen})"
+# say "fullscreen: $is_fullscreen"
+id="$(/usr/local/bin/aerospace list-windows --focused --format %{window-id} | tr -d '\n')"
+
+monitor="$(/usr/local/bin/aerospace list-windows --focused --format %{monitor-name})"
+case $monitor in
+
+  "LEN L27m-28")
+    default=1
+    ;;
+
+  *)
+    default=5
+    ;;
+esac
+
+if [ "$is_fullscreen" = "true" ]; then
+  /usr/local/bin/aerospace move-node-to-workspace --focus-follows-window $default
+else
+  target="$(/usr/local/bin/aerospace list-workspaces --monitor focused --empty | head -n1)"
+  # say "target: $target"
+  echo $target | /usr/local/bin/aerospace move-node-to-workspace next --stdin --wrap-around
+  # echo $target | /usr/local/bin/aerospace workspace next --stdin
+fi
+
+/usr/local/bin/aerospace focus --window-id $id
+/usr/local/bin/aerospace fullscreen
