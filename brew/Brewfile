@@ -135,6 +135,8 @@ cask "iina"
 cask "istat-menus"
 # Keyboard customiser
 cask "karabiner-elements"
+# Host-based application firewall
+cask "little-snitch"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
 # Dual-pane file manager
