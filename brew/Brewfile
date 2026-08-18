@@ -16,6 +16,10 @@ brew "bat"
 brew "blueutil"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
+# Cross-platform make
+brew "cmake"
+# TIFF library and utilities
+brew "libtiff"
 # Dotfile manager and templater written in rust
 brew "dotter"
 # View disk space usage and delete unwanted data, fast
@@ -56,6 +60,8 @@ brew "libyaml"
 brew "mise"
 # File management automation tool
 brew "organize-tool"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # Modern replacement for ps written in Rust
 brew "procs"
 # Search tool like grep and The Silver Searcher
