@@ -127,6 +127,8 @@ cask "font-jetbrains-mono-nerd-font"
 cask "godspeed"
 # Keyboard shortcuts for every button on your screen
 cask "homerow"
+# Visual exploration of genomic data
+cask "igv-desktop"
 # System monitoring app
 cask "istat-menus"
 # Keyboard customiser
