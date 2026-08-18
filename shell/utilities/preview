@@ -1,0 +1,6 @@
+ #!/usr/local/bin/zsh
+if [[ -f $1 ]]; then
+    bat --style numbers,changes --color=always "$1"
+elif [[ -d $1 ]]; then
+    eza --color always --long --grid --all --git --classify --icons --time-style=long-iso "$1"
+fi

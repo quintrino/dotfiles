@@ -81,9 +81,9 @@ end
 
 function ff
     if test $argv
-        set fzf_file (fd . $argv[1] | fzf --height 20% --preview "bat --style numbers,changes --color=always {}")
+        set fzf_file (fd . $argv[1] | fzf --height 20% --preview "preview {}")
     else
-        set fzf_file (fd . . | fzf --height 20% --preview "bat --style numbers,changes --color=always {}")
+        set fzf_file (fd . . | fzf --height 20% --preview "preview {}")
     end
     if test $status -eq 0
         if test -d $fzf_file
