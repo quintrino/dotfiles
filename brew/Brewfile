@@ -141,6 +141,8 @@ cask "little-snitch"
 cask "localsend"
 # Dual-pane file manager
 cask "nimble-commander"
+# VPN client for secure internet access and private browsing
+cask "nordvpn"
 # Open-source software for live streaming and screen recording
 cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
