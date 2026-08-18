@@ -18,6 +18,9 @@ depends = ["base"]
 "shell/bash/bashrc" = "$XDG_CONFIG_HOME/bash/profile"
 "shell/bash/rc" = "$XDG_CONFIG_HOME/bash/bash"
 
+[apps.files]
+"apps/Alacritty" = { target = "/Applications/Alacritty.app", type = "symbolic" }
+
 [bin.files]
 "shell/utilities/calendar_importer" = "$XDG_DATA_HOME/bin/calendar_importer"
 "shell/utilities/extract" = "$XDG_DATA_HOME/bin/extract"

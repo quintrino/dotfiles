@@ -1,0 +1,2 @@
+#!/bin/bash
+exec /Users/roxton/.local/share/mise/installs/rust/latest/bin/alacritty "$@"

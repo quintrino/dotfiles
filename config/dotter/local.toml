@@ -5,6 +5,7 @@ includes = [
 packages = [
   "zsh",
   "fish",
+  "apps",
   "bash",
   "bin",
   "config",
