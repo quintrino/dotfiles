@@ -117,7 +117,7 @@ function music
     echo 'Downloading song using yt-dlp'
     yt-dlp -f bestaudio[ext=m4a] --restrict-filenames -o "%(title).180s.%(ext)s" "$argv"
 end
-    
+
 function logic
      echo -e "\033[1;31m If applied this commit will... \033[0m"
 end
@@ -299,7 +299,7 @@ end
 
 function brew_update
     printf "\033[1;31mUpdating Brewfile \033[0m\n"
-    cd ~/.dotfiles/brew && brew bundle dump --force --describe
+    cd ~/.dotfiles/brew && brew bundle dump --force --no-vscode
     printf "\033[1;31mUpdating Brew \033[0m\n"
     brew update
     printf "\033[1;31mUpgrading Brew \033[0m\n"
