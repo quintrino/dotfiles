@@ -157,6 +157,8 @@ cask "signal@beta"
 cask "slack"
 # Video game digital distribution service
 cask "steam"
+# Tree-based app switcher
+cask "unsecretised/tap/sxitch", trusted: true
 # Remote access and connectivity software focused on security
 cask "teamviewer"
 # Customizable timing of breaks
