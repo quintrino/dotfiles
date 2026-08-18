@@ -177,6 +177,14 @@ function freq
     head -50
 end
 
+function freak
+    cut -d':' -f4- $XDG_DATA_HOME/karabiner/history  |\
+    sed 's/^ *//' |\
+    sort |\
+    uniq -c |\
+    sort -rn
+end
+
 function smart_cd
     set base_dir "$argv[1]"  # Change this to the actual path of your 'con' directory
     cd $base_dir
