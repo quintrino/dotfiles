@@ -155,6 +155,8 @@ cask "proton-mail-bridge"
 cask "signal@beta"
 # Team communication and collaboration software
 cask "slack"
+# Video game digital distribution service
+cask "steam"
 # Remote access and connectivity software focused on security
 cask "teamviewer"
 # Customizable timing of breaks
