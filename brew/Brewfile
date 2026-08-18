@@ -1,3 +1,4 @@
+tap "brewforge/extras"
 tap "quintrino/godspeed-cli"
 tap "unsecretised/tap"
 # Spell checker with better logic than ispell
@@ -130,6 +131,8 @@ cask "slack"
 cask "teamviewer"
 # Customizable timing of breaks
 cask "time-out"
+# Transcribe on your own
+cask "brewforge/extras/vibe", trusted: true
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
