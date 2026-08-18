@@ -163,6 +163,8 @@ cask "unsecretised/tap/sxitch", trusted: true
 cask "teamviewer"
 # Extract text from images and other digital documents
 cask "textsniper"
+# Menu bar manager
+cask "thaw"
 # Customizable timing of breaks
 cask "time-out"
 # Transcribe on your own
