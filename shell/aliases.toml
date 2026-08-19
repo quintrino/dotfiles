@@ -187,3 +187,4 @@ ts = 'tmux choose-session'
 [base.variables.aliases.Fun]
 
 star = 'telnet towel.blinkenlights.nl'
+art = 'cd $HOME/Developer/personal/quintrino-contribution-graph && ./refresh_commit_graph.sh'
