@@ -5,13 +5,15 @@ source "$HOME/.dotfiles/shell/environment"
 
 function install_homebrew() {
   printf "\033[1;31mInstalling Homebrew \033[0m\n"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 }
 
 function install_brew_bundle() {
   printf "\033[1;31mBrew Bundle Install \033[0m\n"
   cd "$HOME/.dotfiles/brew" || exit
-  brew bundle
+
+  brew bundle --verbose
   if [ "$WORK" == 1 ];
     then cd work || exit
     brew bundle
