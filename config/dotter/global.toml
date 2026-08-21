@@ -43,7 +43,6 @@ depends = ["base"]
 "config/helix" = { target = "$XDG_CONFIG_HOME/helix/", type = "symbolic" }
 
 
-"config/mtmr/items.json" = "$HOME/Library/ApplicationSupport/MTMR/items.json"
 "config/organize/config.yaml" = "$XDG_CONFIG_HOME/organize/config.yaml"
 "config/aerospace/aerospace.toml" = "$XDG_CONFIG_HOME/aerospace/aerospace.toml"
 "config/tmux/tmux.conf" = "$XDG_CONFIG_HOME/tmux/tmux.conf"
