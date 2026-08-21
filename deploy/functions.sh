@@ -42,7 +42,6 @@ function install_config_folders() {
   mkdir -p "$HOME/Library/Preferences/org.videolan.vlc"
   mkdir -p "$XDG_CONFIG_HOME/karabiner"
   mkdir -p "$XDG_CONFIG_HOME/zinit/bin"
-  mkdir -p "$XDG_CONFIG_HOME/hammerspoon"
   mkdir -p "$XDG_CONFIG_HOME/fish"
   mkdir -p "$XDG_CONFIG_HOME/tmux"
   mkdir -p "$XDG_CONFIG_HOME/npm"
