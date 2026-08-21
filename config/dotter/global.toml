@@ -32,6 +32,7 @@ depends = ["base"]
 "shell/utilities/preview" = "$XDG_DATA_HOME/bin/preview"
 "shell/utilities/focusmode_task" = "$XDG_DATA_HOME/bin/focusmode_task"
 "shell/utilities/merge_upload" = "$XDG_DATA_HOME/bin/merge_upload"
+"shell/utilities/zsh_cleanse" = "$XDG_DATA_HOME/bin/zsh_cleanse"
 "config/git/cc_menu" = "$XDG_DATA_HOME/bin/cc_menu"
 "config/git/push_alert" = "$XDG_DATA_HOME/bin/push_alert"
 
