@@ -141,6 +141,9 @@ function install_apple_defaults() {
   # Wipe all (default) app icons from the Dock
   defaults write com.apple.dock persistent-apps -array
 
+  # Remove all persistent folder/file icons (the right side of the Dock)
+  defaults write com.apple.dock persistent-others -array
+
   # Don’t automatically rearrange Spaces based on most recent use
   defaults write com.apple.dock mru-spaces -bool false
 
