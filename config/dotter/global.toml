@@ -40,6 +40,8 @@ depends = ["base"]
 "config/zellij" = { target = "$XDG_CONFIG_HOME/zellij/", type = "symbolic" }
 "config/teeldear" = { target = "$XDG_CONFIG_HOME/teeldear/", type = "symbolic" }
 "config/bettercmdtab" = { target = "$XDG_CONFIG_HOME/bettercmdtab/", type = "symbolic" }
+"config/helix" = { target = "$XDG_CONFIG_HOME/helix/", type = "symbolic" }
+
 
 "config/mtmr/items.json" = "$HOME/Library/ApplicationSupport/MTMR/items.json"
 "config/organize/config.yaml" = "$XDG_CONFIG_HOME/organize/config.yaml"
@@ -52,8 +54,6 @@ depends = ["base"]
 "config/hub/config" = "$XDG_CONFIG_HOME/hub"
 "config/teeldear/config.toml" = "$XDG_CONFIG_HOME/teeldear/config.toml"
 "config/mise/config.toml" = "$XDG_CONFIG_HOME/mise/config.toml"
-"config/helix/config.toml" = "$XDG_CONFIG_HOME/helix/config.toml"
-"config/helix/languages.toml" = "$XDG_CONFIG_HOME/helix/languages.toml"
 "config/biome/default.json" = "$XDG_CONFIG_HOME/biome/default.json"
 "config/nimble/config.json" = "$HOME/Library/Application Support/Nimble Commander/Config/Config.json"
 
