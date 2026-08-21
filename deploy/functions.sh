@@ -53,9 +53,9 @@ function install_config_folders() {
 function install_zsh_defaults() {
   printf "\033[1;31mSetting Default Shell \033[0m\n"
   [ -f "$HOME/.local/share/zsh/zshrc" ] || echo '#!/bin/zsh' >> "$HOME/.local/share/zsh/zshrc"
-  sudo sh -c 'echo /usr/local/bin/zsh >> /etc/shells' # Set brew zsh as acceptable shell choice
-  chsh -s /usr/local/bin/zsh # Set shell to brew zsh
-  chmod go-w '/usr/local/share' # To allow Zsh-completions to work without issues
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+  echo "$(which zsh)" | sudo tee -a /etc/shells # Set brew zsh as acceptable shell choice
+  chsh -s $(which zsh) # Set shell to brew zsh
 }
 
 function install_config_files() {
