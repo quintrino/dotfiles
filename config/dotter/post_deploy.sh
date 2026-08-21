@@ -27,4 +27,5 @@ if [ -d "$TIMEOUT_FOLDER" ]; then
     osacompile -o "$TIMEOUT_FOLDER/$name.scpt" "$script"
   done
 fi
-merge_upload $ESPANSO_MATCH/base.yml $ESPANSO_MATCH/private.yml espanso.yml $ESPANSO_FILE_ID
+
+$HOME/.dotfiles/shell/utilities/merge_upload $ESPANSO_MATCH/base.yml $ESPANSO_MATCH/private.yml espanso.yml $ESPANSO_FILE_ID
