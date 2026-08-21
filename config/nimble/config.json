@@ -141,7 +141,9 @@
     "hotkeyOverrides_v1": {
         "menu.view.refresh": "",
         "menu.view.show_tabs": "",
+        "menu.go.restore_last_closed": "^⌘t",
         "menu.command.move_to": "⇧⌘t",
-        "menu.command.move_as": "⌘r"
+        "menu.command.move_as": "⌘r",
+        "menu.command.rename_in_place": "⇧⌘r"
     }
 }

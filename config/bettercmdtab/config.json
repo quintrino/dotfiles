@@ -1,0 +1,55 @@
+{
+  "$schema" : "schema.json",
+  "animationsEnabled" : false,
+  "appExceptions" : [
+    {
+      "bundleID" : "com.apple.finder",
+      "hide" : "whenNoWindows",
+      "ignore" : "never"
+    }
+  ],
+  "backtickReversesAppSwitching" : true,
+  "directActivationBindings" : [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "displayMode" : "mainDisplay",
+  "expandBrowserTabsAsWindows" : false,
+  "experimentalInstantSpaceSwitch" : true,
+  "fuzzySearchEnabled" : true,
+  "gridSingleRow" : true,
+  "hapticOnCommit" : false,
+  "instantSpaceSwitch" : true,
+  "layoutMode" : "windowPreview",
+  "letterChainTimeoutMs" : 1500,
+  "letterHintsEnabled" : true,
+  "listWidthPercent" : 50,
+  "nextScopedShortcutID" : 1,
+  "panelAppearance" : "dark",
+  "panelCornerRadius" : 40,
+  "panelOpacity" : 100,
+  "panelScalePercent" : 100,
+  "pinnedBundleIDs" : [
+
+  ],
+  "revealDelayMs" : 100,
+  "scopedShortcutList" : [
+
+  ],
+  "searchIncludesLaunchableApps" : false,
+  "shortcutOverrides" : [
+    {
+      "expandBrowserTabsAsWindows" : "true",
+      "target" : "switchWindows"
+    }
+  ],
+  "showWindowStatusIcons" : true,
+  "vimNavigationEnabled" : true
+}

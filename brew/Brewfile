@@ -1,7 +1,6 @@
 tap "brewforge/extras"
 tap "nikitabobko/tap"
 tap "quintrino/godspeed-cli"
-tap "unsecretised/tap"
 # Spell checker with better logic than ispell
 brew "aspell"
 # Mozilla CA certificate store
@@ -106,12 +105,12 @@ cask "activitywatch"
 cask "nikitabobko/tap/aerospace", trusted: true
 # Application launcher and productivity software
 cask "alfred"
-# Enable Windows-like alt-tab
-cask "alt-tab"
 # Memory training application
 cask "anki"
 # Universal chat app powered by Matrix
 cask "beeper"
+# Replacement for the built-in Cmd+Tab app switcher
+cask "bettercmdtab"
 # Desktop password and login vault
 cask "bitwarden"
 # Web browser focusing on privacy
@@ -157,8 +156,6 @@ cask "signal@beta"
 cask "slack"
 # Video game digital distribution service
 cask "steam"
-# Tree-based app switcher
-cask "unsecretised/tap/sxitch", trusted: true
 # Remote access and connectivity software focused on security
 cask "teamviewer"
 # Extract text from images and other digital documents
