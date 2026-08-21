@@ -44,7 +44,6 @@ function install_config_folders() {
   mkdir -p "$XDG_CONFIG_HOME/hammerspoon"
   mkdir -p "$XDG_CONFIG_HOME/fish"
   mkdir -p "$XDG_CONFIG_HOME/tmux"
-  mkdir -p "$XDG_CONFIG_HOME/tmuxinator"
   mkdir -p "$XDG_CONFIG_HOME/npm"
   mkdir -p "$XDG_CONFIG_HOME/zsh"
   mkdir -p "$XDG_CONFIG_HOME/mise"
