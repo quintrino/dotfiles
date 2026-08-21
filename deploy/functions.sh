@@ -178,7 +178,7 @@ function set_dash_defaults() {
 
 function register_espanso() {
   printf "\033[1;31mRegistering Espanso \033[0m\n"
-  espanso register
+  espanso service start
 }
 
 function remind_install_steps() {
