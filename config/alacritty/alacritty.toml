@@ -109,4 +109,6 @@ bindings = [
   { key = "R", mods = "Command", chars = "\u001br" },
   # Command + N to resize Pane
   { key = "N", mods = "Command", chars = "\u001bn" },
+  { key = "P", mods = "Command|Shift", chars = "\u001b\u0010" },
+  { key = "/", mods = "Command", chars = "\u001b\u0003" },
 ]
