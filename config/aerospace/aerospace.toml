@@ -213,10 +213,6 @@ exec-on-workspace-change = ['/bin/bash', '-c', '''
   run = ["exec-and-forget /Users/roxton/.dotfiles/shell/utilities/aerospace_toggle"]
 
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = ['move-node-to-workspace Br', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
 if.app-id = 'com.brave.Browser.beta'
 run = ['move-node-to-workspace Vol', 'layout tiling', 'fullscreen']
 
@@ -249,9 +245,13 @@ if.app-id = 'dev.zed.Zed'
 run = ['move-node-to-workspace Ed', 'layout tiling', 'fullscreen']
 
 [[on-window-detected]]
+if.app-id = 'com.zoom.xos'
+run = ['move-node-to-workspace Zm', 'layout tiling', 'fullscreen']
+
+[[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
 run = ['move-node-to-workspace B', 'layout tiling', 'fullscreen']
 
 [[on-window-detected]]
-if.app-id = 'com.brave.Browser'
-run = ['move-node-to-workspace B', 'layout tiling', 'fullscreen']
+if.app-id = 'com.jins.naivechat'
+run = ['move-node-to-workspace AI', 'layout tiling', 'fullscreen']
