@@ -13,8 +13,6 @@ whitespace.render = { space = "all", tab = "all" }
 [keys.insert]
 "A-C-c" = "toggle_comments"
 "A-C-p" = "command_palette"
-"J" = ["normal_mode", "extend_to_line_bounds", "delete_selection", "paste_after", "insert_mode"]  # Move line down
-"K" = ["normal_mode", "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "insert_mode"]  # Move line up
 
 [keys.normal]
 "J" = [
