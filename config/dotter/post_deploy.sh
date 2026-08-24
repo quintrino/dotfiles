@@ -3,6 +3,8 @@ echo "Generating symlinks"
 echo "Symlinking apps/vlc/vlcrc"
 ln -sf ~/.dotfiles/apps/vlc/vlcrc ~/Library/Preferences/org.videolan.vlc/vlcrc
 echo "Symlinking config/karabiner/"
+KARABINER_DIRECTORY="$XDG_CONFIG_HOME/karabiner"
+[ -d "$KARABINER_DIRECTORY" ] && [ ! -L "$KARABINER_DIRECTORY" ] && rm -rf "$KARABINER_DIRECTORY"
 ln -sf ~/.dotfiles/config/karabiner/ $XDG_CONFIG_HOME/
 echo "Generating Karabiner config file"
 ruby ~/.dotfiles/config/karabiner/generate_karabiner.rb
