@@ -398,9 +398,8 @@ def rules
           basic("Signal: Cmd + Shift + Enter select chat", from: from_key("return_or_enter", mandatory: ["left_command", "left_shift"]), to: [*to_tab_then_wait(3), *to_key_then_wait("return_or_enter"), to_key("return_or_enter")]),
           basic("Signal: Cmd + Shift + = react to last message", from: from_key("equal_sign", mandatory: ["left_command", "left_shift"]), to: [*to_tab_then_wait(3, modifiers: ["right_shift"]), to_key("e", modifiers: ["right_shift", "right_command"])]),
           basic("Signal: Cmd + Shift + r replies to last message", from: from_key("r", mandatory: ["left_command", "left_shift"]), to: [*to_tab_then_wait(4, modifiers: ["right_shift"]), to_key("r", modifiers: ["right_shift", "right_command"])]),
-          basic("Signal: Command + O opens link", from: from_key("o", mandatory: ["left_command"]), to: [*to_tab_then_wait(3, modifiers: ["left_shift"]), to_key("return_or_enter")])
-        ],
-        ),
+          basic("Signal: Command + O opens link", from: from_key("o", mandatory: ["left_command"]), to: [*to_tab_then_wait(4, modifiers: ["left_shift"]), to_key("return_or_enter")])
+        ]),
     app_specific_rule("App-Specific: Godspeed", "^com\\.godspeedapp\\.Godspeed", [
           basic("Godspeed: Hyper + U move up (Option+P)", from: hyper("u"), to: [to_key("p", modifiers: ["right_option"])]),
           basic("Godspeed: Hyper + I move down (Option+N)", from: hyper("i"), to: [to_key("n", modifiers: ["right_option"])])

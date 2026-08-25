@@ -2071,6 +2071,16 @@
                     "hold_down_milliseconds": 50
                   },
                   {
+                    "key_code": "tab",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "vk_none",
+                    "hold_down_milliseconds": 50
+                  },
+                  {
                     "key_code": "return_or_enter"
                   }
                 ],
