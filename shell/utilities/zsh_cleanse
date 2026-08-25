@@ -3,3 +3,4 @@
 cd $HOME
 rm -rf $HOME/.zsh_sessions
 rm -rf $HOME/.zsh_history
+rm -rf $HOME/.zshrc
