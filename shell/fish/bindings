@@ -1,8 +1,10 @@
 #!/bin/fish
 
-bind \e\[\[CE 'commandline -f accept-autosuggestion execute'
 bind \cy 'commandline -f accept-autosuggestion execute'
-bind \ce 'e (commandline -b)'
-bind \cc 'cd (commandline -b)'
+# Alacritty Command + Enter to auto accept suggestion
+bind \ee 'e .; commandline -f repaint'
+# Alacritty Command + e Edit directory
+bind \ec 'cd (commandline -b); commandline -f repaint'
+# Alacritty Control + Option + C to cd into directory
 bind \cb backward-kill-line
 # Alacritty Command + Backspace to delete full line

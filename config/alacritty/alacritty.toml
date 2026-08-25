@@ -112,4 +112,8 @@ bindings = [
   { key = "P", mods = "Command|Shift", chars = "\u001b\u0010" },
   { key = "Backspace", mods = "Command", chars = "\u0003" },
   { key = "/", mods = "Command", chars = "\u001b\u0003" },
+  { key = "C", mods = "Control|Option", chars = "\u001bc" },
+  { key = "E", mods = "Control|Option", chars = "\u001be" },
+  { key = "E", mods = "Command", chars = "\u001be" },
+  { key = "Return", mods = "Command", chars = "\u0019" },
 ]
