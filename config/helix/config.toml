@@ -13,8 +13,10 @@ whitespace.render = { space = "all", tab = "all" }
 [keys.insert]
 "A-C-c" = "toggle_comments"
 "A-C-p" = "command_palette"
+"A-e" = ":quit" # Command + e to exit
 
 [keys.normal]
+"A-e" = ":quit" # Command + e to exit
 "J" = [
   "extend_to_line_bounds",
   "delete_selection",
@@ -32,3 +34,6 @@ whitespace.render = { space = "all", tab = "all" }
 ] # Move line(s) up
 "A-C-p" = "command_palette"
 "A-C-c" = "toggle_comments"
+
+[keys.select]
+"A-C-p" = "command_palette"
