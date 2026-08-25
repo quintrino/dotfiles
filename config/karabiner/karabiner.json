@@ -560,6 +560,57 @@
                   }
                 ],
                 "type": "basic"
+              },
+              {
+                "description": "Hyper + 8: Spell correct via popclip",
+                "from": {
+                  "key_code": "8",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_control",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "right_option"
+                    ]
+                  },
+                  {
+                    "key_code": "vk_none",
+                    "hold_down_milliseconds": 50
+                  },
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "right_option",
+                      "right_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "vk_none",
+                    "hold_down_milliseconds": 50
+                  },
+                  {
+                    "key_code": "u",
+                    "modifiers": [
+                      "right_command",
+                      "right_option",
+                      "right_control"
+                    ]
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "shell_command": "echo $(date):: 'Hyper + 8: Spell correct via popclip' >> $HOME/.local/share/karabiner/history"
+                  }
+                ],
+                "type": "basic"
               }
             ]
           },

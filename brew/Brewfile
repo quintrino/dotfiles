@@ -146,6 +146,8 @@ cask "nordvpn"
 cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Used to access context-specific actions when text is selected
+cask "popclip"
 # Client for Proton Drive
 cask "proton-drive"
 # Bridges Proton Mail to email clients supporting IMAP and SMTP protocols

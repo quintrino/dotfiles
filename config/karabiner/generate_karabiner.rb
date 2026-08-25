@@ -343,7 +343,8 @@ def rules
           basic("Hyper + A: Toggle VoiceOver", from: hyper("a"), to: [to_key("f5", modifiers: ["right_command"])]),
           basic("Hyper + R: Toggle menubar", from: hyper("r"), to: [to_key("f2", modifiers: ["fn", "left_control"])]),
           basic("Hyper + F: Open default application launcher", from: hyper("f"), to: [to_key("spacebar", modifiers: ["right_option"])]),
-          basic("Hyper + ': Espanso search", from: hyper("quote"), to: [to_key("e", modifiers: ["right_command", "right_shift"])])
+          basic("Hyper + ': Espanso search", from: hyper("quote"), to: [to_key("e", modifiers: ["right_command", "right_shift"])]),
+          basic("Hyper + 8: Spell correct via popclip", from: hyper("8"), to: [*to_key_then_wait("left_arrow", modifiers: ["right_option"]), *to_key_then_wait("right_arrow", modifiers: ["right_option", "right_shift"]), to_key("u", modifiers: ["right_command", "right_option", "right_control"])])
         ]),
     rule("Hyper Key - Default Application Launchers", [
           basic("Hyper + W: Open default browser (Zen)", from: hyper("w"), to: [open('Zen')]),
