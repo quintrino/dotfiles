@@ -229,6 +229,10 @@ if.app-id = 'com.godspeedapp.Godspeed'
 run = ['move-node-to-workspace Tk', 'layout tiling', 'fullscreen']
 
 [[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmapgap'
+run = ['move-node-to-workspace Sk', 'layout tiling', 'fullscreen']
+
+[[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = ['move-node-to-workspace Tm', 'layout tiling', 'fullscreen']
 
