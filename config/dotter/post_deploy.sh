@@ -31,7 +31,7 @@ if [ -d "$TIMEOUT_FOLDER" ]; then
 fi
 
 
-if [ -d "$ESPANSO_MATCH" ]; then
+if [ -d "$ESPANSO_MATCH" ] && [ -z "$ESPANSO_OFF" ]; then
   echo "Espanso Match files located"
   $HOME/.dotfiles/shell/utilities/merge_upload $ESPANSO_MATCH/base.yml $ESPANSO_MATCH/private.yml espanso.yml $ESPANSO_FILE_ID
 fi
