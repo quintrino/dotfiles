@@ -12,6 +12,38 @@
         },
         "rules": [
           {
+            "description": "App-Specific: NaiveChat",
+            "manipulators": [
+              {
+                "description": "NaiveChat: Escape returns to previous app",
+                "from": {
+                  "key_code": "caps_lock"
+                },
+                "to": [
+                  {
+                    "key_code": "escape"
+                  },
+                  {
+                    "key_code": "vk_none",
+                    "hold_down_milliseconds": 50
+                  },
+                  {
+                    "shell_command": "/usr/local/bin/aerospace workspace-back-and-forth"
+                  }
+                ],
+                "type": "basic",
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.jins.naivechat"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "System Modifications - Caps Lock to Hyper Key with Escape on tap",
             "manipulators": [
               {

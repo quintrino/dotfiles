@@ -316,6 +316,9 @@ end
 
 def rules
   [
+    app_specific_rule('App-Specific: NaiveChat', 'com.jins.naivechat', [
+          basic('NaiveChat: Escape returns to previous app', log: false, from: from_key('caps_lock'), to: [*to_key_then_wait('escape'), to_shell('/usr/local/bin/aerospace workspace-back-and-forth')])
+      ]),
     rule('System Modifications - Caps Lock to Hyper Key with Escape on tap', [
           basic('Shift + Caps Lock enables actual Caps Lock', from: from_key('caps_lock', mandatory: ['shift'], optional: ['caps_lock']), to: [to_key('caps_lock')], log: false),
           basic('Caps Lock to Hyper Key (Right Shift + Right Cmd + Right Ctrl + Right Option), Escape on tap', from: from_key('caps_lock', optional: ['any']), to: [to_key('right_shift', modifiers: ['right_command', 'right_control', 'right_option'])], to_if_alone: [to_key('escape')], log: false)

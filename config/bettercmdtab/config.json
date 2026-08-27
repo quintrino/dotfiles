@@ -6,6 +6,11 @@
       "bundleID" : "com.apple.finder",
       "hide" : "whenNoWindows",
       "ignore" : "never"
+    },
+    {
+      "bundleID" : "com.jins.naivechat",
+      "hide" : "always",
+      "ignore" : "never"
     }
   ],
   "backtickReversesAppSwitching" : true,
