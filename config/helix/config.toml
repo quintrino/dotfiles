@@ -9,13 +9,29 @@ undercurl = true
 rulers = [80, 120]
 popup-border = "all"
 whitespace.render = { space = "all", tab = "all" }
+mouse = false
+line-number = 'relative'
+bufferline = 'multiple'
+trim-trailing-whitespace = true
+jump-label-alphabet = "asdfjkl;ghweruiopcvm,tybnqxz"
+
+[editor.statusline]
+left = ["mode", "file-name", "spinner", "read-only-indicator", "version-control"]
+center = ["file-absolute-path"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL:"
+mode.insert = "INSERT:"
+mode.select = "SELECT:"
 
 [keys.insert]
 "A-C-c" = "toggle_comments"
 "A-C-p" = "command_palette"
 "A-e" = ":quit" # Command + e to exit
+C-c = ["goto_line_start", "extend_to_line_end", "delete_selection"]
 
 [keys.normal]
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 "A-e" = ":quit" # Command + e to exit
 "J" = [
   "extend_to_line_bounds",
