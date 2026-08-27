@@ -6,75 +6,87 @@ env {
     ZDOTDIR "$HOME/.config/zsh"
 }
 
+
 layout {
-    pane split_direction="vertical" {
-        pane split_direction="horizontal" {
-            pane {
-                name "Zinit Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && zinit_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
-            pane {
-                name "Fisher Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && fisher_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
-            pane {
-                name "Mise Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && mise_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
-            pane {
-                name "Ruby Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && ruby_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
         }
-        pane split_direction="horizontal" {
-            pane {
-                name "Doctor Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && doctor_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
-            pane {
-                name "Brew Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && brew_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
-            pane {
-                name "Mac Software Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && mac_software_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
-            pane {
-                name "Dotter Update"
-                command "zsh"
-                  args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
-                    && dotter_update \\
-                    ; exec zsh"
-                  close_on_exit true
-            }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
         }
+    }
+    tab name="update" {
+        pane split_direction="vertical" {
+                pane split_direction="horizontal" {
+                    pane {
+                        name "Zinit Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && zinit_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                    pane {
+                        name "Fisher Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && fisher_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                    pane {
+                        name "Mise Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && mise_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                    pane {
+                        name "Ruby Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && ruby_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                }
+                pane split_direction="horizontal" {
+                    pane {
+                        name "Doctor Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && doctor_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                    pane {
+                        name "Brew Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && brew_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                    pane {
+                        name "Mac Software Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && mac_software_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                    pane {
+                        name "Dotter Update"
+                        command "zsh"
+                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                            && dotter_update \\
+                            ; exec zsh"
+                        close_on_exit true
+                    }
+                }
+            }
     }
 }
