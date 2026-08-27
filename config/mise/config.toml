@@ -9,3 +9,8 @@ idiomatic_version_file_enable_tools = ["ruby"]
 
 [settings.ruby]
 compile = true
+
+[env]
+XDG_DATA_HOME = "{{env.HOME}}/.local/share"   # usually already the default, but explicit is safer
+CARGO_HOME = "{{env.XDG_DATA_HOME}}/cargo"
+RUSTUP_HOME = "{{env.XDG_DATA_HOME}}/rustup"
