@@ -229,7 +229,7 @@ function dotter_update
     --verbose
 end
 
-function path
+function show_path
     set -l green (set_color green)
     set -l blue (set_color blue)
     set -l red (set_color red)
