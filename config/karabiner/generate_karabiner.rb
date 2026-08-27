@@ -6,8 +6,6 @@ require 'json'
 HYPER = %w[right_shift right_control right_command right_option].freeze
 HYPER_CMD = (HYPER + %w[left_command]).freeze
 SS_FORMAT = '$HOME/Proton/Sync/Devices/Screenshots/Screenshot_'
-@ls = 'left_shift'
-
 
 OUTPUT_PATH = File.expand_path('karabiner.json', __dir__)
 
@@ -90,12 +88,12 @@ end
 
 def hyper(key_code)
   modifiers = compact_hash('mandatory' => HYPER)
-  compact_hash('key_code' => key_code, 'modifiers' => modifiers )
+  compact_hash('key_code' => key_code, 'modifiers' => modifiers)
 end
 
 def cmd_hyper(key_code)
   modifiers = compact_hash('mandatory' => HYPER_CMD)
-  compact_hash('key_code' => key_code, 'modifiers' => modifiers )
+  compact_hash('key_code' => key_code, 'modifiers' => modifiers)
 end
 
 def from_simultaneous(keys, optional:, after_key_up:)
@@ -355,6 +353,7 @@ def rules
           basic('Hyper + T: Open default terminal (Alacritty)', from: hyper('t'), to: [open('Alacritty')]),
           basic('Hyper + O: Open Note Taker (Obsidian)', from: hyper('o'), to: [open('Obsidian')]),
           basic('Hyper + S: Open Work Messages (Slack)', from: hyper('s'), to: [open('Slack')]),
+          basic('Hyper + P: Open Password Manager (Bitwarden)', from: hyper('p'), to: [open('Bitwarden')])
         ]),
     rule('Hyper+Cmd Key - Application Launchers', [
           basic('Hyper+Cmd + H: Open Homerow', from: cmd_hyper('h'), to: [to_key('space', modifiers: ['right_command', 'right_shift'])]),
@@ -372,8 +371,7 @@ def rules
           basic('Hyper+Cmd + Z: Open Zoom', from: cmd_hyper('z'), to: [open('zoom.us')]),
           basic('Hyper+Cmd + E: Open Zed', from: cmd_hyper('e'), to: [open('Zed')]),
           basic('Hyper+Cmd + C: Open Calendar', from: cmd_hyper('c'), to: [to_shell('open -a "$HOME/Applications/Calendar.app"')]),
-          basic('Hyper+Cmd + P: Open Brave Browser', from: cmd_hyper('p'), to: [open('Brave Browser Beta')]),
-          basic('Hyper+Cmd + P: Open Bitwarden', from: hyper('p'), to: [open('Bitwarden')]),
+          basic('Hyper+Cmd + P: Open Brave Browser', from: cmd_hyper('p'), to: [open('Brave Browser Beta')])
         ]),
     app_specific_rule('App-Specific: Alacritty Terminal', '^org\\.alacritty$', [
           basic('Alacritty: Hyper + D sends EOF (Ctrl+D)', from: hyper('d'), to: [to_key('d', modifiers: ['right_control'])]),

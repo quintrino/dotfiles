@@ -773,6 +773,31 @@
                   }
                 ],
                 "type": "basic"
+              },
+              {
+                "description": "Hyper + P: Open Password Manager (Bitwarden)",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_control",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a 'Bitwarden.app'"
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "shell_command": "echo $(date):: 'Hyper + P: Open Password Manager (Bitwarden)' >> $HOME/.local/share/karabiner/history"
+                  }
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -1201,31 +1226,6 @@
                 "to_after_key_up": [
                   {
                     "shell_command": "echo $(date):: 'Hyper+Cmd + P: Open Brave Browser' >> $HOME/.local/share/karabiner/history"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "description": "Hyper+Cmd + P: Open Bitwarden",
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_shift",
-                      "right_control",
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a 'Bitwarden.app'"
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "shell_command": "echo $(date):: 'Hyper+Cmd + P: Open Bitwarden' >> $HOME/.local/share/karabiner/history"
                   }
                 ],
                 "type": "basic"
