@@ -55,6 +55,7 @@
     minus-style = 'syntax bold auto'
     plus-style = 'syntax bold "#245c1b"'
     keep-plus-minus-markers = true
+    dark = true
 
 [delta "interactive"]
     keep-plus-minus-markers = true
