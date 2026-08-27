@@ -2,8 +2,9 @@
 
   `Command Pallete: Command+Shift+P`
   `Duplicate selection: ".p`
+
 - Insert methods
-  
+
   `Start of line: I`
   `Start of selection: i`
   `End of line (append): A`
