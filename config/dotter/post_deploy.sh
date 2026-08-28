@@ -8,10 +8,6 @@ KARABINER_DIRECTORY="$XDG_CONFIG_HOME/karabiner"
 ln -sf ~/.dotfiles/config/karabiner/ $XDG_CONFIG_HOME/
 echo "Generating Karabiner config file"
 ruby ~/.dotfiles/config/karabiner/generate_karabiner.rb
-echo "Symlinking apps/vs-code/settings.vsrc"
-ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Code/User/settings.json
-echo "Symlinking apps/vs-code/settings.vsrc"
-ln -sf ~/.dotfiles/apps/vs-code/keys.vsrc ~/Library/Application\ Support/Code/User/keybindings.json
 clang -F /System/Library/PrivateFrameworks -framework login -o $HOME/Library/LaunchAgents/Scripts/bin/locknow $HOME/.dotfiles/shell/tasks/locknow.c
 echo "Copying IINA Config to dotfiles"
 cp ~/Library/Application\ Support/com.colliderli.iina/input_conf/Custom.conf ~/.dotfiles/config/iina/
