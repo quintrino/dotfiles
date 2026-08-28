@@ -2,33 +2,47 @@
 
 [base.variables.aliases.Terminal]
 
-zhist = '$EDITOR $XDG_DATA_HOME/zsh/history/'
-bhist = '$EDITOR $XDG_DATA_HOME/bash/history/'
 b = 'bat'
-v = 'vim'
 bp = 'bat --plain'
+c = 'cd'
+exe = 'chmod +x'
+fb = 'fzf --preview "bat --style numbers,changes --color=always {}"'
 ffi = '__zoxide_zi'
-now = 'date +"%T"'
 l = 'eza --long --grid --all --header --git --classify --icons --time-style=long-iso --sort=age'
 lr = 'eza --long --grid --all --header --git --classify --icons --time-style=long-iso | grep --ignore-case'
+m = 'mv'
 md = 'mkdir -p'
-h = 'hx'
+now = 'date +"%T"'
 rmf = 'rm -rf'
 t = 'touch'
-tl = 'tldr'
-bash = 'bash --rcfile $XDG_CONFIG_HOME/bash/profile'
-fb = 'fzf --preview "bat --style numbers,changes --color=always {}"'
 tree = 'eza --tree --all --icons --level=3'
-ncdu = 'echo Consider using di (dua interactive) instead'
-di = 'dua interactive'
+
+[base.variables.aliases.Machine]
+
+pk = 'kill -9 $(ps aux | fzf --height 10% | awk "{print $2}")'
+ip = 'ipconfig getifaddr en0 | tee /dev/tty | pbcopy'
 temp = 'sudo powermetrics --samplers smc | grep -i "CPU die temperature"'
+
+[base.variables.aliases.Shell]
+
+bash = 'bash --rcfile $XDG_CONFIG_HOME/bash/profile'
+bhist = '$EDITOR $XDG_DATA_HOME/bash/history/'
+zhist = '$EDITOR $XDG_DATA_HOME/zsh/history/'
+sf = 'source $HOME/.config/fish/config.fish'
+fsf = 'dotter_update && source $HOME/.config/fish/config.fish'
+
+[base.variables.aliases.Applications]
 as = 'aerospace'
 asr = 'aerospace reload-config'
+di = 'dua interactive'
 god = 'cd $XDG_DATA_HOME/godspeed-cli && bat cache'
-ip = 'ipconfig getifaddr en0 | tee /dev/tty | pbcopy'
-electron = 'find /Applications -name "Electron Framework" 2>/dev/null | sed "s|.*Applications/||; s|/Contents.*||" | sort -u'
 we = 'watchexec'
-pk = 'kill -9 $(ps aux | fzf --height 10% | awk "{print $2}")'
+ext = 'extract'
+h = 'hx'
+tl = 'tldr'
+tle = 'teeldeer_edit'
+electron = 'find /Applications -name "Electron Framework" 2>/dev/null | sed "s|.*Applications/||; s|/Contents.*||" | sort -u'
+v = 'vim'
 
 [base.variables.aliases.Ssh]
 
@@ -37,23 +51,14 @@ remote = 'ssh quintrino@server.nord'
 chal = 'ssh challenger@challenger.local'
 char = 'ssh challenger@challenger.nord'
 
-[base.variables.aliases.Fish]
-
-sf = 'source $HOME/.config/fish/config.fish'
-fsf = 'fresh && source $HOME/.config/fish/config.fish'
-
 [base.variables.aliases.Dotfiles]
 
 ali = '$EDITOR $HOME/.dotfiles/shell/aliases.toml'
-dot = 'cd $HOME/.dotfiles'
+dot = 'smart_cd $HOME/.dotfiles'
 edot = '$EDITOR $HOME/.dotfiles'
 edott = 'ESPANSO_OFF=true dotter_update'
 zedot = 'zed $HOME/.dotfiles'
-efd = '$EDITOR (fd . ~/.dotfiles | fzf --height 20% --preview "bat --style numbers,changes --color=always {}")'
 bun = 'cd $HOME/.dotfiles/brew && brew bundle dump --force --describe'
-update = 'zellij --layout update'
-nup = 'zellij delete-session --force update'
-nmain = 'zellij delete-session --force main'
 kara = 'cd $HOME/.dotfiles/config/karabiner/ && $EDITOR generate_karabiner.rb && ruby generate_karabiner.rb'
 
 [base.variables.aliases.Git]
@@ -115,6 +120,60 @@ ref = 'git switch -c refactor/'
 perf = 'git switch -c perf/'
 tes = 'git switch -c test/'
 
+[base.variables.aliases.Folders]
+
+proton = 'smart_cd $HOME/Proton'
+drive = 'smart_cd $HOME/Drive/'
+con = 'smart_cd $XDG_CONFIG_HOME'
+nick = 'cd $HOME/Developer/personal/nickwolf.com.au'
+per = 'smart_cd $HOME/Developer/personal'
+ob = 'cd $HOME/Documents/obsidian'
+lol = 'cd $XDG_DATA_HOME/lolcommits/'
+alfred = 'cd $HOME/.config/alfred/Alfred.alfredpreferences'
+down = 'smart_cd $HOME/Downloads'
+ss = 'cd $HOME/Proton/Sync/Devices/Screenshots'
+doc = 'smart_cd $HOME/Documents'
+mov = 'cd $HOME/Movies'
+util = 'cd $HOME/.dotfiles/shell/utilities'
+share = 'smart_cd $XDG_DATA_HOME'
+cache = 'smart_cd XDG_CACHE_HOME'
+
+[base.variables.aliases.Navigation]
+
+1 = 'prevd '
+2 = 'prevd 2'
+3 = 'prevd 3'
+4 = 'prevd 4'
+5 = 'prevd 5'
+6 = 'prevd 6'
+7 = 'prevd 7'
+8 = 'prevd 8'
+9 = 'prevd 9'
+n1 = 'nextd '
+n2 = 'nextd 2'
+n3 = 'nextd 3'
+n4 = 'nextd 4'
+n5 = 'nextd 5'
+n6 = 'nextd 6'
+n7 = 'nextd 7'
+n8 = 'nextd 8'
+n9 = 'nextd 9'
+
+[base.variables.aliases.Multiplexer]
+
+tm = 'tmuxinator'
+tms = 'tmuxinator start'
+tmt = 'tmuxinator stop'
+ts = 'tmux choose-session'
+update = 'zellij --layout update'
+nup = 'zellij delete-session --force update'
+nmain = 'zellij delete-session --force main'
+
+[base.variables.aliases.Docker]
+
+dcu = 'docker-compose up'
+sup = 'vsplit_tab dcu && fs'
+
 [base.variables.aliases.Ruby]
 
 ru = 'bundle exec rubocop'
@@ -143,51 +202,6 @@ be = 'bundle exec'
 bi = 'bundle install'
 beg = 'bundle install --quiet && bundle exec guard --plugin Rspec'
 ud = 'git switch master && git pull && bundle install && yarn install'
-
-[base.variables.aliases.Docker]
-
-dcu = 'docker-compose up'
-sup = 'vsplit_tab dcu && fs'
-
-[base.variables.aliases.Navigation]
-
-1 = 'prevd '
-2 = 'prevd 2'
-3 = 'prevd 3'
-4 = 'prevd 4'
-5 = 'prevd 5'
-6 = 'prevd 6'
-7 = 'prevd 7'
-8 = 'prevd 8'
-9 = 'prevd 9'
-
-[base.variables.aliases.Splitrock]
-
-split = 'cd $HOME/Developer/splitrock'
-bug = 'cd $HOME/Developer/splitrock/BugHerd'
-tmb = 'tmuxinator start bugherd --suppress-tmux-version-warning'
-
-[base.variables.aliases.Folders]
-
-proton = 'smart_cd $HOME/Proton'
-drive = 'cd $HOME/Drive/'
-con = 'smart_cd $XDG_CONFIG_HOME'
-nick = 'cd $HOME/Developer/personal/nickwolf.com.au'
-per = 'smart_cd $HOME/Developer/personal'
-ob = 'cd $HOME/Documents/obsidian'
-lol = 'cd $XDG_DATA_HOME/lolcommits/'
-alfred = 'cd $HOME/.config/alfred/Alfred.alfredpreferences'
-down = 'cd $HOME/Downloads'
-ss = 'cd $HOME/Proton/Sync/Devices/Screenshots'
-doc = 'cd $HOME/Documents'
-mov = 'cd $HOME/Movies'
-
-[base.variables.aliases.Tmux]
-
-tm = 'tmuxinator'
-tms = 'tmuxinator start'
-tmt = 'tmuxinator stop'
-ts = 'tmux choose-session'
 
 [base.variables.aliases.Fun]
 
