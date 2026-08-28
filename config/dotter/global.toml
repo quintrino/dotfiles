@@ -30,7 +30,7 @@ depends = ["base"]
 "config/teeldear" = { target = "$XDG_CONFIG_HOME/teeldear/", type = "symbolic" }
 "config/bettercmdtab" = { target = "$XDG_CONFIG_HOME/bettercmdtab/", type = "symbolic" }
 "config/helix" = { target = "$XDG_CONFIG_HOME/helix/", type = "symbolic" }
-
+"config/mise/config.toml" = { target = "$XDG_CONFIG_HOME/mise/config.toml", type = "symbolic" }
 
 "config/organize/config.yaml" = "$XDG_CONFIG_HOME/organize/config.yaml"
 "config/aerospace/aerospace.toml" = "$XDG_CONFIG_HOME/aerospace/aerospace.toml"
@@ -40,8 +40,6 @@ depends = ["base"]
 "config/beeminder/bmndrrc" = "$XDG_CONFIG_HOME/.bmndrrc"
 "config/exercism/user.json" = "$XDG_CONFIG_HOME/exercism/user.json"
 "config/hub/config" = "$XDG_CONFIG_HOME/hub"
-"config/teeldear/config.toml" = "$XDG_CONFIG_HOME/teeldear/config.toml"
-"config/mise/config.toml" = "$XDG_CONFIG_HOME/mise/config.toml"
 "config/biome/default.json" = "$XDG_CONFIG_HOME/biome/default.json"
 "config/nimble/config.json" = "$HOME/Library/Application Support/Nimble Commander/Config/Config.json"
 
