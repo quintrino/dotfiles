@@ -287,6 +287,36 @@ function d
     dirh
 end
 
+function dirh --description "Print the current directory history (the prev and next lists)"
+    set -l options h/help
+    argparse -n dirh --max-args=0 $options -- $argv
+    or return
+
+    if set -q _flag_help
+        __fish_print_help dirh
+        return 0
+    end
+
+    set -l dirc (count $dirprev)
+    if test $dirc -gt 0
+        set -l dirprev_rev $dirprev[-1..1]
+        set -l dirnum (seq 1 $dirc)
+        for i in $dirnum[-1..1]
+            printf '%s%2d)%s %s\n' (set_color red) $i (set_color normal) $dirprev_rev[$i]
+        end
+    end
+
+    echo (set_color --bold $fish_color_history_current)'   ' $PWD(set_color normal)
+
+    set -l dirc (count $dirnext)
+    if test $dirc -gt 0
+        set -l dirnext_rev $dirnext[-1..1]
+        for i in (seq $dirc)
+            printf '%sn%s%d)%s %s\n' (set_color green) (set_color --bold green) $i (set_color normal) $dirnext_rev[$i]
+        end
+    end
+end
+
 function doctor_update
     printf "\033[1;31mBrew Doctor issues \033[0m\n"
     brew doctor
