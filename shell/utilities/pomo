@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+#
+# pomo - a simple pomodoro timer
+#
+# Usage:
+#   pomo [--start HH:MM] <work_minutes> <break_minutes>
+#
+# Examples:
+#   pomo 25 5
+#   pomo --start 22:00 25 5   # waits until 22:00 (today or tomorrow) to begin
+#
+# Loops forever: counts down <work_minutes>, sends a notification,
+# counts down <break_minutes>, sends a notification, repeat.
+# Press Ctrl+C to stop.
+
+set -euo pipefail
+
+START_AT=""
+if [[ "${1:-}" == "--start" ]]; then
+    START_AT="$2"
+    shift 2
+fi
+
+if [[ $# -ne 2 ]]; then
+    echo "Usage: $(basename "$0") [--start HH:MM] <work_minutes> <break_minutes>"
+    echo "Example: $(basename "$0") --start 22:00 25 5"
+    exit 1
+fi
+
+WORK_MIN="$1"
+BREAK_MIN="$2"
+
+# Basic validation - make sure both args are positive numbers
+if ! [[ "$WORK_MIN" =~ ^[0-9]+([.][0-9]+)?$ ]] || ! [[ "$BREAK_MIN" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
+    echo "Error: both arguments must be positive numbers (minutes)."
+    exit 1
+fi
+
+notify() {
+    local title="$1"
+    local message="$2"
+    osascript -e "display notification \"${message}\" with title \"${title}\""
+    # sound name \"Glass\""
+    afplay -v 0.2 /System/Library/Sounds/Glass.aiff
+}
+
+# Counts down from the given number of minutes, printing a live countdown
+# to the terminal on a single updating line.
+countdown() {
+    local minutes="$1"
+    local label="$2"
+    local total_seconds
+    total_seconds=$(printf '%.0f' "$(echo "$minutes * 60" | bc)")
+
+    local remaining=$total_seconds
+    while [[ $remaining -gt 0 ]]; do
+        local mins=$((remaining / 60))
+        local secs=$((remaining % 60))
+        printf "\r%s: %02d:%02d remaining   " "$label" "$mins" "$secs"
+        sleep 1
+        remaining=$((remaining - 1))
+    done
+    printf "\r%s: 00:00 remaining   \n" "$label"
+}
+
+# If --start HH:MM or HH:MM:SS was given, sleep until that clock time
+# (today if it's still ahead of us, otherwise tomorrow) before starting
+# the first round. Remaining time is recalculated every second from the
+# actual epoch difference, so it stays accurate to the second (no drift
+# from just counting down "N minutes").
+wait_until() {
+    local target="$1"
+
+    # Accept HH:MM or HH:MM:SS
+    if [[ "$target" =~ ^([0-1][0-9]|2[0-3]):[0-5][0-9]$ ]]; then
+        target="${target}:00"
+    elif ! [[ "$target" =~ ^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$ ]]; then
+        echo "Error: --start time must be HH:MM or HH:MM:SS 24-hour format (e.g. 22:00 or 22:00:30)."
+        exit 1
+    fi
+
+    local now_epoch target_epoch
+    now_epoch=$(date +%s)
+    target_epoch=$(date -j -f "%H:%M:%S" "$target" +%s 2>/dev/null || date -d "$target" +%s)
+
+    if [[ $target_epoch -le $now_epoch ]]; then
+        # Time already passed today, schedule for tomorrow
+        target_epoch=$(date -j -v+1d -f "%H:%M:%S" "$target" +%s 2>/dev/null || date -d "$target tomorrow" +%s)
+    fi
+
+    local remaining
+    while true; do
+        now_epoch=$(date +%s)
+        remaining=$((target_epoch - now_epoch))
+        if [[ $remaining -le 0 ]]; then
+            break
+        fi
+        local h=$((remaining / 3600))
+        local m=$(((remaining % 3600) / 60))
+        local s=$((remaining % 60))
+        printf "\rWaiting for %s: %02d:%02d:%02d until start (%ds left)   " "$target" "$h" "$m" "$s" "$remaining"
+        sleep 1
+    done
+    printf "\rReached %s. Starting pomo now!                              \n" "$target"
+}
+
+if [[ -n "$START_AT" ]]; then
+    wait_until "$START_AT"
+fi
+
+echo "Starting pomo: ${WORK_MIN} min work / ${BREAK_MIN} min break. Press Ctrl+C to stop."
+
+round=1
+while true; do
+    echo ""
+    echo "=== Round $round: Work (${WORK_MIN} min) ==="
+    countdown "$WORK_MIN" "Work"
+    notify "Pomo" "Work session finished! Time for a ${BREAK_MIN} minute break."
+
+    echo ""
+    echo "=== Round $round: Break (${BREAK_MIN} min) ==="
+    countdown "$BREAK_MIN" "Break"
+    notify "Pomo" "Break finished! Time for a ${WORK_MIN} minute work session."
+
+    round=$((round + 1))
+done
