@@ -13,6 +13,9 @@ ln -sf ~/.dotfiles/apps/vs-code/settings.vsrc ~/Library/Application\ Support/Cod
 echo "Symlinking apps/vs-code/settings.vsrc"
 ln -sf ~/.dotfiles/apps/vs-code/keys.vsrc ~/Library/Application\ Support/Code/User/keybindings.json
 clang -F /System/Library/PrivateFrameworks -framework login -o $HOME/Library/LaunchAgents/Scripts/bin/locknow $HOME/.dotfiles/shell/tasks/locknow.c
+echo "Copying IINA Config to dotfiles"
+cp ~/Library/Application\ Support/com.colliderli.iina/input_conf/Custom.conf ~/.dotfiles/config/iina/
+
 if [ -d $HOME/Proton ]; then
       echo "/Proton/ detected"
       echo "Generating symlinks"
@@ -21,6 +24,7 @@ if [ -d $HOME/Proton ]; then
 else
   echo "Proton Drive not found"
 fi
+
 TIMEOUT_FOLDER="$HOME/Library/Application Scripts/com.dejal.timeout/Break Actions"
 if [ -d "$TIMEOUT_FOLDER" ]; then
   echo "Exporting Timeout scripts"
@@ -30,9 +34,7 @@ if [ -d "$TIMEOUT_FOLDER" ]; then
   done
 fi
 
-
 if [ -d "$ESPANSO_MATCH" ] && [ -z "$ESPANSO_OFF" ]; then
   echo "Espanso Match files located"
   $HOME/.dotfiles/shell/utilities/merge_upload $ESPANSO_MATCH/base.yml $ESPANSO_MATCH/private.yml espanso.yml $ESPANSO_FILE_ID
 fi
-
