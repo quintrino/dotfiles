@@ -1,0 +1,38 @@
+#!/bin/bash
+# mac_monitor_analyze.sh - Summarize spikes from a mac_monitor.sh log file.
+#
+# Usage:
+#   ./mac_monitor_analyze.sh [log_file] [cpu_threshold] [mem_threshold]
+#
+# Defaults: today's log in ~/mac_monitor_logs/, cpu_threshold=50, mem_threshold=50
+
+LOG_FILE="${1:-$XDG_DATA_HOME/mac_monitor_logs/usage_$(date +%Y-%m-%d).csv}"
+CPU_THRESHOLD="${2:-50}"
+MEM_THRESHOLD="${3:-20}"
+
+if [ ! -f "$LOG_FILE" ]; then
+    echo "Log file not found: $LOG_FILE"
+    echo "Pass a path explicitly, e.g.: ./mac_monitor_analyze.sh ~/mac_monitor_logs/usage_2026-08-25.csv"
+    exit 1
+fi
+
+echo "=== Apps that hit CPU >= ${CPU_THRESHOLD}% (count of samples) ==="
+awk -F',' -v t="$CPU_THRESHOLD" 'NR>1 && $3+0>=t {gsub(/"/,"",$5); print $5}' "$LOG_FILE" \
+    | sort | uniq -c | sort -rn | head -15
+
+echo
+echo "=== Apps that hit MEM >= ${MEM_THRESHOLD}% (count of samples) ==="
+awk -F',' -v t="$MEM_THRESHOLD" 'NR>1 && $4+0>=t {gsub(/"/,"",$5); print $5}' "$LOG_FILE" \
+    | sort | uniq -c | sort -rn | head -15
+
+echo
+echo "=== Average CPU/MEM per app across all samples ==="
+awk -F',' '
+    NR>1 {
+        gsub(/"/,"",$5)
+        cpu[$5]+=$3; mem[$5]+=$4; n[$5]++
+    }
+    END {
+        for (a in n) printf "%-30s avg_cpu=%5.1f%%  avg_mem=%5.1f%%  samples=%d\n", a, cpu[a]/n[a], mem[a]/n[a], n[a]
+    }
+' "$LOG_FILE" | sort -k2 -t= -rn | head -20

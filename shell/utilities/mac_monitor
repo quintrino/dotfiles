@@ -1,0 +1,62 @@
+#!/bin/bash
+# mac_monitor.sh - Track per-app CPU/RAM usage over time and flag spikes.
+#
+# Usage:
+#   ./mac_monitor.sh [interval_seconds] [top_n] [cpu_threshold] [mem_threshold]
+#
+# Defaults: interval=30s, top_n=8 processes per sample,
+#           cpu_threshold=50 (%), mem_threshold=50 (%)
+#
+# Every sample is appended to a CSV log at ~/mac_monitor_logs/usage_YYYY-MM-DD.csv
+# (a new file each day). Any process crossing a threshold also prints a live
+# warning in the terminal. Stop with Ctrl+C.
+
+set -euo pipefail
+
+INTERVAL="${1:-30}"
+TOP_N="${2:-8}"
+CPU_THRESHOLD="${3:-50}"
+MEM_THRESHOLD="${4:-50}"
+LOG_DIR="$XDG_DATA_HOME/mac_monitor_logs"
+LOG_FILE="$LOG_DIR/usage_$(date +%Y-%m-%d).csv"
+
+mkdir -p "$LOG_DIR"
+
+if [ ! -f "$LOG_FILE" ]; then
+    echo "timestamp,pid,cpu_pct,mem_pct,command" > "$LOG_FILE"
+fi
+
+echo "Monitoring started. Interval=${INTERVAL}s | Logging to: $LOG_FILE"
+echo "Alert thresholds: CPU >= ${CPU_THRESHOLD}%  MEM >= ${MEM_THRESHOLD}%"
+echo "Press Ctrl+C to stop."
+echo
+
+trap 'echo; echo "Monitoring stopped. Log saved at: $LOG_FILE"; exit 0' INT TERM
+
+while true; do
+    TS=$(date +"%Y-%m-%d %H:%M:%S")
+
+    # Top N processes by CPU usage (native BSD ps on macOS, no deps needed).
+    # The trailing `|| true` stops errexit from firing when `head` closes the
+    # pipe early and `ps`/`tail` get SIGPIPE (a harmless, expected signal).
+    SNAPSHOT=$(ps -Ao pid,pcpu,pmem,comm -r | tail -n +2 | head -n "$TOP_N") || true
+
+    while IFS= read -r line; do
+        [ -z "$line" ] && continue
+        PID=$(awk '{print $1}' <<< "$line")
+        CPU=$(awk '{print $2}' <<< "$line")
+        MEM=$(awk '{print $3}' <<< "$line")
+        CMD=$(awk '{$1=$2=$3=""; print $0}' <<< "$line" | sed 's/^ *//')
+
+        echo "$TS,$PID,$CPU,$MEM,\"$CMD\"" >> "$LOG_FILE"
+
+        if (( $(echo "$CPU >= $CPU_THRESHOLD" | bc -l) )); then
+            echo "⚠️  [$TS] HIGH CPU: $CMD (pid $PID) — ${CPU}%"
+        fi
+        if (( $(echo "$MEM >= $MEM_THRESHOLD" | bc -l) )); then
+            echo "⚠️  [$TS] HIGH MEM: $CMD (pid $PID) — ${MEM}%"
+        fi
+    done <<< "$SNAPSHOT"
+
+    sleep "$INTERVAL"
+done
