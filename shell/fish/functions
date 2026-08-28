@@ -54,6 +54,20 @@ function gl
     end
 end
 
+function git_fzf_patch
+    set file (git status --porcelain | grep -E '^(M |MM| M|\?\?)' | cut -c4- | fzf --preview 'git diff --color=always {} 2>/dev/null; or cat {}')
+    if test -z "$file"
+        return
+    end
+
+    if git ls-files --error-unmatch $file >/dev/null 2>&1
+        git add --patch $file
+    else
+        echo "$file is untracked — staging whole file"
+        git add $file
+    end
+end
+
 function sw
     if test $argv
         git switch $argv

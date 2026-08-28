@@ -32,6 +32,7 @@ sf = 'source $HOME/.config/fish/config.fish'
 fsf = 'dotter_update && source $HOME/.config/fish/config.fish'
 
 [base.variables.aliases.Applications]
+
 as = 'aerospace'
 asr = 'aerospace reload-config'
 di = 'dua interactive'
@@ -102,6 +103,7 @@ dep = 'push && prod'
 gc = 'git config --list'
 gr = 'git restore'
 show = 'git show --ignore-all-space --ignore-blank-lines'
+gfp = 'git_fzf_patch'
 gcp = 'echo git checkout --patch does not exist any more'
 grp = 'git restore --patch'
 gcmp = 'gcm && gp'
