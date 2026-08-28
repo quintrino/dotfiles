@@ -34,7 +34,11 @@ function z
 end
 
 function g
-    if test $argv
+    if not git rev-parse --is-inside-work-tree >/dev/null 2>/dev/null
+        echo (pwd) "is not a git repo"
+        return 1
+    end
+    if test (count $argv) -gt 0
         git $argv
     else
         git status --short
