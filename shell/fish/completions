@@ -1,2 +1,3 @@
 complete -c gcf -a '(git-fixup)'
 complete -c g -w git
+complete -c teeldeer_edit -f -a "(__tle_candidates)" -d "existing page/patch"

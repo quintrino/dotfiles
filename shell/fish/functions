@@ -1,3 +1,14 @@
+function __tle_candidates
+    set -l tldr_dir "$XDG_CONFIG_HOME/teeldear/pages"
+    for f in $tldr_dir/*.page.md $tldr_dir/*.patch.md
+        test -e "$f" || continue
+        set -l base (basename "$f")
+        set -l name (string replace -r '\.page\.md$' '' -- "$base")
+        set -l name (string replace -r '\.patch\.md$' '' -- "$name")
+        echo $name
+    end
+end
+
 function vs
     if test $argv
         code -a --goto $argv

@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+
+cmd="$1"
+if [ -z "$cmd" ]; then
+    echo "Usage: tle <command>" >&2
+    exit 1
+fi
+
+dir=~/.dotfiles/config/teeldear/pages
+page="$dir/${cmd}.page.md"
+patch="$dir/${cmd}.patch.md"
+
+if [ -f "$page" ]; then
+    # Local full page already exists — edit it
+    exec "$EDITOR" "$page"
+elif [ -f "$patch" ]; then
+    # Local patch already exists — edit it
+    exec "$EDITOR" "$patch"
+elif tldr "$cmd" >/dev/null 2>&1; then
+    echo "#\n-  $1\n\n\`\`" >> "$patch"
+    # tldr has an official page — create/edit a patch on top of it
+    exec "$EDITOR" "$patch"
+else
+    echo "#\n-  $1\n\n\`\`" >> "$page"
+    # No local page, no tldr page — create a fresh full page
+    exec "$EDITOR" "$page"
+fi
