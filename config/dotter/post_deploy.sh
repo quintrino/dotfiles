@@ -11,7 +11,9 @@ ruby ~/.dotfiles/config/karabiner/generate_karabiner.rb
 clang -F /System/Library/PrivateFrameworks -framework login -o $HOME/Library/LaunchAgents/Scripts/bin/locknow $HOME/.dotfiles/shell/tasks/locknow.c
 echo "Copying IINA Config to dotfiles"
 cp ~/Library/Application\ Support/com.colliderli.iina/input_conf/Custom.conf ~/.dotfiles/config/iina/
-
+echo 'Symlinking Alacritty to /Applications'
+ln -sf "$HOME/.local/share/mise/installs/cargo-alacritty/latest/bin/alacritty" \
+       /Applications/Alacritty.app/Contents/MacOS/Alacritty
 if [ -d $HOME/Proton ]; then
       echo "/Proton/ detected"
       echo "Generating symlinks"

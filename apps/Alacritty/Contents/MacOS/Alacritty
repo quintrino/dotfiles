@@ -1,2 +1,0 @@
-#!/bin/bash
-exec /Users/roxton/.local/share/mise/installs/cargo-alacritty/latest/bin/alacritty "$@"
