@@ -1,6 +1,5 @@
 ! uBlock Origin Custom Filters
-! Add this URL to your custom filters in the Filter List tab:
-! https://raw.githubusercontent.com/quintrino/dotfiles/master/apps/Chrome/ublock-Origin
+! Source: https://raw.githubusercontent.com/quintrino/dotfiles/refs/heads/master/apps/Chrome/ublock-Origin
 
 ! ============================================
 ! Stack Exchange
@@ -15,26 +14,19 @@ stackoverflow.com,stackexchange.com###footer
 ! ============================================
 ! YouTube - Distractions & Recommendations
 ! ============================================
-! Sidebar and recommendations
-www.youtube.com###secondary
-www.youtube.com###sections
-www.youtube.com###related
-www.youtube.com##.ytd-rich-section-renderer.style-scope > .ytd-rich-shelf-renderer.style-scope
-www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope > .ytd-reel-shelf-renderer.style-scope
-www.youtube.com##.grid-disabled.grid.ytd-browse.style-scope
-
-! Comments
-www.youtube.com###comments
-
-! End screens and cards
-youtube.com##.html5-endscreen-content
-youtube.com##.html5-endscreen
+youtube.com###secondary
+youtube.com###sections
+youtube.com###related
+youtube.com###comments
 youtube.com##.ytp-ce-element
-
-! Player controls
-www.youtube.com##.ytp-button.ytp-next-button
-www.youtube.com##.ytp-title-fullerscreen-link.yt-uix-sessionlink.ytp-title-link
-www.youtube.com##.ytp-fullscreen-grid-stills-container
+youtube.com##.html5-endscreen
+youtube.com##.html5-endscreen-content
+youtube.com##.ytp-button.ytp-next-button
+youtube.com##.ytp-fullscreen-grid-stills-container
+youtube.com##.grid-disabled.grid.ytd-browse.style-scope
+youtube.com##.ytp-title-fullerscreen-link.yt-uix-sessionlink.ytp-title-link
+youtube.com##.ytd-rich-section-renderer.style-scope > .ytd-rich-shelf-renderer.style-scope
+youtube.com##.ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope > .ytd-reel-shelf-renderer.style-scope
 
 ! ============================================
 ! Reddit
@@ -45,6 +37,5 @@ www.reddit.com##.flex-auto.right-sidebar-contents
 ! ============================================
 ! Other Sites
 ! ============================================
-! IndexBox
-www.indexbox.io##.px-3.pt-5.result_get_started
 ###credential_picker_container
+##div:has([data-testid="login-modal"])
