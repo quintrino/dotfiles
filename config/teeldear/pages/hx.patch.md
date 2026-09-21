@@ -20,3 +20,5 @@
 
   `Select full line: x`
   `Multiple entries: Visual mode, select the string, then hit * then hit n`
+  `Additional cursor on the line below: Shift + C`
+  `Remove additional cursors: ,`
