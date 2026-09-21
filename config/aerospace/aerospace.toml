@@ -1,13 +1,8 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
 
 # Config version for compatibility and deprecations
+# See: https://nikitabobko.github.io/AeroSpace/guide#config-version
 # Fallback value (if you omit the key): config-version = 1
 config-version = 2
-
-# You can use it to add commands that run after AeroSpace startup.
-# Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
 
 # Start AeroSpace at login
 start-at-login = true
@@ -16,125 +11,125 @@ start-at-login = true
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
-# The 'accordion-padding' specifies the size of accordion padding
-# You can set 0 to disable the padding feature
+on-window-detected = [
+    # Floating windows - without workspace assigned
+    {
+        if = '''
+        test %{app-bundle-id} = com.apple.calculator \
+            || test %{app-bundle-id} = com.apple.clock \
+            || test %{app-bundle-id} = com.apple.systempreferences \
+            || test %{app-bundle-id} = com.jins.naivechat
+            ''',
+        run = ['layout floating'],
+    },
+    # Per workspace location
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+    #
+    # Workspace 1 (Private)
+    {
+        if = '''
+        test %{app-bundle-id} = com.apple.mail \
+            || test %{app-bundle-id} = com.apple.Music \
+            || test %{app-bundle-id} = com.apple.MobileSMS \
+            || test %{app-bundle-id} = com.apple.TV \
+            || test %{app-bundle-id} = com.apple.Photos \
+        ''',
+        run = ['move-node-to-workspace 1', 'layout floating'],
+    },
+    # Workspace Vol (Brave Beta)
+    {
+        if = 'test %{app-bundle-id} = com.brave.Browser.beta',
+        run = ['move-node-to-workspace Vol', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Sg (Signal Beta)
+    {
+        if = 'test %{app-bundle-id} = org.whispersystems.signal-desktop-beta',
+        run = ['move-node-to-workspace Sg', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Bb (Beeper)
+    {
+        if = 'test %{app-bundle-id} = com.automattic.beeper.desktop',
+        run = ['move-node-to-workspace Bb', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Tk (Godspeed)
+    {
+        if = 'test %{app-bundle-id} = com.godspeedapp.Godspeed',
+        run = ['move-node-to-workspace Tk', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Sk (Slack)
+    {
+        if = 'test %{app-bundle-id} = com.tinyspeck.slackmacgap',
+        run = ['move-node-to-workspace Sk', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace T (Alacritty)
+    {
+        if = 'test %{app-bundle-id} = org.alacritty',
+        run = ['move-node-to-workspace T', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Hd (Firefox)
+    {
+        if = 'test %{app-bundle-id} = org.mozilla.firefox',
+        run = ['move-node-to-workspace Hd', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Em (eM Client)
+    {
+        if = 'test %{app-bundle-id} = com.emclient.mail.client',
+        run = ['move-node-to-workspace Em', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Ed (Zed)
+    {
+        if = 'test %{app-bundle-id} = dev.zed.Zed',
+        run = ['move-node-to-workspace Ed', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace Zm (Zoom)
+    {
+        if = 'test %{window-title} = "Zoom Workspace"',
+        run = ['move-node-to-workspace Zm', 'layout tiling', 'fullscreen'],
+    },
+     {
+        if = 'test %{window-title} = "Zoom Meeting"',
+        run = ['move-node-to-workspace Zm', 'layout tiling', 'fullscreen'],
+    },
+    # Workspace B (Zen Browser)
+    {
+        if = 'test %{app-bundle-id} = app.zen-browser.zen',
+        run = ['move-node-to-workspace B', 'layout tiling', 'fullscreen'],
+    },
+    # Catch-all: anything not matched above goes to workspace 1
+    {
+        if = 'true',
+        run = ['layout floating']
+        # run = ['move-node-to-workspace 1', 'layout tiling'],
+    },
+]
+
+focus-follows-mouse.enabled = false
 accordion-padding = 0
-
-# Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
-
-# Possible values: horizontal|vertical|auto
-# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
-#               tall monitor (anything higher than wide) gets vertical orientation
 default-root-container-orientation = 'auto'
-
-# Mouse follows focus when focused monitor changes
-# Drop it from your config, if you don't like this behavior
-# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
-# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-# Fallback value (if you omit the key): on-focused-monitor-changed = []
-# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-
-# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
-# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
-# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
-
-# List of workspaces that should stay alive even when they contain no windows,
-# even when they are invisible.
-# This config version is only available since 'config-version = 2'
-# Fallback value (if you omit the key): persistent-workspaces = []
 persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]
-
-# A callback that runs every time binding mode changes
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-on-mode-changed = []
-
-
-exec-on-workspace-change = ['/bin/bash', '-c', '''
-  window_id=$(aerospace list-windows --app-bundle-id com.jins.naivechat --monitor all | cut -d '|' -f1 | xargs)
-  aerospace move-node-to-workspace --window-id "$window_id" $AEROSPACE_FOCUSED_WORKSPACE
-''']
-
-# Possible values: (qwerty|dvorak|colemak)
-# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
-[key-mapping]
-    preset = 'qwerty'
-
-# Gaps between windows (inner-*) and between monitor edges (outer-*).
-# Possible values:
-# - Constant:     gaps.outer.top = 8
-# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
-#                 In this example, 24 is a default value when there is no match.
-#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
-#                 See:
-#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-[gaps]
-    inner.horizontal = 0
-    inner.vertical =   0
-    outer.left =       0
-    outer.bottom =     0
-    outer.top =        0
-    outer.right =      0
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
-
-[workspace-to-monitor-force-assignment]
-    1 = 'LEN L27m-28'
-    2 = 'LEN L27m-28'
-    3 = 'LEN L27m-28'
-    4 = 'LEN L27m-28'
-    11 = 'LEN L27m-28'
-    12 = 'LEN L27m-28'
-    13 = 'LEN L27m-28'
-    14 = 'LEN L27m-28'
-    5 = 'SyncMaster'
-    6 = 'SyncMaster'
-    7 = 'SyncMaster'
-    8 = 'SyncMaster'
-    15 = 'SyncMaster'
-    16 = 'SyncMaster'
-    17 = 'SyncMaster'
-    18 = 'SyncMaster'
-    Sg = 'SyncMaster'
-
 [mode.main.binding]
 
-    # All possible keys:
-    # - Letters.        a, b, c, ..., z
-    # - Numbers.        0, 1, 2, ..., 9
-    # - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
-    # - F-keys.         f1, f2, ..., f20
-    # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
-    #                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
-    #                   backspace, tab, pageUp, pageDown, home, end, forwardDelete,
-    #                   sectionSign (ISO keyboards only, european keyboards only)
-    # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
-    #                   keypadMinus, keypadMultiply, keypadPlus
-    # - Arrows.         left, down, up, right
-
-    # All possible modifiers: cmd, alt, ctrl, shift
-
-    # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-    # You can uncomment the following lines to open up terminal with alt + enter shortcut
-    # (like in i3)
-    # alt-enter = '''exec-and-forget osascript -e '
-    # tell application "Terminal"
-    #     do script
-    #     activate
-    # end tell'
-    # '''
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+    ctrl-h = 'focus --boundaries-action wrap-around-the-workspace left'
+    ctrl-j = 'focus --boundaries-action wrap-around-the-workspace down'
+    ctrl-k = 'focus --boundaries-action wrap-around-the-workspace up'
+    ctrl-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move
+    alt-ctrl-h = 'move left'
+    alt-ctrl-j = 'move down'
+    alt-ctrl-k = 'move up'
+    alt-ctrl-l = 'move right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
@@ -178,11 +173,11 @@ exec-on-workspace-change = ['/bin/bash', '-c', '''
     ctrl-alt-right =  ['move-node-to-workspace 1 --focus-follows-window', 'fullscreen off' , 'move right']
     ctrl-alt-up =  ['move-node-to-workspace 1 --focus-follows-window', 'fullscreen off' , 'move up']
     ctrl-alt-down =  ['move-node-to-workspace 1 --focus-follows-window', 'fullscreen off' , 'move down']
-    cmd-ctrl-alt-left = 'exec-and-forget /usr/local/bin/aerospace list-workspaces --monitor focused --empty no | grep -v "1" | cat - <(echo 1) | /usr/local/bin/aerospace workspace --wrap-around --stdin prev'
-    cmd-ctrl-alt-right = 'exec-and-forget /usr/local/bin/aerospace list-workspaces --monitor focused --empty no | grep -v "1" | cat - <(echo 1) | /usr/local/bin/aerospace workspace --wrap-around --stdin next'
+    cmd-ctrl-alt-left = 'exec-and-forget $(brew --prefix)/bin/aerospace list-workspaces --monitor focused --empty no | grep -v "1" | cat - <(echo 1) | $(brew --prefix)/bin/aerospace workspace --wrap-around --stdin prev'
+    cmd-ctrl-alt-right = 'exec-and-forget $(brew --prefix)/bin/aerospace list-workspaces --monitor focused --empty no | grep -v "1" | cat - <(echo 1) | $(brew --prefix)/bin/aerospace workspace --wrap-around --stdin next'
 
     # Fullscreen
-    ctrl-alt-enter = 'exec-and-forget /Users/roxton/.dotfiles/shell/utilities/aerospace_toggle'
+    ctrl-alt-enter = 'exec-and-forget ~/.dotfiles/shell/utilities/aerospace_toggle'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -192,70 +187,45 @@ exec-on-workspace-change = ['/bin/bash', '-c', '''
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
     alt-shift-f = 'layout floating tiling'
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
     backspace = ['close-all-windows-but-current', 'mode main']
 
-    # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-    #s = ['layout sticky tiling', 'mode main']
-
     alt-shift-h = ['join-with left', 'mode main']
     alt-shift-j = ['join-with down', 'mode main']
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]]
-  if.app-name-regex-substring = 'com.tinyspeck.slackmacgap|com.apple.mail'
-  run = ["exec-and-forget /Users/roxton/.dotfiles/shell/utilities/aerospace_toggle"]
+[workspace-to-monitor-force-assignment]
+    1 = 'LEN L27m-28'
+    2 = 'LEN L27m-28'
+    3 = 'LEN L27m-28'
+    4 = 'LEN L27m-28'
+    11 = 'LEN L27m-28'
+    12 = 'LEN L27m-28'
+    13 = 'LEN L27m-28'
+    14 = 'LEN L27m-28'
+    5 = 'SyncMaster'
+    6 = 'SyncMaster'
+    7 = 'SyncMaster'
+    8 = 'SyncMaster'
+    15 = 'SyncMaster'
+    16 = 'SyncMaster'
+    17 = 'SyncMaster'
+    18 = 'SyncMaster'
+    Sg = 'SyncMaster'
 
-[[on-window-detected]]
-if.app-id = 'com.brave.Browser.beta'
-run = ['move-node-to-workspace Vol', 'layout tiling', 'fullscreen']
+[key-mapping]
+    preset = 'qwerty'
 
-[[on-window-detected]]
-if.app-id = 'org.whispersystems.signal-desktop-beta'
-run = ['move-node-to-workspace Sg', 'layout tiling', 'fullscreen']
+[gaps]
+    inner.horizontal = 0
+    inner.vertical =   0
+    outer.left =       0
+    outer.bottom =     0
+    outer.top =        0
+    outer.right =      0
 
-[[on-window-detected]]
-if.app-id = 'com.automattic.beeper.desktop'
-run = ['move-node-to-workspace Bb', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'com.godspeedapp.Godspeed'
-run = ['move-node-to-workspace Tk', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmapgap'
-run = ['move-node-to-workspace Sk', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'org.alacritty'
-run = ['move-node-to-workspace Tm', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = ['move-node-to-workspace Hd', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'com.emclient.mail.client'
-run = ['move-node-to-workspace Em', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
-run = ['move-node-to-workspace Ed', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'com.zoom.xos'
-run = ['move-node-to-workspace Zm', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = ['move-node-to-workspace B', 'layout tiling', 'fullscreen']
-
-[[on-window-detected]]
-if.app-id = 'com.jins.naivechat'
-run = ['move-node-to-workspace AI', 'layout tiling', 'fullscreen']
