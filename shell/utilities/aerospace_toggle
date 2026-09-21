@@ -1,26 +1,53 @@
 #!/usr/bin/env bash
 aerospace="{{env_var 'HOMEBREW_PREFIX'}}/bin/aerospace"
 
-monitor="$(/usr/local/bin/aerospace list-windows --focused --format %{monitor-name})"
-case $monitor in
+is_fullscreen="$("$aerospace" list-windows --focused --format %{window-is-fullscreen})"
+id="$("$aerospace" list-windows --focused --format %{window-id} | tr -d '\n')"
+app_id="$("$aerospace" list-windows --focused --format %{app-bundle-id} | tr -d '\n')"
 
+monitor="$("$aerospace" list-windows --focused --format %{monitor-name})"
+case $monitor in
   "LEN L27m-28")
     default=1
     ;;
-
   *)
     default=5
     ;;
 esac
 
+# Mirrors the workspace assignments in your on-window-detected rules
+case "$app_id" in
+  "com.brave.Browser.beta")                  target_ws="Vol" ;;
+  "org.whispersystems.signal-desktop-beta")  target_ws="Sg"  ;;
+  "com.automattic.beeper.desktop")           target_ws="Bb"  ;;
+  "com.godspeedapp.Godspeed")                target_ws="Tk"  ;;
+  "com.tinyspeck.slackmapgap")               target_ws="Sk"  ;;
+  "org.alacritty")                           target_ws="Tm"  ;;
+  "org.mozilla.firefox")                     target_ws="Hd"  ;;
+  "com.emclient.mail.client")                target_ws="Em"  ;;
+  "dev.zed.Zed")                             target_ws="Ed"  ;;
+  "com.zoom.xos")                            target_ws="Zm"  ;;
+  "app.zen-browser.zen")                     target_ws="B"   ;;
+  "com.jins.naivechat")                      target_ws="AI"  ;;
+  *)                                          target_ws=""   ;;
+esac
+
+echo $is_fullscreen
+echo $target_ws
+echo $target
+echo $id
+
 if [ "$is_fullscreen" = "true" ]; then
-  /usr/local/bin/aerospace move-node-to-workspace --focus-follows-window $default
+  "$aerospace" move-node-to-workspace --focus-follows-window "$default"
 else
-  target="$(/usr/local/bin/aerospace list-workspaces --monitor focused --empty | head -n1)"
-  # say "target: $target"
-  echo $target | /usr/local/bin/aerospace move-node-to-workspace next --stdin --wrap-around
-  # echo $target | /usr/local/bin/aerospace workspace next --stdin
+  if [ -n "$target_ws" ]; then
+    target="$target_ws"
+  else
+    target="$("$aerospace" list-workspaces --monitor focused --empty | head -n1)"
+  fi
+  "$aerospace" move-node-to-workspace --window-id "$id" "$target_ws"
+  # echo $target | $aerospace move-node-to-workspace next --stdin --wrap-around
 fi
 
-/usr/local/bin/aerospace focus --window-id $id
-/usr/local/bin/aerospace fullscreen
+"$aerospace" focus --window-id "$id"
+"$aerospace" fullscreen
