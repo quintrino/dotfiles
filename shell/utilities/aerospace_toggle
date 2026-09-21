@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-is_fullscreen="$(/usr/local/bin/aerospace list-windows --focused --format %{window-is-fullscreen})"
-# say "fullscreen: $is_fullscreen"
-id="$(/usr/local/bin/aerospace list-windows --focused --format %{window-id} | tr -d '\n')"
+aerospace="{{env_var 'HOMEBREW_PREFIX'}}/bin/aerospace"
 
 monitor="$(/usr/local/bin/aerospace list-windows --focused --format %{monitor-name})"
 case $monitor in

@@ -1,6 +1,7 @@
 #!/bin/fish
 
 fish_add_path $XDG_DATA_HOME/bin
+fish_add_path {{env_var 'HOMEBREW_PREFIX'}}/bin
 
 set fish_greeting
 

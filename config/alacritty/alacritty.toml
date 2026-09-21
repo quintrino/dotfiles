@@ -72,7 +72,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [terminal.shell]
 args = ["--command=zellij attach --create main options --default-layout main"]
-program = "/usr/local/bin/fish"
+program = "{{env_var 'HOMEBREW_PREFIX'}}/bin/fish"
 
 [window]
 startup_mode = "Maximized"
