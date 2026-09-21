@@ -140,8 +140,17 @@ def to_shell(command)
   { 'shell_command' => command }
 end
 
+# def open(app)
+#   { 'shell_command' => "open -a '" + app + ".app'"}
+# end
+
 def open(app)
-  { 'shell_command' => "open -a '" + app + ".app'"}
+  { "software_function" => {
+      "open_application" => {
+          "file_path": "/Applications/#{app}.app"
+      }
+    }
+  }
 end
 
 def to_button(button)
