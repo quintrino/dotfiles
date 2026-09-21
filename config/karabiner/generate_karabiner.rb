@@ -9,6 +9,13 @@ SS_FORMAT = '$HOME/Proton/Sync/Devices/Screenshots/Screenshot_'
 
 OUTPUT_PATH = File.expand_path('karabiner.json', __dir__)
 
+NUMPAD_LAYER = {
+  'u' => '7', 'i' => '8', 'o' => '9',
+  'j' => '4', 'k' => '5', 'l' => '6',
+  'm' => '1', 'comma' => '2', 'period' => '3',
+  'p' => '0'
+}.freeze
+
 def compact_hash(hash)
   hash.reject { |_key, value| value.nil? }
 end
@@ -312,6 +319,20 @@ def mouse_keys_cleanup_actions
   ]
 end
 
+def numpad_layer_rule
+  rule(
+    'Fn + Shift - Numpad Layer',
+    NUMPAD_LAYER.map do |from_code, digit|
+      basic(
+        "Fn+Shift + #{from_code}: #{digit}",
+        from: from_key(from_code, mandatory: %w[left_shift fn]),
+        to: [to_key(digit)],
+        log: false
+      )
+    end
+  )
+end
+
 def rules
   [
     app_specific_rule('App-Specific: NaiveChat', 'com.jins.naivechat', [
@@ -420,7 +441,8 @@ def rules
           basic('Hyper + ;: Jump to last tab (Cmd+9)', from: hyper('semicolon'), to: [to_key('9', modifiers: ['right_command'])]),
           basic('Hyper + D: Close current tab (Cmd+W)', from: hyper('d'), to: [to_key('w', modifiers: ['right_command'])])
         ]),
-    mouse_keys_rule
+    mouse_keys_rule,
+    numpad_layer_rule
   ]
 end
 
