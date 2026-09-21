@@ -165,8 +165,8 @@ def to_variable(name, value)
   { 'set_variable' => { 'name' => name, 'value' => value } }
 end
 
-def to_notification(id, text)
-  { 'set_notification_message' => { 'id' => id, 'text' => text } }
+def to_notification(id, text, duration: 2000)
+  { 'set_notification_message' => { 'id' => id, 'text' => text, 'duration_milliseconds' => duration } }
 end
 
 def to_cursor(position)
