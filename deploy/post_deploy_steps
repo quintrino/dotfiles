@@ -4,17 +4,27 @@ Sign into Browser, BitWarden\033[0m
 Sign into Apple iCloud account
 Set computer name by running set_computer_name COMPUTER_NAME
 add "auth sufficient pam_tid.so" to /etc/pam.d/sudo file
-Enable autostart on login for HiddenBar
-Enable autostart on login for Retangle
-Enable autostart on login for ActivityWatch
-Enable autostart on login for AltTab
+Enable autostart on login:
+    ActivityWatch
+    Aerospace
+    Alfred
+    BetterCmdTab
+    Karabiner Elements
+    Thaw
+    Timeout
 Enable Karabiner in security and privacy settings
 Set Bluetooth to display icon in Menu Bar
 Enable Security > Accessibility:
+* ActivityWatch
 * Alfred
-* Karabiner
-* HiddenBar
-Configure HiddenBar to auto hide apps
+* BetterCmdTab
+* Espanso
+* Karabiner 
+* OBS
+* Popclip
+* Terminal
+Set Keyboard shortcuts
+* Popclip: Ctrl + Opt + Cmd + U 
 
 \033[1;31mComplete after Bitwarden Sync\033[0m
 
@@ -23,8 +33,3 @@ Add ssh key for Github
 
 \033[1;31mComplete after Git configuration\033[0m
 git clone git@github.com:quintrino/alfredpreferences.git ~/.config/alfred/Alfred.alfredpreferences
-
-\033[1;31mComplete after Google Drive Sync\033[0m
-
-Set Google Drive to ignore warnings for removing shared items
-Set Alfred appearance to stretch
