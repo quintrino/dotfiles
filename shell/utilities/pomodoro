@@ -1,0 +1,162 @@
+#!/usr/bin/env bash
+#
+# pomo - a simple pomodoro timer
+#
+# Usage:
+#   pomo [--start MM|HH:MM|HH:MM:SS] <work_minutes> <break_minutes>
+#
+# Examples:
+#   pomo 25 5
+#   pomo --start 22:00 25 5   # waits until 22:00 (today or tomorrow) to begin
+#   pomo --start 00 25 5      # waits until the next :00 (any hour) to begin
+#   pomo --start 30 25 5      # waits until the next :30 (any hour) to begin
+#
+# Loops forever: counts down <work_minutes>, sends a notification,
+# counts down <break_minutes>, sends a notification, repeat.
+# Press Ctrl+C to stop.
+
+set -euo pipefail
+
+START_AT=""
+if [[ "${1:-}" == "--start" ]]; then
+    START_AT="$2"
+    shift 2
+fi
+
+if [[ $# -ne 2 ]]; then
+    echo "Usage: $(basename "$0") [--start MM|HH:MM|HH:MM:SS] <work_minutes> <break_minutes>"
+    echo "Example: $(basename "$0") --start 00 25 5"
+    exit 1
+fi
+
+WORK_MIN="$1"
+BREAK_MIN="$2"
+
+# Basic validation - make sure both args are positive numbers
+if ! [[ "$WORK_MIN" =~ ^[0-9]+([.][0-9]+)?$ ]] || ! [[ "$BREAK_MIN" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
+    echo "Error: both arguments must be positive numbers (minutes)."
+    exit 1
+fi
+
+notify() {
+    local title="$1"
+    local message="$2"
+    osascript -e "display notification \"${message}\" with title \"${title}\" sound name \"Submarine\""
+}
+
+# Counts down from the given number of minutes, printing a live countdown
+# to the terminal on a single updating line. Anchored to an absolute end
+# time (epoch seconds) rather than counting "N iterations of sleep 1", so
+# it doesn't drift even over long runs - each loop iteration re-reads the
+# actual wall clock rather than trusting that sleep 1 took exactly 1s.
+countdown() {
+    local minutes="$1"
+    local label="$2"
+    local total_seconds
+    total_seconds=$(printf '%.0f' "$(echo "$minutes * 60" | bc)")
+
+    local start_epoch end_epoch now_epoch remaining
+    start_epoch=$(date +%s)
+    end_epoch=$((start_epoch + total_seconds))
+
+    while true; do
+        now_epoch=$(date +%s)
+        remaining=$((end_epoch - now_epoch))
+        if [[ $remaining -le 0 ]]; then
+            break
+        fi
+        local mins=$((remaining / 60))
+        local secs=$((remaining % 60))
+        printf "\r%s: %02d:%02d remaining   " "$label" "$mins" "$secs"
+        sleep 1
+    done
+    printf "\r%s: 00:00 remaining   \n" "$label"
+}
+
+# If --start was given, sleep until the target time before starting the
+# first round. Accepts three formats:
+#   MM        - every MM minutes, aligned to the hour (e.g. "30" -> next
+#               :00 or :30; "15" -> next :00/:15/:30/:45; "00" -> next
+#               top of hour)
+#   HH:MM     - next time the clock hits this hour:minute (today, or
+#               tomorrow if it's already passed today)
+#   HH:MM:SS  - same as above, with second precision
+# Remaining time is recalculated every second from the actual epoch
+# difference, so it stays accurate to the second (no drift from just
+# counting down "N minutes").
+wait_until() {
+    local target="$1"
+    local now_epoch target_epoch
+
+    now_epoch=$(date +%s)
+
+    if [[ "$target" =~ ^[0-5][0-9]$ ]]; then
+        # Interval mode: treat the number as "every N minutes" and find the
+        # next boundary aligned to the top of the hour. E.g. "30" -> next
+        # :00 or :30 (whichever comes first); "15" -> next :00/:15/:30/:45;
+        # "00" is treated as a 60-minute interval, i.e. next top of hour.
+        local interval=$((10#$target))
+        if [[ $interval -eq 0 ]]; then
+            interval=60
+        fi
+        local interval_seconds=$((interval * 60))
+
+        local midnight_epoch
+        midnight_epoch=$(date -j -f "%H:%M:%S" "00:00:00" +%s 2>/dev/null || date -d "00:00:00" +%s)
+
+        local offset index
+        offset=$((now_epoch - midnight_epoch))
+        index=$((offset / interval_seconds))
+        target_epoch=$((midnight_epoch + (index + 1) * interval_seconds))
+    elif [[ "$target" =~ ^([0-1][0-9]|2[0-3]):[0-5][0-9]$ ]]; then
+        target_epoch=$(date -j -f "%H:%M" "$target" +%s 2>/dev/null || date -d "$target" +%s)
+        if [[ $target_epoch -le $now_epoch ]]; then
+            target_epoch=$((target_epoch + 86400))  # tomorrow
+        fi
+    elif [[ "$target" =~ ^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$ ]]; then
+        target_epoch=$(date -j -f "%H:%M:%S" "$target" +%s 2>/dev/null || date -d "$target" +%s)
+        if [[ $target_epoch -le $now_epoch ]]; then
+            target_epoch=$((target_epoch + 86400))  # tomorrow
+        fi
+    else
+        echo "Error: --start must be MM (e.g. 00, 30), HH:MM (e.g. 22:00), or HH:MM:SS (e.g. 22:00:30)."
+        exit 1
+    fi
+
+    local remaining
+    while true; do
+        now_epoch=$(date +%s)
+        remaining=$((target_epoch - now_epoch))
+        if [[ $remaining -le 0 ]]; then
+            break
+        fi
+        local h=$((remaining / 3600))
+        local m=$(((remaining % 3600) / 60))
+        local s=$((remaining % 60))
+        printf "\rWaiting for %s: %02d:%02d:%02d until start (%ds left)   " "$target" "$h" "$m" "$s" "$remaining"
+        sleep 1
+    done
+    printf "\rReached %s. Starting pomo now!                              \n" "$target"
+}
+
+if [[ -n "$START_AT" ]]; then
+    wait_until "$START_AT"
+fi
+
+echo "Starting pomo: ${WORK_MIN} min work / ${BREAK_MIN} min break. Press Ctrl+C to stop."
+
+round=1
+while true; do
+    echo ""
+    echo "=== Round $round: Work (${WORK_MIN} min) ==="
+    countdown "$WORK_MIN" "Work"
+    notify "Pomo" "Work session finished! Time for a ${BREAK_MIN} minute break."
+
+    echo ""
+    echo "=== Round $round: Break (${BREAK_MIN} min) ==="
+    countdown "$BREAK_MIN" "Break"
+    notify "Pomo" "Break finished! Time for a ${WORK_MIN} minute work session."
+
+    round=$((round + 1))
+done
+
