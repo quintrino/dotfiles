@@ -132,9 +132,9 @@ function git_untrack_new_blank
 end
 
 function yt
-    echo 'Switching to Download/videos'
-    mkdir -p $HOME/Downloads/videos
-    cd $HOME/Downloads/videos
+    echo 'Switching to Download/Videos'
+    mkdir -p $HOME/Downloads/Videos
+    cd $HOME/Downloads/Videos
     echo 'Downloading video using yt-dlp'
     yt-dlp --restrict-filenames -o "%(webpage_url)s - %(title).180s.%(ext)s" "$argv"
 end

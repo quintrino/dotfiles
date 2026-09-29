@@ -1,8 +1,38 @@
 rules:
+  # Desktop
+  - locations: "~/Desktop"
+    subfolders: false
+    actions:
+      - move: "~/Downloads/"
+
+  # Folders
+    locations: ~/Downloads
+    targets: dirs          # match folders instead of files
+    subfolders: false      # set true to recurse
+    filters:
+      - not name:
+          startswith:
+            - Archives
+            - Books
+            - Code
+            - Documents
+            - Directories
+            - Images
+            - Installers
+            - Music
+            - Spreadsheets
+            - Tickets
+            - Videos
+    actions:
+      - echo: "Non-matching folder: {path}"
+      - move: "~/Downloads/Directories/"
+
   # Images
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+            "< 0.5 GB"
       - extension:
           - jpg
           - jpeg
@@ -21,7 +51,10 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
+          - apkg
           - pdf
           - doc
           - docx
@@ -36,6 +69,8 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - xls
           - xlsx
@@ -49,6 +84,8 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - ppt
           - pptx
@@ -57,10 +94,25 @@ rules:
     actions:
       - move: "~/Downloads/Presentations/"
 
+
+  # Tickets
+  - locations: "~/Downloads"
+    subfolders: false
+    filters:
+      - size:
+          "< 0.5 GB"
+      - extension:
+          - pkpass
+          - pkpasses
+    actions:
+      - move: "~/Downloads/Tickets/"
+
   # Videos
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - mp4
           - avi
@@ -78,6 +130,8 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - mp3
           - wav
@@ -93,6 +147,8 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - zip
           - rar
@@ -109,6 +165,8 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - py
           - js
@@ -117,10 +175,12 @@ rules:
           - java
           - cpp
           - c
+          - d
           - go
           - rs
           - php
           - rb
+          - scpt
           - swift
           - kt
           - ts
@@ -131,6 +191,7 @@ rules:
           - xml
           - yaml
           - yml
+          - alfredworkflow
     actions:
       - move: "~/Downloads/Code/"
 
@@ -138,6 +199,8 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - exe
           - msi
@@ -154,20 +217,49 @@ rules:
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - epub
           - mobi
           - azw
           - azw3
     actions:
-      - move: "~/Downloads/eBooks/"
+      - move: "~/Downloads/Books/"
 
   # Markdown
   - locations: "~/Downloads"
     subfolders: false
     filters:
+      - size:
+          "< 0.5 GB"
       - extension:
           - md
           - markdown
     actions:
       - move: "~/Documents/obsidian/Backlog/"
+
+  # Home Directory new file
+    locations: "{env.HOME}"
+    targets: dirs          # match folders instead of files
+    subfolders: false      # set true to recurse
+    filters:
+      - not name:
+          startswith:
+            - .Trash
+            - .cache
+            - .config
+            - .local
+            - .ssh
+            - Applications
+            - Desktop
+            - Developer
+            - Documents
+            - Downloads
+            - Library
+            - Movies
+            - Music
+            - Pictures
+            - Public
+    actions:
+      - echo: "Non-matching folder: {path}"

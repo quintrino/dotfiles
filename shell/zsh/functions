@@ -559,7 +559,7 @@ prevd(){
 }
 
 yt() {
-  youtube-dl --output "$HOME/Downloads/videos/%(title)s.mp4" $1
+  youtube-dl --output "$HOME/Downloads/Videos/%(title)s.mp4" $1
 }
 
 roff() {
