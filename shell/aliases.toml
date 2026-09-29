@@ -31,6 +31,7 @@ bhist = '$EDITOR $XDG_DATA_HOME/bash/history/'
 zhist = '$EDITOR $XDG_DATA_HOME/zsh/history/'
 sf = 'source $HOME/.config/fish/config.fish'
 fsf = 'dotter_update && source $HOME/.config/fish/config.fish'
+efish = '$EDITOR $HOME/.config/fish/config.fish'
 
 [base.variables.aliases.Applications]
 
