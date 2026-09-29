@@ -19,17 +19,23 @@ Enable Security > Accessibility:
 * Alfred
 * BetterCmdTab
 * Espanso
-* Karabiner 
+* Karabiner
 * OBS
 * Popclip
 * Terminal
+set browser to import from Ublockorigin script
 Set Keyboard shortcuts
-* Popclip: Ctrl + Opt + Cmd + U 
+Import iina shortcuts
+* Popclip: Ctrl + Opt + Cmd + U
 
 \033[1;31mComplete after Bitwarden Sync\033[0m
 
 Enable licence for Alfred
 Add ssh key for Github
+Add Drive account to gdrive for Espanso Merge Upload
 
 \033[1;31mComplete after Git configuration\033[0m
 git clone git@github.com:quintrino/alfredpreferences.git ~/.config/alfred/Alfred.alfredpreferences
+git clone git@github.com:quintrino/obsidian.git ~/Documents/obsidian
+enter alfred powerpack and set .config/alfred as settings
+Set Alfred appearance to stretch
