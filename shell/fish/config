@@ -14,7 +14,7 @@ end
 
 function zellij_tab_name_update --on-event fish_postexec
     if set -q ZELLIJ
-        set title (string replace -r "^/Users/roxton" "~" $PWD)
+        set title (string replace -r "^$HOME" "~" $PWD)
         command nohup zellij action rename-tab "$title" >/dev/null 2>&1
     end
 end
