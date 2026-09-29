@@ -392,7 +392,7 @@ def rules
           basic('Hyper+Cmd + S: Open Signal', from: cmd_hyper('s'), to: [open('Signal Beta')]),
           basic('Hyper+Cmd + G: Open Gather', from: cmd_hyper('g'), to: [open('Gather')]),
           basic('Hyper+Cmd + F: Open Godspeed', from: cmd_hyper('f'), to: [open('Godspeed')]),
-          basic('Hyper+Cmd + V: Open VLC', from: cmd_hyper('v'), to: [open('VLC')]),
+          basic('Hyper+Cmd + V: Open Video Player', from: cmd_hyper('v'), to: [open('IINA')]),
           basic('Hyper+Cmd + B: Open Beeper', from: cmd_hyper('b'), to: [open('Beeper Desktop')]),
           basic('Hyper+Cmd + M: Open AI Chat', from: cmd_hyper('m'), to: [open('NaiveChat')]),
           basic('Hyper+Cmd + M: Open Nimble Commander', from: cmd_hyper('n'), to: [open('Nimble Commander')]),

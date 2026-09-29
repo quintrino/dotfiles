@@ -965,7 +965,7 @@
                 "type": "basic"
               },
               {
-                "description": "Hyper+Cmd + V: Open VLC",
+                "description": "Hyper+Cmd + V: Open Video Player",
                 "from": {
                   "key_code": "v",
                   "modifiers": {
@@ -985,7 +985,7 @@
                 ],
                 "to_after_key_up": [
                   {
-                    "shell_command": "echo $(date):: 'Hyper+Cmd + V: Open VLC' >> $HOME/.local/share/karabiner/history"
+                    "shell_command": "echo $(date):: 'Hyper+Cmd + V: Open Video Player' >> $HOME/.local/share/karabiner/history"
                   }
                 ],
                 "type": "basic"
