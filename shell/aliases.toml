@@ -226,3 +226,4 @@ ud = 'git switch master && git pull && bundle install && yarn install'
 
 star = 'telnet towel.blinkenlights.nl'
 art = 'cd $HOME/Developer/personal/quintrino-contribution-graph && ./refresh_commit_graph.sh'
+rmd = 'rm .DS_Store'
