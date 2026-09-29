@@ -3,10 +3,20 @@
 # shellcheck disable=SC1090
 source "$HOME/.dotfiles/shell/environment"
 
+function source_brew() {
+    if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [ -x /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+    fi
+}
+
+source_brew
+
 function install_homebrew() {
   printf "\033[1;31mInstalling Homebrew \033[0m\n"
   sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+  source_brew
 }
 
 function install_brew_bundle() {
