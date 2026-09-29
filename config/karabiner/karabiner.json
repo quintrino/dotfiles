@@ -1146,7 +1146,8 @@
                   {
                     "set_notification_message": {
                       "id": "my_message",
-                      "text": "Resetting Karabiner Elements!"
+                      "text": "Resetting Karabiner Elements!",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -2646,7 +2647,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -2662,7 +2664,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -2783,7 +2786,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -2799,7 +2803,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -2920,7 +2925,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -2936,7 +2942,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3057,7 +3064,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3073,7 +3081,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3156,7 +3165,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3172,7 +3182,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3253,7 +3264,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3269,7 +3281,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3350,7 +3363,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3366,7 +3380,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3450,7 +3465,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3466,7 +3482,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3552,7 +3569,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3568,7 +3586,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3653,7 +3672,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3669,7 +3689,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3757,7 +3778,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3773,7 +3795,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3865,7 +3888,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3881,7 +3905,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -3974,7 +3999,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -3990,7 +4016,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
@@ -4083,7 +4110,8 @@
                       {
                         "set_notification_message": {
                           "id": "mouse_keys_mode_v4",
-                          "text": ""
+                          "text": "",
+                          "duration_milliseconds": 2000
                         }
                       }
                     ]
@@ -4099,7 +4127,8 @@
                   {
                     "set_notification_message": {
                       "id": "mouse_keys_mode_v4",
-                      "text": "Mouse Keys Mode v4"
+                      "text": "Mouse Keys Mode v4",
+                      "duration_milliseconds": 2000
                     }
                   },
                   {
