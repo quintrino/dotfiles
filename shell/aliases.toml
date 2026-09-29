@@ -166,6 +166,17 @@ n6 = 'nextd 6'
 n7 = 'nextd 7'
 n8 = 'nextd 8'
 n9 = 'nextd 9'
+u = 'up'
+u1 = 'up'
+u2 = 'up 2'
+u3 = 'up 3'
+u4 = 'up 4'
+u5 = 'up 5'
+u6 = 'up 6'
+u7 = 'up 7'
+u8 = 'up 8'
+u9 = 'up 9'
+ug = 'cd $(git rev-parse --show-toplevel)'
 
 [base.variables.aliases.Multiplexer]
 
