@@ -16,6 +16,7 @@ now = 'date +"%T"'
 rmf = 'rm -rf'
 t = 'touch'
 tree = 'eza --tree --all --icons --level=3'
+copy = 'pbcopy <'
 
 [base.variables.aliases.Machine]
 
