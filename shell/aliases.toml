@@ -46,6 +46,8 @@ tl = 'tldr'
 tle = 'teeldeer_edit'
 electron = 'find /Applications -name "Electron Framework" 2>/dev/null | sed "s|.*Applications/||; s|/Contents.*||" | sort -u'
 v = 'vim'
+pomo = 'pomodoro --start 30 25 5'
+pomm = 'pomodoro --start 00 50 10'
 
 [base.variables.aliases.Ssh]
 
