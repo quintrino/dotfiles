@@ -4153,6 +4153,191 @@
               }
             ],
             "available_since": "13.6.0"
+          },
+          {
+            "description": "Fn + Shift - Numpad Layer",
+            "manipulators": [
+              {
+                "description": "Fn+Shift + u: 7",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "7"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + i: 8",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "8"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + o: 9",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "9"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + j: 4",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + k: 5",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "5"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + l: 6",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "6"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + m: 1",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "1"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + comma: 2",
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "2"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + period: 3",
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "3"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Fn+Shift + p: 0",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "0"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       }
