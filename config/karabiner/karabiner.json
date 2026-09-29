@@ -664,7 +664,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Zen.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Zen.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -689,7 +693,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'eM Client.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/eM Client.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -714,7 +722,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Alacritty.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Alacritty.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -739,7 +751,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Obsidian.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Obsidian.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -764,7 +780,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Slack.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Slack.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -789,7 +809,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Bitwarden.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Bitwarden.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -850,7 +874,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Orion.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Orion.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -876,7 +904,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Obsidian.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Obsidian.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -902,7 +934,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Signal Beta.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Signal Beta.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -928,7 +964,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Gather.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Gather.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -954,7 +994,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Godspeed.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Godspeed.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -980,7 +1024,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'VLC.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/IINA.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -1006,7 +1054,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Beeper Desktop.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Beeper Desktop.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -1032,7 +1084,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'NaiveChat.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/NaiveChat.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -1058,7 +1114,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Nimble Commander.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Nimble Commander.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -1116,7 +1176,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Discord.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Discord.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -1142,7 +1206,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'zoom.us.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/zoom.us.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -1168,7 +1236,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Zed.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Zed.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
@@ -1220,7 +1292,11 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Brave Browser Beta.app'"
+                    "software_function": {
+                      "open_application": {
+                        "file_path": "/Applications/Brave Browser Beta.app"
+                      }
+                    }
                   }
                 ],
                 "to_after_key_up": [
