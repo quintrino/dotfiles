@@ -11,6 +11,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 export HEX_HOME="$XDG_CONFIG_HOME/hex"
+export AW_SYNC_DIR="$XDG_DATA_HOME/ActivityWatchSync"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export FLY_CONFIG_DIR="$XDG_STATE_HOME"/fly
