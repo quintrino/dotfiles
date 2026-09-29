@@ -23,7 +23,7 @@ layout {
                     pane {
                         name "Zinit Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && zinit_update \\
                             ; exec zsh"
                         close_on_exit true
@@ -31,7 +31,7 @@ layout {
                     pane {
                         name "Fisher Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && fisher_update \\
                             ; exec zsh"
                         close_on_exit true
@@ -39,7 +39,7 @@ layout {
                     pane {
                         name "Mise Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && mise_update \\
                             ; exec zsh"
                         close_on_exit true
@@ -47,7 +47,7 @@ layout {
                     pane {
                         name "Ruby Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && ruby_update \\
                             ; exec zsh"
                         close_on_exit true
@@ -57,7 +57,7 @@ layout {
                     pane {
                         name "Doctor Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && doctor_update \\
                             ; exec zsh"
                         close_on_exit true
@@ -65,7 +65,7 @@ layout {
                     pane {
                         name "Brew Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && brew_update \\
                             ; exec zsh"
                         close_on_exit true
@@ -73,7 +73,7 @@ layout {
                     pane {
                         name "Mac Software Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && mac_software_update \\
                             ; exec zsh"
                         close_on_exit true
@@ -81,7 +81,7 @@ layout {
                     pane {
                         name "Dotter Update"
                         command "zsh"
-                        args "-c" "source /Users/roxton/.config/zsh/.zshrc \\
+                        args "-c" "source $HOME/.config/zsh/.zshrc \\
                             && dotter_update \\
                             ; exec zsh"
                         close_on_exit true
