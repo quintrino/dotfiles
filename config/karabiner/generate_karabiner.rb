@@ -494,7 +494,8 @@ def rules
       ]),
     rule('System Modifications - Caps Lock to Hyper Key with Escape on tap', [
           basic('Shift + Caps Lock enables actual Caps Lock', from: from_key('caps_lock', mandatory: ['shift'], optional: ['caps_lock']), to: [to_key('caps_lock')], log: false),
-          basic('Caps Lock to Hyper Key (Right Shift + Right Cmd + Right Ctrl + Right Option), Escape on tap', from: from_key('caps_lock', optional: ['any']), to: [to_key('right_shift', modifiers: ['right_command', 'right_control', 'right_option'])], to_if_alone: [to_key('escape')], log: false)
+          basic('Caps Lock to Hyper Key (Right Shift + Right Cmd + Right Ctrl + Right Option), Escape on tap', from: from_key('caps_lock', optional: ['any']), to: [to_key('right_shift', modifiers: ['right_command', 'right_control', 'right_option'])], to_if_alone: [to_key('escape')], log: false),
+          basic('Left Shift to backspace on tap', from: from_key('right_shift', mandatory: ['left_shift']), to: [to_key('delete_or_backspace')])
         ]),
     rule('Bose Headphones Activation', [
           basic('Hyper + 3 activates Bose 35 Headphones', from: hyper('3'), to: [to_shell('open alfred://runtrigger/quintrino.bose/35')]),
