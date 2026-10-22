@@ -596,7 +596,11 @@ def rules
           basic('Hyper + D: Close current tab (Cmd+W)', from: hyper('d'), to: [to_key('w', modifiers: ['right_command'])])
         ]),
     mouse_keys_rule,
-    numpad_layer_rule
+    numpad_layer_rule,
+    leader('Double Command', from_chord('left_command', 'right_command'), [
+      basic('Open Zen', from: 'w', to: [open('Zen')]),
+      basic('Open Obsidian', from: 'o', to: [open('Obsidian')])
+    ])
   ]
 end
 
