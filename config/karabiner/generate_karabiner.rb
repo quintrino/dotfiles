@@ -63,16 +63,141 @@ def app_specific_rule(description, app, manipulators)
   rule(description, manipulators_with_app)
 end
 
-def basic(description = nil, from:, to:, to_if_alone: nil, to_after_key_up: nil, conditions: nil, parameters: nil, log: true)
+# `from` is a from_key hash (hyper('e'), from_key(...)) or a bare key code ('l'), which is
+# shorthand for from_key('l'). Inside leader(), basic is used as-is: leader() adds the
+# condition and the clean-up to the manipulators it is given.
+def basic(description = nil, from:, to:, to_if_alone: nil, to_after_key_up: nil, to_delayed_action: nil, conditions: nil, parameters: nil, log: true)
   compact_hash(
     'description' => description,
-    'from' => from,
+    'from' => from.is_a?(String) ? from_key(from) : from,
     'to' => to,
     'to_if_alone' => to_if_alone,
     'to_after_key_up' => logger(description, log),
+    'to_delayed_action' => to_delayed_action,
     'conditions' => conditions,
     'parameters' => parameters,
     'type' => 'basic'
+  )
+end
+
+def to_delayed_action(invoked:, canceled: [])
+  { 'to_if_invoked' => invoked, 'to_if_canceled' => canceled }
+end
+
+# A leader key: press `trigger`, then one of the keys in `bindings`. A binding is a basic(...)
+# manipulator, or another leader(...) that opens a further level, to any depth. Any other key,
+# or waiting longer than `timeout` milliseconds, cancels. A bare key code in a binding's
+# `from` also matches while the Hyper modifiers are still held, as they are when the trigger is
+# a hyper(...) key.
+#
+# `description` names the leader in Karabiner and in the history, which reads
+# "Leader: Hyper + W:O: Open Obsidian", or "Leader: Hyper + W:G:H: Open GitHub" from a nested one.
+#
+#   leader('Hyper + W', hyper('w'), [
+#     basic('Open Obsidian', from: 'o', to: [open('Obsidian')]),
+#     basic('Open email', from: hyper('e'), to: [open('eM Client')]),
+#     leader('Git', 'g', [
+#       basic('Open GitHub', from: 'h', to: [open('GitHub Desktop')])
+#     ])
+#   ])
+#
+# Put the rule above any rule that uses the same keys: the first match wins.
+# A rule that also remembers what it was built from, so that, used as a binding inside another
+# leader, it can become a level of that leader instead.
+class LeaderRule < Hash
+  attr_accessor :spec
+end
+
+def leader(description, trigger, bindings, timeout: 1500)
+  label = "Leader: #{description}"
+  variable = "leader_#{leader_key_id(trigger)}"
+
+  leader_rule = LeaderRule[rule(label, [
+    leader_start(label, leader_from_key(trigger), variable, nil, timeout),
+    *leader_level(bindings, label, variable, timeout)
+  ])]
+  leader_rule.spec = { description: description, trigger: trigger, bindings: bindings, timeout: timeout }
+  leader_rule
+end
+
+def leader_clear(variable)
+  [to_variable(variable, 0), to_notification(variable, '')]
+end
+
+# Moves into the level `variable`, and back out if nothing is pressed within `timeout`.
+# `leaving` is the level it came from, if any.
+def leader_start(label, from, variable, leaving, timeout)
+  basic("#{label}: start", log: false, from: from,
+        conditions: leaving && [variable_if(leaving, 1)],
+        to: [*(leaving && leader_clear(leaving)), to_variable(variable, 1),
+             to_notification(variable, "#{label}…", duration: timeout)],
+        to_delayed_action: to_delayed_action(invoked: leader_clear(variable)),
+        parameters: { 'basic.to_delayed_action_delay_milliseconds' => timeout })
+end
+
+# The manipulators for the keys of one level, then the cancel for it. `label` is the path so
+# far, such as "Leader: Hyper + W:G".
+def leader_level(bindings, label, variable, timeout)
+  manipulators = bindings.flat_map do |binding|
+    if binding.is_a?(LeaderRule)
+      leader_nested_manipulators(binding.spec, label, variable)
+    else
+      [leader_binding(binding, label, variable)]
+    end
+  end
+
+  [
+    *manipulators,
+    basic("#{label}: cancel", log: false,
+          from: { 'any' => 'key_code', 'modifiers' => { 'optional' => ['any'] } },
+          to: leader_clear(variable), conditions: [variable_if(variable, 1)])
+  ]
+end
+
+def leader_nested_manipulators(spec, label, variable)
+  from = leader_from(leader_from_key(spec[:trigger]))
+  path = "#{label}:#{leader_key_name(from)}"
+  inner = "#{variable}_#{leader_key_id(from)}"
+
+  [
+    leader_start("#{path} (#{spec[:description]})", from, inner, variable, spec[:timeout]),
+    *leader_level(spec[:bindings], path, inner, spec[:timeout])
+  ]
+end
+
+def leader_from_key(key)
+  key.is_a?(String) ? from_key(key) : key
+end
+
+# A key without modifiers of its own still matches while Hyper is held
+def leader_from(from)
+  from['modifiers'] ? from : from.merge('modifiers' => { 'optional' => ['any'] })
+end
+
+# Keys of a trigger or binding, for variable names and for the history. A chord has several.
+def leader_key_codes(from)
+  from['simultaneous'] ? from['simultaneous'].map { |key| key['key_code'] } : [from['key_code']]
+end
+
+def leader_key_id(from)
+  leader_key_codes(from).join('_')
+end
+
+def leader_key_name(from)
+  leader_key_codes(from).map { |key_code| key_code.to_s.upcase }.join('+')
+end
+
+# The description, and so the history line, says it came from the leader. A binding that
+# was written with log: false stays unlogged.
+def leader_binding(binding, label, variable)
+  from = leader_from(binding['from'])
+  description = "#{label}:#{leader_key_name(from)}: #{binding['description']}"
+  binding.merge(
+    'description' => description,
+    'to_after_key_up' => binding['to_after_key_up'] && logger(description, true),
+    'from' => from,
+    'to' => [*binding['to'], *leader_clear(variable)],
+    'conditions' => [*binding['conditions'], variable_if(variable, 1)]
   )
 end
 
