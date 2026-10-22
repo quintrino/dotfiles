@@ -412,7 +412,8 @@ def rules
         ]),
     app_specific_rule('App-Specific: Obsidian and Zen Browser', ['^md\\.obsidian', '^app\\.zen-browser\\.zen'], [
           basic('Hyper + u in Obsidian/Zen move one tab left', from: hyper('u'), to: [to_key('open_bracket', modifiers: ['right_shift', 'right_command'])]),
-          basic('Hyper + i in Obsidian/Zen move one tab right', from: hyper('i'), to: [to_key('close_bracket', modifiers: ['right_shift', 'right_command'])])
+          basic('Hyper + i in Obsidian/Zen move one tab right', from: hyper('i'), to: [to_key('close_bracket', modifiers: ['right_shift', 'right_command'])]),
+          basic('Hyper+Cmd + J: End of File', from: cmd_hyper('j'), to: [to_key('end', modifiers: ['left_command'])])
         ]),
     app_specific_rule('App-Specific: Zen Browser', '^app\\.zen-browser\\.zen', [
           basic('Cmd + Shift + P in Zen select and paste top Proton Pass result', from: from_key('p', mandatory: ['left_shift', 'left_command']), to: [*to_tab_then_wait(12), *to_key_then_wait('return_or_enter'), *to_key_then_wait('escape'), to_key('v', modifiers: ['command'])])
