@@ -5,6 +5,8 @@ require 'json'
 
 HYPER = %w[right_shift right_control right_command right_option].freeze
 HYPER_CMD = (HYPER + %w[left_command]).freeze
+HYPER_OPT = (HYPER + %w[left_option]).freeze
+HYPER_SHIFT_CMD = (HYPER_CMD + %w[left_shift]).freeze
 SS_FORMAT = '$HOME/Proton/Sync/Devices/Screenshots/Screenshot_'
 
 OUTPUT_PATH = File.expand_path('karabiner.json', __dir__)
@@ -218,14 +220,32 @@ def from_key(key_code, mandatory: nil, optional: nil)
   compact_hash('key_code' => key_code, 'modifiers' => modifiers.empty? ? nil : modifiers)
 end
 
-def hyper(key_code)
-  modifiers = compact_hash('mandatory' => HYPER)
+def hyper(key_code, extra_modifiers = {})
+  modifiers = compact_hash('mandatory' => HYPER).merge(extra_modifiers)
   compact_hash('key_code' => key_code, 'modifiers' => modifiers)
 end
 
 def cmd_hyper(key_code)
   modifiers = compact_hash('mandatory' => HYPER_CMD)
   compact_hash('key_code' => key_code, 'modifiers' => modifiers)
+end
+
+def open_hyper(key_code)
+  modifiers = compact_hash('mandatory' => HYPER, 'optional' => ['any'])
+  compact_hash('key_code' => key_code, 'modifiers' => modifiers)
+end
+
+def cmd_shift_hyper(key_code)
+  modifiers = compact_hash('mandatory' => HYPER_SHIFT_CMD)
+  compact_hash('key_code' => key_code, 'modifiers' => modifiers)
+end
+
+# Several keys pressed together, in either order. Used as a leader trigger.
+def from_chord(*key_codes)
+  {
+    'simultaneous' => key_codes.map { |key_code| { 'key_code' => key_code } },
+    'modifiers' => { 'optional' => ['any'] }
+  }
 end
 
 def from_simultaneous(keys, optional:, after_key_up:)
@@ -487,12 +507,10 @@ def rules
           basic('Cmd + Ctrl + Shift + 4: Selection screenshot to clipboard', from: from_key('4', mandatory: ['left_shift', 'left_control', 'left_command']), to: [to_shell('screencapture -cs')], log: false)
         ]),
     rule('Hyper Key - System Navigation and Controls', [
-          basic('Hyper + H: Left arrow', from: hyper('h'), to: [to_key('left_arrow')]),
-          basic('Hyper + J: Down arrow', from: hyper('j'), to: [to_key('down_arrow')]),
-          basic('Hyper + K: Up arrow', from: hyper('k'), to: [to_key('up_arrow')]),
-          basic('Hyper + L: Right arrow', from: hyper('l'), to: [to_key('right_arrow')]),
-          basic('Hyper+Cmd + L: End of Line', from: cmd_hyper('l'), to: [to_key('right_arrow', modifiers: ['left_command'])]),
-          basic('Hyper+Cmd + J: End of File', from: cmd_hyper('j'), to: [to_key('end', modifiers: ['left_command'])]),
+          basic('Hyper + H: Left arrow', from: open_hyper('h'), to: [to_key('left_arrow')]),
+          basic('Hyper + J: Down arrow', from: open_hyper('j'), to: [to_key('down_arrow')]),
+          basic('Hyper + K: Up arrow', from: open_hyper('k'), to: [to_key('up_arrow')]),
+          basic('Hyper + L: Right arrow', from: open_hyper('l'), to: [to_key('right_arrow')]),
           basic('Hyper + N: Move to space left', from: hyper('n'), to: [to_key('left_arrow', modifiers: ['right_command', 'right_control', 'right_option' ])]),
           basic('Hyper + M: Move to space right', from: hyper('m'), to: [to_key('right_arrow', modifiers: ['right_command', 'right_control', 'right_option' ])]),
           basic('Hyper + Y: Toggle fullscreen', from: hyper('y'), to: [to_key('return_or_enter', modifiers: ['right_control', 'right_option'])]),
