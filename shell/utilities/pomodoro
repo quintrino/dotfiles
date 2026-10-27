@@ -41,7 +41,11 @@ fi
 notify() {
     local title="$1"
     local message="$2"
-    osascript -e "display notification \"${message}\" with title \"${title}\" sound name \"Submarine\""
+    if command -v terminal-notifier >/dev/null 2>&1; then
+        terminal-notifier -title "$title" -message "$message" -sound Submarine >/dev/null
+    else
+        osascript -e "display notification \"${message}\" with title \"${title}\" sound name \"Submarine\""
+    fi
 }
 
 # Counts down from the given number of minutes, printing a live countdown
