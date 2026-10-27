@@ -1,0 +1,229 @@
+#!/usr/bin/env bash
+# sync_watch_durations.sh
+#
+# Fetches all tasks from your Godspeed "Watch" list, finds YouTube, Instagram,
+# Facebook, or TikTok video links in the title or notes, looks up the video
+# duration via yt-dlp, and patches duration_minutes back on the Godspeed task.
+#
+# On each successful run the script records its start time in:
+#   ${XDG_STATE_HOME:-~/.local/state}/godspeed-watch-update/data.toml
+# On subsequent runs, only tasks updated since that timestamp are fetched.
+#
+# Each task that is updated is marked in its Godspeed metadata
+# (watch_duration_url, watch_duration_synced_at). Tasks already marked for the
+# same video URL are skipped, so durations are never re-fetched or overwritten.
+#
+# Required environment variables:
+#   GODSPEED_TOKEN            – Your Godspeed Bearer token
+#   GODSPEED_WATCH_LIST_ID  – The list_id of your "Watch" list in Godspeed
+#
+# Dependencies: curl, jq, yt-dlp
+
+set -euo pipefail
+
+# ── Validate environment ────────────────────────────────────────────────────
+
+: "${GODSPEED_TOKEN:?Error: GODSPEED_TOKEN is not set}"
+GODSPEED_WATCH_LIST_ID="${GODSPEED_WATCH_LIST_ID:-}"
+
+for cmd in curl jq yt-dlp; do
+  command -v "$cmd" >/dev/null 2>&1 || { echo "Error: '$cmd' is required but not installed." >&2; exit 1; }
+done
+
+GODSPEED_BASE="https://api.godspeedapp.com"
+
+# ── State file ──────────────────────────────────────────────────────────────
+
+STATE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/godspeed-watch-update"
+STATE_FILE="$STATE_DIR/data.toml"
+
+# Record start time before any work so we don't miss tasks updated during the run
+RUN_START=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+# Read last successful run time and list ID from state file if it exists
+UPDATED_AFTER=""
+if [[ -f "$STATE_FILE" ]]; then
+  UPDATED_AFTER=$(grep '^last_run' "$STATE_FILE" | sed -E 's/^last_run *= *"(.+)"/\1/') || true
+  if [[ -z "$GODSPEED_WATCH_LIST_ID" ]]; then
+    GODSPEED_WATCH_LIST_ID=$(grep '^watch_list_id' "$STATE_FILE" | sed -E 's/^watch_list_id *= *"(.+)"/\1/') || true
+  fi
+fi
+
+if [[ -z "$GODSPEED_WATCH_LIST_ID" ]]; then
+  echo "Error: GODSPEED_WATCH_LIST_ID is not set and not found in $STATE_FILE" >&2
+  exit 1
+fi
+
+if [[ -n "$UPDATED_AFTER" ]]; then
+  echo "Incremental run — fetching tasks updated after $UPDATED_AFTER"
+else
+  echo "First run — fetching all tasks"
+fi
+
+# ── Helper: extract a supported video URL from a string ────────────────────
+# Handles plain URLs and Markdown-style links: [text](url ...)
+# Supported: YouTube (videos, shorts, playlists), Instagram, Facebook, TikTok
+
+extract_video_url() {
+  local text="$1"
+
+  local url
+  url=$(echo "$text" | grep -oE 'https?://[^[:space:]")]+' | grep -E \
+    '(youtube\.com/(watch|shorts|embed|playlist)|youtu\.be|instagram\.com/(p|reel|tv)/|facebook\.com/(share|reel|watch|.*videos?/)|tiktok\.com/)' \
+    | head -1) || true
+
+  # Strip trailing punctuation that isn't part of a URL (markdown close paren, etc.)
+  url=$(echo "$url" | sed -E 's/[)>.,]+$//')
+
+  echo "$url"
+}
+
+# ── Helper: get duration in seconds via yt-dlp ─────────────────────────────
+# For playlists, yt-dlp prints one duration per entry — we sum them all.
+
+get_duration_seconds() {
+  local url="$1"
+  local raw total seconds
+
+  # No --no-playlist so that playlists are handled naturally.
+  # For single videos this prints one number; for playlists, one per entry.
+  raw=$(yt-dlp --print duration "$url" 2>/dev/null) || true
+
+  if [[ -z "$raw" ]]; then
+    echo 0
+    return
+  fi
+
+  # Sum all values (handles both single video and multi-entry playlists)
+  total=0
+  while IFS= read -r line; do
+    seconds=$(echo "$line" | grep -oE '^[0-9]+') || true
+    total=$(( total + ${seconds:-0} ))
+  done <<< "$raw"
+
+  echo "$total"
+}
+
+# ── Helper: convert seconds to whole minutes (rounded up) ──────────────────
+
+seconds_to_minutes() {
+  local seconds="$1"
+  echo $(( (seconds + 59) / 60 ))
+}
+
+# ── Step 1: Fetch tasks from the Watch list ─────────────────────────────────
+
+echo "Fetching tasks from Godspeed Watch list (list_id: $GODSPEED_WATCH_LIST_ID)..."
+
+QUERY="list_id=$GODSPEED_WATCH_LIST_ID"
+[[ -n "$UPDATED_AFTER" ]] && QUERY="$QUERY&updated_after=$UPDATED_AFTER"
+
+response=$(curl --silent --fail \
+  -H "Authorization: Bearer $GODSPEED_TOKEN" \
+  "$GODSPEED_BASE/tasks?$QUERY")
+
+task_count=$(echo "$response" | jq '.tasks | length')
+echo "Found $task_count task(s)."
+
+# ── Step 2: Process each task ───────────────────────────────────────────────
+
+processed=0
+already_synced=0
+skipped=0
+errors=0
+
+while IFS= read -r task; do
+  task_id=$(echo "$task" | jq -r '.id // empty')
+  title=$(echo "$task"   | jq -r '.title // ""')
+  notes=$(echo "$task"   | jq -r '.notes // ""')
+  combined="$title $notes"
+
+  if [[ -z "$task_id" ]]; then
+    echo "  [WARN] Task has no id field — skipping. Title: '$title'"
+    (( skipped++ )) || true
+    continue
+  fi
+
+  # Find a supported video URL in title or notes
+  video_url=$(extract_video_url "$combined")
+
+  if [[ -z "$video_url" ]]; then
+    echo "  [SKIP] No video URL found — \"$title\""
+    (( skipped++ )) || true
+    continue
+  fi
+
+  # Skip tasks already synced for this same URL (tracked in task metadata).
+  # If the link changes, the URL no longer matches and the task is re-synced.
+  synced_url=$(echo "$task" | jq -r '.metadata.watch_duration_url // empty')
+  if [[ "$synced_url" == "$video_url" ]]; then
+    echo "  [DONE] Already synced — \"$title\""
+    (( already_synced++ )) || true
+    continue
+  fi
+
+  echo "  [FOUND] \"$title\" → $video_url"
+
+  # ── Step 3: Look up duration via yt-dlp ──────────────────────────────────
+
+  echo "    Fetching duration..."
+  duration_seconds=$(get_duration_seconds "$video_url")
+
+  if [[ "$duration_seconds" -eq 0 ]]; then
+    echo "    [ERROR] Could not retrieve duration for $video_url"
+    (( errors++ )) || true
+    continue
+  fi
+
+  duration_minutes=$(seconds_to_minutes "$duration_seconds")
+  echo "    Duration: ${duration_seconds}s → ${duration_minutes} minute(s)"
+
+  # ── Step 4: Patch the Godspeed task ──────────────────────────────────────
+
+  # Merge our marker into the task's existing metadata and send the whole object,
+  # so other keys survive whether the API replaces or merges metadata.
+  patch_body=$(echo "$task" | jq -c \
+    --argjson minutes "$duration_minutes" \
+    --arg url "$video_url" \
+    --arg at "$RUN_START" \
+    '{duration_minutes: $minutes,
+      metadata: ((.metadata // {}) + {watch_duration_url: $url, watch_duration_synced_at: $at})}')
+
+  patch_response=$(curl --silent --fail --output /dev/null --write-out "%{http_code}" \
+    -X PATCH \
+    -H "Authorization: Bearer $GODSPEED_TOKEN" \
+    -H "Content-Type: application/json" \
+    -d "$patch_body" \
+    "$GODSPEED_BASE/tasks/$task_id") || {
+      echo "    [ERROR] PATCH request failed for task $task_id"
+      (( errors++ )) || true
+      continue
+    }
+
+  if [[ "$patch_response" =~ ^2 ]]; then
+    echo "    [OK] Updated task $task_id (HTTP $patch_response)"
+    (( processed++ )) || true
+  else
+    echo "    [ERROR] Unexpected HTTP $patch_response for task $task_id"
+    (( errors++ )) || true
+  fi
+
+done < <(echo "$response" | jq -c '.tasks[]')
+
+# ── Summary ─────────────────────────────────────────────────────────────────
+
+echo ""
+echo "Done. Updated: $processed | Already synced: $already_synced | Skipped (no video URL): $skipped | Errors: $errors"
+
+# ── Save state ───────────────────────────────────────────────────────────────
+# Only written on a clean exit (set -e means any uncaught error aborts before here)
+RUN_STOP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+mkdir -p "$STATE_DIR"
+cat > "$STATE_FILE" << TOML
+# Written by sync_watch_durations.sh — do not edit manually
+last_run = "$RUN_STOP"
+watch_list_id = "$GODSPEED_WATCH_LIST_ID"
+TOML
+
+echo "State saved → $STATE_FILE (last_run = $RUN_START)"
