@@ -1,0 +1,1461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keymap Heatmap</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f4f3f0;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink2: #52514e;
+  --muted: #6b6a66;
+  --line: #e3e2dd;
+  --key-mod: #ecebe7;
+  --free-line: #b9b8b2;
+  --accent: #2a78d6;
+  --ramp-0: #cde2fb;
+  --ramp-1: #2a78d6;
+  --ramp-2: #0d366b;
+  --ink-lo: #0b0b0b;
+  --ink-hi: #ffffff;
+  --focus: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121211;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink2: #c3c2b7;
+    --muted: #9a9990;
+    --line: #2f2f2d;
+    --key-mod: #262624;
+    --free-line: #55544f;
+    --accent: #3987e5;
+    --ramp-0: #0d366b;
+    --ramp-1: #2a78d6;
+    --ramp-2: #b7d3f6;
+    --ink-lo: #f0efec;
+    --ink-hi: #0b0b0b;
+    --focus: #6da7ec;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: 14px; margin: 0 0 10px; font-weight: 600; }
+.sub { color: var(--muted); margin: 2px 0 0; }
+.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; min-width: 64px; }
+button, .btn, input { font: inherit; color: inherit; }
+a.btn { text-decoration: none; color: var(--accent); }
+a.btn:hover { text-decoration: underline; }
+.empty a.btn { color: #fff; }
+button, .btn {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 12px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center;
+}
+button:hover, .btn:hover { border-color: var(--muted); }
+button[aria-pressed="true"], button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:disabled { opacity: .45; cursor: default; }
+button .n { opacity: .75; font-variant-numeric: tabular-nums; font-size: 12px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+input[type=file] { display: none; }
+input[type=datetime-local] {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 4px 8px;
+}
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.seg button { border: 0; border-radius: 0; }
+.status { color: var(--muted); font-size: 12px; }
+.empty {
+  text-align: center; padding: 64px 16px; border: 2px dashed var(--line); border-radius: 12px; color: var(--ink2);
+}
+.empty.drag { border-color: var(--accent); }
+.empty .btn { margin-top: 12px; background: var(--accent); border-color: var(--accent); color: #fff; }
+[hidden] { display: none !important; }
+
+/* keyboard */
+.kbwrap { container-type: inline-size; max-width: 980px; margin: 0 auto; }
+.kb {
+  --u: calc(100cqw / 15);
+  display: grid; grid-template-columns: repeat(60, 1fr);
+  grid-template-rows: 0.62fr repeat(5, 1fr);
+  gap: calc(var(--u) * 0.07);
+  aspect-ratio: 15 / 5.75;
+  user-select: none;
+}
+.key {
+  position: relative; border-radius: calc(var(--u) * 0.1);
+  background: var(--bg-heat, transparent);
+  color: var(--ink-lo);
+  display: flex; align-items: center; justify-content: center;
+  min-width: 0;
+}
+.key .lg {
+  position: absolute; left: 7%; top: 5%;
+  font-size: calc(var(--u) * 0.2); line-height: 1; color: inherit; opacity: .78; white-space: nowrap;
+}
+.key .ct {
+  font-size: calc(var(--u) * 0.34); font-weight: 650; font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em; padding-top: 12%;
+}
+.key.fn .ct { font-size: calc(var(--u) * 0.26); padding-top: 18%; }
+.key.fn .lg { font-size: calc(var(--u) * 0.16); }
+.key.free { background: transparent; border: 1.5px dashed var(--free-line); color: var(--muted); }
+.key.free .ct { font-weight: 500; opacity: .75; }
+.key.h1.used { color: var(--ink-hi); }
+.key.mod { background: var(--key-mod); color: var(--muted); }
+.key.mod .lg { position: static; font-size: calc(var(--u) * 0.2); opacity: 1; }
+.key.mod.togl { cursor: pointer; }
+.key.mod.on { background: var(--accent); color: #fff; }
+.key.data:hover, .key.data:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; z-index: 2; }
+.key.assigned { background: var(--key-mod); border: 1.5px solid var(--free-line); color: var(--muted); }
+.key.assigned .ct { font-weight: 500; opacity: .8; }
+.key.sel { outline: 2px solid var(--accent); outline-offset: 2px; z-index: 1; }
+.key.data { cursor: pointer; }
+/* ease markers: filled = resting position, half = easy reach, ring = reach, nothing = stretch */
+.ez { position: absolute; right: 8%; bottom: 8%; width: calc(var(--u) * 0.13); height: calc(var(--u) * 0.13); border-radius: 50%;
+      border: 1.5px solid currentColor; box-sizing: border-box; display: inline-block; }
+.ez-rest { background: currentColor; }
+.ez-easy { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+.ez-stretch, .noez .ez { display: none; }
+.legend .ez, .chip .ez { position: static; width: 10px; height: 10px; vertical-align: middle; margin-right: 3px; display: inline-block; }
+.legend .ez-stretch, .chip .ez-stretch { display: inline-block; border-style: dotted; }
+.free-sw.solid { border-style: solid; background: var(--key-mod); }
+.key.pulse { animation: pulse 1.2s ease-out 1; }
+@keyframes pulse { 0% { outline: 3px solid var(--accent); outline-offset: 3px; } 100% { outline: 3px solid transparent; outline-offset: 8px; } }
+.arrows { grid-column: span 12; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; gap: calc(var(--u) * 0.07); }
+.arrows .key .ct { font-size: calc(var(--u) * 0.26); padding-top: 14%; }
+.arrows .key .lg { font-size: calc(var(--u) * 0.16); }
+
+.legend { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 12px; color: var(--muted); font-size: 12px; }
+.ramp { position: relative; width: 240px; height: 10px; border-radius: 5px; }
+.ramp-wrap { position: relative; display: inline-block; padding-bottom: 14px; }
+.tick { position: absolute; top: 12px; transform: translateX(-50%); font-size: 11px; }
+.free-sw { width: 18px; height: 12px; border: 1.5px dashed var(--free-line); border-radius: 3px; display: inline-block; vertical-align: middle; margin-right: 4px; }
+.summary { margin: 0 0 10px; color: var(--ink2); }
+.summary b { color: var(--ink); }
+.chip { border: 1px dashed var(--free-line); border-radius: 6px; padding: 0 6px; font-size: 12px; color: var(--ink2); font-variant-numeric: tabular-nums; cursor: pointer; background: none; }
+.chip:hover { border-color: var(--ink2); }
+.tier { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+.tier > b { min-width: 9.5em; font-weight: 600; font-size: 13px; }
+.search { flex: 1 1 280px; min-width: 200px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; }
+.results { list-style: none; margin: 0 0 10px; padding: 0; border: 1px solid var(--line); border-radius: 8px; }
+.results li button { width: 100%; border: 0; border-radius: 0; text-align: left; display: flex; gap: 12px; justify-content: space-between; padding: 6px 10px; }
+.results li + li { border-top: 1px solid var(--line); }
+.results .sm { color: var(--muted); font-size: 12px; }
+ul.plain { list-style: none; margin: 0; padding: 0; }
+ul.plain li button { width: 100%; border: 0; border-radius: 6px; text-align: left; display: flex; gap: 12px; justify-content: space-between; padding: 4px 6px; }
+ul.plain li button:hover { background: var(--key-mod); }
+ul.plain .sm { color: var(--muted); font-size: 12px; text-align: right; }
+tr[data-m] { cursor: pointer; }
+tr[data-m]:hover, tr.cur { background: var(--key-mod); }
+select { font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 2px 4px; }
+
+/* lists */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+.rank { list-style: none; margin: 0; padding: 0; }
+.rank li button {
+  width: 100%; border: 0; border-radius: 6px; padding: 4px 6px; display: grid; gap: 8px; text-align: left;
+  grid-template-columns: minmax(0, 11ch) 1fr 5ch; align-items: center;
+}
+.rank li button:hover { background: var(--key-mod); }
+.rank .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank .bar { height: 8px; background: var(--key-mod); border-radius: 4px; position: relative; }
+.rank .bar i { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 0 4px 4px 0; }
+.rank .num { text-align: right; font-variant-numeric: tabular-nums; }
+.rank .sc { color: var(--muted); font-size: 11px; grid-column: 1 / -1; margin-top: -4px; padding-left: 0; }
+.nodata { color: var(--muted); }
+
+/* bar charts */
+.chart { display: flex; align-items: stretch; gap: 3px; height: 150px; border-bottom: 1px solid var(--line); position: relative; }
+.chart .col { flex: 1; display: flex; align-items: flex-end; min-width: 0; }
+.chart .col i { display: block; width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 0; }
+.chart .col:hover i { filter: brightness(1.15); outline: 2px solid var(--ink); outline-offset: 1px; }
+.axis { display: flex; gap: 3px; color: var(--muted); font-size: 11px; margin-top: 4px; }
+.axis span { flex: 1; text-align: center; min-width: 0; overflow: hidden; }
+.ymax { color: var(--muted); font-size: 11px; margin-bottom: 4px; }
+label.chk { display: inline-flex; gap: 6px; align-items: center; color: var(--ink2); font-size: 13px; }
+
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 500; font-size: 12px; position: sticky; top: 0; background: var(--surface); }
+td.r, th.r { text-align: right; }
+.scroll { max-height: 360px; overflow: auto; }
+summary { cursor: pointer; font-weight: 600; }
+.other li { display: flex; justify-content: space-between; gap: 12px; }
+.other ul { list-style: none; margin: 0; padding: 0; }
+
+#tip {
+  position: fixed; z-index: 10; pointer-events: none; max-width: 340px;
+  background: var(--ink); color: var(--bg); border-radius: 8px; padding: 8px 10px; font-size: 12.5px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25); opacity: 0; transition: opacity .08s;
+}
+#tip.show { opacity: 1; }
+#tip .t { font-weight: 650; font-size: 13.5px; }
+#tip .m { opacity: .75; }
+#tip ul { margin: 4px 0 0; padding-left: 0; list-style: none; }
+#tip li { display: flex; gap: 8px; justify-content: space-between; }
+#tip li span:first-child { overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div>
+      <h1>Keymap Heatmap</h1>
+      <p class="sub">Which Karabiner shortcuts you use &mdash; and which key combos are still free.</p>
+    </div>
+    <div class="row">
+      <a class="btn pick" href="#file">Choose history.jsonl</a>
+      <a class="btn pickcfg" href="#cfgfile">Add karabiner.json (optional)</a>
+      <button id="refresh" hidden title="Read the same files again">Refresh</button>
+      <input id="file" type="file">
+      <input id="cfgfile" type="file">
+      <span class="status" id="fileinfo"></span>
+      <span class="status" id="cfginfo"></span>
+    </div>
+  </div>
+
+  <div class="empty" id="empty">
+    <div style="font-size:16px;font-weight:600;color:var(--ink)">No file loaded</div>
+    <div>Pick your <code>history.jsonl</code> (or drop it here). It is parsed in your browser and never uploaded. Press <kbd>Enter</kbd> to choose a file.</div>
+    <div class="status">generate_karabiner.rb writes it to <code>~/.local/share/karabiner/history.jsonl</code>. In the file dialog, press &#8984;&#8679;G and paste that path, as the folder is hidden.
+      An older <code>history</code> file needs <code>karabiner_migration.sh</code> first.</div>
+    <a class="btn pick" href="#file">Choose file&hellip;</a>
+    <button id="reopen" hidden></button>
+    <div class="status">Optional: also add <code>karabiner.json</code>, so keys you have assigned but never pressed are not shown as free.</div>
+  </div>
+
+  <div id="app" hidden>
+    <section class="card" aria-label="Filters">
+      <div class="row" style="margin-bottom:10px">
+        <span class="label">Find</span>
+        <input class="search" id="search" type="search" placeholder="A combo to check: hyper+u, cmd shift p, an app, an action&hellip;" aria-label="Find a combo" autocomplete="off">
+      </div>
+      <ul class="results" id="results" hidden></ul>
+      <div class="row" style="margin-bottom:10px">
+        <span class="label">App</span>
+        <div class="row" id="apps" style="gap:6px"></div>
+      </div>
+      <div class="row" id="leaderRow" style="margin-bottom:10px" hidden>
+        <span class="label">Leader</span>
+        <div class="row" id="leaders" style="gap:6px"></div>
+      </div>
+      <div class="row" style="margin-bottom:10px">
+        <span class="label">Modifiers</span>
+        <div class="row" id="mods" style="gap:6px"></div>
+        <div class="seg" id="match" role="group" aria-label="Modifier matching">
+          <button data-m="exact" aria-pressed="true" title="Only presses with exactly the selected modifiers">Exact</button>
+          <button data-m="any" aria-pressed="false" title="All presses of a key, whatever modifiers">Any modifiers</button>
+        </div>
+      </div>
+      <div class="row">
+        <span class="label">Date</span>
+        <input type="datetime-local" id="from" aria-label="From">
+        <span>&rarr;</span>
+        <input type="datetime-local" id="to" aria-label="To">
+        <button data-preset="all">All time</button>
+        <button data-preset="7d">Last 7 days</button>
+        <button data-preset="24h">Last 24h</button>
+        <span class="status" id="counts"></span>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Keyboard heatmap">
+      <p class="summary" id="summary"></p>
+      <div class="kbwrap"><div class="kb" id="kb"></div></div>
+      <div class="legend">
+        <span><span class="free-sw"></span>Free</span>
+        <span><span class="free-sw solid"></span>Assigned, never pressed</span>
+        <span class="ramp-wrap"><div class="ramp" id="ramp"></div><span id="ticks"></span></span>
+        <span>Log scale &mdash; click Caps Lock / left &#8984; &#8997; &#8963; &#8679; to toggle modifiers; click a key to follow it over time</span>
+      </div>
+      <div class="legend">
+        <label class="chk"><input type="checkbox" id="easyMarks" checked> Ease markers, from the resting position (A S D F, J K L ;):</label>
+        <span><i class="ez ez-rest"></i> resting</span>
+        <span><i class="ez ez-easy"></i> easy reach</span>
+        <span><i class="ez ez-reach"></i> reach</span>
+        <span>no mark: stretch</span>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Find a free key">
+      <h2 id="findTitle">Find a free key</h2>
+      <div class="row" style="margin-bottom:6px">
+        <span class="label">For</span>
+        <div class="row" id="targets" style="gap:6px"></div>
+      </div>
+      <p class="status" id="findNote" style="margin:0 0 8px"></p>
+      <div id="tiers"></div>
+      <label class="chk" style="margin-top:8px"><input type="checkbox" id="easyOnly"> Only keys that are easy to reach</label>
+      <div id="modWrap">
+        <h2 style="margin-top:16px">Free keys by modifier set <span class="status">(click a row to look at it)</span></h2>
+        <div class="scroll"><table id="modTable"></table></div>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Usage over time">
+      <div class="row" style="justify-content:space-between;margin-bottom:6px">
+        <h2 style="margin:0" id="trendTitle">Usage over time</h2>
+        <button id="trendClear" hidden>Show everything</button>
+      </div>
+      <div class="ymax" id="tmax"></div><div class="chart" id="trend"></div><div class="axis" id="trendAxis"></div>
+      <div class="status" id="trendNote" style="margin-top:6px"></div>
+    </section>
+
+    <div class="grid2">
+      <section class="card"><h2>Most used combos</h2><ol class="rank" id="top"></ol></section>
+      <section class="card"><h2>Least used combos <span class="status">(used at least once)</span></h2><ol class="rank" id="bottom"></ol></section>
+    </div>
+
+    <section class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:8px">
+        <h2 style="margin:0">When you press them</h2>
+        <label class="chk"><input type="checkbox" id="onlysel"> Only the selected modifier combo</label>
+      </div>
+      <div class="grid2">
+        <div><div class="ymax" id="hmax"></div><div class="chart" id="hours"></div><div class="axis" id="hoursAxis"></div><div class="status" style="margin-top:6px">Hour of day</div></div>
+        <div><div class="ymax" id="dmax"></div><div class="chart" id="days"></div><div class="axis" id="daysAxis"></div><div class="status" style="margin-top:6px">Day of week</div></div>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Dormant shortcuts">
+      <div class="row" style="justify-content:space-between;margin-bottom:6px">
+        <h2 style="margin:0">Dormant shortcuts</h2>
+        <label class="chk">Not used in the last
+          <select id="dormDays"><option value="14">14</option><option value="30">30</option><option value="60">60</option><option value="90">90</option></select> days</label>
+      </div>
+      <p class="status" id="dormNote" style="margin:0 0 8px"></p>
+      <ul class="plain" id="dormant"></ul>
+      <div id="neverWrap" hidden>
+        <h2 style="margin-top:14px">Assigned but never pressed <span class="status">(from karabiner.json)</span></h2>
+        <ul class="plain" id="never"></ul>
+      </div>
+    </section>
+
+    <section class="card other" id="otherCard">
+      <h2>Not on the keyboard diagram</h2>
+      <p class="status" style="margin-top:-4px">History lines that aren't a key press on the diagram: mouse mode, leader presses, and keys the diagram doesn't draw. Only the date filter applies.</p>
+      <ul id="other"></ul>
+    </section>
+
+    <section class="card">
+      <details>
+        <summary>All combos (table)</summary>
+        <div class="scroll" style="margin-top:10px"><table id="table"></table></div>
+      </details>
+    </section>
+  </div>
+</main>
+<div id="tip" role="tooltip"></div>
+
+<script>
+/* ---------- parsing ---------- */
+// One JSON object per line, as generate_karabiner.rb writes them (karabiner_migration.sh writes
+// the same shape for the old history):
+//   {"ts":"2026-08-22T09:41:48+10:00","hts":"Sat Aug 22 09:41:48 AEST 2026","id":"global:hyper+f",
+//    "type":"key","apps":[],"mods":["hyper"],"key":"f","optional_any":false,"desc":"..."}
+const MOD_BIT = { hyper: 1, ctrl: 2, opt: 4, shift: 8, cmd: 16 };
+const MOD_ORDER = ['hyper', 'ctrl', 'opt', 'shift', 'cmd'];
+const MOD_LABEL = { hyper: 'Hyper', ctrl: 'Ctrl', opt: 'Opt', shift: 'Shift', cmd: 'Cmd' };
+// Karabiner's names for the modifiers the diagram can toggle (the left-hand keys, and Hyper)
+const KARABINER_MOD = { hyper: 'hyper', left_control: 'ctrl', left_option: 'opt', left_shift: 'shift', left_command: 'cmd' };
+const TOKEN_LABEL = {
+  hyper: 'Hyper', fn: 'Fn',
+  left_command: 'Left Cmd', right_command: 'Right Cmd', left_shift: 'Left Shift', right_shift: 'Right Shift',
+  left_option: 'Left Opt', right_option: 'Right Opt', left_control: 'Left Ctrl', right_control: 'Right Ctrl',
+};
+// Karabiner key codes that are not a letter, a digit or F1-F12, as the diagram names them
+const KEY_FROM_CODE = {
+  semicolon: ';', open_bracket: '[', close_bracket: ']', quote: "'", comma: ',', period: '.', slash: '/',
+  backslash: '\\', equal_sign: '=', hyphen: '-', grave_accent_and_tilde: '`',
+  return_or_enter: 'Return', spacebar: 'Space', tab: 'Tab', escape: 'Esc', delete_or_backspace: 'Delete',
+  up_arrow: '↑', down_arrow: '↓', left_arrow: '←', right_arrow: '→',
+};
+
+function keyId(code) {
+  if (KEY_FROM_CODE[code]) return KEY_FROM_CODE[code];
+  if (/^[a-z0-9]$/.test(code) || /^f([1-9]|1[0-2])$/.test(code)) return code.toUpperCase();
+  return null;
+}
+
+// null when a modifier is not one the diagram has a toggle for
+function maskOf(mods) {
+  let mask = 0;
+  for (const name of mods) {
+    const short = KARABINER_MOD[name];
+    if (!short) return null;
+    mask |= MOD_BIT[short];
+  }
+  return mask;
+}
+
+// The time as it was on the wall when it was logged, so the hour of day stays local across a
+// change of offset (AEST to AEDT). Held as UTC fields; nothing here is a real instant.
+function wallTime(ts) {
+  const m = /^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)/.exec(ts || '');
+  return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6]) : null;
+}
+
+// "hyper+w" -> "Hyper + W", "left_command&right_command" -> "Left Cmd + Right Cmd"
+function prettyToken(token) {
+  return token.split(/[+&]/).map(part => TOKEN_LABEL[part] || keyId(part) || part).join(' + ');
+}
+const prettyPath = path => path.split('>').map(prettyToken).join(' › ');
+
+// The history has lower-case app names. Most are capitalized; the rest are named as they are written.
+const APP_LABEL = { vlc: 'VLC', naivechat: 'NaiveChat' };
+const appLabel = scope => scope.split('|').map(a => APP_LABEL[a] || a.charAt(0).toUpperCase() + a.slice(1)).join(' | ');
+
+// A line of the old history: "Sat Aug 22 09:41:48 AEST 2026:: Hyper + F: Open default application launcher"
+const OLD_LINE = /^\w{3} \w{3}\s+\d{1,2} \d\d:\d\d:\d\d \S+ \d{4}::/;
+
+function parseLog(text) {
+  const events = [], leaderEvents = [], others = [], ambiguous = new Set(), offsets = new Set();
+  let lines = 0, bad = 0, old = 0, migrated = 0, estimated = 0, unknownApp = 0, lo = Infinity, hi = -Infinity;
+  for (const raw of text.split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line) continue;
+    lines++;
+    if (line[0] !== '{') { if (OLD_LINE.test(line)) old++; else bad++; continue; }
+    let r;
+    try { r = JSON.parse(line); } catch { bad++; continue; }
+    const t = wallTime(r.ts);
+    if (t === null || typeof r.id !== 'string') { bad++; continue; }
+    if (t < lo) lo = t;
+    if (t > hi) hi = t;
+    const offset = /(Z|[+-]\d\d:\d\d)$/.exec(r.ts);
+    if (offset) offsets.add(offset[1] === 'Z' ? 'UTC' : 'UTC' + offset[1]);
+    if (r.src) migrated++;
+    if (r.app_estimated) estimated++;
+    if (r.ambiguous_app) unknownApp++;
+
+    const apps = Array.isArray(r.apps) ? r.apps : [];
+    const scope = apps.length ? apps.join('|') : null;
+    if (r.ambiguous_app) ambiguous.add(scope);
+    const mods = Array.isArray(r.mods) ? r.mods : [];
+    const desc = (r.desc || '') + (r.optional_any ? ' (also with other modifiers)' : '');
+
+    if (r.type === 'key') {
+      const m = maskOf(mods), k = keyId(r.key);
+      if (m !== null && k && DATA_KEYS.has(k)) { events.push({ t, app: scope, m, k, d: desc }); continue; }
+      const combo = [...mods.map(x => TOKEN_LABEL[x] || x), r.key].join(' + ');
+      others.push({ t, text: `${combo} (key not drawn): ${r.desc || ''}` });
+    } else if (r.type === 'leader') {
+      const path = r.id.replace(/^leader:/, '').split('>');
+      leaderEvents.push({ t, app: scope, path, d: desc });
+      others.push({ t, text: `Leader ${prettyPath(path.join('>'))}: ${r.desc || ''}` });
+    } else {
+      others.push({ t, text: r.desc || r.id });
+    }
+  }
+  return { events, leaderEvents, others, ambiguous, lines, bad, old, migrated, estimated, unknownApp, lo, hi, zone: [...offsets].sort().join(' / ') };
+}
+
+/* ---------- layout ---------- */
+// [id, legend, span in quarter-units, kind]  kind: d=data key, m=modifier/non-data, f=function row
+const ROWS = [
+  [['Esc','esc',6,'d'], ...Array.from({length:12},(_,i)=>['F'+(i+1),'F'+(i+1),4,'f']), ['power','⏻',6,'m']],
+  [...'`1234567890-='.split('').map(c=>[c,c,4,'d']), ['Delete','delete',8,'d']],
+  [['Tab','tab',6,'d'], ...'QWERTYUIOP[]'.split('').map(c=>[c,c,4,'d']), ['\\','\\',6,'d']],
+  [['caps','caps lock',7,'m'], ...'ASDFGHJKL;\''.split('').map(c=>[c,c,4,'d']), ['Return','return',9,'d']],
+  [['lshift','shift',9,'m'], ...'ZXCVBNM,./'.split('').map(c=>[c,c,4,'d']), ['rshift','shift',11,'m']],
+  [['fn','fn',4,'m'],['lctrl','control',4,'m'],['lopt','option',4,'m'],['lcmd','command',6,'m'],['Space','',20,'d'],['rcmd','command',6,'m'],['ropt','option',4,'m']],
+];
+const ARROWS = [['←','←','grid-row:1/3;grid-column:1'],['↑','↑','grid-row:1;grid-column:2'],['↓','↓','grid-row:2;grid-column:2'],['→','→','grid-row:1/3;grid-column:3']];
+const MOD_KEYS = { caps: 'hyper', lcmd: 'cmd', lshift: 'shift', lopt: 'opt', lctrl: 'ctrl' };
+const DATA_KEYS = new Set();
+ROWS.flat().forEach(k => { if (k[3] !== 'm') DATA_KEYS.add(k[0]); });
+ARROWS.forEach(a => DATA_KEYS.add(a[0]));
+const KEY_DISPLAY = { Return: 'Return', Space: 'Space', Delete: 'Delete', Tab: 'Tab', Esc: 'Esc' };
+
+/* ---------- state ---------- */
+const S = { events: [], leaderEvents: [], others: [], ambiguous: new Set(), zone: '', app: 'all', leader: null, savedMask: MOD_BIT.hyper,
+            from: null, to: null, mask: MOD_BIT.hyper, any: false, onlySel: false,
+            min: 0, max: 0, ctx: [], filtered: [], byKey: new Map(), keyEls: new Map(), modEls: new Map(),
+            sel: null, target: 'global', dormantDays: 30, easyOnly: false, easyMarks: true,
+            cfg: null, assignIdx: new Map(), comboIdx: [], handles: {} };
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString('en-US');
+const compact = n => n >= 10000 ? (n / 1000).toFixed(n >= 100000 ? 0 : 1).replace(/\.0$/, '') + 'k' : String(n);
+const maskLabel = m => m ? MOD_ORDER.filter(x => m & MOD_BIT[x]).map(x => MOD_LABEL[x]).join(' + ') : 'No modifier';
+const comboLabel = (m, k) => (m ? maskLabel(m) + ' + ' : '') + (KEY_DISPLAY[k] || k);
+const stamp = t => new Date(t).toISOString().replace('T', ' ').slice(0, 16);
+
+function el(tag, props, ...kids) {
+  const e = document.createElement(tag);
+  if (props) for (const [k, v] of Object.entries(props)) {
+    if (k === 'class') e.className = v; else if (k === 'style') e.style.cssText = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v);
+  }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+}
+
+/* ---------- build static UI ---------- */
+function buildKeyboard() {
+  const kb = $('kb');
+  kb.textContent = '';
+  S.keyEls.clear(); S.modEls.clear();
+  const mk = (id, legend, kind, extra) => {
+    const e = el('div', { class: 'key ' + (kind === 'm' ? 'mod' : 'data') + (kind === 'f' ? ' fn' : ''), style: extra || '' });
+    e.dataset.id = id;
+    if (kind === 'm') {
+      e.append(el('span', { class: 'lg' }, legend));
+      if (MOD_KEYS[id]) {
+        e.classList.add('togl');
+        e.setAttribute('role', 'button'); e.tabIndex = 0;
+        e.setAttribute('aria-label', 'Toggle ' + MOD_LABEL[MOD_KEYS[id]]);
+        e.title = 'Toggle ' + MOD_LABEL[MOD_KEYS[id]];
+        const go = () => toggleMod(MOD_KEYS[id]);
+        e.addEventListener('click', go);
+        e.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
+        S.modEls.set(MOD_KEYS[id], (S.modEls.get(MOD_KEYS[id]) || []).concat(e));
+      }
+    } else {
+      e.tabIndex = 0;
+      e.setAttribute('role', 'button');
+      e.append(el('span', { class: 'lg' }, legend), el('span', { class: 'ct' }, '0'), el('i', { class: 'ez ez-stretch' }));
+      S.keyEls.set(id, e);
+      e.addEventListener('click', () => selectKey(id));
+      e.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); selectKey(id); } });
+      e.addEventListener('pointerenter', ev => showKeyTip(id, ev));
+      e.addEventListener('pointermove', moveTip);
+      e.addEventListener('pointerleave', hideTip);
+      e.addEventListener('focus', () => { const r = e.getBoundingClientRect(); showKeyTip(id, { clientX: r.right, clientY: r.top }); });
+      e.addEventListener('blur', hideTip);
+    }
+    return e;
+  };
+  ROWS.forEach((row, ri) => {
+    row.forEach(([id, legend, span, kind]) => {
+      if (id === 'power') { kb.append(el('div', { class: 'key mod', style: `grid-column:span ${span}` }, el('span', { class: 'lg' }, legend))); return; }
+      kb.append(mk(id, legend, kind === 'f' ? 'f' : kind, `grid-column:span ${span}`));
+    });
+    if (ri === 5) {
+      const ar = el('div', { class: 'arrows' });
+      ARROWS.forEach(([id, legend, pos]) => ar.append(mk(id, legend, 'd', pos)));
+      kb.append(ar);
+    }
+  });
+}
+
+function buildMods() {
+  const box = $('mods');
+  box.textContent = '';
+  for (const m of MOD_ORDER) {
+    const b = el('button', { 'data-mod': m, 'aria-pressed': 'false', title: m === 'hyper' ? 'Caps Lock (sends right Cmd+Ctrl+Opt+Shift)' : 'Left ' + MOD_LABEL[m] }, MOD_LABEL[m]);
+    b.addEventListener('click', () => toggleMod(m));
+    box.append(b);
+  }
+}
+
+function toggleMod(m) {
+  if (S.any) S.any = false;
+  S.mask ^= MOD_BIT[m];
+  renderView();
+}
+
+/* ---------- compute ---------- */
+function inScope(e) {
+  if (S.app === 'all') return true;
+  if (S.app === 'global') return e.app === null;
+  return e.app === null || e.app === S.app;
+}
+
+// A leader press is logged with its whole path ("hyper+w>g>h"). Looking at the keys after a path
+// ("hyper+w"), every press under it counts for the key that follows: g here, for g>h as well.
+function leaderContext(prefix) {
+  const path = prefix.split('>');
+  const out = [];
+  for (const e of S.leaderEvents) {
+    if (e.path.length <= path.length || !path.every((p, i) => e.path[i] === p)) continue;
+    const parts = e.path[path.length].split('+');
+    const m = maskOf(parts.slice(0, -1)), k = keyId(parts[parts.length - 1]);
+    if (m === null || !k || !DATA_KEYS.has(k)) continue;
+    const deeper = e.path.slice(path.length + 1);
+    out.push({ t: e.t, app: e.app, m, k, d: deeper.length ? deeper.map(prettyToken).join(' › ') + ': ' + e.d : e.d });
+  }
+  return out;
+}
+
+function setLeader(prefix) {
+  if (prefix !== null && S.leader === null) { S.savedMask = S.mask; S.mask = 0; }
+  if (prefix === null && S.leader !== null) S.mask = S.savedMask;
+  S.leader = prefix;
+  S.sel = null;
+  S.ctx = prefix === null ? S.events : leaderContext(prefix);
+  buildAssignIdx(); indexCtx();
+  recompute();
+}
+
+function recompute() {
+  const from = S.from ?? -Infinity, to = S.to ?? Infinity;
+  S.filtered = S.ctx.filter(e => e.t >= from && e.t <= to && inScope(e));
+  S.byKey = new Map();
+  for (const e of S.filtered) {
+    let km = S.byKey.get(e.k); if (!km) S.byKey.set(e.k, km = new Map());
+    let en = km.get(e.m); if (!en) km.set(e.m, en = { n: 0, last: 0, first: Infinity, scopes: new Map() });
+    en.n++; if (e.t > en.last) en.last = e.t; if (e.t < en.first) en.first = e.t;
+    const sk = (e.app || '') + '\u0000' + e.d;
+    en.scopes.set(sk, (en.scopes.get(sk) || 0) + 1);
+  }
+  renderAll();
+}
+
+function keyCount(k) {
+  const km = S.byKey.get(k); if (!km) return 0;
+  if (S.any) { let n = 0; for (const en of km.values()) n += en.n; return n; }
+  return km.get(S.mask)?.n || 0;
+}
+
+/* ---------- render ---------- */
+function heatColor(t) {
+  const tt = 0.12 + 0.88 * t;
+  return tt < 0.5
+    ? `color-mix(in oklab, var(--ramp-1) ${(tt * 200).toFixed(1)}%, var(--ramp-0))`
+    : `color-mix(in oklab, var(--ramp-2) ${((tt - 0.5) * 200).toFixed(1)}%, var(--ramp-1))`;
+}
+
+function renderApps() {
+  const counts = new Map();
+  let global = 0;
+  for (const e of S.ctx) { if (e.app === null) global++; else counts.set(e.app, (counts.get(e.app) || 0) + 1); }
+  const box = $('apps');
+  box.textContent = '';
+  const add = (id, label, n) => {
+    const b = el('button', { 'aria-pressed': String(S.app === id) }, label, el('span', { class: 'n' }, fmt(n)));
+    b.addEventListener('click', () => { S.app = id; recompute(); });
+    box.append(b);
+  };
+  add('all', 'All', S.ctx.length);
+  add('global', 'Global only', global);
+  // "obsidian|zen" is from the old history, which logged one line for both apps
+  [...counts].sort((a, b) => b[1] - a[1]).forEach(([a, n]) => add(a, appLabel(a) + (S.ambiguous.has(a) ? ' (app unknown)' : ''), n));
+}
+
+function renderLeaders() {
+  const prefixes = new Map();
+  for (const e of S.leaderEvents) {
+    for (let i = 1; i < e.path.length; i++) {
+      const p = e.path.slice(0, i).join('>');
+      prefixes.set(p, (prefixes.get(p) || 0) + 1);
+    }
+  }
+  $('leaderRow').hidden = prefixes.size === 0;
+  const box = $('leaders');
+  box.textContent = '';
+  const add = (id, label, n) => {
+    const b = el('button', { 'aria-pressed': String(S.leader === id) }, label, n == null ? null : el('span', { class: 'n' }, fmt(n)));
+    b.addEventListener('click', () => setLeader(id));
+    box.append(b);
+  };
+  add(null, 'Off (normal keys)');
+  [...prefixes].sort().forEach(([p, n]) => add(p, prettyPath(p), n));
+}
+
+function renderControls() {
+  for (const b of $('mods').children) {
+    const on = !S.any && (S.mask & MOD_BIT[b.dataset.mod]);
+    b.setAttribute('aria-pressed', String(!!on));
+    b.disabled = S.any;
+  }
+  for (const b of $('match').children) b.setAttribute('aria-pressed', String((b.dataset.m === 'any') === S.any));
+  for (const [m, els] of S.modEls) els.forEach(e => e.classList.toggle('on', !S.any && !!(S.mask & MOD_BIT[m])));
+  $('onlysel').checked = S.onlySel;
+  $('easyMarks').checked = S.easyMarks;
+  $('easyOnly').checked = S.easyOnly;
+  $('dormDays').value = String(S.dormantDays);
+}
+
+function renderKeyboard() {
+  let max = 0;
+  for (const id of DATA_KEYS) max = Math.max(max, keyCount(id));
+  let used = 0, held = 0, free = 0;
+  for (const id of DATA_KEYS) {
+    const e = S.keyEls.get(id), n = keyCount(id);
+    const assigned = n === 0 && isAssigned(id);
+    e.querySelector('.ct').textContent = compact(n);
+    e.classList.toggle('free', n === 0 && !assigned);
+    e.classList.toggle('assigned', assigned);
+    e.classList.toggle('used', n > 0);
+    e.classList.toggle('sel', !!S.sel && S.sel.k === id);
+    const t = n > 0 ? Math.log1p(n) / Math.log1p(max) : 0;
+    e.classList.toggle('h1', t >= 0.5);
+    e.classList.toggle('h2', t >= 0.6);
+    e.style.setProperty('--bg-heat', n > 0 ? heatColor(t) : 'transparent');
+    const ease = easeOf(id, S.mask, S.any);
+    e.querySelector('.ez').className = 'ez ez-' + (ease ? ease.tier : 'stretch');
+    e.setAttribute('aria-label', `${comboLabel(S.any ? 0 : S.mask, id)}: ${n} presses${assigned ? ', assigned but never pressed' : ''}${ease ? ', ' + EASE_LABEL[ease.tier] : ''}`.replace('No modifier + ', ''));
+    if (n > 0) used++; else if (assigned) held++; else free++;
+  }
+  S.max = max;
+  $('kb').classList.toggle('noez', !S.easyMarks);
+  const what = S.any ? 'any modifiers' : maskLabel(S.mask);
+  const lead = S.leader ? prettyPath(S.leader) : null;
+  const total = DATA_KEYS.size;
+  $('summary').innerHTML = '';
+  $('summary').append(el('b', null, lead ? `After ${lead}${S.any ? '' : S.mask ? ' + ' + what : ''}` : what), ` — ${used} of ${total} keys used, `,
+    S.cfg ? `${held} assigned but never pressed, ` : '', el('b', null, `${free} free`), max ? ` · busiest key ${fmt(max)} presses` : '');
+  // legend
+  const stops = [0, .2, .4, .6, .8, 1].map(t => heatColor(t));
+  $('ramp').style.background = `linear-gradient(90deg, ${stops.join(',')})`;
+  const ticks = $('ticks'); ticks.textContent = '';
+  if (max > 0) {
+    const vals = new Set([1, max]);
+    for (let p = 10; p < max; p *= 10) vals.add(p);
+    [...vals].sort((a, b) => a - b).forEach(v => {
+      const x = Math.log1p(v) / Math.log1p(max) * 100;
+      ticks.append(el('span', { class: 'tick', style: `left:${x}%`}, compact(v)));
+    });
+  }
+}
+
+function renderCounts() {
+  const total = S.ctx.length;
+  $('counts').textContent = `${fmt(S.filtered.length)} of ${fmt(total)} presses` + (S.zone ? ` · local time as logged (${S.zone})` : '');
+}
+
+function allCombos() {
+  const out = [];
+  for (const [k, km] of S.byKey) for (const [m, en] of km) out.push({ k, m, ...en });
+  return out;
+}
+
+function scopeSummary(en) {
+  const apps = new Set();
+  for (const sk of en.scopes.keys()) { const app = sk.split('\u0000')[0]; apps.add(app ? appLabel(app) : 'Global'); }
+  return [...apps].join(', ');
+}
+
+function renderRanks() {
+  const all = allCombos();
+  const top = [...all].sort((a, b) => b.n - a.n || comboLabel(a.m, a.k).localeCompare(comboLabel(b.m, b.k))).slice(0, 12);
+  const bot = [...all].sort((a, b) => a.n - b.n || comboLabel(a.m, a.k).localeCompare(comboLabel(b.m, b.k))).slice(0, 12);
+  const fill = (ol, list, ref) => {
+    ol.textContent = '';
+    if (!list.length) { ol.append(el('li', { class: 'nodata' }, 'No data in this range.')); return; }
+    list.forEach(c => {
+      const b = el('button', { title: 'Show on keyboard' },
+        el('span', { class: 'nm' }, comboLabel(c.m, c.k)),
+        el('span', { class: 'bar' }, el('i', { style: `width:${Math.max(2, c.n / ref * 100)}%` })),
+        el('span', { class: 'num' }, fmt(c.n)),
+        el('span', { class: 'sc' }, scopeSummary(c)));
+      b.addEventListener('click', () => { S.any = false; S.mask = c.m; S.sel = { k: c.k }; renderView(); flash(c.k); $('kb').scrollIntoView({ block: 'center', behavior: 'smooth' }); });
+      ol.append(el('li', null, b));
+    });
+  };
+  const ref = Math.max(1, ...all.map(c => c.n));
+  fill($('top'), top, ref);
+  fill($('bottom'), bot, Math.max(1, ...bot.map(c => c.n)));
+}
+
+function flash(k) {
+  const e = S.keyEls.get(k); if (!e) return;
+  e.classList.remove('pulse'); void e.offsetWidth; e.classList.add('pulse');
+}
+
+function bars(box, axis, maxEl, labels, vals, tipFor, every) {
+  const max = Math.max(1, ...vals);
+  box.textContent = ''; axis.textContent = '';
+  vals.forEach((v, i) => {
+    const col = el('div', { class: 'col', tabindex: '0', 'aria-label': tipFor(i, v).replace('\n', ': ') }, el('i', { style: `height:${v / max * 100}%` }));
+    const show = ev => showTip(el('div', null, ...tipFor(i, v).split('\n').map((s, j) => el('div', { class: j ? 'm' : 't' }, s))), ev);
+    col.addEventListener('pointerenter', show);
+    col.addEventListener('pointermove', moveTip);
+    col.addEventListener('pointerleave', hideTip);
+    col.addEventListener('focus', () => { const r = col.getBoundingClientRect(); show({ clientX: r.right, clientY: r.top }); });
+    col.addEventListener('blur', hideTip);
+    box.append(col);
+    axis.append(el('span', null, i % every === 0 ? labels[i] : ''));
+  });
+  maxEl.textContent = `peak ${fmt(max)} presses`;
+}
+
+function renderBreakdown() {
+  const hours = new Array(24).fill(0), days = new Array(7).fill(0);
+  let total = 0;
+  for (const e of S.filtered) {
+    if (S.onlySel && !S.any && e.m !== S.mask) continue;
+    const d = new Date(e.t);
+    hours[d.getUTCHours()]++; days[(d.getUTCDay() + 6) % 7]++; total++;
+  }
+  const pct = v => total ? (v / total * 100).toFixed(1) + '%' : '0%';
+  const dn = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  bars($('hours'), $('hoursAxis'), $('hmax'), [...Array(24).keys()].map(h => String(h).padStart(2, '0')), hours,
+    (i, v) => `${String(i).padStart(2, '0')}:00–${String(i).padStart(2, '0')}:59\n${fmt(v)} presses · ${pct(v)}`, 3);
+  bars($('days'), $('daysAxis'), $('dmax'), dn.map(d => d.slice(0, 3)), days,
+    (i, v) => `${dn[i]}\n${fmt(v)} presses · ${pct(v)}`, 1);
+}
+
+function renderOther() {
+  const from = S.from ?? -Infinity, to = S.to ?? Infinity;
+  const g = new Map();
+  for (const o of S.others) if (o.t >= from && o.t <= to) g.set(o.text, (g.get(o.text) || 0) + 1);
+  const ul = $('other'); ul.textContent = '';
+  const rows = [...g].sort((a, b) => b[1] - a[1]);
+  if (!rows.length) ul.append(el('li', { class: 'nodata' }, 'Nothing here.'));
+  rows.slice(0, 40).forEach(([t, n]) => ul.append(el('li', null, el('span', null, t), el('span', { class: 'num' }, fmt(n)))));
+  if (rows.length > 40) ul.append(el('li', { class: 'nodata' }, `…and ${rows.length - 40} more`));
+}
+
+function renderTable() {
+  const t = $('table'); t.textContent = '';
+  t.append(el('thead', null, el('tr', null, el('th', null, 'Combo'), el('th', { class: 'r' }, 'Presses'), el('th', null, 'Apps'), el('th', null, 'Actions'), el('th', null, 'Last used'))));
+  const body = el('tbody');
+  allCombos().sort((a, b) => b.n - a.n).forEach(c => {
+    const acts = [...new Set([...c.scopes.keys()].map(s => s.split('\u0000')[1]).filter(Boolean))].slice(0, 3).join(' / ');
+    body.append(el('tr', null, el('td', null, comboLabel(c.m, c.k)), el('td', { class: 'r' }, fmt(c.n)), el('td', null, scopeSummary(c)), el('td', null, acts), el('td', null, stamp(c.last))));
+  });
+  t.append(body);
+}
+
+function renderView() { renderControls(); renderKeyboard(); renderFind(); renderTrend(); if (S.onlySel) renderBreakdown(); saveState(); }
+function renderAll() {
+  renderApps(); renderLeaders(); renderControls(); renderCounts(); renderKeyboard(); renderFind(); renderRanks(); renderTrend();
+  renderBreakdown(); renderDormant(); renderOther(); renderTable(); saveState();
+}
+
+/* ---------- tooltip ---------- */
+const tip = $('tip');
+function showTip(node, ev) { tip.textContent = ''; tip.append(node); tip.classList.add('show'); moveTip(ev); }
+function hideTip() { tip.classList.remove('show'); }
+function moveTip(ev) {
+  const r = tip.getBoundingClientRect();
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = ev.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = ev.clientY - r.height - 14;
+  tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+}
+
+function showKeyTip(id, ev) {
+  const km = S.byKey.get(id) || new Map();
+  const box = el('div');
+  const label = KEY_DISPLAY[id] || id;
+  if (S.any) {
+    let n = 0; for (const en of km.values()) n += en.n;
+    box.append(el('div', { class: 't' }, `${label} — ${fmt(n)} presses`));
+    if (!n) box.append(el('div', { class: 'm' }, 'Never pressed with any modifier'));
+    const ul = el('ul');
+    [...km].sort((a, b) => b[1].n - a[1].n).slice(0, 8).forEach(([m, en]) => ul.append(el('li', null, el('span', null, maskLabel(m)), el('span', null, fmt(en.n)))));
+    box.append(ul);
+  } else {
+    const en = km.get(S.mask);
+    box.append(el('div', { class: 't' }, (S.leader ? prettyPath(S.leader) + ' › ' : '') + comboLabel(S.mask, id)));
+    if (!en) {
+      const held = assignedHere(id);
+      box.append(el('div', { class: 'm' }, held.length ? 'Assigned but never pressed' : 'Free — never used in this view'));
+      held.slice(0, 3).forEach(a => box.append(el('div', { class: 'm' }, 'karabiner.json: ' + (a.desc || '(no description)'))));
+    } else {
+      box.append(el('div', { class: 'm' }, `${fmt(en.n)} presses · last ${stamp(en.last)}`));
+      const ul = el('ul');
+      [...en.scopes].sort((a, b) => b[1] - a[1]).slice(0, 6).forEach(([sk, n]) => {
+        const [app, desc] = sk.split('\u0000');
+        ul.append(el('li', null, el('span', null, (app ? appLabel(app) + ': ' : 'Global: ') + (desc || '(no description)')), el('span', null, fmt(n))));
+      });
+      box.append(ul);
+    }
+    const others = [...km].filter(([m]) => m !== S.mask).sort((a, b) => b[1].n - a[1].n).slice(0, 4);
+    if (others.length) {
+      box.append(el('div', { class: 'm', style: 'margin-top:6px' }, `${label} is also used with:`));
+      const ul = el('ul');
+      others.forEach(([m, o]) => ul.append(el('li', null, el('span', null, maskLabel(m)), el('span', null, fmt(o.n)))));
+      box.append(ul);
+    }
+  }
+  const ease = easeOf(id, S.mask, S.any);
+  if (ease) box.append(el('div', { class: 'm', style: 'margin-top:6px' }, `${EASE_LABEL[ease.tier]}: ${ease.where}${ease.note ? ' (' + ease.note + ')' : ''}`));
+  showTip(box, ev);
+}
+
+/* ---------- ease: which keys are comfortable from the resting position ---------- */
+// Touch-typing rest: left hand on A S D F, right hand on J K L ;, thumbs on Space. Hyper is Caps
+// Lock, so the left pinky is busy holding it (as it is for left Shift and left Control).
+const EASE_TIERS = ['rest', 'easy', 'reach', 'stretch'];
+const EASE_LABEL = { rest: 'Resting position', easy: 'Easy reach', reach: 'Reach', stretch: 'Stretch' };
+const FINGER_LABEL = { lp: 'left pinky', lr: 'left ring', lm: 'left middle', li: 'left index', ri: 'right index', rm: 'right middle', rr: 'right ring', rp: 'right pinky', th: 'thumb' };
+const ROW_LABEL = { 3: 'function row', 2: 'number row', 1: 'row above home', 0: 'home row', '-1': 'row below home' };
+const PINKY_MODS = MOD_BIT.hyper | MOD_BIT.ctrl | MOD_BIT.shift;
+const KEY_EASE = {};
+(function () {
+  const put = (finger, row, tier, keys) => keys.split(' ').forEach(k => { KEY_EASE[k] = { finger, row, tier }; });
+  put('lp', 0, 'rest', 'A'); put('lp', 1, 'reach', 'Q'); put('lp', -1, 'reach', 'Z');
+  put('lp', 2, 'stretch', '` 1'); put('lp', 1, 'stretch', 'Tab'); put('lp', 3, 'stretch', 'Esc');
+  put('lr', 0, 'rest', 'S'); put('lr', 1, 'easy', 'W'); put('lr', -1, 'easy', 'X'); put('lr', 2, 'reach', '2');
+  put('lm', 0, 'rest', 'D'); put('lm', 1, 'easy', 'E'); put('lm', -1, 'easy', 'C'); put('lm', 2, 'reach', '3');
+  put('li', 0, 'rest', 'F'); put('li', 1, 'easy', 'R'); put('li', -1, 'easy', 'V'); put('li', 2, 'reach', '4');
+  put('li', 0, 'easy', 'G'); put('li', 1, 'reach', 'T'); put('li', -1, 'reach', 'B'); put('li', 2, 'stretch', '5');
+  put('ri', 0, 'rest', 'J'); put('ri', 1, 'easy', 'U'); put('ri', -1, 'easy', 'M'); put('ri', 2, 'reach', '7');
+  put('ri', 0, 'easy', 'H'); put('ri', 1, 'reach', 'Y'); put('ri', -1, 'reach', 'N'); put('ri', 2, 'stretch', '6');
+  put('rm', 0, 'rest', 'K'); put('rm', 1, 'easy', 'I'); put('rm', -1, 'easy', ','); put('rm', 2, 'reach', '8');
+  put('rr', 0, 'rest', 'L'); put('rr', 1, 'easy', 'O'); put('rr', -1, 'easy', '.'); put('rr', 2, 'reach', '9');
+  put('rp', 0, 'rest', ';'); put('rp', 1, 'reach', 'P'); put('rp', -1, 'reach', '/'); put('rp', 0, 'reach', "' Return");
+  put('rp', 2, 'stretch', '0 - = Delete'); put('rp', 1, 'stretch', '[ ] \\');
+  put('th', 0, 'rest', 'Space');
+  put('ri', -1, 'reach', '← ↓ → ↑');
+  for (let i = 1; i <= 12; i++) put(i <= 6 ? 'li' : 'ri', 3, 'stretch', 'F' + i);
+})();
+
+// The tier of a key for a modifier set: left-hand keys get harder while the left pinky holds a
+// modifier, and the pinky's own keys are out.
+function easeOf(k, mask, any) {
+  const e = KEY_EASE[k];
+  if (!e) return null;
+  let i = EASE_TIERS.indexOf(e.tier), note = '';
+  if (!any && (mask & PINKY_MODS) && e.finger[0] === 'l') {
+    if (e.finger === 'lp') { i = 3; note = 'the left pinky is already holding the modifier'; }
+    else if (i < 3) { i++; note = 'harder while the left pinky holds the modifier'; }
+  }
+  return { tier: EASE_TIERS[i], where: `${FINGER_LABEL[e.finger]}, ${ROW_LABEL[e.row]}`, note };
+}
+
+/* ---------- karabiner.json: what is assigned, pressed or not ---------- */
+const HYPER_KEYS = ['right_shift', 'right_control', 'right_command', 'right_option'];
+// The record the generator puts in each logging command, which also names the app of a rule
+const LOG_FIELDS = /"\$now"\)" '((?:[^']|'\\'')*)' >>/;
+
+function fromMods(from) {
+  const mand = (from.modifiers && from.modifiers.mandatory) || [];
+  const hyper = HYPER_KEYS.every(x => mand.includes(x));
+  const mask = maskOf([...(hyper ? ['hyper'] : []), ...mand.filter(x => !(hyper && HYPER_KEYS.includes(x)))]);
+  return mask === null ? null : { mask };
+}
+
+function parseConfig(text) {
+  let json;
+  try { json = JSON.parse(text); } catch { return null; }
+  if (!json || !Array.isArray(json.profiles)) return null;
+  const all = [];
+  for (const p of json.profiles) {
+    for (const r of (p.complex_modifications && p.complex_modifications.rules) || []) {
+      for (const m of r.manipulators || []) {
+        if (Array.isArray(m.manipulators)) m.manipulators.forEach(x => all.push({ ...x, conditions: [...(m.conditions || []), ...(x.conditions || [])] }));
+        else all.push(m);
+      }
+    }
+  }
+  const logged = m => {
+    for (const a of m.to_after_key_up || []) {
+      const mt = LOG_FIELDS.exec(a.shell_command || '');
+      if (!mt) continue;
+      try { return JSON.parse('{' + mt[1].replace(/'\\''/g, "'") + '}'); } catch { /* not ours */ }
+    }
+    return null;
+  };
+  const bundleOf = m => (m.conditions || []).filter(c => c.type === 'frontmost_application_if').flatMap(c => c.bundle_identifiers || []);
+  const names = new Map(), leaders = [];
+  for (const m of all) {
+    const rec = logged(m);
+    if (!rec) continue;
+    if (rec.type === 'leader') { leaders.push({ path: rec.id.replace(/^leader:/, '').split('>'), desc: rec.desc }); continue; }
+    const ids = bundleOf(m);
+    if (ids.length === 1 && rec.apps && rec.apps.length === 1) names.set(ids[0], rec.apps[0]);
+  }
+  const assign = [], seen = new Set();
+  for (const m of all) {
+    const from = m.from;
+    if (!from || !from.key_code) continue;
+    if ((m.conditions || []).some(c => c.type === 'variable_if')) continue;   // mouse keys mode, leader levels
+    const k = keyId(from.key_code), mods = fromMods(from);
+    if (!k || !DATA_KEYS.has(k) || !mods) continue;
+    // a rule that is never logged has no name to learn: use the end of its bundle identifier
+    const apps = [...new Set(bundleOf(m).map(b => names.get(b) || b.replace(/[\^$\\]/g, '').split('.').pop().toLowerCase()))];
+    const app = apps.length ? apps.join('|') : null;
+    const id = `${app}|${mods.mask}|${k}`;
+    if (seen.has(id)) continue;
+    seen.add(id);
+    assign.push({ app, m: mods.mask, k, desc: m.description || '' });
+  }
+  return { assign, leaders };
+}
+
+// key -> the shortcuts assigned to it in the current context (plain shortcuts, or the keys of a leader level)
+function buildAssignIdx() {
+  S.assignIdx = new Map();
+  if (!S.cfg) return;
+  const add = (k, entry) => { if (!S.assignIdx.has(k)) S.assignIdx.set(k, []); S.assignIdx.get(k).push(entry); };
+  if (S.leader === null) {
+    for (const a of S.cfg.assign) add(a.k, { m: a.m, app: a.app, desc: a.desc });
+    return;
+  }
+  const path = S.leader.split('>');
+  for (const l of S.cfg.leaders) {
+    if (l.path.length <= path.length || !path.every((p, i) => l.path[i] === p)) continue;
+    const parts = l.path[path.length].split('+');
+    const m = maskOf(parts.slice(0, -1)), k = keyId(parts[parts.length - 1]);
+    if (m !== null && k && DATA_KEYS.has(k)) add(k, { m, app: null, desc: l.desc });
+  }
+}
+// An assignment's app against the App chips
+function inViewApp(app) {
+  if (S.app === 'all') return true;
+  if (S.app === 'global') return app === null;
+  return app === null || S.app.split('|').some(p => app.split('|').includes(p));
+}
+const assignedHere = k => (S.assignIdx.get(k) || []).filter(a => (S.any || a.m === S.mask) && inViewApp(a.app));
+const isAssigned = k => assignedHere(k).length > 0;
+
+// every combo in the current context, for search
+function indexCtx() {
+  const idx = new Map();
+  for (const e of S.ctx) {
+    const id = e.m + '|' + e.k;
+    let c = idx.get(id);
+    if (!c) idx.set(id, c = { m: e.m, k: e.k, n: 0, last: 0, apps: new Set(), descs: new Set() });
+    c.n++;
+    if (e.t > c.last) c.last = e.t;
+    c.apps.add(e.app === null ? 'Global' : appLabel(e.app));
+    if (c.descs.size < 4) c.descs.add(e.d);
+  }
+  S.comboIdx = [...idx.values()];
+}
+
+/* ---------- selecting a combo ---------- */
+function selectKey(id) {
+  S.sel = S.sel && S.sel.k === id ? null : { k: id };
+  renderView();
+}
+
+function applyCombo(m, k) {
+  if (S.leader !== null) { S.leader = null; S.ctx = S.events; buildAssignIdx(); indexCtx(); }
+  S.any = false; S.mask = m; S.app = 'all'; S.sel = { k };
+  recompute();
+  flash(k);
+  $('kb').scrollIntoView({ block: 'center', behavior: 'smooth' });
+}
+
+function fillList(ul, items, limit, parts, onClick, empty) {
+  ul.textContent = '';
+  if (!items.length) { ul.append(el('li', { class: 'nodata' }, empty)); return; }
+  items.slice(0, limit).forEach(it => {
+    const [a, b] = parts(it);
+    const btn = el('button', null, el('span', null, a), el('span', { class: 'sm' }, b));
+    btn.addEventListener('click', () => onClick(it));
+    ul.append(el('li', null, btn));
+  });
+  if (items.length > limit) ul.append(el('li', { class: 'nodata' }, `…and ${items.length - limit} more`));
+}
+
+/* ---------- find a free key ---------- */
+// Plain keys and Shift + key are what you type with, so nothing there is free to assign
+const isTyping = mask => mask === 0 || mask === MOD_BIT.shift;
+const popcount = n => { let c = 0; for (; n; n &= n - 1) c++; return c; };
+// A new shortcut for `target` clashes with a global one, one for the same app, and (when it will be global) with any app's
+const conflicts = (app, target) => target === 'global' || app === null || app.split('|').includes(target);
+
+function targetNames() {
+  const counts = new Map();
+  for (const e of S.ctx) if (e.app !== null) for (const a of e.app.split('|')) counts.set(a, (counts.get(a) || 0) + 1);
+  for (const list of S.assignIdx.values()) for (const a of list) if (a.app) for (const n of a.app.split('|')) if (!counts.has(n)) counts.set(n, 0);
+  return [...counts].sort((a, b) => b[1] - a[1]).map(([n]) => n);
+}
+
+// mask -> the keys used, and the keys assigned, for a shortcut that will live in `target`
+function takenFor(target) {
+  const used = new Map(), held = new Map();
+  const put = (map, m, k) => { if (!map.has(m)) map.set(m, new Set()); map.get(m).add(k); };
+  for (const e of S.ctx) if (conflicts(e.app, target)) put(used, e.m, e.k);
+  for (const [k, list] of S.assignIdx) for (const a of list) if (conflicts(a.app, target)) put(held, a.m, k);
+  return { used, held };
+}
+
+function chipFor(k) {
+  const ease = easeOf(k, S.mask, false);
+  const b = el('button', { class: 'chip', title: `${EASE_LABEL[ease.tier]}: ${ease.where}${ease.note ? ' (' + ease.note + ')' : ''}` },
+    el('i', { class: 'ez ez-' + ease.tier }), KEY_DISPLAY[k] || k);
+  b.addEventListener('click', () => { S.sel = { k }; renderView(); flash(k); $('kb').scrollIntoView({ block: 'center', behavior: 'smooth' }); });
+  return b;
+}
+
+function renderFind() {
+  const names = targetNames();
+  if (S.target !== 'global' && !names.includes(S.target)) S.target = 'global';
+  const box = $('targets');
+  box.textContent = '';
+  for (const [id, label] of [['global', 'Global'], ...names.map(n => [n, appLabel(n)])]) {
+    const b = el('button', { 'aria-pressed': String(S.target === id) }, label);
+    b.addEventListener('click', () => { S.target = id; renderFind(); saveState(); });
+    box.append(b);
+  }
+  const lead = S.leader ? prettyPath(S.leader) : null;
+  $('findTitle').textContent = lead ? `Free keys after ${lead}` : `Free keys with ${maskLabel(S.mask)}`;
+  $('findNote').textContent = (S.target === 'global'
+    ? 'A global shortcut overrides every app, so a key counts as taken if any app, or any global rule, uses it.'
+    : `For ${appLabel(S.target)}: a key counts as taken if ${appLabel(S.target)} or a global rule uses it.`)
+    + ' All of the history counts, whatever the date filter says. macOS and app shortcuts (Cmd+C and so on) are not in the log, so a combo with only Cmd, Opt or Ctrl can be taken even when it looks free.';
+  const { used, held } = takenFor(S.target);
+  const u = used.get(S.mask) || new Set(), h = held.get(S.mask) || new Set();
+  const free = [...DATA_KEYS].filter(k => !u.has(k) && !h.has(k));
+  const tiers = $('tiers');
+  tiers.textContent = '';
+  if (S.leader === null && isTyping(S.mask)) {
+    tiers.append(el('p', { class: 'nodata' }, 'Plain keys and Shift + key are what you type with, so none of them is free to assign. Pick a modifier above, such as Hyper.'));
+    renderModTable(used, held);
+    return;
+  }
+  let hidden = 0;
+  for (const tier of EASE_TIERS) {
+    const keys = free.filter(k => easeOf(k, S.mask, false).tier === tier);
+    if (!keys.length) continue;
+    if (S.easyOnly && (tier === 'reach' || tier === 'stretch')) { hidden += keys.length; continue; }
+    const row = el('div', { class: 'tier' }, el('b', null, EASE_LABEL[tier]));
+    keys.forEach(k => row.append(chipFor(k)));
+    tiers.append(row);
+  }
+  if (!tiers.children.length) tiers.append(el('p', { class: 'nodata' }, free.length ? 'No easy keys are free here.' : 'No keys are free here.'));
+  if (hidden) tiers.append(el('p', { class: 'status' }, `${hidden} free keys that are harder to reach are hidden.`));
+  const unused = [...h].filter(k => !u.has(k)).length;
+  tiers.append(el('p', { class: 'status' }, `${u.size} used${S.cfg ? `, ${unused} assigned but never pressed` : ''}, ${free.length} free, of ${DATA_KEYS.size} keys.`));
+  renderModTable(used, held);
+}
+
+function renderModTable(used, held) {
+  $('modWrap').hidden = S.leader !== null;
+  const t = $('modTable');
+  t.textContent = '';
+  if (S.leader !== null) return;
+  const masks = new Set([...used.keys(), ...held.keys()]);
+  for (let m = 0; m < 32; m++) if (popcount(m) <= 2) masks.add(m);
+  const rows = [...masks].filter(m => !isTyping(m)).map(m => {
+    const u = used.get(m) || new Set(), h = held.get(m) || new Set();
+    const free = [...DATA_KEYS].filter(k => !u.has(k) && !h.has(k));
+    const easy = free.filter(k => { const tier = easeOf(k, m, false).tier; return tier === 'rest' || tier === 'easy'; });
+    return { m, used: u.size, held: [...h].filter(k => !u.has(k)).length, free: free.length, easy: easy.length };
+  }).sort((a, b) => b.easy - a.easy || b.free - a.free || a.m - b.m);
+  const num = v => el('td', { class: 'r' }, fmt(v));
+  t.append(el('thead', null, el('tr', null, el('th', null, 'Modifiers'), el('th', { class: 'r' }, 'Used'),
+    ...(S.cfg ? [el('th', { class: 'r' }, 'Assigned, unused')] : []), el('th', { class: 'r' }, 'Free'), el('th', { class: 'r' }, 'Free and easy'))));
+  const body = el('tbody');
+  rows.forEach(r => {
+    const tr = el('tr', { 'data-m': String(r.m), class: !S.any && r.m === S.mask ? 'cur' : '', tabindex: '0' },
+      el('td', null, maskLabel(r.m)), num(r.used), ...(S.cfg ? [num(r.held)] : []), num(r.free), num(r.easy));
+    const go = () => { S.any = false; S.mask = r.m; renderView(); };
+    tr.addEventListener('click', go);
+    tr.addEventListener('keydown', ev => { if (ev.key === 'Enter') go(); });
+    body.append(tr);
+  });
+  t.append(body);
+}
+
+/* ---------- dormant shortcuts ---------- */
+function renderDormant() {
+  const cutoff = S.max_t - S.dormantDays * 864e5;
+  const combos = new Map();
+  for (const e of S.ctx) {
+    if (!inScope(e)) continue;
+    const id = e.m + '|' + e.k;
+    let c = combos.get(id);
+    if (!c) combos.set(id, c = { m: e.m, k: e.k, n: 0, last: 0, apps: new Set() });
+    c.n++;
+    if (e.t > c.last) c.last = e.t;
+    c.apps.add(e.app === null ? 'Global' : appLabel(e.app));
+  }
+  const dormant = [...combos.values()].filter(c => c.last < cutoff).sort((a, b) => a.last - b.last);
+  $('dormNote').textContent = `Measured against the newest entry (${stamp(S.max_t)}), for the App chosen above. The date filter does not apply.`;
+  fillList($('dormant'), dormant, 12,
+    c => [`${comboLabel(c.m, c.k)} · ${[...c.apps].join(', ')}`, `last used ${stamp(c.last).slice(0, 10)}, ${Math.floor((S.max_t - c.last) / 864e5)} days before the newest entry · ${fmt(c.n)} presses`],
+    c => applyCombo(c.m, c.k), 'Nothing has gone quiet in that time.');
+  $('neverWrap').hidden = !S.cfg;
+  if (!S.cfg) return;
+  const never = [];
+  for (const [k, list] of S.assignIdx) for (const a of list) if (inViewApp(a.app) && !combos.has(a.m + '|' + k)) never.push({ m: a.m, k, app: a.app, desc: a.desc });
+  fillList($('never'), never, 12,
+    a => [comboLabel(a.m, a.k) + (a.app ? ' · ' + appLabel(a.app) : ''), a.desc || ''],
+    a => applyCombo(a.m, a.k), 'Every assigned shortcut has been pressed.');
+}
+
+/* ---------- usage over time ---------- */
+function renderTrend() {
+  const sel = S.sel;
+  const evs = S.filtered.filter(e => !sel || (e.k === sel.k && (S.any || e.m === S.mask)));
+  const lead = S.leader ? prettyPath(S.leader) + ' › ' : '';
+  $('trendTitle').textContent = sel
+    ? `Usage over time: ${lead}${S.any ? (KEY_DISPLAY[sel.k] || sel.k) + ' (any modifiers)' : comboLabel(S.mask, sel.k)}`
+    : 'Usage over time: everything in this view';
+  $('trendClear').hidden = !sel;
+  const d0 = Math.floor((S.from ?? S.min) / 864e5), d1 = Math.floor((S.to ?? S.max_t) / 864e5);
+  const weekly = d1 - d0 > 140;
+  const bucket = d => (weekly ? Math.floor((d + 3) / 7) : d);   // weeks start on Monday
+  const first = bucket(d0);
+  const vals = new Array(bucket(d1) - first + 1).fill(0);
+  for (const e of evs) {
+    const b = bucket(Math.floor(e.t / 864e5)) - first;
+    if (b >= 0 && b < vals.length) vals[b]++;
+  }
+  const date = i => new Date((weekly ? (first + i) * 7 - 3 : first + i) * 864e5).toISOString().slice(0, 10);
+  bars($('trend'), $('trendAxis'), $('tmax'), vals.map((_, i) => date(i).slice(5)), vals,
+    (i, v) => `${weekly ? 'Week of ' : ''}${date(i)}\n${fmt(v)} presses`, Math.max(1, Math.ceil(vals.length / 10)));
+  $('trendNote').textContent = `${fmt(evs.length)} presses, by ${weekly ? 'week' : 'day'}. ${sel ? 'Click the key again, or Show everything, to go back to the whole view.' : 'Click a key on the keyboard to follow just that combo.'}`;
+}
+
+/* ---------- search ---------- */
+const MOD_WORDS = { hyper: 'hyper', caps: 'hyper', cmd: 'cmd', command: 'cmd', shift: 'shift', opt: 'opt', option: 'opt', alt: 'opt', ctrl: 'ctrl', control: 'ctrl',
+                    left_command: 'cmd', left_shift: 'shift', left_option: 'opt', left_control: 'ctrl' };
+const KEY_WORDS = { space: 'Space', spacebar: 'Space', enter: 'Return', return: 'Return', tab: 'Tab', esc: 'Esc', escape: 'Esc', delete: 'Delete', backspace: 'Delete',
+                    up: '↑', down: '↓', left: '←', right: '→', minus: '-', equals: '=' };
+function wordKey(w) {
+  if (KEY_WORDS[w]) return KEY_WORDS[w];
+  if (w.length === 1 && DATA_KEYS.has(w)) return w;
+  return keyId(w);
+}
+function parseQuery(q) {
+  let mask = 0, key = null;
+  const words = [];
+  for (const w of q.toLowerCase().split(/[\s+,>]+/).filter(Boolean)) {
+    if (MOD_WORDS[w]) mask |= MOD_BIT[MOD_WORDS[w]];
+    else if (key === null && wordKey(w)) key = wordKey(w);
+    else words.push(w);
+  }
+  return { mask, key, words };
+}
+
+function runSearch() {
+  const q = $('search').value.trim(), box = $('results');
+  box.textContent = '';
+  box.hidden = !q;
+  if (!q) return;
+  const { mask, key, words } = parseQuery(q);
+  const rows = [];
+  if (key) {
+    const hit = S.comboIdx.find(c => c.m === mask && c.k === key);
+    const held = (S.assignIdx.get(key) || []).filter(a => a.m === mask);
+    const ease = easeOf(key, mask, false);
+    rows.push({ m: mask, k: key, main: comboLabel(mask, key),
+      note: hit ? `used ${fmt(hit.n)} times · ${[...hit.apps].join(', ')}` : held.length ? 'assigned in karabiner.json, never pressed' : `free · ${EASE_LABEL[ease.tier].toLowerCase()}` });
+  }
+  const hay = c => `${comboLabel(c.m, c.k)} ${[...c.apps].join(' ')} ${[...c.descs].join(' ')}`.toLowerCase();
+  const others = S.comboIdx
+    .filter(c => (key ? c.k === key && c.m !== mask : (c.m & mask) === mask) && words.every(w => hay(c).includes(w)))
+    .sort((a, b) => b.n - a.n).slice(0, key ? 5 : 8);
+  others.forEach(c => rows.push({ m: c.m, k: c.k, main: comboLabel(c.m, c.k), note: `${fmt(c.n)} presses · ${[...c.apps].join(', ')}` }));
+  if (!rows.length) { box.append(el('li', { class: 'nodata', style: 'padding:6px 10px' }, 'Nothing matches.')); return; }
+  rows.forEach(r => {
+    const b = el('button', null, el('span', null, r.main), el('span', { class: 'sm' }, r.note));
+    b.addEventListener('click', () => { box.hidden = true; applyCombo(r.m, r.k); });
+    box.append(el('li', null, b));
+  });
+}
+
+/* ---------- remembering the view ---------- */
+const STORE_KEY = 'karabiner-heatmap:v1';
+function saveState() {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify({
+      app: S.app, leader: S.leader, mask: S.mask, savedMask: S.savedMask, any: S.any, onlySel: S.onlySel,
+      target: S.target, dormantDays: S.dormantDays, easyOnly: S.easyOnly, easyMarks: S.easyMarks, sel: S.sel ? S.sel.k : null,
+    }));
+  } catch { /* private mode, or storage turned off */ }
+}
+function savedState() {
+  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; }
+}
+
+/* ---------- picking and re-reading files ---------- */
+// Chrome and Edge can keep a handle to the file, so it can be read again without the dialog.
+// Elsewhere the file input is used, and the page has to be given the file again.
+const FS_OK = typeof window.showOpenFilePicker === 'function' && typeof indexedDB !== 'undefined';
+
+function handleStore(mode, fn) {
+  return new Promise((resolve, reject) => {
+    const open = indexedDB.open('karabiner-heatmap', 1);
+    open.onupgradeneeded = () => open.result.createObjectStore('handles');
+    open.onerror = () => reject(open.error);
+    open.onsuccess = () => {
+      const tx = open.result.transaction('handles', mode);
+      const req = fn(tx.objectStore('handles'));
+      tx.oncomplete = () => resolve(req && req.result);
+      tx.onerror = () => reject(tx.error);
+    };
+  });
+}
+const rememberHandle = (kind, handle) => handleStore('readwrite', s => s.put(handle, kind)).catch(() => {});
+const recallHandle = kind => handleStore('readonly', s => s.get(kind)).catch(() => null);
+
+async function readHandle(handle) {
+  const opts = { mode: 'read' };
+  if ((await handle.queryPermission(opts)) !== 'granted' && (await handle.requestPermission(opts)) !== 'granted') {
+    throw new Error('permission to read the file was not given');
+  }
+  const file = await handle.getFile();
+  return { text: await file.text(), name: file.name };
+}
+
+function looksLikeConfig(text) {
+  if (text.trimStart()[0] !== '{') return false;
+  try { const j = JSON.parse(text); return !!(j && Array.isArray(j.profiles)); } catch { return false; }
+}
+// Whichever file was chosen, a karabiner.json goes to the config and anything else to the history
+function route(text, name) { if (looksLikeConfig(text)) loadConfig(text, name); else load(text, name); }
+
+function loadConfig(text, name) {
+  const cfg = parseConfig(text);
+  if (!cfg) { $('cfginfo').textContent = `${name} is not a karabiner.json`; return; }
+  S.cfg = cfg;
+  $('cfginfo').textContent = `${name} · ${fmt(cfg.assign.length)} assigned shortcuts, ${fmt(cfg.leaders.length)} leader bindings`;
+  buildAssignIdx();
+  if (!$('app').hidden) renderAll();
+}
+
+async function pickInto(kind) {
+  if (FS_OK) {
+    try {
+      const [handle] = await window.showOpenFilePicker();
+      const r = await readHandle(handle);
+      S.handles[kind] = handle;
+      rememberHandle(kind, handle);
+      if (kind === 'config') loadConfig(r.text, r.name); else route(r.text, r.name);
+      return;
+    } catch (e) {
+      if (e && e.name === 'AbortError') return;
+    }
+  }
+  $(kind === 'config' ? 'cfgfile' : 'file').click();
+}
+const pickFile = () => pickInto('history');
+const pickConfig = () => pickInto('config');
+
+async function refresh() {
+  for (const kind of ['config', 'history']) {
+    if (!S.handles[kind]) continue;
+    try {
+      const r = await readHandle(S.handles[kind]);
+      if (kind === 'config') loadConfig(r.text, r.name); else load(r.text, r.name);
+    } catch (e) {
+      $('fileinfo').textContent = `Could not read the ${kind} file again: ${(e && e.message) || e}`;
+    }
+  }
+}
+
+(async function offerReopen() {
+  if (!FS_OK) return;
+  const history = await recallHandle('history');
+  if (!history) return;
+  S.handles.history = history;
+  const config = await recallHandle('config');
+  if (config) S.handles.config = config;
+  const b = $('reopen');
+  b.textContent = `Reopen ${history.name}`;
+  b.hidden = false;
+  b.addEventListener('click', refresh);
+})();
+
+/* ---------- file + filters ---------- */
+function load(text, name) {
+  const r = parseLog(text);
+  if (!r.events.length && !r.leaderEvents.length && !r.others.length) {
+    $('fileinfo').textContent = r.old
+      ? `${name} is the old history format. Run karabiner_migration.sh to convert it to history.jsonl, then choose that file.`
+      : `${name}: no history lines found. Expected one JSON object per line, as generate_karabiner.rb writes them.`;
+    return;
+  }
+  Object.assign(S, {
+    events: r.events, leaderEvents: r.leaderEvents, others: r.others, ambiguous: r.ambiguous, zone: r.zone,
+    app: 'all', leader: null, from: null, to: null, mask: MOD_BIT.hyper, savedMask: MOD_BIT.hyper, any: false, onlySel: false,
+    ctx: r.events, min: r.lo, max_t: r.hi, sel: null, target: 'global', dormantDays: 30, easyOnly: false, easyMarks: true,
+  });
+  restoreState(r);
+  const iso = t => new Date(t).toISOString().slice(0, 16);
+  for (const id of ['from', 'to']) { $(id).min = iso(r.lo); $(id).max = iso(r.hi); }
+  $('from').value = iso(r.lo); $('to').value = iso(r.hi);
+  $('fileinfo').textContent = `${name} · ${fmt(r.lines)} lines · ${stamp(r.lo)} → ${stamp(r.hi)}`
+    + (r.migrated ? ` · ${fmt(r.migrated)} migrated from the old format` : '')
+    + (r.estimated ? ` · ${fmt(r.estimated)} with an estimated app` : '')
+    + (r.unknownApp ? ` · ${fmt(r.unknownApp)} with an unknown app (Obsidian/Zen): run karabiner_split_apps.sh to split them` : '')
+    + (r.old ? ` · ${fmt(r.old)} old-format lines skipped (run karabiner_migration.sh)` : '')
+    + (r.bad ? ` · ${fmt(r.bad)} unreadable` : '');
+  $('empty').hidden = true; $('app').hidden = false;
+  $('refresh').hidden = !S.handles.history;
+  buildKeyboard(); buildMods();
+  buildAssignIdx(); indexCtx();
+  recompute();
+}
+
+// What the page remembered from last time, where it still makes sense for this file
+function restoreState(r) {
+  const saved = savedState();
+  const scopes = new Set(r.events.map(e => e.app).filter(a => a !== null));
+  const prefixes = new Set();
+  for (const e of r.leaderEvents) for (let i = 1; i < e.path.length; i++) prefixes.add(e.path.slice(0, i).join('>'));
+  const mask = v => Number.isInteger(v) && v >= 0 && v < 32;
+  if (saved.app === 'all' || saved.app === 'global' || scopes.has(saved.app)) S.app = saved.app;
+  if (mask(saved.mask)) S.mask = saved.mask;
+  if (mask(saved.savedMask)) S.savedMask = saved.savedMask;
+  if (saved.leader && prefixes.has(saved.leader)) { S.leader = saved.leader; S.ctx = leaderContext(saved.leader); }
+  S.any = saved.any === true;
+  S.onlySel = saved.onlySel === true;
+  S.easyOnly = saved.easyOnly === true;
+  S.easyMarks = saved.easyMarks !== false;
+  if ([14, 30, 60, 90].includes(saved.dormantDays)) S.dormantDays = saved.dormantDays;
+  if (typeof saved.target === 'string') S.target = saved.target;
+  if (typeof saved.sel === 'string' && DATA_KEYS.has(saved.sel)) S.sel = { k: saved.sel };
+}
+
+function applyDates() {
+  const f = $('from').value, t = $('to').value;
+  S.from = f ? Date.parse(f + ':00Z') : null;
+  S.to = t ? Date.parse(t + ':00Z') + 59999 : null;
+  recompute();
+}
+
+function preset(p) {
+  const iso = t => new Date(t).toISOString().slice(0, 16);
+  const end = S.max_t, day = 864e5;
+  const start = p === 'all' ? S.min : Math.max(S.min, end - (p === '7d' ? 7 * day : day));
+  $('from').value = iso(start); $('to').value = iso(end);
+  applyDates();
+}
+
+document.querySelectorAll('a.pick').forEach(a => a.addEventListener('click', ev => { ev.preventDefault(); pickFile(); }));
+document.querySelectorAll('a.pickcfg').forEach(a => a.addEventListener('click', ev => { ev.preventDefault(); pickConfig(); }));
+// On the first page, Enter starts the same workflow as the link. A focused link does that itself.
+addEventListener('keydown', ev => {
+  if (ev.key !== 'Enter' || ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey || ev.repeat) return;
+  if ($('empty').hidden || ev.target.closest('a, button, input, textarea, select')) return;
+  ev.preventDefault();
+  pickFile();
+});
+$('file').addEventListener('change', async ev => {
+  const f = ev.target.files[0]; if (!f) return;
+  route(await f.text(), f.name);
+  ev.target.value = '';
+});
+$('cfgfile').addEventListener('change', async ev => {
+  const f = ev.target.files[0]; if (!f) return;
+  loadConfig(await f.text(), f.name);
+  ev.target.value = '';
+});
+for (const id of ['from', 'to']) $(id).addEventListener('change', applyDates);
+document.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', () => preset(b.dataset.preset)));
+$('match').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; S.any = b.dataset.m === 'any'; renderView(); });
+$('onlysel').addEventListener('change', ev => { S.onlySel = ev.target.checked; renderBreakdown(); saveState(); });
+$('easyMarks').addEventListener('change', ev => { S.easyMarks = ev.target.checked; renderKeyboard(); saveState(); });
+$('easyOnly').addEventListener('change', ev => { S.easyOnly = ev.target.checked; renderFind(); saveState(); });
+$('dormDays').addEventListener('change', ev => { S.dormantDays = +ev.target.value; renderDormant(); saveState(); });
+$('trendClear').addEventListener('click', () => { S.sel = null; renderView(); });
+$('refresh').addEventListener('click', refresh);
+$('search').addEventListener('input', runSearch);
+$('search').addEventListener('keydown', ev => {
+  if (ev.key === 'Enter') { const first = $('results').querySelector('button'); if (first) first.click(); }
+  if (ev.key === 'Escape') { $('search').value = ''; runSearch(); }
+});
+addEventListener('dragover', ev => { ev.preventDefault(); $('empty').classList.add('drag'); });
+addEventListener('dragleave', () => $('empty').classList.remove('drag'));
+addEventListener('drop', async ev => {
+  ev.preventDefault(); $('empty').classList.remove('drag');
+  for (const f of ev.dataTransfer.files) route(await f.text(), f.name);
+});
+</script>
+</body>
+</html>
