@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'json'
+require 'shellwords'
 
 HYPER = %w[right_shift right_control right_command right_option].freeze
 HYPER_CMD = (HYPER + %w[left_command]).freeze
@@ -10,6 +11,24 @@ HYPER_SHIFT_CMD = (HYPER_CMD + %w[left_shift]).freeze
 SS_FORMAT = '$HOME/Proton/Sync/Devices/Screenshots/Screenshot_'
 
 OUTPUT_PATH = File.expand_path('karabiner.json', __dir__)
+
+# One JSON object per line, written when a logged rule fires. See `logger`.
+HISTORY_PATH = '$HOME/.local/share/karabiner/history.jsonl'
+
+# How app_specific_rule names an app, by the bundle identifier (or regex) it is given: `name`
+# in the history, `label` in front of the rule's description in Karabiner. A new app-specific
+# rule needs an entry here.
+APP_NAMES = {
+  'com.jins.naivechat' => { name: 'naivechat', label: 'NaiveChat' },
+  'org.alacritty' => { name: 'alacritty', label: 'Alacritty' },
+  'md.obsidian' => { name: 'obsidian', label: 'Obsidian' },
+  'app.zen-browser.zen' => { name: 'zen', label: 'Zen' },
+  'com.automattic.beeper.desktop' => { name: 'beeper', label: 'Beeper' },
+  'org.whispersystems.signal-desktop' => { name: 'signal', label: 'Signal' },
+  'com.godspeedapp.Godspeed' => { name: 'godspeed', label: 'Godspeed' },
+  'org.videolan.vlc' => { name: 'vlc', label: 'VLC' },
+  'com.apple.Safari' => { name: 'safari', label: 'Safari' }
+}.freeze
 
 NUMPAD_LAYER = {
   'u' => '7', 'i' => '8', 'o' => '9',
@@ -55,26 +74,39 @@ def rule(description, manipulators, available_since: nil, conditions: nil)
   )
 end
 
+# `app` is one bundle identifier, or several. With several, every manipulator is repeated for
+# each app, so each copy has its own condition and its own history line. Write the manipulator
+# descriptions without the app: the label is put in front of them here, and the history gets
+# the app as a field.
 def app_specific_rule(description, app, manipulators)
-  manipulators_with_app = manipulators.map do |m|
-    conditions = m['conditions'] || []
-    conditions = Array(conditions) + [app_if([app].flatten)]
-    m.merge('conditions' => conditions)
+  manipulators_with_app = [app].flatten.flat_map do |bundle_identifier|
+    info = APP_NAMES.fetch(bundle_identifier) { raise "APP_NAMES has no entry for #{bundle_identifier}" }
+    manipulators.map { |m| app_manipulator(m, bundle_identifier, info) }
   end
 
   rule(description, manipulators_with_app)
 end
 
+def app_manipulator(manipulator, bundle_identifier, info)
+  changes = { 'conditions' => Array(manipulator['conditions']) + [app_if([bundle_identifier])] }
+  changes['description'] = "#{info[:label]}: #{manipulator['description']}" if manipulator['description']
+  if history_logged?(manipulator)
+    changes['to_after_key_up'] = logger(manipulator['from'], manipulator['description'], true, apps: [info[:name]])
+  end
+  manipulator.merge(changes)
+end
+
 # `from` is a from_key hash (hyper('e'), from_key(...)) or a bare key code ('l'), which is
 # shorthand for from_key('l'). Inside leader(), basic is used as-is: leader() adds the
 # condition and the clean-up to the manipulators it is given.
-def basic(description = nil, from:, to:, to_if_alone: nil, to_after_key_up: nil, to_delayed_action: nil, conditions: nil, parameters: nil, log: true)
+def basic(description = nil, from:, to:, to_if_alone: nil, to_after_key_up: nil, to_delayed_action: nil, conditions: nil, parameters: nil, log: true, kind: 'key')
+  from = from_key(from) if from.is_a?(String)
   compact_hash(
     'description' => description,
-    'from' => from.is_a?(String) ? from_key(from) : from,
+    'from' => from,
     'to' => to,
     'to_if_alone' => to_if_alone,
-    'to_after_key_up' => logger(description, log),
+    'to_after_key_up' => logger(from, description, log, kind: kind),
     'to_delayed_action' => to_delayed_action,
     'conditions' => conditions,
     'parameters' => parameters,
@@ -116,7 +148,7 @@ def leader(description, trigger, bindings, timeout: 1500)
 
   leader_rule = LeaderRule[rule(label, [
     leader_start(label, leader_from_key(trigger), variable, nil, timeout),
-    *leader_level(bindings, label, variable, timeout)
+    *leader_level(bindings, label, variable, timeout, [history_name(leader_from_key(trigger))])
   ])]
   leader_rule.spec = { description: description, trigger: trigger, bindings: bindings, timeout: timeout }
   leader_rule
@@ -138,13 +170,13 @@ def leader_start(label, from, variable, leaving, timeout)
 end
 
 # The manipulators for the keys of one level, then the cancel for it. `label` is the path so
-# far, such as "Leader: Hyper + W:G".
-def leader_level(bindings, label, variable, timeout)
+# far, such as "Leader: Hyper + W:G". `path` is the same path as keys, for the history.
+def leader_level(bindings, label, variable, timeout, path)
   manipulators = bindings.flat_map do |binding|
     if binding.is_a?(LeaderRule)
-      leader_nested_manipulators(binding.spec, label, variable)
+      leader_nested_manipulators(binding.spec, label, variable, path)
     else
-      [leader_binding(binding, label, variable)]
+      [leader_binding(binding, label, variable, path)]
     end
   end
 
@@ -156,14 +188,14 @@ def leader_level(bindings, label, variable, timeout)
   ]
 end
 
-def leader_nested_manipulators(spec, label, variable)
+def leader_nested_manipulators(spec, label, variable, keys)
   from = leader_from(leader_from_key(spec[:trigger]))
   path = "#{label}:#{leader_key_name(from)}"
   inner = "#{variable}_#{leader_key_id(from)}"
 
   [
     leader_start("#{path} (#{spec[:description]})", from, inner, variable, spec[:timeout]),
-    *leader_level(spec[:bindings], path, inner, spec[:timeout])
+    *leader_level(spec[:bindings], path, inner, spec[:timeout], [*keys, history_name(leader_from_key(spec[:trigger]))])
   ]
 end
 
@@ -191,24 +223,86 @@ end
 
 # The description, and so the history line, says it came from the leader. A binding that
 # was written with log: false stays unlogged.
-def leader_binding(binding, label, variable)
+def leader_binding(binding, label, variable, path)
   from = leader_from(binding['from'])
   description = "#{label}:#{leader_key_name(from)}: #{binding['description']}"
+  keys = [*path, history_name(binding['from'])]
   binding.merge(
     'description' => description,
-    'to_after_key_up' => binding['to_after_key_up'] && logger(description, true),
+    'to_after_key_up' => binding['to_after_key_up'] && logger(binding['from'], binding['description'], true, kind: 'leader', path: keys),
     'from' => from,
     'to' => [*binding['to'], *leader_clear(variable)],
     'conditions' => [*binding['conditions'], variable_if(variable, 1)]
   )
 end
 
-def logger(description, log)
-  if log
-    [{"shell_command": "echo $(date):: '#{description}' >> $HOME/.local/share/karabiner/history"}]
-  else
-    nil
-  end
+# The modifiers, the key and whether any other modifiers are also accepted, read from a `from`
+# so the history never depends on what a description says. Hyper is all four right-hand modifiers.
+def history_combo(from)
+  modifiers = from['modifiers'] || {}
+  mandatory = modifiers['mandatory'] || []
+  hyper = (HYPER - mandatory).empty?
+  mods = (hyper ? mandatory - HYPER : mandatory).sort
+  mods.unshift('hyper') if hyper
+  key = from['simultaneous'] ? leader_key_codes(from).join('&') : (from['key_code'] || from['any'])
+  [mods, key, (modifiers['optional'] || []).include?('any')]
+end
+
+# "hyper+left_command+f". A chord joins its keys with &: "left_command&right_command".
+def history_name(from)
+  mods, key, = history_combo(from)
+  [*mods, key].join('+')
+end
+
+# What one history line says about a rule firing, except the time. `id` is the scope and the
+# combo: "global:hyper+f", "alacritty:hyper+u", "zen:hyper+u", "mouse:q&j",
+# "leader:left_command&right_command>w". It follows the keys, so rewording a description or
+# changing the action keeps the history joined up.
+#
+#   kind: 'key' (the default), 'mouse' for mouse keys mode, 'leader' for a key in a leader.
+#   apps: names from APP_NAMES. Empty means every app.
+#   path: for a leader, every key from the trigger down to this one. It makes up the id, and is
+#         not a field of its own: "leader:hyper+w>g>h" is the trigger, then g, then h.
+#
+# `mods` are Karabiner's own names, Hyper first: ["hyper", "left_command", "left_shift"].
+# optional_any is true when the rule also fires with other modifiers held (open_hyper): it is
+# still Hyper + L, whatever else is down.
+def history_record(from, description, apps: [], kind: 'key', path: nil)
+  mods, key, optional_any = history_combo(from)
+  combo = [*mods, key].join('+')
+  id = case kind
+       when 'leader' then "leader:#{path.join('>')}"
+       when 'mouse' then "mouse:#{combo}"
+       else "#{apps.empty? ? 'global' : apps.join('|')}:#{combo}"
+       end
+  {
+    'id' => id, 'type' => kind, 'apps' => apps, 'mods' => mods, 'key' => key,
+    'optional_any' => optional_any, 'desc' => description
+  }
+end
+
+def shell_quote(text)
+  "'" + text.gsub("'") { "'\\''" } + "'"
+end
+
+# Appends one JSON object per line: "ts" (ISO 8601 with offset) and "hts" (what `date` prints)
+# come from a single reading of the clock, then the fields of the record. The record is quoted
+# for the shell here, so a description may contain any character.
+def history_command(record)
+  iso = %q(date -r "$now" +%Y-%m-%dT%H:%M:%S%z | sed -E 's/([0-9]{2})$/:\1/')
+  fields = shell_quote(JSON.generate(record)[1..-2])
+  "now=$(date +%s); printf '{\"ts\":\"%s\",\"hts\":\"%s\",%s}\\n' \"$(#{iso})\" \"$(date -r \"$now\")\" #{fields} >> \"#{HISTORY_PATH}\""
+end
+
+# Nothing is logged for a manipulator with no description, or with log: false.
+def logger(from, description, log, apps: [], kind: 'key', path: nil)
+  return nil unless log && description
+
+  [{ 'shell_command' => history_command(history_record(from, description, apps: apps, kind: kind, path: path)) }]
+end
+
+def history_logged?(manipulator)
+  Array(manipulator['to_after_key_up']).any? { |action| action['shell_command'].to_s.include?(HISTORY_PATH) }
 end
 
 def nested_manipulators(description = nil, manipulators)
@@ -430,6 +524,7 @@ end
 def mouse_keys_key(key_code, actions, conditions: mouse_keys_conditions, to_after_key_up: nil)
   basic(
     'Mouse key: ' + key_code,
+    kind: 'mouse',
     from: from_key(key_code, optional: ['any']),
     to: actions,
     conditions: conditions,
@@ -440,6 +535,7 @@ end
 def mouse_keys_chord(key_code, actions, to_after_key_up: nil)
   basic(
     'Mouse chord: ' + key_code,
+    kind: 'mouse',
     from: from_simultaneous(['q', key_code], optional: ['any'], after_key_up: mouse_keys_cleanup_actions),
     to: mouse_keys_enter_actions + actions,
     parameters: simultaneous_threshold(500),
@@ -547,46 +643,46 @@ def rules
           basic('Hyper+Cmd + C: Open Calendar', from: cmd_hyper('c'), to: [to_shell('open -a "$HOME/Applications/Calendar.app"')]),
           basic('Hyper+Cmd + P: Open Brave Browser', from: cmd_hyper('p'), to: [open('Brave Browser Beta')])
         ]),
-    app_specific_rule('App-Specific: Alacritty Terminal', '^org\\.alacritty$', [
-          basic('Alacritty: Hyper + D sends EOF (Ctrl+D)', from: hyper('d'), to: [to_key('d', modifiers: ['right_control'])]),
-          basic('Alacritty: Hyper + U previous tab (Option+U)', from: hyper('u'), to: [to_key('u', modifiers: ['right_option'])]),
-          basic('Alacritty: Hyper + I next tab (Option+I)', from: hyper('i'), to: [to_key('i', modifiers: ['right_option'])]),
-          basic('Alacritty: Hyper + [ previous pane (Ctrl+[)', from: hyper('open_bracket'), to: [to_key('open_bracket', modifiers: ['left_command'])]),
-          basic('Alacritty: Hyper + ] next pane (Ctrl+])', from: hyper('close_bracket'), to: [to_key('close_bracket', modifiers: ['left_command'])])
+    app_specific_rule('App-Specific: Alacritty Terminal', 'org.alacritty', [
+          basic('Hyper + D sends EOF (Ctrl+D)', from: hyper('d'), to: [to_key('d', modifiers: ['right_control'])]),
+          basic('Hyper + U previous tab (Option+U)', from: hyper('u'), to: [to_key('u', modifiers: ['right_option'])]),
+          basic('Hyper + I next tab (Option+I)', from: hyper('i'), to: [to_key('i', modifiers: ['right_option'])]),
+          basic('Hyper + [ previous pane (Ctrl+[)', from: hyper('open_bracket'), to: [to_key('open_bracket', modifiers: ['left_command'])]),
+          basic('Hyper + ] next pane (Ctrl+])', from: hyper('close_bracket'), to: [to_key('close_bracket', modifiers: ['left_command'])])
         ]),
-    app_specific_rule('App-Specific: Obsidian and Zen Browser', ['^md\\.obsidian', '^app\\.zen-browser\\.zen'], [
-          basic('Hyper + u in Obsidian/Zen move one tab left', from: hyper('u'), to: [to_key('open_bracket', modifiers: ['right_shift', 'right_command'])]),
-          basic('Hyper + i in Obsidian/Zen move one tab right', from: hyper('i'), to: [to_key('close_bracket', modifiers: ['right_shift', 'right_command'])]),
+    app_specific_rule('App-Specific: Obsidian and Zen Browser', ['md.obsidian', 'app.zen-browser.zen'], [
+          basic('Hyper + u move one tab left', from: hyper('u'), to: [to_key('open_bracket', modifiers: ['right_shift', 'right_command'])]),
+          basic('Hyper + i move one tab right', from: hyper('i'), to: [to_key('close_bracket', modifiers: ['right_shift', 'right_command'])]),
           basic('Hyper+Cmd + J: End of File', from: cmd_hyper('j'), to: [to_key('end', modifiers: ['left_command'])])
         ]),
-    app_specific_rule('App-Specific: Zen Browser', '^app\\.zen-browser\\.zen', [
-          basic('Cmd + Shift + P in Zen select and paste top Proton Pass result', from: from_key('p', mandatory: ['left_shift', 'left_command']), to: [*to_tab_then_wait(12), *to_key_then_wait('return_or_enter'), *to_key_then_wait('escape'), to_key('v', modifiers: ['command'])])
+    app_specific_rule('App-Specific: Zen Browser', 'app.zen-browser.zen', [
+          basic('Cmd + Shift + P select and paste top Proton Pass result', from: from_key('p', mandatory: ['left_shift', 'left_command']), to: [*to_tab_then_wait(12), *to_key_then_wait('return_or_enter'), *to_key_then_wait('escape'), to_key('v', modifiers: ['command'])])
         ]),
-    app_specific_rule('App-Specific: Beeper', '^com\\.automattic\\.beeper\\.desktop$',  [
-          basic('Beeper: Hyper + U move up conversation (Cmd+Option+Up)', from: hyper('u'), to: [to_key('up_arrow', modifiers: ['right_option', 'right_command'])]),
-          basic('Beeper: Hyper + I move down conversation (Cmd+Option+Down)', from: hyper('i'), to: [to_key('down_arrow', modifiers: ['right_option', 'right_command'])])
+    app_specific_rule('App-Specific: Beeper', 'com.automattic.beeper.desktop',  [
+          basic('Hyper + U move up conversation (Cmd+Option+Up)', from: hyper('u'), to: [to_key('up_arrow', modifiers: ['right_option', 'right_command'])]),
+          basic('Hyper + I move down conversation (Cmd+Option+Down)', from: hyper('i'), to: [to_key('down_arrow', modifiers: ['right_option', 'right_command'])])
         ]),
-    app_specific_rule('App-Specific: Signal', '^org\\.whispersystems\\.signal-desktop', [
-          basic('Signal: Hyper + U move up conversation (Option+Up)', from: hyper('u'), to: [to_key('up_arrow', modifiers: ['right_option'])]),
-          basic('Signal: Hyper + I move down conversation (Option+Down)', from: hyper('i'), to: [to_key('down_arrow', modifiers: ['right_option'])]),
-          basic('Signal: Cmd + E archives current chat and moves to next', from: from_key('e', mandatory: ['left_command']), to: [to_key('a', modifiers: ['right_command', 'right_shift']), to_key('3', modifiers: ['right_command'])]),
-          basic('Signal: Cmd + K starts new chat (Cmd+N)', from: from_key('k', mandatory: ['left_command']), to: [to_key('n', modifiers: ['right_command'])]),
-          basic('Signal: Cmd + Shift + Enter select chat', from: from_key('return_or_enter', mandatory: ['left_command', 'left_shift']), to: [*to_tab_then_wait(3), *to_key_then_wait('return_or_enter'), to_key('return_or_enter')]),
-          basic('Signal: Cmd + Shift + = react to last message', from: from_key('equal_sign', mandatory: ['left_command', 'left_shift']), to: [*to_tab_then_wait(3, modifiers: ['right_shift']), to_key('e', modifiers: ['right_shift', 'right_command'])]),
-          basic('Signal: Cmd + Shift + r replies to last message', from: from_key('r', mandatory: ['left_command', 'left_shift']), to: [*to_tab_then_wait(4, modifiers: ['right_shift']), to_key('r', modifiers: ['right_shift', 'right_command'])]),
-          basic('Signal: Command + O opens link', from: from_key('o', mandatory: ['left_command']), to: [*to_tab_then_wait(6, modifiers: ['left_shift']), to_key('return_or_enter')])
+    app_specific_rule('App-Specific: Signal', 'org.whispersystems.signal-desktop', [
+          basic('Hyper + U move up conversation (Option+Up)', from: hyper('u'), to: [to_key('up_arrow', modifiers: ['right_option'])]),
+          basic('Hyper + I move down conversation (Option+Down)', from: hyper('i'), to: [to_key('down_arrow', modifiers: ['right_option'])]),
+          basic('Cmd + E archives current chat and moves to next', from: from_key('e', mandatory: ['left_command']), to: [to_key('a', modifiers: ['right_command', 'right_shift']), to_key('3', modifiers: ['right_command'])]),
+          basic('Cmd + K starts new chat (Cmd+N)', from: from_key('k', mandatory: ['left_command']), to: [to_key('n', modifiers: ['right_command'])]),
+          basic('Cmd + Shift + Enter select chat', from: from_key('return_or_enter', mandatory: ['left_command', 'left_shift']), to: [*to_tab_then_wait(3), *to_key_then_wait('return_or_enter'), to_key('return_or_enter')]),
+          basic('Cmd + Shift + = react to last message', from: from_key('equal_sign', mandatory: ['left_command', 'left_shift']), to: [*to_tab_then_wait(3, modifiers: ['right_shift']), to_key('e', modifiers: ['right_shift', 'right_command'])]),
+          basic('Cmd + Shift + r replies to last message', from: from_key('r', mandatory: ['left_command', 'left_shift']), to: [*to_tab_then_wait(4, modifiers: ['right_shift']), to_key('r', modifiers: ['right_shift', 'right_command'])]),
+          basic('Command + O opens link', from: from_key('o', mandatory: ['left_command']), to: [*to_tab_then_wait(6, modifiers: ['left_shift']), to_key('return_or_enter')])
         ]),
-    app_specific_rule('App-Specific: Godspeed', '^com\\.godspeedapp\\.Godspeed', [
-          basic('Godspeed: Hyper + U move up (Option+P)', from: hyper('u'), to: [to_key('p', modifiers: ['right_option'])]),
-          basic('Godspeed: Hyper + I move down (Option+N)', from: hyper('i'), to: [to_key('n', modifiers: ['right_option'])])
+    app_specific_rule('App-Specific: Godspeed', 'com.godspeedapp.Godspeed', [
+          basic('Hyper + U move up (Option+P)', from: hyper('u'), to: [to_key('p', modifiers: ['right_option'])]),
+          basic('Hyper + I move down (Option+N)', from: hyper('i'), to: [to_key('n', modifiers: ['right_option'])])
         ]),
-    app_specific_rule('App-Specific: VLC Media Player', '^org\\.videolan\\.vlc$', [
-          basic('VLC: Z skips backward (Left arrow)', from: from_key('z'), to: [to_key('left_arrow')]),
-          basic('VLC: W toggles playback (Space)', from: from_key('w'), to: [to_key('spacebar')]),
-          basic('VLC: X skips forward (Right arrow)', from: from_key('x'), to: [to_key('right_arrow')])
+    app_specific_rule('App-Specific: VLC Media Player', 'org.videolan.vlc', [
+          basic('Z skips backward (Left arrow)', from: from_key('z'), to: [to_key('left_arrow')]),
+          basic('W toggles playback (Space)', from: from_key('w'), to: [to_key('spacebar')]),
+          basic('X skips forward (Right arrow)', from: from_key('x'), to: [to_key('right_arrow')])
         ]),
     app_specific_rule('App-Specific: Safari', 'com.apple.Safari', [
-          nested_manipulators('Disable Escape as exit fullscreen in Safari', [basic(from: from_key('escape'), to: [])])
+          nested_manipulators('Disable Escape as exit fullscreen',[basic(from: from_key('escape'), to: [])])
         ]),
     rule('Hyper Key - Default Tab and Window Navigation', [
           basic('Hyper + U: Previous tab (Cmd+Option+Left)', from: hyper('u'), to: [to_key('left_arrow', modifiers: ['right_command', 'right_option'])]),
